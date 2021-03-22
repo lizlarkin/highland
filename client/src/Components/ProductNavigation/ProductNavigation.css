@@ -1,0 +1,14 @@
+.nav-btn {
+  width: 50%;
+  height: 50px;
+  background-color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.nav-btn:hover {
+  border-color: #0039a6;
+  color: #0039a6;
+  font-weight: bold;
+}
