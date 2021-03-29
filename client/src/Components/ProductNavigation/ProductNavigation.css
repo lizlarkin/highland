@@ -1,14 +1,38 @@
 .nav-btn {
   width: 50%;
   height: 50px;
-  background-color: white;
-  border-radius: 10px;
+  border-radius: 15px;
   font-weight: bold;
   margin-top: 10px;
+  color: #3359a6;
+  border-color: #3359a6;
+  border-style: solid;
+  margin-left: 100px;
+}
+
+.nav-btn-quote {
+  width: 50%;
+  height: 50px;
+  border-radius: 15px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #b33939;
+  border-color: #b33939;
+  border-style: solid;
+  margin-left: 100px;
+  background-color: white;
 }
 
 .nav-btn:hover {
-  border-color: #0039a6;
-  color: #0039a6;
+  border-color: #3359a6;
   font-weight: bold;
+  background-color: #3359a6;
+  color: white;
+}
+
+.nav-btn-quote:hover {
+  border-color: #b33939;
+  font-weight: bold;
+  background-color: #b33939;
+  color: white;
 }

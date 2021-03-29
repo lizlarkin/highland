@@ -1,3 +1,12 @@
+.prod-header {
+  text-align: center;
+}
+
+.content-container {
+  border: 1px solid grey;
+  padding: 10px;
+}
+
 .product-container {
   margin-top: 40px;
 }
@@ -20,4 +29,8 @@
   border-color: #0039a6;
   color: #0039a6;
   font-weight: bold;
+}
+
+.resource-image {
+  margin-right: 25px;
 }

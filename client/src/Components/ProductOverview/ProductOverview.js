@@ -3,17 +3,23 @@ import React from 'react'
 const ProductOverview = () => {
 
     const overviewStyles = {
-        border: "1px solid grey",
-        padding: "10px",
+        header: {
+            textAlign: "center",
+        },
+        container: {
+            border: "1px solid grey",
+            padding: "10px",
+        },
+
     }
 
 
     return (
-        <div style={overviewStyles}>
-            <h3>Overview</h3>
-            <div>
+        <div >
+            <h3 className="prod-header">Overview</h3>
+            
 
-                    <div>
+                    <div className="content-container">
                         <h5>Features: </h5>
                         <ul>
                             <li>feature 1</li>
@@ -33,7 +39,7 @@ const ProductOverview = () => {
                           <li>J720</li>
                         </ul>
                     </div>
-            </div>
+        
         </div>
 
 
