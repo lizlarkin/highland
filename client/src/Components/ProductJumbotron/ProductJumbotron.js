@@ -3,6 +3,8 @@ import P500_2 from '../../Pages/Product/Images/P500_2.jpg';
 import P500_3 from '../../Pages/Product/Images/P500_3.png';
 import P500_4 from '../../Pages/Product/Images/P500_4.jpg';
 import P540 from '../../Pages/Product/Images/P540.png';
+import p500Test from '../../Pages/Product/Images/p500Test.png';
+import p500Rear from '../../Pages/Product/Images/p500Rear.png';
 import V120 from '../../Pages/Product/Images/V120.png';
 
 const ProductJumbotron = () => {
@@ -45,14 +47,14 @@ const ProductJumbotron = () => {
                         </div>
                         <div className="carousel-inner">
                             <div className="carousel-item active">
-                            <img src={P500_3} className="d-block w-100" alt="..."/>
+                            <img src={p500Test} className="d-block w-100" alt="..."/>
                             {/* <div className="carousel-caption d-none d-md-block">
                                 <h5 style={jumbotronStyles.color}>First slide label</h5>
                                 <p style={jumbotronStyles.color}>Some representative placeholder content for the first slide.</p>
                             </div> */}
                             </div>
                             <div className="carousel-item">
-                            <img src={P500_2} className="d-block w-100" alt="..."/>
+                            <img src={p500Rear} className="d-block w-100" alt="..."/>
                             {/* <div className="carousel-caption d-none d-md-block">
                                 <h5 style={jumbotronStyles.color}>Second slide label</h5>
                                 <p style={jumbotronStyles.color}>Some representative placeholder content for the second slide.</p>

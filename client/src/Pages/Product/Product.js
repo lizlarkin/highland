@@ -58,7 +58,7 @@ const Product = () => {
                             onClick={() => setContent({showOptions: true})}
                             style={{ color: content.showOptions ? "white" : "", 
                             backgroundColor: content.showOptions ? "#0063a6" : ""}}
-                            >Versions &amp; Accessories</button>
+                            >Related Products</button>
                         </li>
                         <li className="nav-item">
                             <button className="nav-btn-quote" 
