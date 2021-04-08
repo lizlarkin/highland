@@ -2,18 +2,6 @@ import React from 'react'
 
 const ProductOverview = () => {
 
-    const overviewStyles = {
-        header: {
-            textAlign: "center",
-        },
-        container: {
-            border: "1px solid grey",
-            padding: "10px",
-        },
-
-    }
-
-
     return (
         <div >
             <h3 className="prod-header">Overview</h3>

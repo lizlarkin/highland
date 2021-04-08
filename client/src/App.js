@@ -1,5 +1,6 @@
 import './App.css';
 import { HashRouter, Route, Switch } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import Navigation from './Components/Navigation/Navigation';
 import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
@@ -14,8 +15,22 @@ import Measurement_Simulation from './Pages/Category/Measurement_Simulation';
 import OEM_Embedded from './Pages/Category/OEM_Embedded';
 import Products from './Pages/Category/Products';
 import Product from './Pages/Product/Product';
+import Register from './Pages/Register/Register';
 
 function App() {
+
+  const checkLoggedIn = () => {
+    let token = localStorage.getItem("auth-token");
+    if (token === null) {
+      localStorage.setItem("auth-token", "");
+    }
+  }
+
+  useEffect(() => {
+    checkLoggedIn();
+  }, [])
+
+
   return (
     <div className="App">
       <HashRouter>
@@ -35,6 +50,7 @@ function App() {
           <Route path="/Pages/About" component={About}/>
           <Route path="/Pages/Contact" component={Contact}/>
           <Route path="/Pages/Login" component={Login}/>
+          <Route path="/Pages/Register" component={Register}/>
           <Route path="/Pages/Home" component={Home}/>
       </Switch>
 
