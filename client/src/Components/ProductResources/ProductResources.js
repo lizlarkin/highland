@@ -1,9 +1,12 @@
 import React from 'react'
-import rohs from '../../Pages/Product/Images/rohs.png'
-import usa from '../../Pages/Product/Images/usa.png'
-import eccn from '../../Pages/Product/Images/eccn.png'
-import sov from '../../Pages/Product/Images/sov.png'
-import mtbf from '../../Pages/Product/Images/mtbf.png'
+import rohsCompliant from '../../Pages/Product/Images/rohsCompliant.png'
+import madeInUsa from '../../Pages/Product/Images/madeInUsa.png'
+import ECCN from '../../Pages/Product/Images/ECCN.png'
+import statementOfVolatility from '../../Pages/Product/Images/statementOfVolatility.png'
+import mtbfAnalysis from '../../Pages/Product/Images/mtbfAnalysis.png'
+import datasheet from '../../Pages/Product/Images/datasheet.png'
+import manual from '../../Pages/Product/Images/manual.png'
+import blockDiagram from '../../Pages/Product/Images/blockDiagram.png'
 import {Link} from 'react-router-dom';
 
 const ProductResources = () => {
@@ -30,9 +33,21 @@ const ProductResources = () => {
                             <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div className="accordion-body">
                                 <div className="list-group">
-                                    <a href="#" className="list-group-item list-group-item-action"><i className="fas fa-book"></i>  Download Datasheet</a>
-                                    <a href="#" className="list-group-item list-group-item-action"><i className="fas fa-book-open"></i>  Download Manual</a>
-                                    <a href="#" className="list-group-item list-group-item-action"><i className="fas fa-microchip"></i>  Download Block Diagram</a>
+                                        <Link to="/" className="list-group-item list-group-item-action">
+                                            <img className = "resource-image" src={datasheet} alt="Highland Datasheet"/>Download Datasheet
+                                        </Link>
+                                        <Link to="/" className="list-group-item list-group-item-action">
+                                            <img className = "resource-image" src={manual} alt="Highland Datasheet"/>Download Manual
+                                        </Link>
+                                        <Link to="/" className="list-group-item list-group-item-action">
+                                            <img className = "resource-image" src={blockDiagram} alt="Highland Datasheet"/>Download Block Diagram
+                                        </Link>
+                                        <Link to="/" className="list-group-item list-group-item-action">
+                                            <img className = "resource-image" src={statementOfVolatility} alt="DRAM Symbol"/>Download Statement of Volatility 
+                                        </Link>
+                                        <Link to="/" className="list-group-item list-group-item-action">
+                                            <img className = "resource-image" src={mtbfAnalysis} alt="MTBF Symbol"/>Download Mean Time Between Failure (MTBF) Analysis
+                                        </Link>
                                 </div>
                             </div>
                             </div>
@@ -65,19 +80,13 @@ const ProductResources = () => {
                             <div className="accordion-body">
                                 <div className="list-group">
                                         <Link to="/" className="list-group-item list-group-item-action">
-                                            <img className = "resource-image" src={rohs} alt="RoHS Symbol"/>Download RoHS Certificate
+                                            <img className = "resource-image" src={rohsCompliant} alt="RoHS Compliant"/>Download RoHS Certificate
                                         </Link>
                                         <Link to="/" className="list-group-item list-group-item-action">
-                                            <img className = "resource-image" src={usa} alt="USA Flag"/>Download Certificate of Origin
+                                            <img className = "resource-image" src={madeInUsa} alt="Made In USA"/>Download Certificate of Origin
                                         </Link>
                                         <Link to="/" className="list-group-item list-group-item-action">
-                                            <img className = "resource-image" src={eccn} alt="ECCN Symbol"/>Export Control Classification Number: 
-                                        </Link>
-                                        <Link to="/" className="list-group-item list-group-item-action">
-                                            <img className = "resource-image" src={sov} alt="DRAM Symbol"/>Download Statement of Volatility 
-                                        </Link>
-                                        <Link to="/" className="list-group-item list-group-item-action">
-                                            <img className = "resource-image" src={mtbf} alt="MTBF Symbol"/>Download Mean Time Between Failure (MTBF) Analysis
+                                            <img className = "resource-image" src={ECCN} alt="International Commerce"/> Download Export Control Classification Number (ECCN) &amp; Export Control Information
                                         </Link>
                                 </div>
                             </div>

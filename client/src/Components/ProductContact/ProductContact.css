@@ -1,0 +1,9 @@
+.contact-aside {
+  border: 1px solid grey;
+  width: 50%;
+  height: 200px;
+  margin-left: 100px;
+  margin-top: 50px;
+  border-radius: 15px;
+  text-align: center;
+}

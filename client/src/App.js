@@ -16,6 +16,7 @@ import OEM_Embedded from './Pages/Category/OEM_Embedded';
 import Products from './Pages/Category/Products';
 import Product from './Pages/Product/Product';
 import Register from './Pages/Register/Register';
+import Footer from './Components/Footer/Footer';
 
 function App() {
 
@@ -53,6 +54,8 @@ function App() {
           <Route path="/Pages/Register" component={Register}/>
           <Route path="/Pages/Home" component={Home}/>
       </Switch>
+
+      <Footer />
 
       </HashRouter>
     </div>
