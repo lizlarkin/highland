@@ -5,6 +5,7 @@
 .content-container {
   border: 1px solid grey;
   padding: 10px;
+  margin-bottom: 25px;
 }
 
 .product-container {

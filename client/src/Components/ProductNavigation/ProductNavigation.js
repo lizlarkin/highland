@@ -12,32 +12,6 @@ const ProductNavigation = () => {
     })
 
     return (
-        // <div className = 'row'>
-        //     <div className = 'col-md-1'></div>
-
-        //     <div className = 'col-md-2'>
-        //         <button className="nav-btn">Overview</button>
-        //     </div>
-
-        //     <div className = 'col-md-2'>
-        //         <button className="nav-btn">Specifications</button>
-        //     </div>
-
-        //     <div className = 'col-md-2'>
-        //         <button className="nav-btn">Resources</button>
-        //     </div>
-
-        //     <div className = 'col-md-2'>
-        //         <button className="nav-btn">Options</button>
-        //     </div>
-
-        //     <div className = 'col-md-2'>
-        //         <button className="nav-btn">Request Quote</button>
-        //     </div>
-
-        //     <div className = 'col-md-1'></div>
-            
-        // </div>
 
         <div className = "col-md-3">
             <ul className="nav flex-column">

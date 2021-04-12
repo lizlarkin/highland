@@ -32,12 +32,6 @@ const userSchema = new mongoose.Schema({
     phone: {
         type: String,
         required: true,
-        validate: {
-            validator: function(v) {
-              return /\d{3}-\d{3}-\d{4}/.test(v);
-            },
-            message: "Please enter a valid phone number."
-          },
         trim: true,
     },
     street: {
@@ -61,6 +55,7 @@ const userSchema = new mongoose.Schema({
     },
     optIn: {
         type: Boolean,
+        required: false,
     },
 });
 

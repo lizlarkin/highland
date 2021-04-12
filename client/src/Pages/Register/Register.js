@@ -4,6 +4,7 @@ import '../Login/formStyles.css'
 
 const Register = () => {
 
+
     const [form, setForm] = useState();
 
     const onChange = (e) => {
@@ -70,7 +71,7 @@ const Register = () => {
                         </div>
                         <div class="col-md-6">
                             <label for="inputPhone" class="form-label">Phone</label>
-                            <input onChange={onChange} type="text" class="form-control" id="inputPhone" name="phone"/>
+                            <input onChange={onChange} type="tel" class="form-control" id="inputPhone" name="phone"/>
                         </div>
                         <div class="col-12">
                             <div class="form-check">

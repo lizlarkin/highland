@@ -1,4 +1,4 @@
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -20,4 +20,11 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+body {
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  padding-bottom: 100px;
 }

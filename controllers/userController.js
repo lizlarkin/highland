@@ -1,6 +1,8 @@
+require("dotenv").config();
 const User = require("../models/userModel")
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+
 
 module.exports = {
     register: async (req, res) => {
@@ -21,7 +23,7 @@ module.exports = {
                 optIn
             } = req.body;
     
-                if (!email || !password || !passwordCheck || !firstName || !lastName || !organization || !phone || !street || !city || !state || !city || !state || !country || !optIn) {
+                if (!email || !password || !passwordCheck || !firstName || !lastName || !organization || !phone || !street || !city || !state || !city || !state || !country) {
                     return res.status(400).json({ msg: "Please complete all fields." })
                 }
     
@@ -62,7 +64,39 @@ module.exports = {
         } catch (error) {
             res.status(500).json({ msg: "error here!",  error })
         }
+    },
 
+    login: async (req, res) => {
+        try {
+            const { email, password } = req.body;  
 
+            if (!email || !password) {
+                res.status(400).json({ msg: "Missing required field(s)." })
+            }
+
+            const user = await User.findOne({ email: email }) 
+
+            if (!user) {
+                res.status(400).json({ msg: "User not found." })
+            }
+
+            const isMatch = await bcrypt.compare(password, user.password);
+
+            if (!isMatch) {
+                res.status(400).json({ msg: "Password is incorrect." })
+            }
+
+            const token = jwt.sign({ id: user._id}, process.env.JWT_SECRET, {
+                expiresIn: "24h", 
+            });
+
+            res.json({
+                token, 
+                user: { id: user._id, firstName: user.firstName, lastName: user.lastName},
+            });
+
+        } catch (error) {
+            res.status(500).json({ msg: "error here!",  error })
+        }
     },
 };
