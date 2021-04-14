@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react';
+import { useHistory } from "react-router-dom"; 
+import UserContext from "../../Context/UserContext";
+
 
 const ProductQuote = () => {
+
+    const { userData } = useContext(UserContext);
+    const history = useHistory();
+
+    useEffect(() => {
+        if (!userData.user) history.push("/pages/login");
+    }, [userData.user, history])
 
     const quoteStyles = {
         configHeaders: {
