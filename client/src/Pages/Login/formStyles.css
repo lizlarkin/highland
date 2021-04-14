@@ -11,3 +11,7 @@
   text-align: center;
   margin-top: 25px;
 }
+
+#reg-btn {
+  float: right;
+}
