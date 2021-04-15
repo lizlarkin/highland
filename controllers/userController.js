@@ -99,4 +99,19 @@ module.exports = {
             res.status(500).json({ msg: "error here 2!",  error })
         }
     },
+
+    getUser: async (req, res) => {
+        try {
+            const user = await User.findById(req.user);
+
+            res.json({
+                firstName: user.firstName,
+                lastName: user.lastName,
+                id: user._id,
+            });
+
+        } catch (error) {
+            res.send(error.response)
+        }
+    }
 };

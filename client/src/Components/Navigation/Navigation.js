@@ -49,6 +49,9 @@ const Navigation = () => {
                 <li className="nav-item">
                   <Link to="/Pages/Login" className="nav-link active" style={navigationStyles.links}>Login</Link>
                 </li>
+                <li className="nav-item">
+                  <Link to="/Pages/Account" className="nav-link active" style={navigationStyles.links}>Account</Link>
+                </li>
               </ul>
               <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

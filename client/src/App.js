@@ -1,6 +1,7 @@
 import './App.css';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import axios from "axios";
 import Navigation from './Components/Navigation/Navigation';
 import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
@@ -18,6 +19,7 @@ import Product from './Pages/Product/Product';
 import Register from './Pages/Register/Register';
 import Footer from './Components/Footer/Footer';
 import UserContext from "./Context/UserContext";
+import Account from './Pages/Account/Account';
 
 function App() {
 
@@ -26,12 +28,29 @@ function App() {
     token: undefined,
   });
 
-  const checkLoggedIn = () => {
+  const checkLoggedIn = async () => {
     let token = localStorage.getItem("auth-token");
     if (token === null) {
       localStorage.setItem("auth-token", "");
+    } else {
+      const userRes = await axios.get("/users", 
+        {headers: {"x-auth-token": token},
+      });
+
+      console.log("user result:", userRes);
+
+      setUserData({ token, user: userRes.data })
     }
-  }
+  };
+
+  const logout = () => {
+    setUserData({
+        token: undefined,
+        user: undefined,
+    });
+    localStorage.setItem("auth-token", "");
+    alert('Logged out!');
+};
 
   useEffect(() => {
     checkLoggedIn();
@@ -59,6 +78,9 @@ function App() {
               <Route path="/Pages/Contact" component={Contact}/>
               <Route path="/Pages/Login" component={Login}/>
               <Route path="/Pages/Register" component={Register}/>
+              <Route path="/Pages/Account">
+                <Account logout={logout} />
+              </Route>
               <Route path="/Pages/Home" component={Home}/>
           </Switch>
         </UserContext.Provider>

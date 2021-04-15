@@ -19,7 +19,7 @@ const Login = () => {
         e.preventDefault();
         try {
             const { data } = await axios.post("/users/login", form);
-            console.log(data);
+            // console.log(data);
 
             setUserData({
                 token: data.token,
@@ -34,11 +34,12 @@ const Login = () => {
         } catch (error) {
             console.log(error.response);
         }
-    }
+    };
 
     useEffect(() => {
-        console.log(userData);
-    }, [])
+        // console.log(userData);
+        if (userData.user) history.push("/Pages/Account");
+    }, [userData, history])
 
     return (
         <div>
