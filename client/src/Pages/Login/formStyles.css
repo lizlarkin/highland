@@ -15,3 +15,16 @@
 #reg-btn {
   float: right;
 }
+
+/* Form validation styling */
+input:invalid {
+  border: 1px solid grey;
+}
+
+input:invalid:required {
+  background-color: #e6eeff;
+}
+
+input:valid {
+  border: 1px solid grey;
+}
