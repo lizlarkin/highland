@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {Link} from 'react-router-dom';
 import highlandLogo from './logo.png';
+import UserContext from "../../Context/UserContext";
 
-const Navigation = () => {
+const Navigation = (props) => {
+
+  const  { userData }  = useContext(UserContext);
 
   const navigationStyles = {
     logo: {
@@ -47,10 +50,10 @@ const Navigation = () => {
                   <Link to="/Pages/Contact" className="nav-link active" style={navigationStyles.links}>Contact</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/Pages/Login" className="nav-link active" style={navigationStyles.links}>Login</Link>
+                  {userData.user ? <Link to="/Pages/Account" className="nav-link active" style={navigationStyles.links}>Account</Link> : <Link to = "/Pages/Register" className="nav-link active" style={navigationStyles.links}>Register</Link> }
                 </li>
                 <li className="nav-item">
-                  <Link to="/Pages/Account" className="nav-link active" style={navigationStyles.links}>Account</Link>
+                  {!userData.user ? <Link to="/Pages/Login" className="nav-link active" style={navigationStyles.links}>Login</Link> : <Link to = "/Pages/Login" onClick={props.logout} className="nav-link active" style={navigationStyles.links}>Logout</Link> }
                 </li>
               </ul>
               <form className="d-flex">

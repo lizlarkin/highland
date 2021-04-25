@@ -65,7 +65,7 @@ function App() {
     <div className="App">
       <HashRouter>
 
-        {!userData.user ? 
+        {/* {!userData.user ? 
         <> 
         <Link to = "/Pages/Login">Login</Link> 
         <Link to = "/Pages/Register">Register</Link> 
@@ -75,11 +75,11 @@ function App() {
         <Link to = "/Pages/Account">Account</Link>
         <Link to = "/" onClick={logout}>Logout</Link>
         </>
-        }
-
-      <Navigation />
+        } */}
 
         <UserContext.Provider value = {{ userData, setUserData }}>
+          <Navigation logout={logout}/>
+
           <Switch>
               <Route path="/Pages/Category/VME" component={VME}/>
               <Route path="/Pages/Category/Digital_Delay_Generators" component={Digital_Delay_Generators}/>

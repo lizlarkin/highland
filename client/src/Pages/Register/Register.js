@@ -29,13 +29,14 @@ const Register = () => {
         try {
             const newUser = await axios.post("/users/register", form);
             console.log(newUser);
+            history.push("/Pages/Account")
         } catch (error) {
             console.log(error.response);
         }
     };
 
     useEffect(() => {
-        if (userData.user) history.push("/Pages/Account");
+        if (userData.user) history.push("/Pages/Login");
     }, [userData, history])
 
     return (
