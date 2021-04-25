@@ -1,15 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
 
-const Account = (props) => {
+const Account = () => {
     const { userData } = useContext(UserContext);
-    console.log(userData);
+    const history = useHistory();
+
+    useEffect(() => {
+        if (!userData.user) history.push("/pages/login");
+        userData.user ? console.log(userData.user.firstName) : console.log("not available");
+    }, [userData.user, history]);
 
     return (
         <div>
             <h1>Account</h1>
-            {/* <h2>Hello, {userData.user.firstName} {userData.user.lastName}</h2> */}
-            <button onClick={props.logout} type="submit" class="btn btn-primary">Logout</button>
+            <h2>Hello, {userData.user?.firstName} {userData.user?.lastName}</h2>
         </div>
     )
 }

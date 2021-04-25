@@ -1,5 +1,5 @@
 import './App.css';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import Navigation from './Components/Navigation/Navigation';
@@ -33,13 +33,18 @@ function App() {
     if (token === null) {
       localStorage.setItem("auth-token", "");
     } else {
-      const userRes = await axios.get("/users", 
+
+      try {
+        const userRes = await axios.get("/users", 
         {headers: {"x-auth-token": token},
       });
 
-      console.log("user result:", userRes);
-
+      // console.log("user result:", userRes);
       setUserData({ token, user: userRes.data })
+
+      } catch (error) {
+        console.log("User must login.");
+      }
     }
   };
 
@@ -49,7 +54,6 @@ function App() {
         user: undefined,
     });
     localStorage.setItem("auth-token", "");
-    alert('Logged out!');
 };
 
   useEffect(() => {
@@ -60,6 +64,18 @@ function App() {
   return (
     <div className="App">
       <HashRouter>
+
+        {!userData.user ? 
+        <> 
+        <Link to = "/Pages/Login">Login</Link> 
+        <Link to = "/Pages/Register">Register</Link> 
+        </> 
+        : 
+        <>
+        <Link to = "/Pages/Account">Account</Link>
+        <Link to = "/" onClick={logout}>Logout</Link>
+        </>
+        }
 
       <Navigation />
 
@@ -78,9 +94,7 @@ function App() {
               <Route path="/Pages/Contact" component={Contact}/>
               <Route path="/Pages/Login" component={Login}/>
               <Route path="/Pages/Register" component={Register}/>
-              <Route path="/Pages/Account">
-                <Account logout={logout} />
-              </Route>
+              <Route path="/Pages/Account" component={Account}/>
               <Route path="/Pages/Home" component={Home}/>
           </Switch>
         </UserContext.Provider>

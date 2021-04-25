@@ -60,9 +60,9 @@ const ProductQuote = () => {
                                 <h6 className="card-title" style={quoteStyles.cardTitle}>P500-1 1 1</h6>
                                 <h6 className="card-title" style={quoteStyles.cardTitle}>4-channel benchtop digital delay and pulse generator</h6>
                             </div>
-                            <div class="input-group mb-3" style={quoteStyles.quantityInput}>
-                                <input type="number" min="0" class="form-control" placeholder="Enter Quantity" name="P500-111"/>
-                                <button type="button" class="btn btn-outline-danger">Add to Quote</button>
+                            <div className="input-group mb-3" style={quoteStyles.quantityInput}>
+                                <input type="number" min="0" className="form-control" placeholder="Enter Quantity" name="P500-111"/>
+                                <button type="button" className="btn btn-outline-danger">Add to Quote</button>
                             </div>
                             
                         </div>    
@@ -73,8 +73,8 @@ const ProductQuote = () => {
                                 <h6 className="card-title" style={quoteStyles.cardTitle}>J25-1</h6>
                                 <h6 className="card-title" style={quoteStyles.cardTitle}>24 volt 65W power supply</h6>
                             </div>
-                            <div class="input-group mb-3" style={quoteStyles.quantityInput}>
-                                <input type="number"  class="form-control" placeholder="=Left Qty" name="P500-111" disabled/>
+                            <div className="input-group mb-3" style={quoteStyles.quantityInput}>
+                                <input type="number"  className="form-control" placeholder="=Left Qty" name="P500-111" disabled/>
                             </div>
                         </div>
                 </div>
