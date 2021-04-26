@@ -14,7 +14,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 // Routes go here
-app.use("/users", require("./routes/userRoutes"))
+app.use("/users", require("./routes/userRoutes"));
+app.use("/quotes", require("./routes/quoteRoutes"));
 
 app.listen(PORT, () => {
     console.log(`Listening at: http://localhost:${PORT}`);

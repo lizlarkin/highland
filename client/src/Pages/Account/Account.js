@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
+import QuoteHistory from '../../Components/QuoteHistory/QuoteHistory';
 import UserContext from "../../Context/UserContext";
 
 const Account = () => {
@@ -15,6 +16,7 @@ const Account = () => {
         <div>
             <h1>Account</h1>
             <h2>Hello, {userData.user?.firstName} {userData.user?.lastName}</h2>
+            <QuoteHistory />
         </div>
     )
 }

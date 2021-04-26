@@ -52,6 +52,7 @@ const ProductQuote = () => {
             <div className="content-container">
                 
                 <div className="row">
+
                         <h4 style={quoteStyles.configHeaders}>Standard Configuration</h4>
 
                         <div className="card" style={quoteStyles.cardStyles}>
