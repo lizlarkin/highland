@@ -55,6 +55,9 @@ const Navigation = (props) => {
                 <li className="nav-item">
                   {!userData.user ? <Link to="/Pages/Login" className="nav-link active" style={navigationStyles.links}>Login</Link> : <Link to = "/Pages/Login" onClick={props.logout} className="nav-link active" style={navigationStyles.links}>Logout</Link> }
                 </li>
+                <li className="nav-item">
+                  {userData.user ? <Link to="/Pages/Cart" className="nav-link active" style={navigationStyles.links}>Cart</Link> : null }
+                </li>
               </ul>
               <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>

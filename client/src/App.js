@@ -20,6 +20,7 @@ import Register from './Pages/Register/Register';
 import Footer from './Components/Footer/Footer';
 import UserContext from "./Context/UserContext";
 import Account from './Pages/Account/Account';
+import Cart from './Pages/Cart/Cart';
 
 function App() {
 
@@ -95,6 +96,7 @@ function App() {
               <Route path="/Pages/Login" component={Login}/>
               <Route path="/Pages/Register" component={Register}/>
               <Route path="/Pages/Account" component={Account}/>
+              <Route path="/Pages/Cart" component={Cart}/>
               <Route path="/Pages/Home" component={Home}/>
           </Switch>
         </UserContext.Provider>
