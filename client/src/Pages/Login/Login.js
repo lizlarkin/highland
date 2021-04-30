@@ -51,11 +51,11 @@ const Login = () => {
                     <form onSubmit={submitLogin}>
                     <div className="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input  onChange={onChange} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"/>
+                        <input onChange={onChange} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"/>
                     </div>
                     <div className="form-group form-input">
                         <label for="exampleInputPassword1">Password</label>
-                        <input  onChange={onChange} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" name="password"/>
+                        <input onChange={onChange} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" name="password"/>
                     </div>
                     <button type="submit" className="btn btn-primary form-input">Submit</button>
                     <Link to ="/pages/register">
