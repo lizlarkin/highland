@@ -1,5 +1,5 @@
 import './App.css';
-import { HashRouter, Route, Switch, Link } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import Navigation from './Components/Navigation/Navigation';
