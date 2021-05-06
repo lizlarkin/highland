@@ -5,6 +5,28 @@ import UserContext from "../../Context/UserContext";
 
 const ProductQuote = () => {
 
+    const quoteStyles = {
+        rightAlign: {
+            float: "right",
+            width: "20%",
+            marginTop: "10px",
+        },
+        qtyInput: {
+            width: "20%",
+        },
+        title: {
+            marginBottom: "60px",
+            marginTop: "10px",
+        },
+        header: {
+            marginTop: "30px",
+            textDecoration: "underline",
+        },
+        accessoryDesc: {
+            width: "80%",
+        }
+    }
+
     const { userData } = useContext(UserContext);
     const history = useHistory();
 
@@ -15,24 +37,29 @@ const ProductQuote = () => {
                 {             
                     name: "850",
                     description: "850 nm",
+                    default: true,
                 },
                 {             
                     name: "1310",
                     description: "1310 nm",
+                    default: false,
                 },
                 {             
                     name: "1550",
                     description: "1550 nm",
+                    default: false,
                 },
             ],
             connectors: [
                 {             
                     name: "ST",
                     description: "ST connectorization",
+                    default: true,
                 },
                 {             
                     name: "FC",
                     description: "FC connectorization",
+                    default: false,
                 },
             ],
             accessories: [
@@ -73,11 +100,10 @@ const ProductQuote = () => {
                     description: "3' ST to ST fiberoptic cable (single mode simplex)",
                 },    
                 ],
-        },
-            // related: {
-            //     relative_T124: "1 to 4 logic buffer",
-            // }
+        },    
     ]);
+
+ 
 
     useEffect(() => {
         if (!userData.user) history.push("/pages/login");
@@ -95,45 +121,58 @@ const ProductQuote = () => {
                 
                 <div className="row">
 
-                    <div className="col-md-2"></div>
+                    <div className="col-md-1"></div>
 
                     
-                    <div className="col-md-8">
+                    <div className="col-md-10">
 
-                        {products.map((product)=>
-                        <h5>{product.name}</h5>)}
-                        <input type="number" min="0" className="form-control" placeholder="Enter Quantity" />
+                        <div style={quoteStyles.title}>
+                            {products.map((product)=>
+                            <h5>{product.name}</h5>)}
+                            <div>
+                                <input type="number" min="0" className="form-control" placeholder="Enter Quantity" style={quoteStyles.rightAlign}/>
+                            </div>
+                        </div>
+            
+                       
+                        <h6 style={quoteStyles.header}>Wavelength Options</h6>                      
+                        {products.map((product) => 
+                        product.wavelengths.map((wavelength) =>
+                        <div className="form-check">
+                            <input className="form-check-input" type="radio" name={wavelength.name} checked={wavelength.default}/>
+                            <label className="form-check-label" >
+                                {wavelength.description}
+                            </label>
+                        </div>
+                        ))}
 
-                        <h6>Wavelength Options</h6>
-                        <ul>
-                            {products.map((product) => 
-                            product.wavelengths.map((wavelength) => 
-                            <li>{wavelength.description}</li>))}
-                        </ul>
+                        <h6 style={quoteStyles.header}>Connector Options</h6>
+                        {products.map((product) => 
+                        product.connectors.map((connector) =>
+                        <div className="form-check">
+                            <input className="form-check-input" type="radio" name={connector.name} checked={connector.default}/>
+                            <label className="form-check-label" >
+                                {connector.description}
+                            </label>
+                        </div>
+                        ))}
 
-                        <h6>Connector Options</h6>
-                        <ul>
-                            {products.map((product) => 
-                            product.connectors.map((connector) => 
-                            <li>{connector.description}</li>))}
-                        </ul>
-
-                        <h6>Accessories</h6>
-                        <ul>
-                            {products.map((product) => 
-                            product.accessories.map((accessory) => 
-                            <li>{accessory.name}: {accessory.description}</li>))}
-                        </ul>
+                        <h6 style={quoteStyles.header}>Accessories</h6>
+                        {products.map((product) => 
+                        product.accessories.map((accessory) =>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" style={quoteStyles.accessoryDesc}>{accessory.description}</span>
+                            <input type="number" min="0" class="form-control" placeholder="Enter Quantity" style={quoteStyles.qtyInput}/>
+                        </div>
+                        ))}
+                        
+                        <button style={quoteStyles.rightAlign} type="button" class="btn btn-danger">Add to Cart</button>
 
                     </div>
 
-                    <div className="col-md-2"></div>
 
                 </div>
 
-                <div className="row">
-
-                </div>
 
             </div>
             
