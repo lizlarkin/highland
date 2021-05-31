@@ -7,10 +7,11 @@ const productSchema = new mongoose.Schema({
     model: {
         type: String,
     },
-    features: [{}],
-    about: {
-        type: String
+    category: {
+        type: String,
     },
+    features: [{}],
+    about: [{}],
     // specifications: [{
     //     spec: {
     //         type: String,

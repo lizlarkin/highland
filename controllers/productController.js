@@ -10,13 +10,23 @@ module.exports = {
             console.log(error);
         }
     },
+    getAllCategory: async (req, res) => {
+        try {
+            const allInCategory = await Product.find({ category: req.params.category });
+            res.json(allInCategory);
+        } catch (error) {
+            res.send(error);
+            console.log(error);          
+        }
+    },
     postProduct: async (req, res) => {
         try {
             const newProduct = new Product({
                 name: req.body.name,
                 model: req.body.model,
-                about: req.body.about,
+                category: req.body.category,
                 features: req.body.features,
+                about: req.body.about,
             });
             const successSave = await newProduct.save();
             res.json(successSave);
