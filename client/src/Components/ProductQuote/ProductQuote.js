@@ -29,25 +29,35 @@ const ProductQuote = () => {
 
     const { userData } = useContext(UserContext);
     const history = useHistory();
+    const [quantity, setQuantity] = useState({quantity: 0});
+    const [cart, setCart] = useState({
+        model: "",
+        quantity: "",
+    });
 
     const [products] = useState([
         {
             name: 'J730 single-channel compact fiberoptic-to-electrical converter (12 volt power supply included)',
-            wavelengths: [
+            model: 'J730',
+            optionsA: [
+                {
+                    optionType: "wavelength",
+                    optionMessage: "Please select wavelength"
+                },
                 {             
                     name: "850",
                     description: "850 nm",
-                    default: true,
+                    default: "checked",
                 },
                 {             
                     name: "1310",
                     description: "1310 nm",
-                    default: false,
+                    default: "",
                 },
                 {             
                     name: "1550",
                     description: "1550 nm",
-                    default: false,
+                    default: "",
                 },
             ],
             connectors: [
@@ -103,6 +113,15 @@ const ProductQuote = () => {
         },    
     ]);
 
+    const selectQuantity = (e) => {
+        setCart({...cart, quantity: e.target.value});
+        console.log(cart);
+    }
+
+    const addToCart = (e) => {
+        setCart({...cart, model: e.target.name, quantity: quantity});
+        console.log(cart);
+    };
  
 
     useEffect(() => {
@@ -118,7 +137,6 @@ const ProductQuote = () => {
 
             <div className="content-container">
                 
-                
                 <div className="row">
 
                     <div className="col-md-1"></div>
@@ -127,46 +145,52 @@ const ProductQuote = () => {
                     <div className="col-md-10">
 
                         <div style={quoteStyles.title}>
-                            {products.map((product)=>
-                            <h5>{product.name}</h5>)}
-                            <div>
-                                <input type="number" min="0" className="form-control" placeholder="Enter Quantity" style={quoteStyles.rightAlign}/>
-                            </div>
-                        </div>
-            
-                       
-                        <h6 style={quoteStyles.header}>Wavelength Options</h6>                      
-                        {products.map((product) => 
-                        product.wavelengths.map((wavelength) =>
-                        <div className="form-check">
-                            <input className="form-check-input" type="radio" name={wavelength.name} checked={wavelength.default}/>
-                            <label className="form-check-label" >
-                                {wavelength.description}
-                            </label>
-                        </div>
-                        ))}
 
-                        <h6 style={quoteStyles.header}>Connector Options</h6>
-                        {products.map((product) => 
-                        product.connectors.map((connector) =>
-                        <div className="form-check">
-                            <input className="form-check-input" type="radio" name={connector.name} checked={connector.default}/>
-                            <label className="form-check-label" >
-                                {connector.description}
-                            </label>
-                        </div>
-                        ))}
+                            <form>
+                                {products.map((product, index) =>(
+                                <div key={index}>    
+                                    <h5>{product.name}</h5>
+                                    <div>
+                                        <input onChange={selectQuantity} type="number" min="0" className="form-control" placeholder="Quantity" style={quoteStyles.rightAlign}/>
+                                    </div>
+                                    <h6 style={quoteStyles.header}>Wavelength Options</h6>  
+                  
+                                    {products.map((product) => 
+                                    product.optionsA.map((optionA) =>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="radio" name={optionA.name} checked={optionA.default}/>
+                                        <label className="form-check-label" >
+                                            {optionA.description}
+                                        </label>
+                                    </div>
+                                    ))}
 
-                        <h6 style={quoteStyles.header}>Accessories</h6>
-                        {products.map((product) => 
-                        product.accessories.map((accessory) =>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" style={quoteStyles.accessoryDesc}>{accessory.description}</span>
-                            <input type="number" min="0" class="form-control" placeholder="Enter Quantity" style={quoteStyles.qtyInput}/>
-                        </div>
-                        ))}
-                        
-                        <button style={quoteStyles.rightAlign} type="button" class="btn btn-danger">Add to Cart</button>
+                                    <h6 style={quoteStyles.header}>Connector Options</h6>
+                                    {products.map((product) => 
+                                    product.connectors.map((connector) =>
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="radio" name={connector.name} checked={connector.default}/>
+                                        <label className="form-check-label" >
+                                            {connector.description}
+                                        </label>
+                                    </div>
+                                    ))}
+
+                                    <h6 style={quoteStyles.header}>Accessories</h6>
+                                    {products.map((product) => 
+                                    product.accessories.map((accessory) =>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" style={quoteStyles.accessoryDesc}>{accessory.description}</span>
+                                        <input type="number" min="0" class="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
+                                    </div>
+                                    ))}
+
+                                    <button onClick={addToCart} style={quoteStyles.rightAlign} type="button" class="btn btn-danger" name={product.model}>Add to Cart</button>
+                                </div>
+                                ))}
+                            </form>
+                            
+                        </div>       
 
                     </div>
 

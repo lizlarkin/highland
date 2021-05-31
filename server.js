@@ -16,6 +16,8 @@ app.use(express.json());
 // Routes go here
 app.use("/users", require("./routes/userRoutes"));
 app.use("/quotes", require("./routes/quoteRoutes"));
+app.use("/products", require("./routes/productRoutes"));
+
 
 app.listen(PORT, () => {
     console.log(`Listening at: http://localhost:${PORT}`);
