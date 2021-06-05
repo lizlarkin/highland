@@ -3,7 +3,7 @@ import p500Test from '../../Pages/Product/Images/p500Test.png';
 import p500Rear from '../../Pages/Product/Images/p500Rear.png';
 import V120 from '../../Pages/Product/Images/V120.png';
 
-const ProductJumbotron = () => {
+const ProductJumbotron = ({ props }) => {
 
     const jumbotronStyles = {
         title: {
@@ -22,16 +22,15 @@ const ProductJumbotron = () => {
         indicatorDiv: {
             bottom: "-50px"
         }
-
-
     }
+
     return (
         <div className = 'container'>
             <div className = 'row'>
 
                 <div className = 'col-md-5' style={jumbotronStyles.title}>
-                    <h1 style={jumbotronStyles.color}>Model P500</h1>
-                    <h1 style={jumbotronStyles.color}>4-channel benchtop digital delay and pulse generator</h1>
+                    <h1 style={jumbotronStyles.color}>Model {props?props.data[0].model:null}</h1>
+                    <h1 style={jumbotronStyles.color}>{props?props.data[0].name:null}</h1>
                 </div>
 
                 <div className = 'col-md-7'>

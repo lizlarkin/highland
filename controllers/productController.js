@@ -26,6 +26,7 @@ module.exports = {
                 model: req.body.model,
                 category: req.body.category,
                 features: req.body.features,
+                description: req.body.description,
                 about: req.body.about,
             });
             const successSave = await newProduct.save();

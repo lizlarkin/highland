@@ -1,25 +1,30 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 const ProductCard = ({ props }) => {
 
+    const history = useHistory();
+
     const productCardStyles = {
-        width: "500px",
+        margin: "20px 20px 0px 20px",
     }
 
     return (
-        <div>
-            {props?props[0].category:null}
+        <div className="row">
             {props?
             props.map((product, idx) => (
-                <div className="card" key ={idx} style={productCardStyles}>
-                <img src="..." className="card-img-top" alt="..."/>
-                <div className="card-body">
-                    <h5 className="card-title">{product.model} {product.name}</h5>
-                    <p className="card-text">{product._id}</p>
-                    <Link to="/Pages/Product/Product" className="btn btn-outline-primary">More Information</Link>
-                    
-                </div>
+                <div className="col-md-4 d-flex align-items-stretch">
+                    <div className="card " key ={idx} style={productCardStyles}>
+                        <img src="..." className="card-img-top" alt="..."/>
+                        <div className="card-body">
+                            <h5 className="card-title">{product.model} {product.name}</h5>
+                            <p className="card-text">{product.description}</p>
+                            <button onClick={() => history.push(`/Pages/Product/Product/${product.model}`)} 
+                                    className="btn btn-outline-primary">
+                                    More {product.model} Information
+                            </button>
+                        </div>
+                    </div>
                 </div>
             )):
             null}

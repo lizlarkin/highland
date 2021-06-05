@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./ProductStyles.css"
 import ProductJumbotron from '../../Components/ProductJumbotron/ProductJumbotron'
 import ProductOverview from '../../Components/ProductOverview/ProductOverview';
@@ -14,6 +15,9 @@ import TechnicalContact from './../../Components/ProductContact/TechnicalContact
 
 const Product = () => {
 
+    const pathname = window.location.href.split("/");
+    const model = pathname[7];
+
     const [content, setContent] = useState({
         showOverview: true,
         showSpecifications: false,
@@ -28,11 +32,26 @@ const Product = () => {
             showSupport: false,
     });
 
+    const [productData, setProductData] = useState();
+
+    useEffect(() => {
+        const getProductData = async () => {
+            try {
+               const prodData = await axios.get(`/products/${model}`);
+               setProductData(prodData);
+               console.log("product data: ", prodData);
+            } catch (error) {
+                console.log(error.response)
+            }
+        }
+        getProductData();
+    }, [])
+
     return (
         <div className='product-container'>
 
             <div>
-            <ProductJumbotron />
+            <ProductJumbotron props={productData}/>
             </div>
 
             <div className="row product-content">
@@ -111,7 +130,7 @@ const Product = () => {
             <div className = "col-md-7">
             <div>
                 
-                {content.showOverview && <ProductOverview/>}
+                {content.showOverview && <ProductOverview props={productData}/>}
                 {content.showSpecifications && <ProductSpecs/>}
                 {content.showResources && <ProductResources/>}
                 {content.showFAQ && <ProductFAQ/>}
