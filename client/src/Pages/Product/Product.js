@@ -45,7 +45,8 @@ const Product = () => {
             }
         }
         getProductData();
-    }, [])
+        window.scrollTo(0, 0)
+    }, [model])
 
     return (
         <div className='product-container'>
