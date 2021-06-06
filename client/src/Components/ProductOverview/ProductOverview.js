@@ -1,12 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { Link, useHistory } from "react-router-dom";
 
 const ProductOverview = ({ props }) => {
 
-    console.log("Props from Overview: ", props)
+    const history = useHistory();
 
     const overviewStyles = {
         marginTop: "10px"
     }
+
 
     return (
         <div >
@@ -29,10 +31,18 @@ const ProductOverview = ({ props }) => {
                             ))
                             :null}
                         <h5>Related: </h5>
-                        <ul>
-                          <li>P400</li>
-                          <li>J720</li>
-                        </ul>
+                            <div className="list-group">
+                            {props?
+                            props.data[0].related.map((relative, idx) => (
+                            <button 
+                                key={idx} 
+                                onClick={() => history.replace((`${relative.split(" ")[0]}`))}  
+                                type="button" className="list-group-item list-group-item-action">
+                                {relative}
+                            </button>
+                            )):null
+                            }    
+                        </div>
                     </div>
         
         </div>

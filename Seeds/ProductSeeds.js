@@ -10,6 +10,7 @@ mongoose.connect("mongodb://localhost/highland", {
 
 let productSeed = [
 
+  // ****************************** P500 Data ******************************
   {
     name: "4-channel benchtop digital delay and pulse generator",
     model: "P500",
@@ -36,8 +37,14 @@ let productSeed = [
         "Remote interfaces include RS-232, USB, and Ethernet with both ASCII serial commands and web page controls.",
         "The standard P500 timebase is a precision temperature-compensated crystal oscillator. An optional OCXO is available for applications requiring extreme accuracy and lowest jitter. Multiple P500s may be synchronized to each other, or locked to an external 10 MHz reference.",
     ],
+    related: [
+      "P400 4-channel benchtop digital delay and pulse generator",
+      "T560 4-channel compact digital delay and pulse generator",
+      "T564 4-channel compact advanced digital delay and pulse train generator",
+    ],
   },
 
+  // ****************************** T560 Data ******************************
   {
     name: "4-channel benchtop digital delay and pulse generator",
     model: "T560",
@@ -60,8 +67,15 @@ let productSeed = [
         "Because of its low 20 nanosecond insertion delay, the T560 is ideal for timing and gating lasers, Q-switches, ICCDs, and other electro-optical devices, and for applying picosecond-resolution time trims to nuclear, radar, and sonar cabling and instrumentation.",
         "The T750 4-channel high-voltage driver is available to extend T560 outputs to as high as 100 volts.",
     ],
+    related: [
+      "P500 4-channel benchtop digital delay and pulse generator",
+      "T564 4-channel compact advanced digital delay and pulse train generator",
+      "V850 4-channel VME digital delay/pulse generator",
+      "V851 6-channel VME digital delay/pulse generator",
+    ],
   },
 
+  // ****************************** T564 Data ******************************
   {
     name: "4-channel compact advanced digital delay and pulse train generator",
     model: "T564",
@@ -84,6 +98,12 @@ let productSeed = [
         "The T564 extends the capabilities of Highland's original T560 digital delay generator, allowing not only a single delay program, but a scenario of more than 8000 frames to be preloaded and then executed in rapid succession. Frames can be advanced automatically as triggers are received or simply stored and recalled manually. Each trigger generates four precise pulse outputs, independently programmable with 10 picosecond resolution in both delay and width. The T564 can generate single pulses per trigger as a standard digital delay generator or, new to the T560 DDG family, pulse trains. The Queue function allows new timing settings to be installed without disturbing ongoing cycles or missing triggers.",
         "With the same low 20 nanosecond insertion delay and 20 picosecond jitter as the T560, the T564 is ideal for timing and gating lasers, Q-switches, ICCDs, and other electro-optical devices, and for applying picosecond-resolution time trims to nuclear, radar, and sonar cabling and instrumentation. Additionally, the scenario capability allows moving target simulation in radar/sonar/lidar applications and sliding timing windows for margin testing - all with a form factor smaller than a paperback, with easy RS-232 or optional Ethernet control.",
         "Custom versions are readily available for OEM customers.",
+    ],
+    related: [
+      "P500 4-channel benchtop digital delay and pulse generator",
+      "T560 4-channel compact digital delay and pulse generator",
+      "V850 4-channel VME digital delay/pulse generator",
+      "V851 6-channel VME digital delay/pulse generator",
     ],
   },
 

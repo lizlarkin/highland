@@ -28,6 +28,7 @@ module.exports = {
                 features: req.body.features,
                 description: req.body.description,
                 about: req.body.about,
+                related: req.body.related,
             });
             const successSave = await newProduct.save();
             res.json(successSave);
