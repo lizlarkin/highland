@@ -132,7 +132,7 @@ const Product = () => {
             <div>
                 
                 {content.showOverview && <ProductOverview props={productData}/>}
-                {content.showSpecifications && <ProductSpecs/>}
+                {content.showSpecifications && <ProductSpecs props={productData}/>}
                 {content.showResources && <ProductResources/>}
                 {content.showFAQ && <ProductFAQ/>}
                 {content.showRelated && <ProductRelated/>}

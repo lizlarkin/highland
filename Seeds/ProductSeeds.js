@@ -42,6 +42,18 @@ let productSeed = [
       "T560 4-channel compact digital delay and pulse generator",
       "T564 4-channel compact advanced digital delay and pulse train generator",
     ],
+    specifications: [
+      ["FUNCTION", ["Four channel digital delay/pulse generator"]],
+      ["CHANNELS", ["T0 A B C D"]],
+      ["OUTPUT VOLTAGES", ["Vlow ± 5 volts", "Vhi -5 to +20 volts", "Rise/fall < 1.5 ns typ", "Clean pulses from 0.5 to 25 volts p-p", "Zout 50 ohms (divide voltages by 2 into 50 ohm loads)",]],
+      ["TIMING RANGE", ["Delay+Width 0-999 seconds relative to T0"]],
+      ["INSERTION DELAY", ["Trigger to T0 output, 35 ns ± 500 ps"]],
+      ["REP RATE", ["0 to 14 MHz limited to 1 / (max d+w + 70 ns)"]],
+      ["ACCURACY", ["Trigger to rising or falling edges ± 500 ps ± timebase"]],
+      ["RESOLUTION", ["Edge times, 1 ps", "Output levels, 0.1 V", "Trigger level, 10 mV"]],
+      ["JITTER", ["< 15 ps RMS + timebase jitter, trigger to any output edge", "< 10 ps RMS + timebase jitter, T0 or channel to channel"]],
+      ["TRIGGER", ["External, internal, software, manual, line", "Burst, divide-by-N, N-of-M pulse picking", "External trigger range ± 5 volts", ["rising/falling edge", "impedance selectable 2K + 15 pF or 50 ohms", "minimum recommended amplitude 0.25 volts p-p"], "Internal, 0 to 14 MHz", ["resolution 0.01 Hz", "period jitter < 10 ps RMS + timebase jitter"], "Line trigger requires external P492 adapter"]],
+    ]
   },
 
   // ****************************** T560 Data ******************************

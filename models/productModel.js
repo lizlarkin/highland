@@ -16,6 +16,7 @@ const productSchema = new mongoose.Schema({
     },
     about: [{}],
     related: [{}],
+    specifications: [{},{}]
     // specifications: [{
     //     spec: {
     //         type: String,

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProductSpecs = () => {
+const ProductSpecs = ({ props }) => {
 
     return (
         <div >
@@ -10,26 +10,16 @@ const ProductSpecs = () => {
 
                 <table class="table table-striped table-hover">
                     <tbody>
-                        <tr>
-                            <td>PROPERTY</td>
-                            <td>specification</td>
-                        </tr>
-                        <tr>
-                            <td>PROPERTY</td>
-                            <td>specification</td>
-                        </tr>
-                        <tr>
-                            <td>PROPERTY</td>
-                            <td>specification</td>
-                        </tr>
-                        <tr>
-                            <td>PROPERTY</td>
-                            <td>specification</td>
-                        </tr>
-                        <tr>
-                            <td>PROPERTY</td>
-                            <td>specification</td>
-                        </tr>
+                        {props?
+                        props.data[0].specifications.map((specification, idx) => (
+                            <tr key={idx}>
+                                <td>{specification[0]}</td>
+                                <td>{specification[1].map((spec, idx) => (
+                                    <div key={idx}>{spec}</div>
+                                ))}</td>
+                            </tr>
+                        ))
+                        :null}
                     </tbody>
                 </table>
 
