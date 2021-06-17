@@ -2,6 +2,12 @@ import React from 'react'
 
 const ProductSpecs = ({ props }) => {
 
+    const specStyles = {
+        specSpan: {
+            marginLeft: "25px",
+        }
+    }
+
     return (
         <div >
             <h3 className="prod-header">Specifications</h3>
@@ -14,8 +20,14 @@ const ProductSpecs = ({ props }) => {
                         props.data[0].specifications.map((specification, idx) => (
                             <tr key={idx}>
                                 <td>{specification[0]}</td>
-                                <td>{specification[1].map((spec, idx) => (
-                                    <div key={idx}>{spec}</div>
+                                <td>{specification[1].map((specLine, idx) => (
+                                    <div key={idx}>
+                                        {typeof(specLine) === "string" ? 
+                                        <td>{specLine}</td> : 
+                                        specLine.map((specSpan, idx) => (
+                                            <div key={idx} style={specStyles.specSpan}>{specSpan}</div>
+                                         ))}
+                                    </div>
                                 ))}</td>
                             </tr>
                         ))

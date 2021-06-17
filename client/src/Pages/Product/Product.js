@@ -136,7 +136,7 @@ const Product = () => {
                 {content.showResources && <ProductResources/>}
                 {content.showFAQ && <ProductFAQ/>}
                 {content.showRelated && <ProductRelated/>}
-                {content.showQuote && <ProductQuote/>}
+                {content.showQuote && <ProductQuote props={productData}/>}
 
                 
                 

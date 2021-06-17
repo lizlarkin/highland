@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
 
 
-const ProductQuote = () => {
+const ProductQuote = ({ props }) => {
 
     const quoteStyles = {
         rightAlign: {
@@ -37,8 +37,6 @@ const ProductQuote = () => {
 
     const [products] = useState([
         {
-            name: 'J730 single-channel compact fiberoptic-to-electrical converter (12 volt power supply included)',
-            model: 'J730',
             optionsA: [
                 {
                     optionType: "wavelength",
@@ -147,9 +145,24 @@ const ProductQuote = () => {
                         <div style={quoteStyles.title}>
 
                             <form>
+                                {props?
+                                    <h5>{props.data[0].model} {props.data[0].name} (add standard accessories?)</h5>
+                                :null}
+
+                                {props.data[0].optionsRequired.length>0?
+                                    props.data[0].optionsRequired[0].map((required, idx) => (
+                                        <div>
+                                        <h6 key={idx}>{required.description}</h6>
+                                        {props.data[0].optionsRequired[1].map((options, idx) => (
+                                            <p>{options.options}</p>
+                                        ))}
+                                        </div>
+                                    ))
+                                :null}
+
                                 {products.map((product, index) =>(
                                 <div key={index}>    
-                                    <h5>{product.name}</h5>
+                              
                                     <div>
                                         <input onChange={selectQuantity} type="number" min="0" className="form-control" placeholder="Quantity" style={quoteStyles.rightAlign}/>
                                     </div>

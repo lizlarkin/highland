@@ -30,6 +30,9 @@ module.exports = {
                 about: req.body.about,
                 related: req.body.related,
                 specifications: req.body.specifications,
+                optionsRequired: req.body.optionsRequired,
+                optionsOptional: req.body.optionsOptional,
+                accessories: req.body.accessories,
             });
             const successSave = await newProduct.save();
             res.json(successSave);

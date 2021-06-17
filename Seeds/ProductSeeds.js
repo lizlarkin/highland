@@ -53,7 +53,52 @@ let productSeed = [
       ["RESOLUTION", ["Edge times, 1 ps", "Output levels, 0.1 V", "Trigger level, 10 mV"]],
       ["JITTER", ["< 15 ps RMS + timebase jitter, trigger to any output edge", "< 10 ps RMS + timebase jitter, T0 or channel to channel"]],
       ["TRIGGER", ["External, internal, software, manual, line", "Burst, divide-by-N, N-of-M pulse picking", "External trigger range ± 5 volts", ["rising/falling edge", "impedance selectable 2K + 15 pF or 50 ohms", "minimum recommended amplitude 0.25 volts p-p"], "Internal, 0 to 14 MHz", ["resolution 0.01 Hz", "period jitter < 10 ps RMS + timebase jitter"], "Line trigger requires external P492 adapter"]],
-    ]
+      ["TIMEBASE", ["Standard VCXO:", ["TC < 1 PPM/°C", "Jitter < 10 ns RMS/sec delay", "Aging < 1 PPM/year", "Lockable to external 10 MHz ± 10 PPM"], "Optional OCXO:", ["TC < 10 PPB/°C", "Jitter < 100 ps RMS/sec delay", "Aging < 100 PPB/year", "Lockable to external 10 MHz ± 2 PPM"]]],
+      ["CLOCK INPUT", ["10 MHz, sine or square, 0.5 to 5 volts p-p 1K nom Zin"]],
+      ["CLOCK OUTPUT", ["10 MHz, square wave, 50 ohms, 3 volts p-p AC coupled"]],
+      ["COUNTDOWN", ["Provides trigger divide-by-N or N-of-M burst/pulse picker mode, up to 200 MHz external trigger"]],
+      ["POWER", ["External 24 volts DC from universal adapter supplied", "Includes international plug adapters", "36 watts max"]],
+      ["OPTIONAL HV OUT", ["Five isolated rear-panel outputs, T0 A B C D", "Delays/widths track channels A..D", "Voltage programmable 2-50 volts into 50 ohms", "Rise/fall < 2 ns", "Max pulse width 100 v-µs"]],
+      ["COMMUNICATIONS", ["USB, 10/100 Ethernet, RS-232"]],
+      ["DISPLAY", ['3.5" diagonal 320 x 240 color LCD, dimmable']],
+      ["PACKAGING", ['13.5" x 8" x 4.63" aluminum enclosure (including connectors and feet)']],
+      ["TEMPERATURE", ["Specifications apply over 10-40°C ambient", "Operating range -20 to 60°C"]],
+      ["CONFORMANCE", ["RoHS"]],
+      ["WARRANTY", ["2 years limited"]],
+      ["OPTIONS", ["Rear-panel isolated HV outputs", "Frames: per-trigger delay/width lists", "Trains: multiple channel outputs per trigger", "OCXO timebase", "Rackmount adapter"]],
+    ],
+    optionsRequired: [
+      {
+         description: [
+           "Select wavelength:",
+           "Select connector type:",
+         ]
+      },
+      {
+        options: [
+          [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]],
+          [["0", "ST connectorization"], ["1", "FC connectorization"]]
+        ]
+      },      
+    ],
+    optionsOptional: [
+      {
+        description: "Select additional features:"
+      },
+      {
+      options: [
+          ["2", "advanced pulse train/frame generation"],
+          ["2", "50V isolated high-voltage output"],
+          ["2", "high stability ovenized oscillator"],
+        ]
+      }
+    ],
+    accessories: [
+      "J25-1",
+      "J27-1",
+      "P10-1",
+      "P492-1",
+    ],
   },
 
   // ****************************** T560 Data ******************************
@@ -85,6 +130,10 @@ let productSeed = [
       "V850 4-channel VME digital delay/pulse generator",
       "V851 6-channel VME digital delay/pulse generator",
     ],
+    specifications: [],
+    optionsRequired: [],
+    optionsOptional: [],
+    accessories: [],
   },
 
   // ****************************** T564 Data ******************************
@@ -117,6 +166,10 @@ let productSeed = [
       "V850 4-channel VME digital delay/pulse generator",
       "V851 6-channel VME digital delay/pulse generator",
     ],
+    specifications: [],
+    optionsRequired: [],
+    optionsOptional: [],
+    accessories: [],
   },
 
 ];

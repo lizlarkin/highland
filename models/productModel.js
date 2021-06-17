@@ -16,42 +16,14 @@ const productSchema = new mongoose.Schema({
     },
     about: [{}],
     related: [{}],
-    specifications: [{},{}]
-    // specifications: [{
-    //     spec: {
-    //         type: String,
-    //     }
-    // }],
-    // optionsA: [{
-    //     optionA: {
-    //         type: String,
-    //     }
-    // }],
-    // optionsB: [{
-    //     optionB: {
-    //         type: String,
-    //     }
-    // }],
-    // optionsC: [{
-    //     optionC: {
-    //         type: String,
-    //     }
-    // }],
-    // optionsD: [{
-    //     optionD: {
-    //         type: String,
-    //     }
-    // }],
-    // optionsE: [{
-    //     optionE: {
-    //         type: String,
-    //     }
-    // }],
-    // accessories: [{
-    //     accessory: {
-    //         type: String,
-    //     }
-    // }],
+    specifications: [[],[]],
+    optionsRequired: [[]],
+    optionsOptional: [[]],
+    accessories: [],
+    // img: {
+    //     data: Buffer,
+    //     contentType: String,
+    // }
 });
 
 // module.exports = Product = mongoose.model("product", productSchema);

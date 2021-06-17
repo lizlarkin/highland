@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ProductCard from './../../Components/ProductCard/ProductCard';
+import CategoryJumbotron from "../../Components/CategoryJumbotron/CategoryJumbotron";
 
 const Digital_Delay_Generators = () => {
 
@@ -23,8 +24,10 @@ const Digital_Delay_Generators = () => {
 
     return (
         <div>
-            <h1>Digital Delay &amp; Pulse Generators</h1>
-            <ProductCard props={categoryData}/>
+            <CategoryJumbotron />
+            <div>
+                <ProductCard props={categoryData}/>
+            </div>
         </div>
     )
 }
