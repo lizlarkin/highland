@@ -6,24 +6,30 @@ import UserContext from "../../Context/UserContext";
 const ProductQuote = ({ props }) => {
 
     const quoteStyles = {
-        rightAlign: {
-            float: "right",
-            width: "20%",
-            marginTop: "10px",
-        },
         qtyInput: {
             width: "20%",
         },
         title: {
-            marginBottom: "60px",
-            marginTop: "10px",
+            marginTop: "20px",
+        },
+        titleBtn: {
+            width: "20%",
         },
         header: {
-            marginTop: "30px",
+            marginTop: "25px",
             textDecoration: "underline",
         },
         accessoryDesc: {
             width: "80%",
+        },
+        configContainer: {
+            border: "1px solid lightgrey",
+            borderRadius: "1.5%",
+            padding: "1%",
+            marginTop: "5%",
+        },
+        test: {
+            width: "100%",
         }
     }
 
@@ -34,82 +40,6 @@ const ProductQuote = ({ props }) => {
         model: "",
         quantity: "",
     });
-
-    const [products] = useState([
-        {
-            optionsA: [
-                {
-                    optionType: "wavelength",
-                    optionMessage: "Please select wavelength"
-                },
-                {             
-                    name: "850",
-                    description: "850 nm",
-                    default: "checked",
-                },
-                {             
-                    name: "1310",
-                    description: "1310 nm",
-                    default: "",
-                },
-                {             
-                    name: "1550",
-                    description: "1550 nm",
-                    default: "",
-                },
-            ],
-            connectors: [
-                {             
-                    name: "ST",
-                    description: "ST connectorization",
-                    default: true,
-                },
-                {             
-                    name: "FC",
-                    description: "FC connectorization",
-                    default: false,
-                },
-            ],
-            accessories: [
-                {             
-                    name: "J12-1",
-                    description: "Extra 12 volt power supply",
-                },
-                {
-                    name: "J41-1",
-                    description: "3' SMB to SMB cable",
-                }, 
-                {
-                    name: "J41-2",
-                    description: '6" SMB to SMB cable',
-                },
-                {
-                    name: "J42-1",
-                    description: "3' SMB to SMA cable",
-                }, 
-                {
-                    name: "J53-1",
-                    description: "3' SMB to BNC cable",
-                },
-                {
-                    name: "J53-2",
-                    description: '6" SMB to BNC cable',
-                }, 
-                {
-                    name: "J59-1",
-                    description: "3' ST to ST fiberoptic cable (multi mode simplex)",
-                },
-                {
-                    name: "J60-1",
-                    description: "3' FC to FC fiberoptic cable (single mode simplex)",
-                }, 
-                {
-                    name: "J61-1",
-                    description: "3' ST to ST fiberoptic cable (single mode simplex)",
-                },    
-                ],
-        },    
-    ]);
 
     const selectQuantity = (e) => {
         setCart({...cart, quantity: e.target.value});
@@ -127,89 +57,103 @@ const ProductQuote = ({ props }) => {
     }, [userData.user, history])
 
 
-
     return (
         <div>
 
             <h3 className="prod-header">Request Quote</h3>
 
             <div className="content-container">
+
+                <div className="row" style={quoteStyles.title}>
+
+                    <div className="col-md-1"></div>
+
+                    <div className="col-md-8">
+                    {props?
+                            <h5>{props.data[0].model} {props.data[0].name}</h5>
+                        :null}
+                    </div>
+
+                    <div className="col-md-2" style={quoteStyles.titleBtn}>
+                            <input onChange={selectQuantity} type="number" min="0" className="form-control" placeholder="Quantity"/>
+                    </div>
+
+                    <div className="col-md-1"></div>
+                </div>
                 
                 <div className="row">
 
                     <div className="col-md-1"></div>
 
-                    
                     <div className="col-md-10">
-
-                        <div style={quoteStyles.title}>
-
-                            <form>
-                                {props?
-                                    <h5>{props.data[0].model} {props.data[0].name} (add standard accessories?)</h5>
-                                :null}
-
-                                {props.data[0].optionsRequired.length>0?
-                                    props.data[0].optionsRequired[0].map((required, idx) => (
-                                        <div>
-                                        <h6 key={idx}>{required.description}</h6>
-                                        {props.data[0].optionsRequired[1].map((options, idx) => (
-                                            <p>{options.options}</p>
-                                        ))}
+                                                       
+                        <div style={quoteStyles.configContainer}>
+                            {props.data[0].optionsRequired.length>0?
+                                props.data[0].optionsRequired.map((required, idx) => (
+                                    <>
+                                    <h6 key={idx} style={quoteStyles.header}>Select {required[0]} (required):</h6>
+                                    <form>
+                                    <div>{required[1].map((option, idx) => (
+                                        <div className="form-check" key={idx}>
+                                            <input className="form-check-input" type="radio" value={option[0]} name="requiredRadios"/>
+                                            <label className="form-check-label">
+                                            {option[1]}
+                                            </label>
                                         </div>
-                                    ))
+                                    ))}      
+                                    </div> 
+                                    </form>   
+                                    </>                                    
+                                ))
                                 :null}
 
-                                {products.map((product, index) =>(
-                                <div key={index}>    
-                              
-                                    <div>
-                                        <input onChange={selectQuantity} type="number" min="0" className="form-control" placeholder="Quantity" style={quoteStyles.rightAlign}/>
-                                    </div>
-                                    <h6 style={quoteStyles.header}>Wavelength Options</h6>  
-                  
-                                    {products.map((product) => 
-                                    product.optionsA.map((optionA) =>
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" name={optionA.name} checked={optionA.default}/>
-                                        <label className="form-check-label" >
-                                            {optionA.description}
-                                        </label>
-                                    </div>
-                                    ))}
+                                {props.data[0].optionsOptional.length>0?
+                                props.data[0].optionsOptional.map((option, idx) => (
+                                    <>
+                                    <h6 key={idx} style={quoteStyles.header}>Select {option[0]} (optional):</h6>
+                                    <form>
+                                    <div>{option[1].map((option, idx) => (
+                                        <div className="form-check" key={idx}>
+                                            <input className="form-check-input" type="checkbox" value={option[0]}/>
+                                            <label className="form-check-label" for="defaultCheck1">
+                                                {option[1]}
+                                            </label>
+                                        </div>
+                                    ))}      
+                                    </div> 
+                                    </form>   
+                                    </>                                    
+                                ))
+                                :null}  
 
-                                    <h6 style={quoteStyles.header}>Connector Options</h6>
-                                    {products.map((product) => 
-                                    product.connectors.map((connector) =>
-                                    <div className="form-check">
-                                        <input className="form-check-input" type="radio" name={connector.name} checked={connector.default}/>
-                                        <label className="form-check-label" >
-                                            {connector.description}
-                                        </label>
-                                    </div>
-                                    ))}
+                                {props.data[0].accessories.length>0?
+                                <h6 style={quoteStyles.header}>Select Accessories:</h6>:
+                                null}
 
-                                    <h6 style={quoteStyles.header}>Accessories</h6>
-                                    {products.map((product) => 
-                                    product.accessories.map((accessory) =>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" style={quoteStyles.accessoryDesc}>{accessory.description}</span>
-                                        <input type="number" min="0" class="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
-                                    </div>
-                                    ))}
-
-                                    <button onClick={addToCart} style={quoteStyles.rightAlign} type="button" class="btn btn-danger" name={product.model}>Add to Cart</button>
-                                </div>
-                                ))}
-                            </form>
-                            
-                        </div>       
-
+                               {props.data[0].accessories.length>0?
+                                props.data[0].accessories.map((accessory, idx) => (
+                                    <form>
+                                        <div class="input-group mb-3" key={idx}>
+                                            <span class="input-group-text" style={quoteStyles.accessoryDesc} name={accessory[0]}>{accessory[1]} {accessory[2]}</span>
+                                            <input type="number" min="0" class="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
+                                        </div>
+                                    </form>
+                                ))
+                                :null}
+                        </div>
+                        
                     </div>
 
-
+                    <div className="col-md-1"></div>
                 </div>
 
+                <div className = "row" style={quoteStyles.title}>
+                    <div className="col-md-9"></div>
+                    <div className="col-md-2" style={quoteStyles.titleBtn}>
+                        <button onClick={addToCart} type="button" class="btn btn-danger" style={quoteStyles.test}>Add to Cart</button>
+                    </div>
+                    <div className="col-md-1"></div>
+                </div>
 
             </div>
             

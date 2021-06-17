@@ -68,36 +68,17 @@ let productSeed = [
       ["OPTIONS", ["Rear-panel isolated HV outputs", "Frames: per-trigger delay/width lists", "Trains: multiple channel outputs per trigger", "OCXO timebase", "Rackmount adapter"]],
     ],
     optionsRequired: [
-      {
-         description: [
-           "Select wavelength:",
-           "Select connector type:",
-         ]
-      },
-      {
-        options: [
-          [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]],
-          [["0", "ST connectorization"], ["1", "FC connectorization"]]
-        ]
-      },      
+          ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
+          ["Connector Type",[["0", "ST connectorization"], ["1", "FC connectorization"]]]
     ],
     optionsOptional: [
-      {
-        description: "Select additional features:"
-      },
-      {
-      options: [
-          ["2", "advanced pulse train/frame generation"],
-          ["2", "50V isolated high-voltage output"],
-          ["2", "high stability ovenized oscillator"],
-        ]
-      }
+          ["Advanced Features", [["2", "advanced pulse train/frame generation"], ["2", "50V isolated high-voltage output"],["2", "high stability ovenized oscillator"]]],
     ],
     accessories: [
-      "J25-1",
-      "J27-1",
-      "P10-1",
-      "P492-1",
+      ["J25-1", "24 volt 65W power supply", "(1 included with purchase)"],
+      ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
+      ["P10-1", '19" rack mount shelf (two p-boxes per rack)'],
+      ["P492-1", "AC line triggering transformer for P400/P500"],
     ],
   },
 
