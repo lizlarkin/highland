@@ -80,6 +80,11 @@ let productSeed = [
       ["P10-1", '19" rack mount shelf (two p-boxes per rack)'],
       ["P492-1", "AC line triggering transformer for P400/P500"],
     ],
+    // status: [
+    //   "EOL",
+    //   "Custom",
+    //   "Catalog",
+    // ]
   },
 
   // ****************************** T560 Data ******************************

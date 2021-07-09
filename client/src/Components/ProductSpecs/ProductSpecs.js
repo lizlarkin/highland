@@ -1,12 +1,14 @@
 import React from 'react'
 
-const ProductSpecs = ({ props }) => {
+const ProductSpecs = ({ specs }) => {
 
     const specStyles = {
         specSpan: {
             marginLeft: "25px",
         }
     }
+
+    console.log("specs from specs pg", specs)
 
     return (
         <div >
@@ -16,8 +18,8 @@ const ProductSpecs = ({ props }) => {
 
                 <table class="table table-striped table-hover">
                     <tbody>
-                        {props?
-                        props.data[0].specifications.map((specification, idx) => (
+                        {specs?
+                        specs.map((specification, idx) => (
                             <tr key={idx}>
                                 <td>{specification[0]}</td>
                                 <td>{specification[1].map((specLine, idx) => (

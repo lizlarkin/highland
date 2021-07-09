@@ -14,6 +14,7 @@ import Laser_Drivers from './Pages/Category/Laser_Drivers';
 import Photonics from './Pages/Category/Photonics';
 import Measurement_Simulation from './Pages/Category/Measurement_Simulation';
 import OEM_Embedded from './Pages/Category/OEM_Embedded';
+import Legacy from './Pages/Category/Legacy';
 import Products from './Pages/Category/Products';
 import Product from './Pages/Product/Product';
 import Register from './Pages/Register/Register';
@@ -89,6 +90,7 @@ function App() {
               <Route path="/Pages/Category/Photonics" component={Photonics}/>
               <Route path="/Pages/Category/Measurement_Simulation" component={Measurement_Simulation}/>
               <Route path="/Pages/Category/OEM_Embedded" component={OEM_Embedded}/>
+              <Route path="/Pages/Category/Legacy" component={Legacy}/>
               <Route path="/Pages/Category/Products" component={Products}/>
               <Route path="/Pages/Product/Product" component={Product}/>
               <Route path="/Pages/About" component={About}/>

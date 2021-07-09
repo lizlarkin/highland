@@ -24,7 +24,7 @@ const Digital_Delay_Generators = () => {
 
     return (
         <div>
-            <CategoryJumbotron />
+            <CategoryJumbotron title={"Digital Delay and Pulse Generators"}/>
             <div>
                 <ProductCard props={categoryData}/>
             </div>

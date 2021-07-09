@@ -39,6 +39,7 @@ const Navigation = (props) => {
                     <li><Link to="/Pages/Category/Photonics" className="dropdown-item">Photonics</Link></li>
                     <li><Link to="/Pages/Category/Measurement_Simulation" className="dropdown-item">Measurement/Simulation</Link></li>
                     <li><Link to="/Pages/Category/OEM_Embedded" className="dropdown-item">OEM/Embedded</Link></li>
+                    <li><Link to="/Pages/Category/Legacy" className="dropdown-item">Legacy</Link></li>
                     <li><hr className="dropdown-divider"/></li>
                     <li><Link to="/Pages/Category/Products" className="dropdown-item">All Products</Link></li>
                   </ul>

@@ -33,12 +33,31 @@ const Product = () => {
     });
 
     const [productData, setProductData] = useState();
+    const [productName, setProductName] = useState();
+    const [productModel, setProductModel] = useState();
+    const [productRequired, setProductRequired] = useState();
+    const [productOptions, setProductOptions] = useState()
+    const [productAccessories, setProductAccessories] = useState();
+    const [productFeatures, setProductFeatures] = useState();
+    const [productDescription, setProductDescription] = useState();
+    const [productSpecs, setProductSpecs] = useState();
+    const [productRelatives, setProductRelatives] = useState();
+    console.log(productData)
 
     useEffect(() => {
         const getProductData = async () => {
             try {
                const prodData = await axios.get(`/products/${model}`);
                setProductData(prodData);
+               setProductName(prodData.data[0].name);
+               setProductModel(prodData.data[0].model);
+               setProductRequired(prodData.data[0].optionsRequired);
+               setProductOptions(prodData.data[0].optionsOptional);
+               setProductAccessories(prodData.data[0].accessories);
+               setProductFeatures(prodData.data[0].features);
+               setProductDescription(prodData.data[0].about)
+               setProductSpecs(prodData.data[0].specifications)
+               setProductRelatives(prodData.data[0].related)
                console.log("product data: ", prodData);
             } catch (error) {
                 console.log(error.response)
@@ -131,12 +150,12 @@ const Product = () => {
             <div className = "col-md-7">
             <div>
                 
-                {content.showOverview && <ProductOverview props={productData}/>}
-                {content.showSpecifications && <ProductSpecs props={productData}/>}
+                {content.showOverview && <ProductOverview features={productFeatures} description={productDescription}/>}
+                {content.showSpecifications && <ProductSpecs specs={productSpecs}/>}
                 {content.showResources && <ProductResources/>}
                 {content.showFAQ && <ProductFAQ/>}
-                {content.showRelated && <ProductRelated/>}
-                {content.showQuote && <ProductQuote props={productData}/>}
+                {content.showRelated && <ProductRelated related={productRelatives}/>}
+                {content.showQuote && <ProductQuote name={productName} model={productModel} requiredOptions={productRequired} optionalOptions={productOptions} accessories={productAccessories}/>}
 
                 
                 

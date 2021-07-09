@@ -83,7 +83,7 @@ const ProductResources = () => {
                                             <img className = "resource-image" src={rohsCompliant} alt="RoHS Compliant"/>Download RoHS Certificate
                                         </Link>
                                         <Link to="/" className="list-group-item list-group-item-action">
-                                            <img className = "resource-image" src={madeInUsa} alt="Made In USA"/>Download Certificate of Origin
+                                            <img className = "resource-image" src={madeInUsa} alt="Made In USA"/>Download Certificate of Origin (change this name???)
                                         </Link>
                                         <Link to="/" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={ECCN} alt="International Commerce"/> Download Export Control Classification Number (ECCN) &amp; Export Control Information

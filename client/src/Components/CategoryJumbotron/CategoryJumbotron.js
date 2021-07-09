@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CategoryJumbotron = () => {
+const CategoryJumbotron = ({title}) => {
 
     const jumbotronStyles = {
         container: {
@@ -18,7 +18,7 @@ const CategoryJumbotron = () => {
         <div className="row">
             <div className="col-md-1"></div>
             <div className="col-md-10" style={jumbotronStyles.container}>
-            <h1 style={jumbotronStyles.heading}>Digital Delay &amp; Pulse Generators</h1>
+            <h1 style={jumbotronStyles.heading}>{title}</h1>
             </div>
             <div className="col-md-1"></div>
         </div>
