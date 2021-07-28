@@ -5,6 +5,8 @@ import UserContext from "../../Context/UserContext";
 
 const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessories }) => {
 
+    // ADD CHECKS THAT USER MADE REQUIRED SELECTIONS"
+
     const quoteStyles = {
         qtyInput: {
             width: "20%",
@@ -35,27 +37,40 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
         }
     }
 
+    console.log("requiredOptions", requiredOptions)
+    console.log("optionalOptions", optionalOptions)
+
     const { userData } = useContext(UserContext);
     const history = useHistory();
-    const [quantity, setQuantity] = useState({quantity: 0});
-    const [cart, setCart] = useState({
-        model: "",
-        quantity: "",
-        required: [],
-    });
+    const [selectedQuantity, setSelectedQuantity] = useState(0);
+    const [selectedAccessories, setSelectedAccessories] = useState([]);
+    const [selectedRequired, setSelectedRequired] = useState([]);
+    const [selectedOptions, setSelectedOptions] = useState([]);
 
-    const selectQuantity = (e) => {
-        setCart({...cart, quantity: e.target.value});
-        console.log(cart);
+    const cart = {
+        model: model,
+        quantity: selectedQuantity,
+        required: selectedRequired,
+        optional: selectedOptions,
+        accessories: selectedAccessories
     }
 
-    const addToCart = (e) => {
-        setCart({...cart, model: e.target.name, quantity: quantity});
-        console.log(cart);
-    };
+    console.log("cart", cart);
 
-    const handleRequired = (e) => {
-        setCart({...cart, [e.target.value]: e.target.value})
+    const selectQuantity = (e) => {
+        setSelectedQuantity(e.target.value);
+    }
+
+    const handleRequiredOptions = (e) => {
+        setSelectedRequired({...selectedRequired, [e.target.id]: e.target.value})
+    }
+
+    const handleOptionalOptions = (e) => {
+        setSelectedOptions({...selectedOptions, [e.target.value]: e.target.checked})
+    }
+
+    const handleAddAccessories = (e) => {
+        setSelectedAccessories({...selectedAccessories, [e.target.name]: e.target.value})
     }
  
 
@@ -98,11 +113,11 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                             {requiredOptions.length>0?
                                 requiredOptions.map((required, idx) => (
                                     <>
-                                    <h6 key={idx} style={quoteStyles.header}>Select {required[0]} (required):</h6>
+                                    <h6 key={idx} style={quoteStyles.header}>Select {required[0]}:<span style={{color: "red", fontSize:"150%"}}>*</span></h6>
                                     <form>
                                     <div>{required[1].map((option, idx) => (
                                         <div className="form-check" key={idx}>
-                                            <input onClick={handleRequired} className="form-check-input" type="radio" value={option[1]} dash={option[0]} name="requiredRadios"/>
+                                            <input onClick={handleRequiredOptions} className="form-check-input" type="radio" dash={option[0]} value={option[1]} name="requiredRadios" id={required[0]}/>
                                             <label className="form-check-label">
                                             {option[1]}
                                             </label>
@@ -121,7 +136,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                                     <form>
                                     <div>{option[1].map((option, idx) => (
                                         <div className="form-check" key={idx}>
-                                            <input className="form-check-input" type="checkbox" value={option[0]}/>
+                                            <input onClick={handleOptionalOptions} className="form-check-input" type="checkbox" dash={option[0]} value={option[1]} id={option[0]}/>
                                             <label className="form-check-label" for="defaultCheck1">
                                                 {option[1]}
                                             </label>
@@ -143,8 +158,8 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                                 accessories.map((accessory, idx) => (
                                     <form>
                                         <div class="input-group mb-3" key={idx}>
-                                            <span class="input-group-text" style={quoteStyles.accessoryDesc} name={accessory[0]}>{accessory[1]} {accessory[2]}</span>
-                                            <input type="number" min="0" class="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
+                                            <span class="input-group-text" style={quoteStyles.accessoryDesc} >{accessory[1]} {accessory[2]}</span>
+                                            <input onChange={handleAddAccessories} name={accessory[0]} type="number" min="0" class="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
                                         </div>
                                     </form>
                                 ))
@@ -159,7 +174,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                 <div className = "row" style={quoteStyles.title}>
                     <div className="col-md-9"></div>
                     <div className="col-md-2" style={quoteStyles.titleBtn}>
-                        <button onClick={addToCart} type="button" class="btn btn-danger" style={quoteStyles.cartBtn}>Add to Cart</button>
+                        <button type="button" class="btn btn-danger" style={quoteStyles.cartBtn}>Add to Cart</button>
                     </div>
                     <div className="col-md-1"></div>
                 </div>

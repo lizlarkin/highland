@@ -42,7 +42,7 @@ const Product = () => {
     const [productDescription, setProductDescription] = useState();
     const [productSpecs, setProductSpecs] = useState();
     const [productRelatives, setProductRelatives] = useState();
-    console.log(productData)
+    // console.log(productData)
 
     useEffect(() => {
         const getProductData = async () => {
