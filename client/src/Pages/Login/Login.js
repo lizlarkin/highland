@@ -15,6 +15,8 @@ const Login = () => {
         setForm({...form, [e.target.name]: e.target.value});
     }
 
+    // console.log(userData)
+
     const submitLogin = async (e) => {
         e.preventDefault();
         try {

@@ -69,7 +69,8 @@ let productSeed = [
     ],
     optionsRequired: [
           ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
-          ["Connector Type",[["0", "ST connectorization"], ["1", "FC connectorization"]]]
+          ["Connector Type",[["0", "ST connectorization"], ["1", "FC connectorization"]]],
+          ["Test",[["1", "Test 1"], ["2", "Test 2"]]]
     ],
     optionsOptional: [
           ["Advanced Features", [["2", "advanced pulse train/frame generation"], ["2", "50V isolated high-voltage output"],["2", "high stability ovenized oscillator"]]],

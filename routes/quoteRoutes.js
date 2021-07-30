@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const auth = require("../middleware/auth");
-const { newQuote } = require("../controllers/QuotesController")
+const { newCart } = require("../controllers/QuotesController")
 
-router.post("/", auth, newQuote);
+router.post("/cart", auth, newCart);
+// router.post("/", auth, newQuote);
 
 module.exports = router;

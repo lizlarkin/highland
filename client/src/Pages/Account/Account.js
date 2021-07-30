@@ -9,13 +9,13 @@ const Account = () => {
 
     useEffect(() => {
         if (!userData.user) history.push("/pages/login");
-        userData.user ? console.log(userData.user.firstName) : console.log("not available");
+        // userData.user ? console.log(userData.user.firstName) : console.log("not available");
     }, [userData.user, history]);
 
     return (
         <div>
             <h1>Account</h1>
-            <h2>Hello, {userData.user?.firstName} {userData.user?.lastName}</h2>
+            <h2>Hello, {userData.user?.firstName} {userData.user?.lastName}</h2>  
             <QuoteHistory />
         </div>
     )

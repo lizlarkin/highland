@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom"; 
 import UserContext from "../../Context/UserContext";
+import axios from "axios";
 
 
 const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessories }) => {
-
-    // ADD CHECKS THAT USER MADE REQUIRED SELECTIONS"
 
     const quoteStyles = {
         qtyInput: {
@@ -37,9 +36,6 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
         }
     }
 
-    console.log("requiredOptions", requiredOptions)
-    console.log("optionalOptions", optionalOptions)
-
     const { userData } = useContext(UserContext);
     const history = useHistory();
     const [selectedQuantity, setSelectedQuantity] = useState(0);
@@ -54,8 +50,6 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
         optional: selectedOptions,
         accessories: selectedAccessories
     }
-
-    console.log("cart", cart);
 
     const selectQuantity = (e) => {
         setSelectedQuantity(e.target.value);
@@ -72,6 +66,30 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
     const handleAddAccessories = (e) => {
         setSelectedAccessories({...selectedAccessories, [e.target.name]: e.target.value})
     }
+
+    const addToCart = async (e) => {
+        e.preventDefault();
+            try {
+                if (cart.quantity < 1) {
+                    alert("Please add quantity")
+                } else if (requiredOptions.length != Object.keys(cart.required).length) {
+                    alert("Please make all required selections")
+                }
+                else {
+                    const authToken = localStorage.getItem("auth-token");
+                    // console.log(authToken)
+                    // console.log(cart)
+                    const newCart = await axios.post("/quotes/cart", 
+                    cart, 
+                    { headers: { "x-auth-token": authToken },
+                    });
+                    console.log(newCart);     
+                }
+            } catch (error) {
+                console.log(error)
+            }
+            // history.push("/pages/cart")
+    }
  
 
     useEffect(() => {
@@ -85,7 +103,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
             <h3 className="prod-header">Request Quote</h3>
 
             <div className="content-container">
-
+              
                 <div className="row" style={quoteStyles.title}>
 
                     <div className="col-md-1"></div>
@@ -174,7 +192,8 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                 <div className = "row" style={quoteStyles.title}>
                     <div className="col-md-9"></div>
                     <div className="col-md-2" style={quoteStyles.titleBtn}>
-                        <button type="button" class="btn btn-danger" style={quoteStyles.cartBtn}>Add to Cart</button>
+                        {/* does this need to be onSubmit???? */}
+                        <button onClick={addToCart} type="submit" class="btn btn-danger" style={quoteStyles.cartBtn}>Add to Cart</button>
                     </div>
                     <div className="col-md-1"></div>
                 </div>
