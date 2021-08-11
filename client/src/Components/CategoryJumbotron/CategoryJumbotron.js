@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CategoryJumbotron = ({title}) => {
+const CategoryJumbotron = ({title, text}) => {
 
     const jumbotronStyles = {
         container: {
@@ -9,8 +9,8 @@ const CategoryJumbotron = ({title}) => {
             marginTop: "2%",
         },
         heading: {
-        textAlign: "center",
-        marginTop: "2%",
+            textAlign: "center",
+            marginTop: "2%",
         },
     }
 
@@ -19,6 +19,7 @@ const CategoryJumbotron = ({title}) => {
             <div className="col-md-1"></div>
             <div className="col-md-10" style={jumbotronStyles.container}>
             <h1 style={jumbotronStyles.heading}>{title}</h1>
+            <h2 style={jumbotronStyles.heading}>{text}</h2>
             </div>
             <div className="col-md-1"></div>
         </div>

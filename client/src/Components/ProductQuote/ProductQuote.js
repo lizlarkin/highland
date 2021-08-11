@@ -43,12 +43,38 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
     const [selectedRequired, setSelectedRequired] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
 
+    let date = new Date();
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+    let newDate =
+      date.getDate() +
+      "-" +
+      monthNames[date.getMonth()] +
+      "-" +
+      date.getFullYear();
+  
+    const [dateNow, setDateNow] = useState(newDate);
+
     const cart = {
         model: model,
+        name: name,
         quantity: selectedQuantity,
         required: selectedRequired,
         optional: selectedOptions,
-        accessories: selectedAccessories
+        accessories: selectedAccessories,
+        date: dateNow,
     }
 
     const selectQuantity = (e) => {
@@ -79,7 +105,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                     const authToken = localStorage.getItem("auth-token");
                     // console.log(authToken)
                     // console.log(cart)
-                    const newCart = await axios.post("/quotes/cart", 
+                    const newCart = await axios.post("/cart", 
                     cart, 
                     { headers: { "x-auth-token": authToken },
                     });
@@ -88,7 +114,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
             } catch (error) {
                 console.log(error)
             }
-            // history.push("/pages/cart")
+            history.push("/pages/cart")
     }
  
 
@@ -131,7 +157,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                             {requiredOptions.length>0?
                                 requiredOptions.map((required, idx) => (
                                     <>
-                                    <h6 key={idx} style={quoteStyles.header}>Select {required[0]}:<span style={{color: "red", fontSize:"150%"}}>*</span></h6>
+                                    <h6 key={idx} style={quoteStyles.header}>Select {required[0]}:<span className="asterisk">*</span></h6>
                                     <form>
                                     <div>{required[1].map((option, idx) => (
                                         <div className="form-check" key={idx}>

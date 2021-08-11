@@ -1,9 +1,9 @@
-const Quote = require("../models/quotesModel")
+const Cart = require("../models/cartModel")
 
 module.exports = {
-    newQuote: async (req, res) => {
+    newCart: async (req, res) => {
         try {
-            const newQuote = new Quote({ 
+            const newCart = new Cart({ 
                 date: req.body.date,
                 model: req.body.model,
                 name: req.body.name,
@@ -13,19 +13,19 @@ module.exports = {
                 accessories: req.body.accessories,
                 userId: req.user,
             });
-            const successSave = await newQuote.save();
+            const successSave = await newCart.save();
             res.json(successSave);
         } catch (error) {
-            res.send("error saving quote: ", error)
+            res.send("error saving cart: ", error)
         }
     },
-    getAllQuotes: async (req, res) => {
+    getAllCart: async (req, res) => {
         try {
-            const allQuotes = await Quote.find({ userId: req.user });
-            res.json(allQuotes)
+            const allCart = await Cart.find({ userId: req.user });
+            res.json(allCart)
         } catch (error) {
             console.log(error)
-            res.send("cannot get all quotes", error)
+            res.send("error getting cart", error)
         }
     },
 };

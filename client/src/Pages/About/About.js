@@ -1,8 +1,6 @@
 import React from 'react'
 import CategoryJumbotron from './../../Components/CategoryJumbotron/CategoryJumbotron';
-import htifront2 from "./img/htifront2.png";
-import htifront3 from "./img/htifront3.jpg";
-import smtLinePlaceholder from "./img/smtLinePlaceholder.jpg";
+import htifront from "./img/htifront.jpg";
 import vmeCrate from "./img/vmeCrate.png";
 import smtLine2 from "./img/smtLine2.jpg";
 import holidayParty from "./img/holidayParty.JPG";
@@ -13,11 +11,11 @@ const About = () => {
 
         backgroundStyles: {
             backgroundRepeat: 'no-repeat',
-            filter: "blur(2.5px)",
+            // filter: "blur(1.5px)",
             height: "700px",
         },
         buildingBackground: {
-            backgroundImage: `url(${htifront3})`,
+            backgroundImage: `url(${htifront})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
         },
@@ -41,7 +39,7 @@ const About = () => {
             fontWeight: "bold",
             border: "3px solid white",
             borderRadius: "25px",
-            backgroundColor: "rgba(0,0,0, 0.4)",
+            backgroundColor: "rgba(0,0,0, 0.55)",
             position: "relative",
             padding: "40px",
             textAlign: "center",
@@ -61,7 +59,7 @@ const About = () => {
         <>
         {/* <CategoryJumbotron title={pageTitle}/> */}
 
-        <div className="row" style={aboutStyles.blankRow}></div> 
+        {/* <div className="row" style={aboutStyles.blankRow}></div>  */}
 
         <div className="row" style={aboutStyles.backgroundStyles}>
                 <div className="col-md-12" style={aboutStyles.buildingBackground}></div>  

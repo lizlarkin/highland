@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const quotesSchema = new mongoose.Schema({
+const cartSchema = new mongoose.Schema({
     date: {
         type: String,
         required: true,
@@ -25,6 +25,6 @@ const quotesSchema = new mongoose.Schema({
     },
 });
 
-var Quote = mongoose.model("Quote", quotesSchema);
+var Cart = mongoose.model("Cart", cartSchema);
 
-module.exports = Quote
+module.exports = Cart
