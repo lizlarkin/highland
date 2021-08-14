@@ -29,6 +29,11 @@ body {
   padding-bottom: 100px;
 }
 
+/* This keeps space between body and footer */
+/* Root is the standard id from react that is found in index.html */
+#root {
+  margin-bottom: 5%;
+}
 .asterisk {
   color: red;
   font-size: 125%;

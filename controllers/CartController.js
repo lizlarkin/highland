@@ -28,4 +28,12 @@ module.exports = {
             res.send("error getting cart", error)
         }
     },
+    deleteOneCart: async (req, res) => {
+        try {
+            const removeOne = await Cart.deleteOne({ _id: req.params._id });
+            res.json(removeOne);
+        } catch (error) {
+            res.send(error)
+        }
+    }
 };

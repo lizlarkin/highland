@@ -65,7 +65,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
       "-" +
       date.getFullYear();
   
-    const [dateNow, setDateNow] = useState(newDate);
+    const [dateNow] = useState(newDate);
 
     const cart = {
         model: model,
@@ -90,16 +90,16 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
     }
 
     const handleAddAccessories = (e) => {
-        setSelectedAccessories({...selectedAccessories, [e.target.name]: e.target.value})
+        setSelectedAccessories({...selectedAccessories, [e.target.id]: [e.target.value, e.target.name]})
     }
 
     const addToCart = async (e) => {
         e.preventDefault();
             try {
                 if (cart.quantity < 1) {
-                    alert("Please add quantity")
+                    return alert("Please add quantity")
                 } else if (requiredOptions.length != Object.keys(cart.required).length) {
-                    alert("Please make all required selections")
+                    return alert("Please make all required selections")
                 }
                 else {
                     const authToken = localStorage.getItem("auth-token");
@@ -109,12 +109,13 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                     cart, 
                     { headers: { "x-auth-token": authToken },
                     });
-                    console.log(newCart);     
+                    console.log(newCart);
+                    history.push("/pages/cart")     
                 }
             } catch (error) {
                 console.log(error)
             }
-            history.push("/pages/cart")
+            
     }
  
 
@@ -203,7 +204,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                                     <form>
                                         <div class="input-group mb-3" key={idx}>
                                             <span class="input-group-text" style={quoteStyles.accessoryDesc} >{accessory[1]} {accessory[2]}</span>
-                                            <input onChange={handleAddAccessories} name={accessory[0]} type="number" min="0" class="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
+                                            <input onChange={handleAddAccessories} id={accessory[0]} name={accessory[1]} type="number" min="0" class="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
                                         </div>
                                     </form>
                                 ))
