@@ -16,7 +16,7 @@ const Navigation = (props) => {
         marginLeft: "40px",
     },
 }
- 
+
     return (
         <nav>
             <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -57,7 +57,7 @@ const Navigation = (props) => {
                   {!userData.user ? <Link to="/Pages/Login" className="nav-link active" style={navigationStyles.links}>Login</Link> : <Link to = "/Pages/Login" onClick={props.logout} className="nav-link active" style={navigationStyles.links}>Logout</Link> }
                 </li>
                 <li className="nav-item">
-                  {userData.user ? <Link to="/Pages/Cart" className="nav-link active" style={navigationStyles.links}>Cart</Link> : null }
+                  {userData.user ? <Link to="/Pages/Cart" className="nav-link active" style={navigationStyles.links}><i class="fas fa-shopping-cart"></i></Link> : null }
                 </li>
               </ul>
               <form className="d-flex">

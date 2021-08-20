@@ -10,6 +10,69 @@ mongoose.connect("mongodb://localhost/highland", {
 
 let productSeed = [
 
+    // ****************************** J730 Data ******************************
+    {
+      name: "single-channel compact fiberoptic-to-electrical converter",
+      model: "J730",
+      category: "DDG",
+      features: [
+          "Compact logic-level optical signal link receiver", 
+          "Allows transport of logic levels and fast triggers over long distances in high EMI environments",
+          "Fast electrical rise times",
+          "Below 12 picoseconds typical RMS link jitter",
+          "J730-1 and J730-11 use commonly-available 62/125 micron multimode ST or FC connectorized fiber at 850 nanometers",
+          "J730-3, J730-5, J730-13, and J730-15 use singlemode or multimode ST or FC connectorized fiber at 1310 or 1550 nanometers",
+      ],
+      description: "Converts fiber-coupled laser signals to TTL levels.",
+      about: [
+          "It has always been difficult to transport fast logic signals long distances over copper conductors. Coaxial or twisted-pair transmission lines introduce attenuation, dispersion, ground loops, and provide an entrance point for external electrical noise. The result can be jitter, pulse width distortion, and ultimately logic errors.",
+          "A J720/J730 combination can transport logic level or critical timing triggers over kilometer distances in high EMI environments with link jitter typically below 12 picoseconds RMS. The J730 provides a digital logic output with risetime below 750 picoseconds, and a fast analog (180 MHz bandwidth) output is also provided for monitoring link integrity.",
+          "The J730 is compatible with the Highland J720 and J724 E/O Converters, the P500 Digital Delay/Pulse Generator, the company's VME-packaged electrical/optical converter products, and its other VME modules with optical I/O.",
+  
+      ],
+      related: [
+        "J720 single-channel compact electrical-to-fiberoptic converter",
+        "J724 single-channel compact buffered electrical-to-fiberoptic converter",
+        "P500 4-channel benchtop digital delay and pulse generator",
+        "T124 1 to 4 logic buffer",
+        "T760 dual-channel compact high voltage optical-to-electrical converter",
+        "V720 6-channel VME buffered electrical-to-optical converter",
+        "V730 6-channel VME optical-to-electrical converter",
+      ],
+      specifications: [
+        ["FUNCTION", ["Single-channel optical-to-electrical converter"]],
+        ["RESOLUTION", ["DC coupled fiberoptic input, ST or FC connector", "850, 1310, or 1550 nm wavelength", "1 mW nominal optical fiber power", "Threshold adjustable 100 µW to 800 µW, factory set to 300 µW", "See manual section 6 for versions"]],
+        ["PROPAGATION DELAY", ["Light in to electrical out < 10 ns"]],
+        ["OUTPUTS", ["Digital: +5 volts typ, 2.25 V typ into 50 Ω load", "Analog: +1 volt per mW optical input into 50 Ω load", "Source impedance: 50 Ω Optional high drive available"]],
+        ["BANDWIDTH", ["DC to 180 MHz"]],
+        ["RISETIME", ["Digital output: < 750 ps", "Analog output: < 2.5 ns"]],
+        ["JITTER", ["< 12 ps RMS, J720 + J730"]],
+        ["OPERATING TEMPERATURE", ["0 to 60°C"]],
+        ["CALIBRATION INTERVAL", ["One year"]],
+        ["POWER", ["+12 volts at 60 mA nominal", "J12 Universal Wall-Plug Adapter recommended"]],
+        ["CONNECTORS", ["ST or FC optical input receptacles", "Gold plated SMB digital and analog output jacks", "Front panel test jacks for threshold measurement", "2.1 mm X 5.5 mm barrel power connector"]],
+        ["INDICATOR", ["LED: Green power"]],
+        ["PACKAGING", ['3.3" (L) x 2.1" (W) x 0.9" (H) extruded anodized aluminum enclosure']],
+      ],
+      optionsRequired: [
+        ["Connector Type",[["0", "ST"], ["1", "FC"]]],    
+        ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
+      ],
+      optionsOptional: [],
+      accessories: [
+        ["J12-1", "12 volt power supply", "(1 included with purchase)"],
+        ["J14-1", "International plug adapter set for J12", "(1 included with purchase)"],
+        ["J41-1", "3' SMB to SMB cable"],
+        ["J41-2", '6" SMB to SMB cable'],
+        ["J42-1", "3' SMB to SMA cable"],
+        ["J53-1", "3' SMB to BNC cable"],
+        ["J53-2", '6" SMB to BNC cable'],
+        ["J59-1", "3' ST to ST fiberoptic cable (multi mode simplex)"],
+        ["J60-1", "3' FC to FC fiberoptic cable (single mode simplex)"],
+        ["J61-1", "3' ST to ST fiberoptic cable (single mode simplex)"],
+      ],
+    },
+
   // ****************************** P500 Data ******************************
   {
     name: "4-channel benchtop digital delay and pulse generator",
@@ -67,13 +130,9 @@ let productSeed = [
       ["WARRANTY", ["2 years limited"]],
       ["OPTIONS", ["Rear-panel isolated HV outputs", "Frames: per-trigger delay/width lists", "Trains: multiple channel outputs per trigger", "OCXO timebase", "Rackmount adapter"]],
     ],
-    optionsRequired: [
-          ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
-          ["Connector Type",[["0", "ST connectorization"], ["1", "FC connectorization"]]],
-          ["Test",[["1", "Test 1"], ["2", "Test 2"]]]
-    ],
+    optionsRequired: [],
     optionsOptional: [
-          ["Advanced Features", [["2", "advanced pulse train/frame generation"], ["2", "50V isolated high-voltage output"],["2", "high stability ovenized oscillator"]]],
+          ["Advanced Features", [["2", "1", "advanced pulse train/frame generation"], ["2", "1", "50V isolated high-voltage output"],["2", "1", "high stability ovenized oscillator"]]],
     ],
     accessories: [
       ["J25-1", "24 volt 65W power supply", "(1 included with purchase)"],

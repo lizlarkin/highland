@@ -18,7 +18,6 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
         },
         header: {
             margin: "20px 0px 20px 0px",
-            // textDecoration: "underline",
             borderBottom: "1px solid lightgrey",
         },
         accessoryDesc: {
@@ -42,6 +41,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
     const [selectedAccessories, setSelectedAccessories] = useState([]);
     const [selectedRequired, setSelectedRequired] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
+    const [version, setVersion] = useState([]);
 
     let date = new Date();
     const monthNames = [
@@ -82,11 +82,39 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
     }
 
     const handleRequiredOptions = (e) => {
-        setSelectedRequired({...selectedRequired, [e.target.id]: e.target.value})
+        setSelectedRequired({...selectedRequired, [e.target.title]: [e.target.value, e.target.id]})
+        setVersion([e.target.id])
+    }
+
+    const [options, setOptions] = useState()
+
+    console.log("optional", optionalOptions)
+
+    const initializeOptions = () => {
+        // for (let i = 0; i < optionalOptions[0][1].length; i++) {
+        //     for (let j = 0; j < optionalOptions[0][1].length; j++) {
+        //         console.log(optionalOptions[i][j]);
+        //     }
+            
+        // }
+        for (let i = 0; i < optionalOptions[0][1].length; i++) {
+            // setOptions(optionalOptions[0][1])
+            let arr = optionalOptions[0][1]
+            for (let j = 0; j < arr.length; j++) {
+                console.log("bigdon", arr[i][j])
+            }
+        }
     }
 
     const handleOptionalOptions = (e) => {
-        setSelectedOptions({...selectedOptions, [e.target.value]: e.target.checked})
+        
+        if (e.target.checked) {
+            setOptions({...options, [e.target.title]: e.target.value})
+        } else {
+            setOptions({...options, [e.target.title]: e.target.id})
+        }
+
+        // setSelectedOptions({[e.target.title]: [e.target.checked, e.target.id]})
     }
 
     const handleAddAccessories = (e) => {
@@ -114,15 +142,13 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                 }
             } catch (error) {
                 console.log(error)
-            }
-            
+            } 
     }
  
-
     useEffect(() => {
         if (!userData.user) history.push("/pages/login");
+        initializeOptions();
     }, [userData.user, history])
-
 
     return (
         <div>
@@ -162,7 +188,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                                     <form>
                                     <div>{required[1].map((option, idx) => (
                                         <div className="form-check" key={idx}>
-                                            <input onClick={handleRequiredOptions} className="form-check-input" type="radio" dash={option[0]} value={option[1]} name="requiredRadios" id={required[0]}/>
+                                            <input onClick={handleRequiredOptions} className="form-check-input" type="radio" value={option[1]} name="requiredRadios" title={required[0]} id={option[0]}/>
                                             <label className="form-check-label">
                                             {option[1]}
                                             </label>
@@ -181,9 +207,9 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                                     <form>
                                     <div>{option[1].map((option, idx) => (
                                         <div className="form-check" key={idx}>
-                                            <input onClick={handleOptionalOptions} className="form-check-input" type="checkbox" dash={option[0]} value={option[1]} id={option[0]}/>
+                                            <input onClick={handleOptionalOptions} className="form-check-input" type="checkbox" title={option[2]} value={option[0]} id={option[1]}/>
                                             <label className="form-check-label" for="defaultCheck1">
-                                                {option[1]}
+                                                {option[2]}
                                             </label>
                                         </div>
                                     ))}      
