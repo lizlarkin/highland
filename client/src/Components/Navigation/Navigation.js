@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import {Link} from 'react-router-dom';
 import highlandLogo from './logo.png';
 import UserContext from "../../Context/UserContext";
+import { useHistory } from "react-router-dom";
 
 const Navigation = (props) => {
 
   const  { userData }  = useContext(UserContext);
+  const history = useHistory();
 
   const navigationStyles = {
     logo: {
@@ -16,6 +18,11 @@ const Navigation = (props) => {
         marginLeft: "40px",
     },
 }
+
+    const goToCategory = (e) => {
+      const categorySelected = e.target.title;
+      history.push(`/Pages/Category/Category/${categorySelected}`)
+    }
 
     return (
         <nav>
@@ -32,14 +39,14 @@ const Navigation = (props) => {
                 <li className="nav-item dropdown">
                   <Link className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={navigationStyles.links}>All Products</Link>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><Link to="/Pages/Category/VME" className="dropdown-item">VME</Link></li> 
-                    <li><Link to="/Pages/Category/Digital_Delay_Generators" className="dropdown-item">Delay/Pulse Generators</Link></li>
-                    <li><Link to="/Pages/Category/Waveform_Generators" className="dropdown-item">Waveform Generators</Link></li> 
-                    <li><Link to="/Pages/Category/Laser_Drivers" className="dropdown-item">Laser Drivers/Controllers</Link></li>
-                    <li><Link to="/Pages/Category/Photonics" className="dropdown-item">Photonics</Link></li>
-                    <li><Link to="/Pages/Category/Measurement_Simulation" className="dropdown-item">Measurement/Simulation</Link></li>
-                    <li><Link to="/Pages/Category/OEM_Embedded" className="dropdown-item">OEM/Embedded</Link></li>
-                    <li><Link to="/Pages/Category/Legacy" className="dropdown-item">Legacy</Link></li>
+                    <li onClick={goToCategory} title={"VME"} className="dropdown-item">VME</li> 
+                    <li onClick={goToCategory} title={"DDG"} className="dropdown-item">Delay/Pulse Generators</li>
+                    <li onClick={goToCategory} title={"WFG"} className="dropdown-item">Waveform Generators</li> 
+                    <li onClick={goToCategory} title={"LDC"} className="dropdown-item">Laser Drivers/Controllers</li>
+                    <li onClick={goToCategory} title={"PHO"} className="dropdown-item">Photonics</li>
+                    <li onClick={goToCategory} title={"MAS"} className="dropdown-item">Measurement/Simulation</li>
+                    <li onClick={goToCategory} title={"OEM"} className="dropdown-item">OEM/Embedded</li>
+                    <li onClick={goToCategory} title={"LEG"} className="dropdown-item">Legacy</li>
                     <li><hr className="dropdown-divider"/></li>
                     <li><Link to="/Pages/Category/Products" className="dropdown-item">All Products</Link></li>
                   </ul>

@@ -41,7 +41,6 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
     const [selectedAccessories, setSelectedAccessories] = useState([]);
     const [selectedRequired, setSelectedRequired] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
-    const [version, setVersion] = useState([]);
 
     let date = new Date();
     const monthNames = [
@@ -83,27 +82,21 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
 
     const handleRequiredOptions = (e) => {
         setSelectedRequired({...selectedRequired, [e.target.title]: [e.target.value, e.target.id]})
-        setVersion([e.target.id])
     }
 
     const [options, setOptions] = useState()
 
-    console.log("optional", optionalOptions)
+    let initialOptions=[];
 
     const initializeOptions = () => {
-        // for (let i = 0; i < optionalOptions[0][1].length; i++) {
-        //     for (let j = 0; j < optionalOptions[0][1].length; j++) {
-        //         console.log(optionalOptions[i][j]);
-        //     }
-            
-        // }
         for (let i = 0; i < optionalOptions[0][1].length; i++) {
-            // setOptions(optionalOptions[0][1])
-            let arr = optionalOptions[0][1]
-            for (let j = 0; j < arr.length; j++) {
-                console.log("bigdon", arr[i][j])
-            }
+            let childArr = optionalOptions[0][1]
+            let falses = childArr[i][1]
+            console.log("falses", falses)
+            initialOptions.push(childArr[i][2])    
         }
+        console.log("beRight", [initialOptions])
+        setOptions(initialOptions)  
     }
 
     const handleOptionalOptions = (e) => {
@@ -147,7 +140,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
  
     useEffect(() => {
         if (!userData.user) history.push("/pages/login");
-        initializeOptions();
+        if (optionalOptions.length>0) initializeOptions()
     }, [userData.user, history])
 
     return (
@@ -186,8 +179,8 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                                     <>
                                     <h6 key={idx} style={quoteStyles.header}>Select {required[0]}:<span className="asterisk">*</span></h6>
                                     <form>
-                                    <div>{required[1].map((option, idx) => (
-                                        <div className="form-check" key={idx}>
+                                    <div>{required[1].map((option, index) => (
+                                        <div className="form-check" key={index}>
                                             <input onClick={handleRequiredOptions} className="form-check-input" type="radio" value={option[1]} name="requiredRadios" title={required[0]} id={option[0]}/>
                                             <label className="form-check-label">
                                             {option[1]}

@@ -72,6 +72,7 @@ const Cart = () => {
                 <div className="col-md-10">
                     {cartList?
                         cartList.map((data, index) => (
+                            <>
                             <div className="card mb-3" key={index}>
                             <div className="row g-0">
                                 <div className="col-md-4">
@@ -86,14 +87,14 @@ const Cart = () => {
                                                     {"-"}
                                                     {data.required.length>0?
                                                         <>
-                                                            {Object.entries(data.required[0]).map(((require, index) => (
+                                                            {Object.entries(data.required[0]).sort().map(((require, index) => (
                                                                 <span key={index}>{require[1][1]}</span>  
                                                             )))}
                                                         </>
                                                     :null}
                                                     {data.optional.length>0?
                                                         <>
-                                                            {Object.entries(data.optional[0]).map(((option, index) => (
+                                                            {Object.entries(data.optional[0]).sort().map(((option, index) => (
                                                                 <span key={index}>{option[1][1]}</span>  
                                                             )))}
                                                         </>
@@ -103,7 +104,7 @@ const Cart = () => {
                                                     {data.required.length>0?
                                                         <>
                                                         <span>{" with "}</span>
-                                                            {Object.entries(data.required[0]).map(((desc, index) => (
+                                                            {Object.entries(data.required[0]).sort().map(((desc, index) => (
                                                                 <span key={index}>
                                                                     {desc[1][0]} 
                                                                     {" "}
@@ -186,10 +187,22 @@ const Cart = () => {
                                 </div>
                             </div>
                         </div>
+                        </>
                         ))
                     :null}
 
+                    {cartList?
+                    <div className = "row">
+                        <div className="col-md-9"></div>
+                        <div className="col-md-3" >
+                            <button type="submit" class="btn btn-danger" style={{width: "100%"}}>Request Quote</button>
+                        </div>                    
+                    </div>
+                    :null}
+
                 </div>
+
+
 
                 <div className="col-md-1"></div>
 

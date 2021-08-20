@@ -14,7 +14,7 @@ let productSeed = [
     {
       name: "single-channel compact fiberoptic-to-electrical converter",
       model: "J730",
-      category: "DDG",
+      category: ["PHO", "DDG"],
       features: [
           "Compact logic-level optical signal link receiver", 
           "Allows transport of logic levels and fast triggers over long distances in high EMI environments",

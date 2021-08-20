@@ -7,14 +7,6 @@ import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
 import Login from './Pages/Login/Login';
 import Home from './Pages/Home/Home';
-import VME from './Pages/Category/VME';
-import Digital_Delay_Generators from './Pages/Category/Digital_Delay_Generators';
-import Waveform_Generators from './Pages/Category/Waveform_Generators';
-import Laser_Drivers from './Pages/Category/Laser_Drivers';
-import Photonics from './Pages/Category/Photonics';
-import Measurement_Simulation from './Pages/Category/Measurement_Simulation';
-import OEM_Embedded from './Pages/Category/OEM_Embedded';
-import Legacy from './Pages/Category/Legacy';
 import Products from './Pages/Category/Products';
 import Product from './Pages/Product/Product';
 import Register from './Pages/Register/Register';
@@ -22,6 +14,7 @@ import Footer from './Components/Footer/Footer';
 import UserContext from "./Context/UserContext";
 import Account from './Pages/Account/Account';
 import Cart from './Pages/Cart/Cart';
+import Category from './Pages/Category/Category';
 
 function App() {
 
@@ -83,14 +76,7 @@ function App() {
           <Navigation logout={logout}/>
 
           <Switch>
-              <Route path="/Pages/Category/VME" component={VME}/>
-              <Route path="/Pages/Category/Digital_Delay_Generators" component={Digital_Delay_Generators}/>
-              <Route path="/Pages/Category/Waveform_Generators" component={Waveform_Generators}/>
-              <Route path="/Pages/Category/Laser_Drivers" component={Laser_Drivers}/>
-              <Route path="/Pages/Category/Photonics" component={Photonics}/>
-              <Route path="/Pages/Category/Measurement_Simulation" component={Measurement_Simulation}/>
-              <Route path="/Pages/Category/OEM_Embedded" component={OEM_Embedded}/>
-              <Route path="/Pages/Category/Legacy" component={Legacy}/>
+              <Route path="/Pages/Category/Category" component={Category}/>
               <Route path="/Pages/Category/Products" component={Products}/>
               <Route path="/Pages/Product/Product" component={Product}/>
               <Route path="/Pages/About" component={About}/>
