@@ -84,30 +84,31 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
         setSelectedRequired({...selectedRequired, [e.target.title]: [e.target.value, e.target.id]})
     }
 
-    const [options, setOptions] = useState()
+    const [options, setOptions] = useState();
 
     let initialOptions=[];
 
     const initializeOptions = () => {
         for (let i = 0; i < optionalOptions[0][1].length; i++) {
             let childArr = optionalOptions[0][1]
-            let falses = childArr[i][1]
-            console.log("falses", falses)
-            initialOptions.push(childArr[i][2])    
+            initialOptions.push([childArr[i][2], childArr[i][1]])    
         }
-        console.log("beRight", [initialOptions])
+        console.log("initialized options", initialOptions)
         setOptions(initialOptions)  
+        setSelectedOptions(initialOptions)
+        console.log("options", options)
     }
 
     const handleOptionalOptions = (e) => {
-        
         if (e.target.checked) {
-            setOptions({...options, [e.target.title]: e.target.value})
+            options[e.target.id] = [e.target.title, e.target.value]
+            console.log(options)
+            setSelectedOptions(options)
         } else {
-            setOptions({...options, [e.target.title]: e.target.id})
+            options[e.target.id] = [e.target.title, e.target.min] 
+            console.log(options)
+            setSelectedOptions(options)
         }
-
-        // setSelectedOptions({[e.target.title]: [e.target.checked, e.target.id]})
     }
 
     const handleAddAccessories = (e) => {
@@ -200,7 +201,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                                     <form>
                                     <div>{option[1].map((option, idx) => (
                                         <div className="form-check" key={idx}>
-                                            <input onClick={handleOptionalOptions} className="form-check-input" type="checkbox" title={option[2]} value={option[0]} id={option[1]}/>
+                                            <input onClick={handleOptionalOptions} className="form-check-input" type="checkbox" title={option[2]} value={option[0]} min={option[1]} id={idx}/>
                                             <label className="form-check-label" for="defaultCheck1">
                                                 {option[2]}
                                             </label>
@@ -238,7 +239,6 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                 <div className = "row" style={quoteStyles.title}>
                     <div className="col-md-9"></div>
                     <div className="col-md-2" style={quoteStyles.titleBtn}>
-                        {/* does this need to be onSubmit???? */}
                         <button onClick={addToCart} type="submit" class="btn btn-danger" style={quoteStyles.cartBtn}>Add to Cart</button>
                     </div>
                     <div className="col-md-1"></div>

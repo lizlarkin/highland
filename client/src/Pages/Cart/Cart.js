@@ -94,8 +94,11 @@ const Cart = () => {
                                                     :null}
                                                     {data.optional.length>0?
                                                         <>
-                                                            {Object.entries(data.optional[0]).sort().map(((option, index) => (
-                                                                <span key={index}>{option[1][1]}</span>  
+                                                            {Object.entries(data.optional).sort().map(((option, index) => (
+                                                                option.map((dash, idx) => (
+                                                                    <span key={index}>{dash[1]}</span>
+                                                                ))
+                                                                  
                                                             )))}
                                                         </>
                                                     :null}
