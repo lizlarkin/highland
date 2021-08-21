@@ -15,6 +15,11 @@ import UserContext from "./Context/UserContext";
 import Account from './Pages/Account/Account';
 import Cart from './Pages/Cart/Cart';
 import Category from './Pages/Category/Category';
+import Careers from './Pages/Careers/Careers';
+import Customers from './Pages/Customers/Customers';
+import FAQ from './Pages/FAQ/FAQ';
+import Partners from './Pages/Partners/Partners';
+import Testimonials from './Pages/Testimonials/Testimonials';
 
 function App() {
 
@@ -85,6 +90,11 @@ function App() {
               <Route path="/Pages/Register" component={Register}/>
               <Route path="/Pages/Account" component={Account}/>
               <Route path="/Pages/Cart" component={Cart}/>
+              <Route path="/Pages/Careers" component={Careers}/>
+              <Route path="/Pages/Customers" component={Customers}/>
+              <Route path="/Pages/FAQ" component={FAQ}/>
+              <Route path="/Pages/Partners" component={Partners}/>
+              <Route path="/Pages/Testimonials" component={Testimonials}/>
               <Route path="/Pages/Home" component={Home}/>
           </Switch>
         </UserContext.Provider>

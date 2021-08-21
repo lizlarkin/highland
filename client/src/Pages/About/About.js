@@ -1,5 +1,4 @@
 import React from 'react'
-import CategoryJumbotron from './../../Components/CategoryJumbotron/CategoryJumbotron';
 import htifront from "./img/htifront.jpg";
 import vmeCrate from "./img/vmeCrate.png";
 import smtLine2 from "./img/smtLine2.jpg";
@@ -11,7 +10,6 @@ const About = () => {
 
         backgroundStyles: {
             backgroundRepeat: 'no-repeat',
-            // filter: "blur(1.5px)",
             height: "700px",
         },
         buildingBackground: {
@@ -57,9 +55,6 @@ const About = () => {
 
     return (
         <>
-        {/* <CategoryJumbotron title={pageTitle}/> */}
-
-        {/* <div className="row" style={aboutStyles.blankRow}></div>  */}
 
         <div className="row" style={aboutStyles.backgroundStyles}>
                 <div className="col-md-12" style={aboutStyles.buildingBackground}></div>  

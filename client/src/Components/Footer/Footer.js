@@ -4,6 +4,7 @@ import "./FooterStyles.css"
 import instagram from "./Images/instagram.png"
 import linkedin from "./Images/linkedin.png"
 
+
 const Footer = () => {
     return (
         <footer>
@@ -21,19 +22,19 @@ const Footer = () => {
                         <div className = "col-md-12">
                             <ul className="nav justify-content-center navbar navbar-dark bg-dark">
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Careers</a>
+                                    <Link to="/Pages/Careers" className="nav-link">Careers</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Customers</a>
+                                    <Link to="/Pages/Customers" className="nav-link">Customers</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">FAQs</a>
+                                    <Link to="/Pages/FAQ" className="nav-link">FAQs</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Partners</a>
+                                    <Link to="/Pages/Partners" className="nav-link">Partners</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Testimonials</a>
+                                    <Link to="/Pages/Testimonials" className="nav-link">Testimonials</Link>
                                 </li>
                             </ul>
                         </div>    

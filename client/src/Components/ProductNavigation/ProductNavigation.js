@@ -3,7 +3,7 @@ import './ProductNavigation.css';
 
 const ProductNavigation = () => {
 
-    const [content, setContent] = useState({
+    const [setContent] = useState({
         showOverview: true,
         showSpecifications: false,
         showResources: false,

@@ -1,9 +1,6 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
 
 const ProductOverview = ({ features, description }) => {
-
-    const history = useHistory();
 
     const overviewStyles = {
         marginTop: "10px"

@@ -13,8 +13,8 @@ const ProductCard = ({ props }) => {
         <div className="row">
             {props?
             props.map((product, idx) => (
-                <div className="col-md-4 d-flex align-items-stretch">
-                    <div className="card " key ={idx} style={productCardStyles}>
+                <div className="col-md-4 d-flex align-items-stretch" key ={idx}>
+                    <div className="card " style={productCardStyles}>
                         <img src="..." className="card-img-top" alt="..."/>
                         <div className="card-body">
                             <h5 className="card-title">{product.model} {product.name}</h5>

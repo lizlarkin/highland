@@ -96,7 +96,7 @@ const Cart = () => {
                                                         <>
                                                             {Object.entries(data.optional).sort().map(((option, index) => (
                                                                 option.map((dash, idx) => (
-                                                                    <span key={index}>{dash[1]}</span>
+                                                                    <span index={index} key={idx}>{dash[1]}</span>
                                                                 ))
                                                                   
                                                             )))}
@@ -104,7 +104,7 @@ const Cart = () => {
                                                     :null}
                                                     {": "}
                                                     {data.name}
-                                                    {data.required.length>0?
+                                                    {/* {data.required.length>0?
                                                         <>
                                                         <span>{" with "}</span>
                                                             {Object.entries(data.required[0]).sort().map(((desc, index) => (
@@ -112,14 +112,15 @@ const Cart = () => {
                                                                     {desc[1][0]} 
                                                                     {" "}
                                                                     {desc[0].toLowerCase()} 
-                                                                    {desc.length-index===desc.length?", and ":
-                                                                    desc.length-index>0?", ":
-                                                                    null
+                                                                    {
+                                                                    desc.length-index===desc.length?", and ":
+                                                                    desc.length-index>0?", "
+                                                                    :null
                                                                     } 
                                                                 </span>
                                                             )))}
                                                         </>
-                                                    :null}
+                                                    :null} */}
                                                 </h5>
                                             </div>
                                         </div>
@@ -142,11 +143,30 @@ const Cart = () => {
                                         <div className="row">
                                             <div className="col-md-1"></div>
                                             <div className="col-md-7">
+                                                {data.required.length>0?
+                                                    <>
+                                                    <h6>Product Configuration:</h6>
+                                                    {Object.entries(data.required[0]).sort().map(((config, index) => (
+                                                        config[1]?
+                                                        <div className="input-group mb-3" key={index}>
+                                                            <input type="text" className="form-control" placeholder={config[1][0] +" "+ config[0].toLowerCase()} style={cartStyles.accDesc} disabled/>                                                     
+                                                        </div>
+                                                        :null
+                                                    )))}
+                                                    </>
+                                                :null}
+                                            </div>
+                                            <div className="col-md-4"></div>
+                                        </div>
+
+                                        <div className="row">
+                                            <div className="col-md-1"></div>
+                                            <div className="col-md-7">
                                                 {data.optional.length>0?
                                                     <>
                                                     <h6>Additional Features:</h6>
-                                                    {Object.entries(data.optional[0]).map(((option, index) => (
-                                                        option[1]?
+                                                    {data.optional.map(((option, index) => (
+                                                        option[2]?
                                                         <div className="input-group mb-3" key={index}>
                                                             <input type="text" className="form-control" placeholder={option[0]} style={cartStyles.accDesc} disabled/>                                                     
                                                         </div>
@@ -163,7 +183,7 @@ const Cart = () => {
                                             <div className="col-md-7">
                                                 {data.accessories.length>0?
                                                     <>
-                                                    <h6>Accessories:</h6>
+                                                    <h6>Accessories | Quantity:</h6>
                                                     {Object.entries(data.accessories[0]).map(((accessory, index) => (
                                                         accessory[1][0]>0?
                                                         <div className="input-group mb-3" key={index}>

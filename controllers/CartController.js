@@ -24,8 +24,27 @@ module.exports = {
             const allCart = await Cart.find({ userId: req.user });
             res.json(allCart)
         } catch (error) {
-            console.log(error)
             res.send("error getting cart", error)
+        }
+    },
+    getCartQuantity: async (req, res) => {
+        try {
+            const cartCount = await Cart.aggregate([
+                {
+                $match: {
+                    userId: req.user
+                }
+            },
+                {
+                $group: {
+                    _id: null,
+                    sum: {$sum: "$quantity"}
+                    }
+            }   
+            ]);
+            res.json(cartCount)
+        } catch (error) {
+            res.send(error)
         }
     },
     deleteOneCart: async (req, res) => {

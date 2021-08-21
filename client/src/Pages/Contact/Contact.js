@@ -35,7 +35,7 @@ const Contact = () => {
                         650 Potrero Avenue <br/>
                         San Francisco, CA 94110
                     </h3>
-                    <iframe style={contactStyles.marginTop} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.2284416618477!2d-122.40971458440767!3d37.76124142071063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e36aea97f39%3A0xb673fe2c81d7469a!2s650%20Potrero%20Ave%2C%20San%20Francisco%2C%20CA%2094110!5e0!3m2!1sen!2sus!4v1628270460304!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe style={contactStyles.marginTop} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.2284416618477!2d-122.40971458440767!3d37.76124142071063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e36aea97f39%3A0xb673fe2c81d7469a!2s650%20Potrero%20Ave%2C%20San%20Francisco%2C%20CA%2094110!5e0!3m2!1sen!2sus!4v1628270460304!5m2!1sen!2sus" allowFullScreen="" loading="lazy"></iframe>
                     <h4 style={contactStyles.marginTop}>
                         T: (415) 551-1700 <br/>
                         F: (415) 551-5129

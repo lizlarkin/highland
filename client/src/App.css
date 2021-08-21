@@ -27,6 +27,8 @@ body {
   position: relative;
   margin: 0;
   padding-bottom: 100px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* This keeps space between body and footer */

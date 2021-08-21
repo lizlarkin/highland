@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import highlandLogo from './logo.png';
 import UserContext from "../../Context/UserContext";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 const Navigation = (props) => {
 
@@ -17,12 +18,30 @@ const Navigation = (props) => {
         fontWeight: "bold",
         marginLeft: "40px",
     },
+  }
+
+  const [cartQuantity, setCartQuantity] = useState();
+
+  const getCartQuantity = async () => {
+    try {
+        const quantityAggregate = await axios.get(`/cart/quantity`, {
+          headers: { "x-auth-token": localStorage.getItem("auth-token") }
+      });
+        console.log("AGG HERE!", quantityAggregate.data[0].sum)
+        setCartQuantity(quantityAggregate.data[0].sum)
+    } catch (error) {
+        console.log("error getting cart quantity", error)   
+    }
 }
 
     const goToCategory = (e) => {
       const categorySelected = e.target.title;
       history.push(`/Pages/Category/Category/${categorySelected}`)
     }
+
+    useEffect(() => {
+      getCartQuantity();
+    }, [userData])
 
     return (
         <nav>
@@ -64,7 +83,7 @@ const Navigation = (props) => {
                   {!userData.user ? <Link to="/Pages/Login" className="nav-link active" style={navigationStyles.links}>Login</Link> : <Link to = "/Pages/Login" onClick={props.logout} className="nav-link active" style={navigationStyles.links}>Logout</Link> }
                 </li>
                 <li className="nav-item">
-                  {userData.user ? <Link to="/Pages/Cart" className="nav-link active" style={navigationStyles.links}><i class="fas fa-shopping-cart"></i></Link> : null }
+                  {userData.user ? <Link to="/Pages/Cart" className="nav-link active" style={navigationStyles.links}><i class="fas fa-shopping-cart"></i>{cartQuantity>0?" ("+cartQuantity+")":null}</Link> : null }
                 </li>
               </ul>
               <form className="d-flex">

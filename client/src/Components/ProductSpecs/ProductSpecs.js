@@ -8,8 +8,6 @@ const ProductSpecs = ({ specs }) => {
         }
     }
 
-    console.log("specs from specs pg", specs)
-
     return (
         <div >
             <h3 className="prod-header">Specifications</h3>

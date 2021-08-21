@@ -93,20 +93,16 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
             let childArr = optionalOptions[0][1]
             initialOptions.push([childArr[i][2], childArr[i][1]])    
         }
-        console.log("initialized options", initialOptions)
         setOptions(initialOptions)  
         setSelectedOptions(initialOptions)
-        console.log("options", options)
     }
 
     const handleOptionalOptions = (e) => {
         if (e.target.checked) {
-            options[e.target.id] = [e.target.title, e.target.value]
-            console.log(options)
+            options[e.target.id] = [e.target.title, e.target.value, "true"]
             setSelectedOptions(options)
         } else {
             options[e.target.id] = [e.target.title, e.target.min] 
-            console.log(options)
             setSelectedOptions(options)
         }
     }
@@ -120,7 +116,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
             try {
                 if (cart.quantity < 1) {
                     return alert("Please add quantity")
-                } else if (requiredOptions.length != Object.keys(cart.required).length) {
+                } else if (requiredOptions.length !== Object.keys(cart.required).length) {
                     return alert("Please make all required selections")
                 }
                 else {

@@ -42,7 +42,6 @@ const Product = () => {
     const [productDescription, setProductDescription] = useState();
     const [productSpecs, setProductSpecs] = useState();
     const [productRelatives, setProductRelatives] = useState();
-    // console.log(productData)
 
     useEffect(() => {
         const getProductData = async () => {
@@ -58,7 +57,7 @@ const Product = () => {
                setProductDescription(prodData.data[0].about)
                setProductSpecs(prodData.data[0].specifications)
                setProductRelatives(prodData.data[0].related)
-               console.log("product data: ", prodData);
+            //    console.log("product data: ", prodData);
             } catch (error) {
                 console.log(error.response)
             }
