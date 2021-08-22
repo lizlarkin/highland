@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from "axios";
 import CategoryJumbotron from '../../Components/CategoryJumbotron/CategoryJumbotron';
 import { useHistory } from "react-router-dom";
+import UserContext from "../../Context/UserContext";
 
 const Cart = () => {
 
     const history = useHistory();
+
+    const { userData } = useContext(UserContext);
 
     const cartStyles = {
         cartBtnLg: {
@@ -23,19 +26,43 @@ const Cart = () => {
         }
     }
 
+    let date = new Date();
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+    let newDate =
+      date.getDate() +
+      "-" +
+      monthNames[date.getMonth()] +
+      "-" +
+      date.getFullYear();
+  
+    const [dateNow] = useState(newDate);
+
     const [cartList, setCartList] = useState([]);
-    const [version, setVersion] = useState([]);
+    // const [version, setVersion] = useState([]);
 
     const getAllCart = async () => {
         try {
             const allInCart = await axios.get(`/cart`, {
                 headers: { "x-auth-token": localStorage.getItem("auth-token") }
             });
+            console.log("cart list", allInCart)
             setCartList(allInCart.data)
-            console.log("All In Cart: ", allInCart.data);
-            setVersion(cartList.required)
+            // setVersion(cartList.required)
         } catch (error) {
-            console.log("error getting cart data", error)   
+            console.log(error)   
         }
     }
 
@@ -51,19 +78,59 @@ const Cart = () => {
         }
     }
 
+    // Delete Entire Cart
+    const deleteAll = async () => {
+        try {
+            const removeAll = await axios.delete(`/cart`, {
+                headers: { "x-auth-token": localStorage.getItem("auth-token") }
+            });
+        } catch (error) {
+            console.log("error deleting all", error)
+        }
+    }
+
     // Edit one section of cart
     const editCart = async (e) => {
         const modelToEdit = e.target.name;
         history.push(`/Pages/Product/Product/${modelToEdit}`)
     }
 
+    // Request Quote
+
+    const [quoteList, setQuoteList] = useState()
+
+    const finalizeItems = () => {
+        setQuoteList({
+            date: dateNow,
+            products: [cartList],
+            // userId: userData.user,
+        })
+    };
+
+    const requestQuote = async () => {
+        try {
+            // finalizeItems();
+            const authToken = localStorage.getItem("auth-token");
+            const saveQuote = await axios.post("/quotes", 
+            quoteList,
+            { headers: { "x-auth-token": authToken },
+            });
+            console.log("save quote", saveQuote);
+            history.push("/pages/account");
+            deleteAll();
+        } catch (error) {
+            console.log("error saving quote: ", error)
+        }
+    }
+
     useEffect(() => {
         getAllCart();
+        // finalizeItems();
     }, [])
 
     return (
         <div>
-            <CategoryJumbotron title={"Cart"} text={"Please review items and submit quote request. A member of our sales team will respond shortly."}/>
+            <CategoryJumbotron title={"Cart"} text={"Please review items and submit quote request below."}/>
             
             <div className="row">
 
@@ -104,23 +171,6 @@ const Cart = () => {
                                                     :null}
                                                     {": "}
                                                     {data.name}
-                                                    {/* {data.required.length>0?
-                                                        <>
-                                                        <span>{" with "}</span>
-                                                            {Object.entries(data.required[0]).sort().map(((desc, index) => (
-                                                                <span key={index}>
-                                                                    {desc[1][0]} 
-                                                                    {" "}
-                                                                    {desc[0].toLowerCase()} 
-                                                                    {
-                                                                    desc.length-index===desc.length?", and ":
-                                                                    desc.length-index>0?", "
-                                                                    :null
-                                                                    } 
-                                                                </span>
-                                                            )))}
-                                                        </>
-                                                    :null} */}
                                                 </h5>
                                             </div>
                                         </div>
@@ -218,7 +268,22 @@ const Cart = () => {
                     <div className = "row">
                         <div className="col-md-9"></div>
                         <div className="col-md-3" >
-                            <button type="submit" class="btn btn-danger" style={{width: "100%"}}>Request Quote</button>
+                            <button onClick={() => finalizeItems()} type="submit" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style={{width: "100%"}}>Request Quote</button>
+                            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="staticBackdropLabel">Thank you!</h5>
+                                </div>
+                                <div className="modal-body">
+                                    Your quote request has been received. A member of our sales team will respond shortly. 
+                                </div>
+                                <div className="modal-footer">
+                                    <button onClick={requestQuote} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
                         </div>                    
                     </div>
                     :null}

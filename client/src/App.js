@@ -65,18 +65,6 @@ function App() {
     <div className="App">
       <HashRouter>
 
-        {/* {!userData.user ? 
-        <> 
-        <Link to = "/Pages/Login">Login</Link> 
-        <Link to = "/Pages/Register">Register</Link> 
-        </> 
-        : 
-        <>
-        <Link to = "/Pages/Account">Account</Link>
-        <Link to = "/" onClick={logout}>Logout</Link>
-        </>
-        } */}
-
         <UserContext.Provider value = {{ userData, setUserData }}>
           <Navigation logout={logout}/>
 
@@ -99,7 +87,7 @@ function App() {
           </Switch>
         </UserContext.Provider>
 
-      <Footer />
+        <Footer />
 
       </HashRouter>
     </div>

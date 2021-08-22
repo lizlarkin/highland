@@ -42,30 +42,6 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
     const [selectedRequired, setSelectedRequired] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
 
-    let date = new Date();
-    const monthNames = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec"
-    ];
-    let newDate =
-      date.getDate() +
-      "-" +
-      monthNames[date.getMonth()] +
-      "-" +
-      date.getFullYear();
-  
-    const [dateNow] = useState(newDate);
-
     const cart = {
         model: model,
         name: name,
@@ -73,7 +49,6 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
         required: selectedRequired,
         optional: selectedOptions,
         accessories: selectedAccessories,
-        date: dateNow,
     }
 
     const selectQuantity = (e) => {
@@ -218,9 +193,9 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                                {accessories.length>0?
                                 accessories.map((accessory, idx) => (
                                     <form>
-                                        <div class="input-group mb-3" key={idx}>
-                                            <span class="input-group-text" style={quoteStyles.accessoryDesc} >{accessory[1]} {accessory[2]}</span>
-                                            <input onChange={handleAddAccessories} id={accessory[0]} name={accessory[1]} type="number" min="0" class="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
+                                        <div className="input-group mb-3" key={idx}>
+                                            <span className="input-group-text" style={quoteStyles.accessoryDesc} >{accessory[1]} {accessory[2]}</span>
+                                            <input onChange={handleAddAccessories} id={accessory[0]} name={accessory[1]} type="number" min="0" className="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
                                         </div>
                                     </form>
                                 ))
@@ -235,7 +210,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                 <div className = "row" style={quoteStyles.title}>
                     <div className="col-md-9"></div>
                     <div className="col-md-2" style={quoteStyles.titleBtn}>
-                        <button onClick={addToCart} type="submit" class="btn btn-danger" style={quoteStyles.cartBtn}>Add to Cart</button>
+                        <button onClick={addToCart} type="submit" className="btn btn-danger" style={quoteStyles.cartBtn}>Add to Cart</button>
                     </div>
                     <div className="col-md-1"></div>
                 </div>

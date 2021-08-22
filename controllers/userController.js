@@ -6,7 +6,6 @@ const bcrypt = require("bcryptjs");
 
 module.exports = {
     register: async (req, res) => {
-
         try {
             const {
                 email, 
@@ -113,5 +112,13 @@ module.exports = {
         } catch (error) {
             res.send(error.response)
         }
-    }
+    },
+    
+    // addCartCount: async (req,res) => {
+    //     try {
+
+    //     } catch (error) {
+            
+    //     }
+    // }
 };

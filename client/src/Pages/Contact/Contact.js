@@ -81,8 +81,8 @@ const Contact = () => {
                         </div>
                         <div className="col-md-12">
                             <label for="inputState" className="form-label">Comments</label>
-                            <div class="input-group">
-                                <textarea class="form-control" aria-label="With textarea"></textarea>
+                            <div className="input-group">
+                                <textarea className="form-control" aria-label="With textarea"></textarea>
                             </div>
                         </div>
                         <div className="col-4">

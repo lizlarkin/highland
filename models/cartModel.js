@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
 const cartSchema = new mongoose.Schema({
-    date: {
-        type: String,
-        required: true,
-    },
+    // date: {
+    //     type: String,
+    //     required: true,
+    // },
     model: {
         type: String,
         required: true

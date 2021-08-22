@@ -16,7 +16,7 @@ module.exports = {
             const successSave = await newCart.save();
             res.json(successSave);
         } catch (error) {
-            res.send("error saving cart: ", error)
+            res.send(error)
         }
     },
     getAllCart: async (req, res) => {
@@ -24,7 +24,7 @@ module.exports = {
             const allCart = await Cart.find({ userId: req.user });
             res.json(allCart)
         } catch (error) {
-            res.send("error getting cart", error)
+            res.send(error)
         }
     },
     getCartQuantity: async (req, res) => {
@@ -51,6 +51,14 @@ module.exports = {
         try {
             const removeOne = await Cart.deleteOne({ _id: req.params._id });
             res.json(removeOne);
+        } catch (error) {
+            res.send(error)
+        }
+    },
+    deleteEntireCart: async (req, res) => {
+        try {
+            const removeAll = await Cart.deleteMany({ userId: req.user })
+            res.json(removeAll)
         } catch (error) {
             res.send(error)
         }

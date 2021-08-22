@@ -5,20 +5,21 @@ const quotesSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    model: {
-        type: String,
-        required: true
-    },
-    name: {
-        type: String
-    },
-    quantity: {
-        type: Number,
-        required: true
-    }, 
-    required: [], 
-    optional: [],
-    accessories: [], 
+    products: [],
+    // model: {
+    //     type: String,
+    //     required: true
+    // },
+    // name: {
+    //     type: String
+    // },
+    // quantity: {
+    //     type: Number,
+    //     required: true
+    // }, 
+    // required: [], 
+    // optional: [],
+    // accessories: [], 
     userId: {
         type: String,
         required: true,

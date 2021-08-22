@@ -57,6 +57,9 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         required: false,
     },
+    cartActivity: {
+        type: Number,
+    }
 });
 
 module.exports = User = mongoose.model("user", userSchema);

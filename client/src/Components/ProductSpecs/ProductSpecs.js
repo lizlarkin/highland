@@ -14,7 +14,7 @@ const ProductSpecs = ({ specs }) => {
             
                 <div className="content-container">
 
-                <table class="table table-striped table-hover">
+                <table className="table table-striped table-hover">
                     <tbody>
                         {specs?
                         specs.map((specification, idx) => (

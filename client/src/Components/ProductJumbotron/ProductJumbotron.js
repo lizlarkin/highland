@@ -64,11 +64,11 @@ const ProductJumbotron = ({ props }) => {
                             </div>
                         </div>
                         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
-                            <span><i class="fas fa-chevron-left" aria-hidden="true" style={jumbotronStyles.color}></i></span>
+                            <span><i className="fas fa-chevron-left" aria-hidden="true" style={jumbotronStyles.color}></i></span>
                             <span className="visually-hidden">Previous</span>
                         </button>
                         <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
-                            <span><i class="fas fa-chevron-right" aria-hidden="true" style={jumbotronStyles.color}></i></span>
+                            <span><i className="fas fa-chevron-right" aria-hidden="true" style={jumbotronStyles.color}></i></span>
                             <span className="visually-hidden">Next</span>
                         </button>
                     </div>
