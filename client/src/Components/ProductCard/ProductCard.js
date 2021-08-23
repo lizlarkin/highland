@@ -7,6 +7,7 @@ const ProductCard = ({ props }) => {
 
     const productCardStyles = {
         margin: "20px 20px 0px 20px",
+        width: "100%",
     }
 
     return (

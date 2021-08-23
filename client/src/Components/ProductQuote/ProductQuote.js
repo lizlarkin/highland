@@ -139,6 +139,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                     <div className="col-md-1"></div>
                 </div>
                 
+                {requiredOptions.length>0 || optionalOptions.length>0 || accessories.length>0 ?
                 <div className="row">
 
                     <div className="col-md-1"></div>
@@ -206,6 +207,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
 
                     <div className="col-md-1"></div>
                 </div>
+                : null}
 
                 <div className = "row" style={quoteStyles.title}>
                     <div className="col-md-9"></div>

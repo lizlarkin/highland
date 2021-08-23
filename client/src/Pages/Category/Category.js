@@ -39,8 +39,13 @@ const Category = () => {
     return (
         <div>
             <CategoryJumbotron title={title}/>
-            <div>
-                <ProductCard props={categoryData}/>
+            <div className="row">
+                <div className="col-md-1"></div>
+                <div className="col-md-10">
+                    <ProductCard props={categoryData}/>
+                </div>
+                <div className="col-md-1"></div>
+                
             </div>
         </div>
     )

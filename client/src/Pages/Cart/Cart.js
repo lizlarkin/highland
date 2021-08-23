@@ -220,7 +220,7 @@ const Cart = () => {
                                                         <div className="input-group mb-3" key={index}>
                                                             <input type="text" className="form-control" placeholder={option[0]} style={cartStyles.accDesc} disabled/>                                                     
                                                         </div>
-                                                        :null
+                                                        :"none"
                                                     )))}
                                                     </>
                                                 :null}

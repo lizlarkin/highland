@@ -13,6 +13,11 @@ const QuoteHistory = () => {
         },
         liSpan: {
             fontWeight: "500",
+        },
+        requoteBtn: {
+            float: "right",
+            width: "20%",
+            margin: "0% 2% 2% 0%"
         }
     }
 
@@ -55,7 +60,9 @@ const QuoteHistory = () => {
                     {allQuoteRequests.length>0?
                       allQuoteRequests.map((quote, idx) => (
                             <div key={idx} className="card" style={quoteHistStyles.mainCard}>
-                                <h5 className="card-header">{quote.date}</h5>
+                                <div className="card-header">
+                                    <h5>{quote.date}</h5>
+                                </div>
                                 {quote.products[0].map((item, idx) => (
                                 <div className="card-body">
                                     <div key={idx} className="card mb-3">
@@ -89,14 +96,16 @@ const QuoteHistory = () => {
                                                     <ul className="list-group list-group-horizontal">
                                                         {Object.entries(item.accessories[0]).map((accessory, idx) => (
                                                             <li key={idx} className="list-group-item list-group-item-light" style={quoteHistStyles.quoteLi}><span style={quoteHistStyles.liSpan}>Accessory: </span>
-                                                            {Object.entries(accessory).map((detail,idx) => (
-                                                                detail[1]
-                                                            ))}
+                                                            {
+                                                            accessory[0] + ": " +
+                                                            accessory[1][1] + " " +
+                                                            "(Qty " + accessory[1][0] + ")"}
                                                             </li>
                                                         ))}
                                                     </ul>
                                                     :null}
                                                 </div>
+                                                <button style={quoteHistStyles.requoteBtn} className="btn btn-outline-danger">Quote Again</button>
                                             </div>
                                         </div>
                                     </div>
