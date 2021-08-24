@@ -103,13 +103,11 @@ const Cart = () => {
         setQuoteList({
             date: dateNow,
             products: [cartList],
-            // userId: userData.user,
         })
     };
 
     const requestQuote = async () => {
         try {
-            // finalizeItems();
             const authToken = localStorage.getItem("auth-token");
             const saveQuote = await axios.post("/quotes", 
             quoteList,
@@ -121,11 +119,11 @@ const Cart = () => {
         } catch (error) {
             console.log("error saving quote: ", error)
         }
-    }
+        }
+    
 
     useEffect(() => {
         getAllCart();
-        // finalizeItems();
     }, [])
 
     return (

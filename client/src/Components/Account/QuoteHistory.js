@@ -23,22 +23,40 @@ const QuoteHistory = () => {
 
     const [allQuoteRequests, setAllQuoteRequests] = useState([]);
 
-    const getAllQuotes = async () => {
-        try {
-            const allQuotes = await axios.get(`/quotes`, {
-                headers: { "x-auth-token": localStorage.getItem("auth-token") }
-            });
-            setAllQuoteRequests(allQuotes.data)
-            // console.log("allQuotes", allQuotes.data.length);
-        } catch (error) {
-            console.log("error getting quote history", error)   
-        }
-    }
+    // const getAllQuotes = async () => {
+    //     try {
+    //         const allQuotes = await axios.get(`/quotes`, {
+    //             headers: { "x-auth-token": localStorage.getItem("auth-token") }
+    //         });
+    //         setAllQuoteRequests(allQuotes.data)
+    //         // console.log("allQuotes", allQuotes.data.length);
+    //     } catch (error) {
+    //         console.log("error getting quote history", error)   
+    //     }
+    // }
 
     console.log("Quote history state: ", allQuoteRequests)
 
     useEffect(() => {
-        getAllQuotes();
+        const cancelToken = axios.CancelToken;
+        const source = cancelToken.source();
+
+        (async () => {
+            try {
+                const allQuotes = await axios.get(`/quotes`, {
+                    cancelToken: source.token,
+                    headers: { "x-auth-token": localStorage.getItem("auth-token") }
+                });
+                setAllQuoteRequests(allQuotes.data)
+                // console.log("allQuotes", allQuotes.data.length);
+            } catch (error) {
+                console.log("error getting quote history", error)   
+            }
+        }) ();
+        
+        return () => {
+            source.cancel();
+        }
     }, [])
 
     return (
