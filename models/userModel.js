@@ -1,4 +1,5 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const Quote = require("./quotesModel");
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -57,8 +58,19 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         required: false,
     },
-    cartActivity: {
-        type: Number,
+    confirmed: {
+        type: Boolean,
+        default: false
+    },
+});
+
+userSchema.post("findOneAndDelete", async (user) => {
+    console.log(user)
+    console.log(user._id)
+    try {
+        await Quote.deleteMany({userId: user._id});
+    } catch (error) {
+        console.log(error);
     }
 });
 

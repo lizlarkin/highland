@@ -1,7 +1,10 @@
 require("dotenv").config();
-const User = require("../models/userModel")
+const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const Confirm = require("../models/confirmModel");
+const crypto = require("crypto");
+const nodemailer = require("nodemailer");
 
 
 module.exports = {
@@ -56,7 +59,41 @@ module.exports = {
                     country,
                     optIn
                 });
-    
+
+                // start confirmation code here
+                const confirmationToken = new Confirm({
+                    token: crypto.randomBytes(15).toString("hex"),
+                    userId: newUser._id,
+                });
+
+                // console.log(confirmationToken);
+
+                const transporter = nodemailer.createTransport({
+                    service: "Outlook365",
+                    auth: {
+                        user: "lizlarkin@highlandtechnology.com",
+                        pass: process.env.EPASS,
+                    },
+                });
+
+                const mailOptions = {
+                    from: "lizlarkin@highlandtechnology.com",
+                    to: newUser.email,
+                    subject: "Thank you for registering with Highland Technology.",
+                    text: `Please click link to confirm account: http://localhost:3000/confirm_token/${confirmationToken.token}`,
+                }
+
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log(`Email was sent with: http://localhost:3000/confirm_token/${confirmationToken.token}`);
+                    }
+                });
+
+                const savedToken = await confirmationToken.save();
+                // end confirmation code here
+
                 const savedUser = await newUser.save();
                 res.json(savedUser);
             
@@ -91,7 +128,14 @@ module.exports = {
 
             res.json({
                 token, 
-                user: { id: user._id, firstName: user.firstName, lastName: user.lastName},
+                user: { 
+                    id: user._id, 
+                    firstName: user.firstName, 
+                    lastName: user.lastName, 
+                    organization: user.organization,
+                    phone: user.phone,
+                    email: user.email,
+                    confirmed: user.confirmed},
             });
 
         } catch (error) {
@@ -109,6 +153,15 @@ module.exports = {
                 id: user._id,
             });
 
+        } catch (error) {
+            res.send(error.response)
+        }
+    },
+
+    deleteUser: async (req, res) => {
+        try {
+            const deletedUser = await User.findByIdAndDelete(req.user);
+            res.json(deletedUser);
         } catch (error) {
             res.send(error.response)
         }

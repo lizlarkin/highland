@@ -29,7 +29,7 @@ const Register = () => {
         try {
             const newUser = await axios.post("/users/register", form);
             console.log(newUser);
-            history.push("/Pages/Account")
+            history.push("/Pages/Confirm/Confirm")
         } catch (error) {
             console.log(error.response);
         }

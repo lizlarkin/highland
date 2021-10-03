@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import './Account.css';
+import axios from 'axios';
+import { useHistory } from "react-router-dom";
+import UserContext from "../../Context/UserContext";
 
 const AccountInformation = () => {
+
+    const history = useHistory();
+    const { userData } = useContext(UserContext);
+
+    const deleteUser = async () => {
+        try {
+            await axios.delete("/users", {
+                headers: { "x-auth-token": localStorage.getItem("auth-token") }
+        });
+            history.push("/Pages/Home");
+        } catch (error) {
+            console.log("error deleting user", error)
+        }
+    }
 
     return (
         <div>
@@ -16,6 +33,7 @@ const AccountInformation = () => {
             <div className="row">
                 Form Here
             </div>
+            <button onClick={deleteUser}>Delete Account</button>
             
         </div>
     )

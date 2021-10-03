@@ -8,7 +8,6 @@ const Contact = () => {
 
     const { userData } = useContext(UserContext);
     const history = useHistory();
-    console.log(userData.user.firstName)
 
     const contactStyles={
         center: {
@@ -21,6 +20,25 @@ const Contact = () => {
             marginBottom: "35%",
         },
     }
+
+
+    const [form, setForm] = useState({
+        organization: userData.token===undefined?"":userData.user.organization,
+        first: userData.token===undefined?"":userData.user.firstName,
+        last: userData.token===undefined?"":userData.user.lastName,
+        email: userData.token===undefined?"":userData.user.email,
+        phone: userData.token===undefined?"":userData.user.phone,
+        inquiry: "",
+        comments: "",
+        SN: "",
+        model: "",
+        version: "",
+    })
+
+    const storeInfo = (e) => {
+        setForm({...form, [e.target.name]: e.target.value})
+    }
+
     return (
         <div>
             <CategoryJumbotron 
@@ -50,24 +68,39 @@ const Contact = () => {
                 <div className="col-md-6" style={contactStyles.marginTop}>
                     <form className="row g-3">
                         <div className="col-12">
-                            <label className="form-label">Company<span className="asterisk">*</span></label>
-                            <input type="text" className="form-control" placeholder="Company"/>
+                            <label className="form-label">Organization<span className="asterisk">*</span></label>
+                            {userData.token===undefined?
+                            <input onChange={storeInfo} type="text" className="form-control" placeholder="Organization" name="organization"/>
+                            :<input type="text" className="form-control" placeholder={userData.user.organization} disabled/>
+                            }
                         </div>
                         <div className="col-md-6">
                             <label  className="form-label">First Name<span className="asterisk">*</span></label>
-                            <input type="text" className="form-control"/>
+                            {userData.token===undefined?
+                            <input onChange={storeInfo} type="text" className="form-control" placeholder="First Name" name="first"/>
+                            :<input type="text" className="form-control" placeholder={userData.user.firstName} disabled/>
+                            }
                         </div>
                         <div className="col-md-6">
                             <label  className="form-label">Last Name<span className="asterisk">*</span></label>
-                            <input type="text" className="form-control" />
+                            {userData.token===undefined?
+                            <input onChange={storeInfo} type="text" className="form-control" placeholder="Last Name" name="last"/>
+                            :<input type="text" className="form-control" placeholder={userData.user.lastName} disabled/>
+                            }
                         </div>
                         <div className="col-md-6">
                             <label for="inputEmail4" className="form-label">Email<span className="asterisk">*</span></label>
-                            <input type="email" className="form-control" />
+                            {userData.token===undefined?
+                            <input onChange={storeInfo} type="email" className="form-control" placeholder="Email" name="email"/>
+                            :<input type="email" className="form-control" placeholder={userData.user.email} disabled/>
+                            }
                         </div>
                         <div className="col-md-6">
                             <label for="inputCity" className="form-label">Phone<span className="asterisk">*</span></label>
-                            <input type="text" className="form-control" />
+                            {userData.token===undefined?
+                            <input onChange={storeInfo} type="phone" className="form-control" placeholder="Phone" name="phone"/>
+                            :<input type="phone" className="form-control" placeholder={userData.user.phone} disabled/>
+                            }
                         </div>
                         <div className="col-md-12">
                             <label for="inputState" className="form-label">Subject of Inquiry<span className="asterisk">*</span></label>

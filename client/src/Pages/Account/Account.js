@@ -55,7 +55,7 @@ const Account = () => {
             </div>
 
             {showContent.showHistory && <QuoteHistory />}
-            {showContent.showAccount && <AccountInformation />}
+            {showContent.showAccount && <AccountInformation/>}
                         
         </div>
     )

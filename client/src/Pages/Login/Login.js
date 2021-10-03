@@ -21,18 +21,20 @@ const Login = () => {
         e.preventDefault();
         try {
             const { data } = await axios.post("/users/login", form);
+            // console.log(data.user.confirmed);
             // console.log(data);
+            
+            if (!data.user.confirmed) {
+                history.push("/Pages/Confirm/Confirm")
+            } else {
+                setUserData({
+                    token: data.token,
+                    user: data.user,
+                })
+                localStorage.setItem("auth-token", data.token);
+                history.push("/Pages/Home");
+            };
 
-            setUserData({
-                token: data.token,
-                user: data.user,
-            })
-
-            localStorage.setItem("auth-token", data.token);
-
-            history.push("/Pages/Home");
-
-    
         } catch (error) {
             console.log(error.response);
         }

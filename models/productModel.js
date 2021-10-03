@@ -24,6 +24,14 @@ const productSchema = new mongoose.Schema({
     //     data: Buffer,
     //     contentType: String,
     // }
+    
+    // move the below to data model
+    manDownloads: [],
+    dsDownloads: [],
+    softwareClicks: [],
+    otherDownloads: [],
+    quoteRequests: [], 
+
 });
 
 // module.exports = Product = mongoose.model("product", productSchema);

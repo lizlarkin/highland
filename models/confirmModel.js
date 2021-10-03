@@ -1,17 +1,16 @@
 const mongoose = require("mongoose");
 
-const quotesSchema = new mongoose.Schema({
-    date: {
+const confirmSchema = new mongoose.Schema({
+    token: {
         type: String,
         required: true,
     },
-    products: [],
     userId: {
         type: String,
         required: true,
     },
 });
 
-var Quote = mongoose.model("Quote", quotesSchema);
+var Confirm = mongoose.model("confirm", confirmSchema);
 
-module.exports = Quote
+module.exports = Confirm

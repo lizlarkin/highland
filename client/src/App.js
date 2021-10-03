@@ -20,6 +20,8 @@ import Customers from './Pages/Customers/Customers';
 import FAQ from './Pages/FAQ/FAQ';
 import Partners from './Pages/Partners/Partners';
 import Testimonials from './Pages/Testimonials/Testimonials';
+import Confirm from './Pages/Confirm/Confirm';
+import SuccessConfirm from './Pages/Confirm/SuccessConfirm';
 
 function App() {
 
@@ -39,7 +41,7 @@ function App() {
         {headers: {"x-auth-token": token},
       });
 
-      // console.log("user result:", userRes);
+      console.log("user result:", userRes);
       setUserData({ token, user: userRes.data })
 
       } catch (error) {
@@ -76,6 +78,8 @@ function App() {
               <Route path="/Pages/Contact" component={Contact}/>
               <Route path="/Pages/Login" component={Login}/>
               <Route path="/Pages/Register" component={Register}/>
+              <Route path="/Pages/Confirm" component={Confirm}/>
+              <Route path="/confirm_token/:token" component={SuccessConfirm}/>
               <Route path="/Pages/Account" component={Account}/>
               <Route path="/Pages/Cart" component={Cart}/>
               <Route path="/Pages/Careers" component={Careers}/>

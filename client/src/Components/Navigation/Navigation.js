@@ -41,7 +41,7 @@ const Navigation = (props) => {
 
     useEffect(() => {
       getCartQuantity();
-    }, [userData])
+    }, [userData.user])
 
     return (
         <nav>

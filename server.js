@@ -18,6 +18,7 @@ app.use("/users", require("./routes/userRoutes"));
 app.use("/quotes", require("./routes/quoteRoutes"));
 app.use("/cart", require("./routes/cartRoutes"));
 app.use("/products", require("./routes/productRoutes"));
+app.use("/register", require("./routes/confirmRoutes"));
 
 
 app.listen(PORT, () => {

@@ -68,6 +68,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      optionsRequired: [
+        ["Connector Type",[[null, "ST"], ["1", "FC"]]],    
+        ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"]]],
+      ],
       },
 
       // ****************************** J724 Data ******************************
@@ -128,10 +132,9 @@ let productSeed = [
         ["PACKAGING", ['3.3" (L) x 2.1" (W) x 0.9" (H) extruded anodized aluminum enclosure']],
       ],
       optionsRequired: [
-        ["Connector Type",[["0", "ST"], ["1", "FC"]]],    
+        ["Connector Type",[[null, "ST"], ["1", "FC"]]],    
         ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
       ],
-      optionsOptional: [],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 included with purchase)"],
         ["J14-1", "International plug adapter set for J12", "(1 included with purchase)"],
@@ -276,7 +279,6 @@ let productSeed = [
           ["WARRANTY", ["2 years limited"]],
           ["OPTIONS", ["Rear-panel isolated HV outputs", "Frames: per-trigger delay/width lists", "Trains: multiple channel outputs per trigger", "OCXO timebase", "Rackmount adapter"]],
         ],
-        optionsRequired: [],
         optionsOptional: [
               ["Advanced Features", [["2", "1", "advanced pulse train/frame generation"], ["2", "1", "50V isolated high-voltage output"],["2", "1", "high stability ovenized oscillator"]]],
         ],
@@ -327,6 +329,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      optionsRequired: [
+        ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
+      ],
       },
 
       // ****************************** P900 Data ******************************
@@ -543,6 +548,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      optionsRequired: [
+        ["Connector Outputs",[[null, "dual RS422/485"], ["1", "dual LVDS"]]],    
+        ["Wavelength", [["3", "1310 nm"], ["5", "1550 nm"]]],
+      ],
       },
 
       // ****************************** T750 Data ******************************
@@ -628,7 +637,7 @@ let productSeed = [
       related: [],
       specifications: [],
       optionsOptional: [
-            ["Advanced Features", [["21", "1", "conformal coating"], ]],
+            ["Advanced Features", [["21", "1", "Conformal coating"], ]],
       ],
       },
 
@@ -643,7 +652,7 @@ let productSeed = [
       related: [],
       specifications: [],
       optionsOptional: [
-        ["Advanced Features", [["21", "1", "conformal coating"], ]],
+        ["Advanced Features", [["21", "1", "Conformal coating"], ]],
       ],
       },
 
@@ -670,7 +679,7 @@ let productSeed = [
       related: [],
       specifications: [],
       optionsOptional: [
-        ["Advanced Features", [["11", "1", "conformal coating"], ]],
+        ["Advanced Features", [["11", "1", "Conformal coating"], ]],
       ],
       },
 
@@ -699,6 +708,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      optionsOptional: [
+        ["Advanced Features", [["2", "1", "Built-in self-test (BIST)"], ["1", null, "Conformal coating"]]],
+  ],
       },
 
       // ****************************** V250 Data ******************************
@@ -723,6 +735,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      optionsRequired: [
+        ["Configuration", [["1", "5V nominal input threshold"], ["2", "24V nominal input threshold"], ["12", "24V nominal input threshold and built-in self-test (BIST)"]]],
+      ],
       },
 
       // ****************************** V340 Data ******************************
@@ -735,6 +750,12 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      optionsRequired: [
+        ["Software Switchable Transformers", [["1", "none"], ["2", "1:1 ratio"], ["3", "5:1 ratio"]]],
+      ],
+      optionsOptional: [
+        ["Advanced Features", [["1", "0", "Built-in self-test (BIST)"]]],
+      ],
       },
 
       // ****************************** V344 Data ******************************
@@ -903,6 +924,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      optionsRequired: [
+        ["Plugin Transformers", [["1", "1:1 ratio"], ["4", "3.7:1 ratio"], ["6", "5.3:1 ratio"]]],
+      ],
       },
 
       // ****************************** V550 Data ******************************
@@ -926,6 +950,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      optionsRequired: [
+        ["Inputs", [["1", "differential ECL"], ["2", "optical"]]],
+      ],
       },
 
       // ****************************** V680 Data ******************************
@@ -938,6 +965,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      optionsRequired: [
+        ["Connector Type", [["1", "SMB"], ["2", "LEMO"]]],
+      ],
       },
 
       // ****************************** V720 Data ******************************
@@ -950,6 +980,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      optionsRequired: [
+        ["Connector Type",[[null, "ST"], ["1", "FC"]]],    
+        ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
+      ],
       },
 
       // ****************************** V730 Data ******************************
@@ -962,6 +996,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      optionsRequired: [
+        ["Connector Type",[[null, "ST"], ["1", "FC"]]],    
+        ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
+      ],
       },
 
       // ****************************** V860 Data ******************************
