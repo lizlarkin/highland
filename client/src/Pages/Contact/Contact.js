@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom"; 
 import UserContext from "../../Context/UserContext";
+import { DateContext } from "../../Context/DateContext";
 import axios from "axios";
 import CategoryJumbotron from '../../Components/CategoryJumbotron/CategoryJumbotron';
 
 const Contact = () => {
 
     const { userData } = useContext(UserContext);
-    const history = useHistory();
+    const { dateNow } = useContext(DateContext);
 
     const contactStyles={
         center: {
@@ -21,23 +21,62 @@ const Contact = () => {
         },
     }
 
-
     const [form, setForm] = useState({
-        organization: userData.token===undefined?"":userData.user.organization,
-        first: userData.token===undefined?"":userData.user.firstName,
-        last: userData.token===undefined?"":userData.user.lastName,
-        email: userData.token===undefined?"":userData.user.email,
-        phone: userData.token===undefined?"":userData.user.phone,
-        inquiry: "",
+        date: dateNow,
+        subject: "",
+        organization: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
         comments: "",
-        SN: "",
+        serialNum: "",
         model: "",
         version: "",
     })
 
-    const storeInfo = (e) => {
+    const storeInputs = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
     }
+
+    const storeInquiry = (e) => {
+        const typeOfInquiry = e.target.value;
+        setForm({...form, subject: typeOfInquiry})
+    }
+
+    const saveContact = async (e) => {
+        e.preventDefault();
+        if (form.subject==="Choose Topic" || form.subject==="") {
+            alert("Please select a topic.")
+        } else if (form.organization==="" || form.firstName==="" || form.lastName==="" || form.email==="" || form.phone==="") {
+            alert("Please fill in all fields.")
+        } else {
+        try {
+            // const authToken = localStorage.getItem("auth-token");
+            const saveContact = await axios.post("/contact", 
+            form, 
+            // { headers: { "x-auth-token": authToken },}
+          ); 
+           console.log("save contact", saveContact) 
+        } catch (error) {
+        console.log("error saving contact: ", error)
+            }   
+        }
+    }
+
+    const clearFields = () => {
+        alert('make this clear form fields')
+    }
+
+    useEffect(() => {
+        setForm({
+            organization: userData.token===undefined?"":userData.user.organization,
+            firstName: userData.token===undefined?"":userData.user.firstName,
+            lastName: userData.token===undefined?"":userData.user.lastName,
+            email: userData.token===undefined?"":userData.user.email,
+            phone: userData.token===undefined?"":userData.user.phone,
+        })
+    }, [userData]) 
 
     return (
         <div>
@@ -70,56 +109,88 @@ const Contact = () => {
                         <div className="col-12">
                             <label className="form-label">Organization<span className="asterisk">*</span></label>
                             {userData.token===undefined?
-                            <input onChange={storeInfo} type="text" className="form-control" placeholder="Organization" name="organization"/>
+                            <input onChange={storeInputs} type="text" className="form-control" placeholder="Organization" name="organization"/>
                             :<input type="text" className="form-control" placeholder={userData.user.organization} disabled/>
                             }
                         </div>
                         <div className="col-md-6">
                             <label  className="form-label">First Name<span className="asterisk">*</span></label>
                             {userData.token===undefined?
-                            <input onChange={storeInfo} type="text" className="form-control" placeholder="First Name" name="first"/>
+                            <input onChange={storeInputs} type="text" className="form-control" placeholder="First Name" name="firstName"/>
                             :<input type="text" className="form-control" placeholder={userData.user.firstName} disabled/>
                             }
                         </div>
                         <div className="col-md-6">
                             <label  className="form-label">Last Name<span className="asterisk">*</span></label>
                             {userData.token===undefined?
-                            <input onChange={storeInfo} type="text" className="form-control" placeholder="Last Name" name="last"/>
+                            <input onChange={storeInputs} type="text" className="form-control" placeholder="Last Name" name="lastName"/>
                             :<input type="text" className="form-control" placeholder={userData.user.lastName} disabled/>
                             }
                         </div>
                         <div className="col-md-6">
                             <label for="inputEmail4" className="form-label">Email<span className="asterisk">*</span></label>
                             {userData.token===undefined?
-                            <input onChange={storeInfo} type="email" className="form-control" placeholder="Email" name="email"/>
+                            <input onChange={storeInputs} type="email" className="form-control" placeholder="Email" name="email"/>
                             :<input type="email" className="form-control" placeholder={userData.user.email} disabled/>
                             }
                         </div>
                         <div className="col-md-6">
                             <label for="inputCity" className="form-label">Phone<span className="asterisk">*</span></label>
                             {userData.token===undefined?
-                            <input onChange={storeInfo} type="phone" className="form-control" placeholder="Phone" name="phone"/>
+                            <input onChange={storeInputs} type="phone" className="form-control" placeholder="Phone" name="phone"/>
                             :<input type="phone" className="form-control" placeholder={userData.user.phone} disabled/>
                             }
                         </div>
-                        <div className="col-md-12">
+                        <div className="col-md-12">                           
                             <label for="inputState" className="form-label">Subject of Inquiry<span className="asterisk">*</span></label>
-                            <select id="inputState" className="form-select">
-                            <option selected>Choose...</option>
+                            <select onChange={storeInquiry} id="inputState" className="form-select">
+                            <option selected>Choose Topic</option>
                             <option>Technical Inquiry</option>
                             <option>Sales Inquiry</option>
                             <option>RMA Request</option>
                             <option>Other</option>
                             </select>
                         </div>
+                        {form.subject==="RMA Request"?
+                        <div className="row">
+                            <p style={contactStyles.marginTop}>Please provide as much information as possible about unit pending return:</p>
+                            <div className="col-md-4">
+                                <label  className="form-label">Serial Number</label>
+                                <input onChange={storeInputs} type="text" className="form-control" placeholder="1234" name="serialNum"/>
+                            </div>
+                            <div className="col-md-4">
+                                <label  className="form-label">Model</label>
+                                <input onChange={storeInputs} type="text" className="form-control" placeholder="T560" name="model"/>
+                            </div>
+                            <div className="col-md-4">
+                                <label  className="form-label">Version</label>
+                                <input onChange={storeInputs} type="text" className="form-control" placeholder="-2" name="version"/>
+                            </div>
+                        </div>
+                        :null}
                         <div className="col-md-12">
                             <label for="inputState" className="form-label">Comments</label>
                             <div className="input-group">
-                                <textarea className="form-control" aria-label="With textarea"></textarea>
+                                <textarea onChange={storeInputs} className="form-control" aria-label="With textarea" name="comments"></textarea>
                             </div>
                         </div>
                         <div className="col-4">
-                            <button type="submit" className="btn btn-outline-danger">Submit</button>
+                            <button type="submit" className="btn btn-outline-danger" onClick={saveContact}>Submit</button>
+                            {/* <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div className="modal-dialog">
+                                    <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="staticBackdropLabel">Thank you!</h5>
+                                    </div>
+                                    <div className="modal-body">
+                                        Your {form.subject} request has been received. A member of our team will respond shortly. 
+                                    </div>
+                                    <div className="modal-footer">
+                                        <button onClick={clearFields} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div> */}
                         </div>
                     </form>
                 </div>

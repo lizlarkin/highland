@@ -1,5 +1,7 @@
 import React from 'react';
 
+import background from "./img/background3.jpg";
+
 const CategoryJumbotron = ({title, text}) => {
 
     const jumbotronStyles = {
@@ -7,7 +9,10 @@ const CategoryJumbotron = ({title, text}) => {
             height: "300px",
             border: "1px solid lightgray",
             marginTop: "2%",
-            marginBottom: "2%"
+            marginBottom: "2%",
+            backgroundImage: `url(${background})`,
+            color: "white",
+            fontWeight: "bold",
         },
         heading: {
             textAlign: "center",

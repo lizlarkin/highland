@@ -3,12 +3,14 @@ import axios from "axios";
 import CategoryJumbotron from '../../Components/CategoryJumbotron/CategoryJumbotron';
 import { useHistory } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
+import { DateContext } from "../../Context/DateContext";
 
 const Cart = () => {
 
     const history = useHistory();
 
     const { userData } = useContext(UserContext);
+    const { dateNow } = useContext(DateContext);
 
     const cartStyles = {
         cartBtnLg: {
@@ -25,30 +27,6 @@ const Cart = () => {
             width: "75%"
         }
     }
-
-    let date = new Date();
-    const monthNames = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec"
-    ];
-    let newDate =
-      date.getDate() +
-      "-" +
-      monthNames[date.getMonth()] +
-      "-" +
-      date.getFullYear();
-  
-    const [dateNow] = useState(newDate);
 
     const [cartList, setCartList] = useState([]);
     // const [version, setVersion] = useState([]);

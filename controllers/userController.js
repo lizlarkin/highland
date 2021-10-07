@@ -151,6 +151,9 @@ module.exports = {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 id: user._id,
+                organization: user.organization,
+                email: user.email,
+                phone: user.phone,
             });
 
         } catch (error) {
