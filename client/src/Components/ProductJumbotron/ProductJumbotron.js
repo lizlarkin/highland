@@ -2,6 +2,7 @@ import React from 'react';
 import p500Test from '../../Pages/Product/Images/p500Test.png';
 import p500Rear from '../../Pages/Product/Images/p500Rear.png';
 import V120 from '../../Pages/Product/Images/V120.png';
+import T564 from '../../Pages/Product/Images/T564_Digital_Delay_Generator.png';
 
 const ProductJumbotron = ({ props }) => {
 
@@ -57,6 +58,13 @@ const ProductJumbotron = ({ props }) => {
                             </div>
                             <div className="carousel-item">
                             <img src={V120} className="d-block w-100" alt="..."/>
+                            {/* <div className="carousel-caption d-none d-md-block">
+                                <h5 style={jumbotronStyles.color}>Third slide label</h5>
+                                <p style={jumbotronStyles.color}>Some representative placeholder content for the third slide.</p>
+                            </div> */}
+                            </div>
+                            <div className="carousel-item">
+                            <img src={T564} className="d-block w-100" alt="..."/>
                             {/* <div className="carousel-caption d-none d-md-block">
                                 <h5 style={jumbotronStyles.color}>Third slide label</h5>
                                 <p style={jumbotronStyles.color}>Some representative placeholder content for the third slide.</p>

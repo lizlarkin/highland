@@ -12,7 +12,7 @@ const Products = () => {
 
     const productStyles = {
         textAlign: "center",
-        minHeight: "675px",
+        minHeight: "700px",
         padding: "2%",
         marginBottom: "3%",
         btnToCat: {
@@ -21,7 +21,7 @@ const Products = () => {
             marginRight: "auto"
         },
         image: {
-            width: "60%",
+            width: "50%",
             marginLeft: "auto",
             marginRight: "auto",
             marginTop: "3%",
@@ -71,17 +71,17 @@ const Products = () => {
             <div className="row">
                 <div className="col-md-1"></div>
                 <div className="col-md-5">
-                    <div className="card border-primary mb-3" style={productStyles}>
-                    <h3 className="card-title alert alert-primary">Waveform Generators</h3>
-                    <img src={WaveformGenerator} className="card-img-top" alt="Waveform Generator" style={productStyles.image}/>
+                    <div className="card" style={productStyles}>
+                    <h3 className="card-title alert alert-primary">Photonics</h3>
+                    <img src="..." className="card-img-top" alt="..."/>
                     <div className="card-body d-flex flex-column">
-                        <p className="card-text">Highland offers waveform generators across a wide range of forms and performance. From simple 4 channel function generators to our flagship arbitrary waveform generators with interchannel modulation, system mastering capability, and unlimited synchronization capability, all of our waveform generators are designed to allow synchronous signal generation for easy integration into end systems.</p>
-                        <button onClick={goToPage} className = "btn btn-outline-primary mt-auto" style={productStyles.btnToCat} name="WFG">See All Waveform Generator Products</button>
+                        <p className="card-text">Precision fiberoptic and free-space interfaces provide high-speed, low-jitter and low noise signal conversion, and transport of analog and digital signals.</p>
+                        <button onClick={goToPage} className = "btn btn-outline-primary mt-auto" style={productStyles.btnToCat} name="PHO">See All Photonics Products</button>
                     </div>
                     </div>
                 </div>
                 <div className="col-md-5">
-                    <div className="card border-primary mb-3" style={productStyles}>
+                    <div className="card" style={productStyles}>
                     <h3 className="card-title alert alert-primary">Laser Drivers &amp; Controllers</h3>
                     <img src="..." className="card-img-top" alt="..."/>
                     <div className="card-body d-flex flex-column">
@@ -96,17 +96,17 @@ const Products = () => {
             <div className="row">
                 <div className="col-md-1"></div>
                 <div className="col-md-5">
-                    <div className="card border-dark mb-3" style={productStyles}>
-                    <h3 className="card-title alert alert-primary">Photonics</h3>
-                    <img src="..." className="card-img-top" alt="..."/>
+                    <div className="card" style={productStyles}>
+                    <h3 className="card-title alert alert-primary">Waveform Generators</h3>
+                    <img src={WaveformGenerator} className="card-img-top" alt="Waveform Generator" style={productStyles.image}/>
                     <div className="card-body d-flex flex-column">
-                        <p className="card-text">Precision fiberoptic and free-space interfaces provide high-speed, low-jitter and low noise signal conversion, and transport of analog and digital signals.</p>
-                        <button onClick={goToPage} className = "btn btn-outline-primary mt-auto" style={productStyles.btnToCat} name="PHO">See All Photonics Products</button>
+                        <p className="card-text">Highland offers waveform generators across a wide range of forms and performance. From simple 4 channel function generators to our flagship arbitrary waveform generators with interchannel modulation, system mastering capability, and unlimited synchronization capability, all of our waveform generators are designed to allow synchronous signal generation for easy integration into end systems.</p>
+                        <button onClick={goToPage} className = "btn btn-outline-primary mt-auto" style={productStyles.btnToCat} name="WFG">See All Waveform Generator Products</button>
                     </div>
                     </div>
                 </div>
                 <div className="col-md-5">
-                    <div className="card border-dark mb-3" style={productStyles}>
+                    <div className="card" style={productStyles}>
                     <h3 className="card-title alert alert-primary">Measurement &amp; Simulation</h3>
                     <img src={MeasurementSimulation} className="card-img-top" alt="Thermocouple Simulator" style={productStyles.image}/>
                     <div className="card-body d-flex flex-column">
