@@ -4,6 +4,15 @@ import { DateContext } from "../../Context/DateContext";
 import axios from "axios";
 import CategoryJumbotron from '../../Components/CategoryJumbotron/CategoryJumbotron';
 
+
+// TO DO:
+//     (1) Clear fields after submit (except logged in fields)
+//     (2) Send email to sales 
+//     (3) Send email confirmation to client with a copy of request
+//     (4) better Map
+//     (5) any form validation?
+//     (6) keep contact history in account section
+
 const Contact = () => {
 
     const { userData } = useContext(UserContext);
@@ -19,6 +28,10 @@ const Contact = () => {
         marginBottom: {
             marginBottom: "35%",
         },
+        submitBtn: {
+            marginTop: "5%",
+            width: "60%"
+        }
     }
 
     const [form, setForm] = useState({
@@ -65,11 +78,12 @@ const Contact = () => {
     }
 
     const clearFields = () => {
-        alert('make this clear form fields')
+        // document.querySelector(".form-control").value = "";
     }
 
     useEffect(() => {
         setForm({
+            date: dateNow,
             organization: userData.token===undefined?"":userData.user.organization,
             firstName: userData.token===undefined?"":userData.user.firstName,
             lastName: userData.token===undefined?"":userData.user.lastName,
@@ -82,7 +96,7 @@ const Contact = () => {
         <div>
             <CategoryJumbotron 
             title={"Contact Us"}
-            text={"TBD content here"}/>
+            />
 
             <div className="row">
                 <div className="col-md-1"></div>
@@ -174,23 +188,27 @@ const Contact = () => {
                                 <textarea onChange={storeInputs} className="form-control" aria-label="With textarea" name="comments"></textarea>
                             </div>
                         </div>
-                        <div className="col-4">
-                            <button type="submit" className="btn btn-outline-danger" onClick={saveContact}>Submit</button>
-                            {/* <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div className="modal-dialog">
-                                    <div className="modal-content">
-                                    <div className="modal-header">
-                                        <h5 className="modal-title" id="staticBackdropLabel">Thank you!</h5>
-                                    </div>
-                                    <div className="modal-body">
-                                        Your {form.subject} request has been received. A member of our team will respond shortly. 
-                                    </div>
-                                    <div className="modal-footer">
-                                        <button onClick={clearFields} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    </div>
+
+                        <div className="row">
+                            <div className="col-md-3">
+                                <button type="submit" className="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={saveContact} style={contactStyles.submitBtn}>Submit</button>
+                                <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div className="modal-dialog">
+                                        <div className="modal-content">
+                                        <div className="modal-header">
+                                            <h5 className="modal-title" id="staticBackdropLabel">Thank you!</h5>
+                                        </div>
+                                        <div className="modal-body">
+                                            Your {form.subject==="Other"?"request":form.subject} has been received. A member of our team will respond shortly. 
+                                        </div>
+                                        <div className="modal-footer">
+                                            <button onClick={clearFields} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div> */}
+                            </div>
+                            <div className="col-md-9"></div>
                         </div>
                     </form>
                 </div>
