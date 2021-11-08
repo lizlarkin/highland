@@ -1,5 +1,5 @@
 import './App.css';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useEffect, useState, useMemo } from 'react';
 import axios from "axios";
 import Navigation from './Components/Navigation/Navigation';
@@ -95,7 +95,7 @@ function App() {
 
   return (
     <div className="App">
-      <HashRouter>
+      <BrowserRouter>
 
         <UserContext.Provider value = {{ userData, setUserData }}>
           <DateContext.Provider value={dateValue}>
@@ -125,7 +125,7 @@ function App() {
 
         <Footer />
 
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }
