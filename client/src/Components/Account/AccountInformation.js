@@ -14,7 +14,7 @@ const AccountInformation = () => {
             await axios.delete("/users", {
                 headers: { "x-auth-token": localStorage.getItem("auth-token") }
         });
-            history.push("/Pages/Home");
+            history.push("/Home");
         } catch (error) {
             console.log("error deleting user", error)
         }

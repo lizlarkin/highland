@@ -66,8 +66,9 @@ module.exports = {
                     userId: newUser._id,
                 });
 
-                // console.log(confirmationToken);
+                console.log("confirm token from user controller", confirmationToken);
 
+                // Email From
                 const transporter = nodemailer.createTransport({
                     service: "Outlook365",
                     auth: {
@@ -76,6 +77,7 @@ module.exports = {
                     },
                 });
 
+                // Email To
                 const mailOptions = {
                     from: "lizlarkin@highlandtechnology.com",
                     to: newUser.email,
@@ -91,7 +93,11 @@ module.exports = {
                     }
                 });
 
-                const savedToken = await confirmationToken.save();
+                // when link is clicked, grab token (req.query)/parameter
+                // use parameter to make request back to backend
+                // set confirmation to true, send back success, redirect to login
+
+                await confirmationToken.save();
                 // end confirmation code here
 
                 const savedUser = await newUser.save();

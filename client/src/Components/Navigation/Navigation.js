@@ -36,7 +36,7 @@ const Navigation = (props) => {
 
     const goToCategory = (e) => {
       const categorySelected = e.target.title;
-      history.push(`/Pages/Category/Category/${categorySelected}`)
+      history.push(`/Category/${categorySelected}`)
     }
 
     useEffect(() => {
@@ -47,7 +47,7 @@ const Navigation = (props) => {
         <nav>
             <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
                 <div className="container-fluid" >
-                    <Link to="/Pages/Home" className="navbar-brand">
+                    <Link to="/Home" className="navbar-brand">
                         <img src={highlandLogo} style={navigationStyles.logo} alt="Highland Logo"/>
                     </Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,23 +67,23 @@ const Navigation = (props) => {
                     <li onClick={goToCategory} title={"OEM"} className="dropdown-item">OEM/Embedded</li>
                     <li onClick={goToCategory} title={"LEG"} className="dropdown-item">Legacy</li>
                     <li><hr className="dropdown-divider"/></li>
-                    <li><Link to="/Pages/Category/Products" className="dropdown-item">All Products</Link></li>
+                    <li><Link to="/Products" className="dropdown-item">All Products</Link></li>
                   </ul>
                 </li>
                 <li className="nav-item">
-                  <Link to="/Pages/About" className="nav-link active" style={navigationStyles.links}>About</Link>
+                  <Link to="/About" className="nav-link active" style={navigationStyles.links}>About</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/Pages/Contact" className="nav-link active" style={navigationStyles.links}>Contact</Link>
+                  <Link to="/Contact" className="nav-link active" style={navigationStyles.links}>Contact</Link>
                 </li>
                 <li className="nav-item">
-                  {userData.user ? <Link to="/Pages/Account" className="nav-link active" style={navigationStyles.links}>Account</Link> : <Link to = "/Pages/Register" className="nav-link active" style={navigationStyles.links}>Register</Link> }
+                  {userData.user ? <Link to="/Account" className="nav-link active" style={navigationStyles.links}>Account</Link> : <Link to = "/Register" className="nav-link active" style={navigationStyles.links}>Register</Link> }
                 </li>
                 <li className="nav-item">
-                  {!userData.user ? <Link to="/Pages/Login" className="nav-link active" style={navigationStyles.links}>Login</Link> : <Link to = "/Pages/Login" onClick={props.logout} className="nav-link active" style={navigationStyles.links}>Logout</Link> }
+                  {!userData.user ? <Link to="/Login" className="nav-link active" style={navigationStyles.links}>Login</Link> : <Link to = "/Login" onClick={props.logout} className="nav-link active" style={navigationStyles.links}>Logout</Link> }
                 </li>
                 <li className="nav-item">
-                  {userData.user ? <Link to="/Pages/Cart" className="nav-link active" style={navigationStyles.links}><i className="fas fa-shopping-cart"></i>{cartQuantity>0?" ("+cartQuantity+")":null}</Link> : null }
+                  {userData.user ? <Link to="/Cart" className="nav-link active" style={navigationStyles.links}><i className="fas fa-shopping-cart"></i>{cartQuantity>0?" ("+cartQuantity+")":null}</Link> : null }
                 </li>
               </ul>
               <form className="d-flex">

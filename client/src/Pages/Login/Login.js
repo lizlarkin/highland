@@ -15,7 +15,7 @@ const Login = () => {
         setForm({...form, [e.target.name]: e.target.value});
     }
 
-    // console.log(userData)
+    console.log(userData)
 
     const submitLogin = async (e) => {
         e.preventDefault();
@@ -31,6 +31,7 @@ const Login = () => {
                     token: data.token,
                     user: data.user,
                 })
+                
                 localStorage.setItem("auth-token", data.token);
                 history.push("/Pages/Home");
             };

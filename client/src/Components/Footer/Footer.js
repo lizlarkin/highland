@@ -22,19 +22,19 @@ const Footer = () => {
                         <div className = "col-md-12">
                             <ul className="nav justify-content-center navbar navbar-dark bg-dark">
                                 <li className="nav-item">
-                                    <Link to="/Pages/Careers" className="nav-link">Careers</Link>
+                                    <Link to="/Careers" className="nav-link">Careers</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/Pages/Customers" className="nav-link">Customers</Link>
+                                    <Link to="/Customers" className="nav-link">Customers</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/Pages/FAQ" className="nav-link">FAQs</Link>
+                                    <Link to="/FAQ" className="nav-link">FAQs</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/Pages/Partners" className="nav-link">Partners</Link>
+                                    <Link to="/Partners" className="nav-link">Partners</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/Pages/Testimonials" className="nav-link">Testimonials</Link>
+                                    <Link to="/Testimonials" className="nav-link">Testimonials</Link>
                                 </li>
                             </ul>
                         </div>    

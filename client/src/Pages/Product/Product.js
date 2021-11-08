@@ -16,7 +16,9 @@ import TechnicalContact from './../../Components/ProductContact/TechnicalContact
 const Product = () => {
 
     const pathname = window.location.href.split("/");
-    const model = pathname[7];
+    const model = pathname[5];
+
+    console.log("HERE", model)
 
     const [content, setContent] = useState({
         showOverview: true,

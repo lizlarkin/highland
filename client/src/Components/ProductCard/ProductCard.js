@@ -31,7 +31,7 @@ const ProductCard = ({ props }) => {
                         <img src={VME4} className="card-img-top" alt={product.description}/>
                         <div className="card-body d-flex flex-column">
                             <p className="card-text">{product.description}</p>
-                            <button onClick={() => history.push(`/Pages/Product/Product/${product.model}`)} 
+                            <button onClick={() => history.push(`/Product/${product.model}`)} 
                                     className="btn btn-outline-primary mt-auto"
                                     style={productCardStyles.productBtn}>
                                     More {product.model} Information

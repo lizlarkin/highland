@@ -102,23 +102,23 @@ function App() {
             <Navigation logout={logout}/>
 
             <Switch>
-                <Route path="/Pages/Category/Category" component={Category}/>
-                <Route path="/Pages/Category/Products" component={Products}/>
-                <Route path="/Pages/Product/Product" component={Product}/>
-                <Route path="/Pages/About" component={About}/>
-                <Route path="/Pages/Contact" component={Contact}/>
-                <Route path="/Pages/Login" component={Login}/>
-                <Route path="/Pages/Register" component={Register}/>
-                <Route path="/Pages/Confirm" component={Confirm}/>
-                <Route path="/confirm_token/:token" component={SuccessConfirm}/>
-                <Route path="/Pages/Account" component={Account}/>
-                <Route path="/Pages/Cart" component={Cart}/>
-                <Route path="/Pages/Careers" component={Careers}/>
-                <Route path="/Pages/Customers" component={Customers}/>
-                <Route path="/Pages/FAQ" component={FAQ}/>
-                <Route path="/Pages/Partners" component={Partners}/>
-                <Route path="/Pages/Testimonials" component={Testimonials}/>
-                <Route path="/Pages/Home" component={Home}/>
+                <Route path="/Category" component={Category}/>
+                <Route path="/Products" component={Products}/>
+                <Route path="/Product" component={Product}/>
+                <Route path="/About" component={About}/>
+                <Route path="/Contact" component={Contact}/>
+                <Route path="/Login" component={Login}/>
+                <Route path="/Register" component={Register}/>
+                <Route path="/Confirm" component={Confirm}/>
+                <Route path="/confirm_token/:token" component={SuccessConfirm}/>  
+                <Route path="/Account" component={Account}/>
+                <Route path="/Cart" component={Cart}/>
+                <Route path="/Careers" component={Careers}/>
+                <Route path="/Customers" component={Customers}/>
+                <Route path="/FAQ" component={FAQ}/>
+                <Route path="/Partners" component={Partners}/>
+                <Route path="/Testimonials" component={Testimonials}/>
+                <Route path="/Home" component={Home}/>
             </Switch>
           </DateContext.Provider>
         </UserContext.Provider>

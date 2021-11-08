@@ -5,7 +5,8 @@ import CategoryJumbotron from "../../Components/CategoryJumbotron/CategoryJumbot
 
 const Category = () => {
 
-    const categorySelected = window.location.href.split("/")[7]
+    const categorySelected = window.location.href.split("/")[5]
+    console.log(categorySelected)
 
     const [categoryData, setCategoryData] = useState();
 
