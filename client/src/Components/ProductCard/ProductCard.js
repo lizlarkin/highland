@@ -17,7 +17,7 @@ const ProductCard = ({ props }) => {
         productBtn: {
             marginLeft: "auto",
             marginRight: "auto",
-            width: "50%"
+            width: "75%"
         },
     }
 

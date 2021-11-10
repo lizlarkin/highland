@@ -3,15 +3,17 @@ import UserContext from "../../Context/UserContext";
 import { DateContext } from "../../Context/DateContext";
 import axios from "axios";
 import CategoryJumbotron from '../../Components/CategoryJumbotron/CategoryJumbotron';
+const nodemailer = require("nodemailer");
 
 
 // TO DO:
-//     (1) Clear fields after submit (except logged in fields)
 //     (2) Send email to sales 
 //     (3) Send email confirmation to client with a copy of request
 //     (4) better Map
-//     (5) any form validation?
+//     (5) add form validation
 //     (6) keep contact history in account section
+//     (7) change to no-reply
+//     (8) if fields missing, don't send!
 
 const Contact = () => {
 
@@ -29,11 +31,11 @@ const Contact = () => {
             marginBottom: "35%",
         },
         submitBtn: {
-            marginTop: "5%",
-            width: "60%"
+            marginTop: "20%",
+            width: "100%"
         }
     }
-
+ 
     const [form, setForm] = useState({
         date: dateNow,
         subject: "",
@@ -78,8 +80,51 @@ const Contact = () => {
     }
 
     const clearFields = () => {
-        // document.querySelector(".form-control").value = "";
+        var elements = document.getElementsByTagName("input");
+            for (var i=0; i < elements.length; i++) {
+            if (elements[i].type == "text" || elements[i].type == "email") {
+                elements[i].value = "";
+                }
+            }
+        document.querySelector('textarea[name="comments"]').value = "";
+        document.getElementById("inputState").selectedIndex = 0;
     }
+
+    // SEND EMAILS
+
+    // Email From
+        const transporter = nodemailer.createTransport({
+            service: "Outlook365",
+            auth: {
+                user: "lizlarkin@highlandtechnology.com",
+                pass: process.env.EPASS,
+            },
+        });
+
+    // Email To Client
+        const mailOptions = {
+            from: "lizlarkin@highlandtechnology.com",
+            to: form.email,
+            subject: `${form.subject} Submission Received`,
+            text: `We have received your ${form.subject} request. A member of our team will respond shortly. For immediate assistance, please contact us at 415-551-1700.`,
+        }
+
+    // Email To Sales
+        const message = {
+            from: "lizlarkin@highlandtechnology.com",
+            to: "lizlarkin@highlandtechnology.com",
+            subject: `${form.subject} Request`,
+            text: form,
+        }
+
+    // Transporter
+        transporter.sendMail(mailOptions, message, (error, info) => {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log("Contact Emails Sent");
+            }
+        });
 
     useEffect(() => {
         setForm({

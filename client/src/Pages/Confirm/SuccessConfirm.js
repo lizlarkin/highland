@@ -10,7 +10,9 @@ const SuccessConfirm = (props) => {
         (async () => {
             try {
                 await axios.post("/register", { token: props.match.params.token });
-                history.push("/");
+                setTimeout(() => {
+                    history.push("/Login")
+                }, 4000);
             } catch (error) {
                 console.log(error)
             }
@@ -18,8 +20,12 @@ const SuccessConfirm = (props) => {
     }, [history, props.match.params.token])
 
     return (
-        <div>
-            Thank you for confirming your account. 
+        <div className="row">
+            <div className="col-md-2"></div>
+            <div className="col-md-8">
+                Thank you for confirming your account! You will be redirected to login in a moment.
+            </div>
+            <div className="col-md-2"></div>
         </div>
     )
 }

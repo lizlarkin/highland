@@ -36,6 +36,7 @@ const Navigation = (props) => {
 
     const goToCategory = (e) => {
       const categorySelected = e.target.title;
+      console.log(categorySelected)
       history.push(`/Category/${categorySelected}`)
     }
 
