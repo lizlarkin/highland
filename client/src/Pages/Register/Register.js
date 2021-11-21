@@ -48,47 +48,47 @@ const Register = () => {
                 <div className = "col-md-8 form-box">
                     <form onSubmit={onSubmit} className="row g-3">
                         <div className="col-md-6">
-                            <label for="inputEmail4 (required)" className="form-label" id="email-label">Email</label>
+                            <label for="inputEmail4 (required)" className="form-label" id="email-label">Email<span className="asterisk">*</span></label>
                             <input onChange={onChange} type="email" className="form-control" id="email-input" name="email" required />
                         </div>
                         <div className="col-md-6">
-                            <label for="text (required)" className="form-label" id="org-label">Organization</label>
+                            <label for="text (required)" className="form-label" id="org-label">Organization<span className="asterisk">*</span></label>
                             <input onChange={onChange} type="text" className="form-control" placeholder="Company Name" name="organization" id="org-input" required />
                         </div>
                         <div className="col-md-6">
-                            <label for="inputPassword8 (required)" className="form-label">Password</label>
+                            <label for="inputPassword8 (required)" className="form-label">Password<span className="asterisk">*</span></label>
                             <input onChange={onChange} type="password" className="form-control" id="password-input" placeholder="8 characters minimum" name="password" minLength="8" required />
                         </div>
                         <div className="col-md-6">
-                            <label for="inputPassword8 (required)" className="form-label">Re-enter Password</label>
+                            <label for="inputPassword8 (required)" className="form-label">Re-enter Password<span className="asterisk">*</span></label>
                             <input onChange={onChange} type="password" className="form-control" id="check-input" name="passwordCheck" minLength="8" required />
                         </div>
                         <div className="col-md-6">
-                            <label className="form-label (required)">First Name</label>
+                            <label className="form-label (required)">First Name<span className="asterisk">*</span></label>
                             <input onChange={onChange} type="text" className="form-control" name="firstName" id="first-input" required />
                         </div>
                         <div className="col-md-6">
-                            <label className="form-label (required)">Last Name</label>
+                            <label className="form-label (required)">Last Name<span className="asterisk">*</span></label>
                             <input onChange={onChange} type="text" className="form-control" name="lastName" id="last-input" required />
                         </div>
                         <div className="col-12">
-                            <label for="inputAddress (required)" className="form-label">Address</label>
+                            <label for="inputAddress (required)" className="form-label">Address<span className="asterisk">*</span></label>
                             <input onChange={onChange} type="text" className="form-control" id="address-input" placeholder="1234 Main St" name="street" required />
                         </div>
                         <div className="col-md-6">
-                            <label for="inputCity (required)" className="form-label">City</label>
+                            <label for="inputCity (required)" className="form-label">City<span className="asterisk">*</span></label>
                             <input onChange={onChange} type="text" className="form-control" id="city-input" name="city" required />
                         </div>
                         <div className="col-md-3">
-                            <label for="inputState (required)" className="form-label">State</label>
+                            <label for="inputState (required)" className="form-label">State<span className="asterisk">*</span></label>
                             <input onChange={onChange} type="text" className="form-control" id="state-input" name="state" required />
                         </div>
                         <div className="col-md-3">
-                            <label for="inputCountry (required)" className="form-label">Country</label>
+                            <label for="inputCountry (required)" className="form-label">Country<span className="asterisk">*</span></label>
                             <input onChange={onChange} type="text" className="form-control" id="country-input" name="country" required/>
                         </div>
                         <div className="col-md-6">
-                            <label for="inputPhone (required)" className="form-label">Phone</label>
+                            <label for="inputPhone (required)" className="form-label">Phone<span className="asterisk">*</span></label>
                             <input onChange={onChange} type="tel" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$" className="form-control" id="phone-input" name="phone" required/>
                         </div>
                         <div className="col-12">

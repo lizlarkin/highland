@@ -7,13 +7,12 @@ const nodemailer = require("nodemailer");
 
 
 // TO DO:
-//     (2) Send email to sales 
-//     (3) Send email confirmation to client with a copy of request
-//     (4) better Map
-//     (5) add form validation
-//     (6) keep contact history in account section
-//     (7) change to no-reply
-//     (8) if fields missing, don't send!
+//     (1) Send email to sales 
+//     (2) Send email confirmation to client with a copy of request
+//     (3) better Map
+//     (5) keep contact history in account section
+//     (6) change to no-reply
+
 
 const Contact = () => {
 
@@ -31,8 +30,14 @@ const Contact = () => {
             marginBottom: "35%",
         },
         submitBtn: {
-            marginTop: "20%",
-            width: "100%"
+            width: "40%"
+        },
+        submitRow: {
+            marginTop: "3%",
+        },
+        warning: {
+            marginLeft: "2%",
+            color: "#D0342C",
         }
     }
  
@@ -61,23 +66,17 @@ const Contact = () => {
 
     const saveContact = async (e) => {
         e.preventDefault();
-        if (form.subject==="Choose Topic" || form.subject==="") {
-            alert("Please select a topic.")
-        } else if (form.organization==="" || form.firstName==="" || form.lastName==="" || form.email==="" || form.phone==="") {
-            alert("Please fill in all fields.")
-        } else {
         try {
             // const authToken = localStorage.getItem("auth-token");
             const saveContact = await axios.post("/contact", 
             form, 
             // { headers: { "x-auth-token": authToken },}
-          ); 
-           console.log("save contact", saveContact) 
+        ); 
         } catch (error) {
         console.log("error saving contact: ", error)
             }   
         }
-    }
+    // }
 
     const clearFields = () => {
         var elements = document.getElementsByTagName("input");
@@ -89,42 +88,6 @@ const Contact = () => {
         document.querySelector('textarea[name="comments"]').value = "";
         document.getElementById("inputState").selectedIndex = 0;
     }
-
-    // SEND EMAILS
-
-    // Email From
-        const transporter = nodemailer.createTransport({
-            service: "Outlook365",
-            auth: {
-                user: "lizlarkin@highlandtechnology.com",
-                pass: process.env.EPASS,
-            },
-        });
-
-    // Email To Client
-        const mailOptions = {
-            from: "lizlarkin@highlandtechnology.com",
-            to: form.email,
-            subject: `${form.subject} Submission Received`,
-            text: `We have received your ${form.subject} request. A member of our team will respond shortly. For immediate assistance, please contact us at 415-551-1700.`,
-        }
-
-    // Email To Sales
-        const message = {
-            from: "lizlarkin@highlandtechnology.com",
-            to: "lizlarkin@highlandtechnology.com",
-            subject: `${form.subject} Request`,
-            text: form,
-        }
-
-    // Transporter
-        transporter.sendMail(mailOptions, message, (error, info) => {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log("Contact Emails Sent");
-            }
-        });
 
     useEffect(() => {
         setForm({
@@ -168,35 +131,35 @@ const Contact = () => {
                         <div className="col-12">
                             <label className="form-label">Organization<span className="asterisk">*</span></label>
                             {userData.token===undefined?
-                            <input onChange={storeInputs} type="text" className="form-control" placeholder="Organization" name="organization"/>
+                            <input onChange={storeInputs} type="text" className="form-control" placeholder="Organization" name="organization" required/>
                             :<input type="text" className="form-control" placeholder={userData.user.organization} disabled/>
                             }
                         </div>
                         <div className="col-md-6">
                             <label  className="form-label">First Name<span className="asterisk">*</span></label>
                             {userData.token===undefined?
-                            <input onChange={storeInputs} type="text" className="form-control" placeholder="First Name" name="firstName"/>
+                            <input onChange={storeInputs} type="text" className="form-control" placeholder="First Name" name="firstName" required/>
                             :<input type="text" className="form-control" placeholder={userData.user.firstName} disabled/>
                             }
                         </div>
                         <div className="col-md-6">
                             <label  className="form-label">Last Name<span className="asterisk">*</span></label>
                             {userData.token===undefined?
-                            <input onChange={storeInputs} type="text" className="form-control" placeholder="Last Name" name="lastName"/>
+                            <input onChange={storeInputs} type="text" className="form-control" placeholder="Last Name" name="lastName" required/>
                             :<input type="text" className="form-control" placeholder={userData.user.lastName} disabled/>
                             }
                         </div>
                         <div className="col-md-6">
                             <label for="inputEmail4" className="form-label">Email<span className="asterisk">*</span></label>
                             {userData.token===undefined?
-                            <input onChange={storeInputs} type="email" className="form-control" placeholder="Email" name="email"/>
+                            <input onChange={storeInputs} type="email" className="form-control" placeholder="Email" name="email" required/>
                             :<input type="email" className="form-control" placeholder={userData.user.email} disabled/>
                             }
                         </div>
                         <div className="col-md-6">
                             <label for="inputCity" className="form-label">Phone<span className="asterisk">*</span></label>
                             {userData.token===undefined?
-                            <input onChange={storeInputs} type="phone" className="form-control" placeholder="Phone" name="phone"/>
+                            <input onChange={storeInputs} type="phone" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$" className="form-control" placeholder="Phone" name="phone" required/>
                             :<input type="phone" className="form-control" placeholder={userData.user.phone} disabled/>
                             }
                         </div>
@@ -235,8 +198,21 @@ const Contact = () => {
                         </div>
 
                         <div className="row">
-                            <div className="col-md-3">
-                                <button type="submit" className="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={saveContact} style={contactStyles.submitBtn}>Submit</button>
+                            <div className="col-md-6" style={contactStyles.submitRow}>
+                                {form.organization==="" || form.firstName==="" || form.lastName==="" || form.email==="" || form.phone===""?
+                                <>
+                                <button type="button" className="btn btn-outline-danger" style={contactStyles.submitBtn} disabled>Submit</button> 
+                                <span style={contactStyles.warning}>Please enter all required fields.</span>
+                                </>
+                                :
+                                form.subject==="Choose Topic" || !form.subject ?
+                                <>
+                                <button type="button" className="btn btn-outline-danger" style={contactStyles.submitBtn} disabled>Submit</button> 
+                                <span style={contactStyles.warning}>Please select a topic.</span> 
+                                </>
+                                :
+                                <button onClick={saveContact} style={contactStyles.submitBtn} type="submit" className="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Submit</button>
+                                }
                                 <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div className="modal-dialog">
                                         <div className="modal-content">

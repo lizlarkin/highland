@@ -45,9 +45,9 @@ const Navigation = (props) => {
     }, [userData.user])
 
     return (
-        <nav>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-                <div className="container-fluid" >
+      <nav>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+          <div className="container-fluid" >
                     <Link to="/Home" className="navbar-brand">
                         <img src={highlandLogo} style={navigationStyles.logo} alt="Highland Logo"/>
                     </Link>

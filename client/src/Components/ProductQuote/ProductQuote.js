@@ -103,7 +103,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                     { headers: { "x-auth-token": authToken },
                     });
                     console.log(newCart);
-                    history.push("/pages/cart")     
+                    history.push("/cart")     
                 }
             } catch (error) {
                 console.log(error)
@@ -111,7 +111,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
     }
  
     useEffect(() => {
-        if (!userData.user) history.push("/pages/login");
+        if (!userData.user) history.push("/login");
         if (optionalOptions.length>0) initializeOptions()
     }, [userData.user, history])
 
