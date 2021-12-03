@@ -60,11 +60,11 @@ module.exports = {
                     Organization: ${successSave.organization}
                     Email: ${successSave.email}
                     Phone: ${successSave.phone}
-                    Comments: ${successSave.comments}
+                    Comments: ${successSave.comments===undefined?"":successSave.comments}
                     ${successSave.subject==="RMA Request"?
-                    `Serial Number: ${successSave.serialNum}
-                    Model: ${successSave.model}
-                    Version: ${successSave.version}`
+                    `Serial Number: ${successSave.serialNum===undefined?"":successSave.serialNum}
+                    Model: ${successSave.model===undefined?"":successSave.model}
+                    Version: ${successSave.version===undefined?"":successSave.version}`
                     :" "}
                 `
         }

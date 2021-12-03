@@ -634,11 +634,14 @@ let productSeed = [
       features: [],
       description: "VME bus master crate controller, usable as a crate slot 0 arbiter or as a secondary controller.",
       about: [],
+
       related: [],
       specifications: [],
       optionsOptional: [
             ["Advanced Features", [["21", "1", "Conformal coating"], ]],
       ],
+      accessories: [],
+      FAQs: [["Does the V120 come with OS support?", "We provide a fully open-source Linux driver as well as C libraries and some command line applications. See resources tab for link to download drivers."], ["Do you sell an optical cable with the V120?", "We do not sell a fiber-optic link for the V120, but we have successfully tested it with" + <linkify> 'https://www.google.com/'</linkify> ]]
       },
 
       // ****************************** V124 Data ******************************

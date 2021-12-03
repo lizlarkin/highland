@@ -79,7 +79,7 @@ module.exports = {
 
                 // Email To
                 const mailOptions = {
-                    from: "lizlarkin@highlandtechnology.com",
+                    from: "no-reply@highlandtechnology.com",
                     to: newUser.email,
                     subject: "Thank you for registering with Highland Technology.",
                     text: `Please click link to confirm account: http://localhost:3000/confirm_token/${confirmationToken.token}`,

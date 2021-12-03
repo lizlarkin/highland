@@ -42,6 +42,7 @@ const Product = () => {
     const [productDescription, setProductDescription] = useState();
     const [productSpecs, setProductSpecs] = useState();
     const [productRelatives, setProductRelatives] = useState();
+    const [productFAQs, setProductFAQs] = useState();
 
     useEffect(() => {
         const getProductData = async () => {
@@ -54,9 +55,10 @@ const Product = () => {
                setProductOptions(prodData.data[0].optionsOptional);
                setProductAccessories(prodData.data[0].accessories);
                setProductFeatures(prodData.data[0].features);
-               setProductDescription(prodData.data[0].about)
-               setProductSpecs(prodData.data[0].specifications)
-               setProductRelatives(prodData.data[0].related)
+               setProductDescription(prodData.data[0].about);
+               setProductSpecs(prodData.data[0].specifications);
+               setProductRelatives(prodData.data[0].related);
+               setProductFAQs(prodData.data[0].FAQs);
             //    console.log("product data: ", prodData);
             } catch (error) {
                 console.log(error.response)
@@ -151,8 +153,8 @@ const Product = () => {
                 
                 {content.showOverview && <ProductOverview features={productFeatures} description={productDescription}/>}
                 {content.showSpecifications && <ProductSpecs specs={productSpecs}/>}
-                {content.showResources && <ProductResources/>}
-                {content.showFAQ && <ProductFAQ/>}
+                {content.showResources && <ProductResources model={productModel}/>}
+                {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
                 {content.showRelated && <ProductRelated related={productRelatives}/>}
                 {content.showQuote && <ProductQuote name={productName} model={productModel} requiredOptions={productRequired} optionalOptions={productOptions} accessories={productAccessories}/>}
 

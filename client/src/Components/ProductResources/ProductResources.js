@@ -1,21 +1,27 @@
-import React from 'react'
-import rohsCompliant from '../../Pages/Product/Images/rohsCompliant.png'
-import madeInUsa from '../../Pages/Product/Images/madeInUsa.png'
-import ECCN from '../../Pages/Product/Images/ECCN.png'
-import statementOfVolatility from '../../Pages/Product/Images/statementOfVolatility.png'
-import mtbfAnalysis from '../../Pages/Product/Images/mtbfAnalysis.png'
-import datasheet from '../../Pages/Product/Images/datasheet.png'
-import manual from '../../Pages/Product/Images/manual.png'
-import blockDiagram from '../../Pages/Product/Images/blockDiagram.png'
+import React from 'react';
+import rohsCompliant from '../../Pages/Product/Images/rohsCompliant.png';
+import madeInUsa from '../../Pages/Product/Images/madeInUsa.png';
+import ECCN from '../../Pages/Product/Images/ECCN.png';
+import statementOfVolatility from '../../Pages/Product/Images/statementOfVolatility.png';
+import mtbfAnalysis from '../../Pages/Product/Images/mtbfAnalysis.png';
+import datasheet from '../../Pages/Product/Images/datasheet.png';
+import manual from '../../Pages/Product/Images/manual.png';
+import blockDiagram from '../../Pages/Product/Images/blockDiagram.png';
+import conformance from '../../Pages/Product/Images/conformance.png';
 import {Link} from 'react-router-dom';
+import {CoCArr} from "./CertificatesOfConformance";
 
-const ProductResources = () => {
+const ProductResources = ({ model }) => {
 
     const resourcesStyles = {
         accordianBtn: {
             fontWeight: "bold",
         },
     }
+
+   const CoCIndex = CoCArr.findIndex(search => search.includes(model + "_CoC"));
+   console.log(CoCIndex)
+
 
     return (
         <div >
@@ -85,8 +91,11 @@ const ProductResources = () => {
                                         <Link to="/" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={madeInUsa} alt="Made In USA"/>Download Certificate of Origin (change this name???)
                                         </Link>
+                                        <Link to={CoCArr[CoCIndex]} target = "_blank" className="list-group-item list-group-item-action">
+                                            <img className = "resource-image" src={conformance} alt="Certificate of Conformnce"/>Download Certificate of Conformance
+                                        </Link>
                                         <Link to="/" className="list-group-item list-group-item-action">
-                                            <img className = "resource-image" src={ECCN} alt="International Commerce"/> Download Export Control Classification Number (ECCN) &amp; Export Control Information
+                                            <img className = "resource-image" src={ECCN} alt="International Commerce"/> Download Export Information
                                         </Link>
                                 </div>
                             </div>

@@ -3,15 +3,13 @@ import UserContext from "../../Context/UserContext";
 import { DateContext } from "../../Context/DateContext";
 import axios from "axios";
 import CategoryJumbotron from '../../Components/CategoryJumbotron/CategoryJumbotron';
-const nodemailer = require("nodemailer");
-
 
 // TO DO:
-//     (1) Send email to sales 
-//     (2) Send email confirmation to client with a copy of request
-//     (3) better Map
-//     (5) keep contact history in account section
-//     (6) change to no-reply
+//     (1) better Map
+//     (2) keep contact history in account section
+//     (3) change auth to no-reply
+//     (4) button should be reset to disabled after send
+//     (5) change internal send to sales@
 
 
 const Contact = () => {
@@ -68,7 +66,7 @@ const Contact = () => {
         e.preventDefault();
         try {
             // const authToken = localStorage.getItem("auth-token");
-            const saveContact = await axios.post("/contact", 
+            await axios.post("/contact", 
             form, 
             // { headers: { "x-auth-token": authToken },}
         ); 
@@ -81,7 +79,7 @@ const Contact = () => {
     const clearFields = () => {
         var elements = document.getElementsByTagName("input");
             for (var i=0; i < elements.length; i++) {
-            if (elements[i].type == "text" || elements[i].type == "email") {
+            if (elements[i].type === "text" || elements[i].type === "email") {
                 elements[i].value = "";
                 }
             }
