@@ -72,7 +72,7 @@ const Product = () => {
         <div className='product-container'>
 
             <div>
-            <ProductJumbotron props={productData}/>
+            <ProductJumbotron name={productName} model={productModel}/>
             </div>
 
             <div className="row product-content">

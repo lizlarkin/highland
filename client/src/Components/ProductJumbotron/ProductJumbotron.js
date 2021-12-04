@@ -1,10 +1,12 @@
-import React from 'react';
-import p500Test from '../../Pages/Product/Images/p500Test.png';
+import React, { useEffect, useState } from 'react';
 import p500Rear from '../../Pages/Product/Images/p500Rear.png';
 import V120 from '../../Pages/Product/Images/V120.png';
 import T564 from '../../Pages/Product/Images/T564_Digital_Delay_Generator.png';
+import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 
-const ProductJumbotron = ({ props }) => {
+const ProductJumbotron = ({ name, model }) => {
+
+    const [photoArrIndex, setPhotoArrindex] = useState();
 
     const jumbotronStyles = {
         title: {
@@ -25,13 +27,23 @@ const ProductJumbotron = ({ props }) => {
         }
     }
 
+    useEffect(() => {
+
+        const setPhotoIndex = () => {
+            setPhotoArrindex(ProductPhotos.findIndex(search => search[0].includes(model)))
+        };
+
+        setPhotoIndex()
+
+    }, [model, ProductPhotos])
+
     return (
         <div className = 'container'>
             <div className = 'row'>
 
                 <div className = 'col-md-5' style={jumbotronStyles.title}>
-                    <h1 style={jumbotronStyles.color}>Model {props?props.data[0].model:null}</h1>
-                    <h1 style={jumbotronStyles.color}>{props?props.data[0].name:null}</h1>
+                    <h1 style={jumbotronStyles.color}>Model {model?model:null}</h1>
+                    <h1 style={jumbotronStyles.color}>{name?name:null}</h1>
                 </div>
 
                 <div className = 'col-md-7'>
@@ -41,14 +53,18 @@ const ProductJumbotron = ({ props }) => {
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" style={jumbotronStyles.indicators}></button>
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" style={jumbotronStyles.indicators}></button>
                         </div>
+
                         <div className="carousel-inner">
-                            <div className="carousel-item active">
-                            <img src={p500Test} className="d-block w-100" alt="..."/>
-                            {/* <div className="carousel-caption d-none d-md-block">
-                                <h5 style={jumbotronStyles.color}>First slide label</h5>
-                                <p style={jumbotronStyles.color}>Some representative placeholder content for the first slide.</p>
-                            </div> */}
-                            </div>
+                            {ProductPhotos[photoArrIndex]?
+                                <div className="carousel-item active">
+                                    <img src={ProductPhotos[photoArrIndex][0]} className="d-block w-100" alt="..."/>
+                                    <div className="carousel-caption d-none d-md-block">
+                                        <h5 style={jumbotronStyles.color}>First slide label</h5>
+                                        <p style={jumbotronStyles.color}>Some representative placeholder content for the first slide.</p>
+                                    </div>
+                                </div>
+                            :null}
+
                             <div className="carousel-item">
                             <img src={p500Rear} className="d-block w-100" alt="..."/>
                             {/* <div className="carousel-caption d-none d-md-block">

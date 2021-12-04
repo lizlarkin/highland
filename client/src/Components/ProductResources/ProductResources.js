@@ -9,7 +9,7 @@ import manual from '../../Pages/Product/Images/manual.png';
 import blockDiagram from '../../Pages/Product/Images/blockDiagram.png';
 import conformance from '../../Pages/Product/Images/conformance.png';
 import {Link} from 'react-router-dom';
-import {CoCArr} from "./CertificatesOfConformance";
+import {CoCArr} from "./Resources";
 
 const ProductResources = ({ model }) => {
 
@@ -20,8 +20,6 @@ const ProductResources = ({ model }) => {
     }
 
    const CoCIndex = CoCArr.findIndex(search => search.includes(model + "_CoC"));
-   console.log(CoCIndex)
-
 
     return (
         <div >
