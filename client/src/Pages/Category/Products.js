@@ -33,7 +33,7 @@ const Products = () => {
 
     const goToPage = (e) => {
         const page = e.target.name
-        history.push(`/Pages/Category/Category/${page}`)
+        history.push(`/Category/${page}`)
     }
 
     return (

@@ -32,7 +32,6 @@ const Product = () => {
             showSupport: false,
     });
 
-    const [productData, setProductData] = useState();
     const [productName, setProductName] = useState();
     const [productModel, setProductModel] = useState();
     const [productRequired, setProductRequired] = useState();
@@ -43,12 +42,12 @@ const Product = () => {
     const [productSpecs, setProductSpecs] = useState();
     const [productRelatives, setProductRelatives] = useState();
     const [productFAQs, setProductFAQs] = useState();
+    const [productImgCaptions, setProductImgCaptions] = useState();
 
     useEffect(() => {
         const getProductData = async () => {
             try {
                const prodData = await axios.get(`/products/${model}`);
-               setProductData(prodData);
                setProductName(prodData.data[0].name);
                setProductModel(prodData.data[0].model);
                setProductRequired(prodData.data[0].optionsRequired);
@@ -59,7 +58,7 @@ const Product = () => {
                setProductSpecs(prodData.data[0].specifications);
                setProductRelatives(prodData.data[0].related);
                setProductFAQs(prodData.data[0].FAQs);
-            //    console.log("product data: ", prodData);
+               setProductImgCaptions(prodData.data[0].imgCaptions);
             } catch (error) {
                 console.log(error.response)
             }
@@ -72,10 +71,10 @@ const Product = () => {
         <div className='product-container'>
 
             <div>
-            <ProductJumbotron name={productName} model={productModel}/>
+            <ProductJumbotron name={productName} model={productModel} captions={productImgCaptions}/>
             </div>
 
-            <div className="row product-content">
+        <div className="row product-content">
             <div className = "col-md-1"></div>
 
             <div className = "col-md-3">
@@ -149,21 +148,19 @@ const Product = () => {
             </div>
           
             <div className = "col-md-7">
-            <div>
-                
-                {content.showOverview && <ProductOverview features={productFeatures} description={productDescription}/>}
-                {content.showSpecifications && <ProductSpecs specs={productSpecs}/>}
-                {content.showResources && <ProductResources model={productModel}/>}
-                {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
-                {content.showRelated && <ProductRelated related={productRelatives}/>}
-                {content.showQuote && <ProductQuote name={productName} model={productModel} requiredOptions={productRequired} optionalOptions={productOptions} accessories={productAccessories}/>}
-
-                
-                
+                <div>
+                    {content.showOverview && <ProductOverview features={productFeatures} description={productDescription}/>}
+                    {content.showSpecifications && <ProductSpecs specs={productSpecs}/>}
+                    {content.showResources && <ProductResources model={productModel}/>}
+                    {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
+                    {content.showRelated && <ProductRelated related={productRelatives}/>}
+                    {content.showQuote && <ProductQuote name={productName} model={productModel} requiredOptions={productRequired} optionalOptions={productOptions} accessories={productAccessories}/>}  
+                </div>
             </div>
-            </div>
+            
             <div className = "col-md-1"></div>
-            </div>
+            
+        </div>
 
 
         </div>

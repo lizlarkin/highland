@@ -1,2 +1,6 @@
 node_modules
 .env
+
+# Large Directories
+/client/src/Components/ProductResources/assets
+/client/src/Pages/Product/Images
