@@ -40,7 +40,7 @@ let productSeed = [
       {
       name: "single-channel compact pulse generator",
       model: "J240",
-      category: ["DDG", "LDC"],
+      category: ["PSG", "LDC"],
       features: [],
       description: "Generates fast complementary rectangular or Gaussian outputs with external triggering and adjustable trigger levels.",
       imgCaptions: [],
@@ -53,7 +53,7 @@ let productSeed = [
       {
       name: "compact single-channel adjustable delay and width electrical pulse generator",
       model: "J270",
-      category: ["DDG"],
+      category: ["PSG"],
       features: [],
       description: "Very compact GaN-based nanosecond high-voltage pulse generator includes adjustable time delay and pulse width.",
       imgCaptions: ["J270 Caption One", "J270 Caption Two", "J720 Caption Three"],
@@ -160,7 +160,7 @@ let productSeed = [
       {
       name: "single-channel compact wideband amplifier",
       model: "J750",
-      category: ["DDG", "PHO"],
+      category: ["PSG", "PHO"],
       features: [],
       description: "Amplifies DC to 1 GHz signals with loop-through (signal pickoff) and photodiode modes.",
       imgCaptions: [],
@@ -255,7 +255,7 @@ let productSeed = [
             "Web page controls from any browser",
         ],
         description: "Generates delays up to 1000 seconds in 1 picosecond increments, and is capable of a high repetition rate of 14 MHz.",
-        imgCaptions: [],
+        imgCaptions: ["", "P500 with Trigger Menu running", "P500 Digital Delay Generator", "P500 Front Panel", "P500 Standard Rear Panel (high voltage output option not installed)"],
         about: [
             "The P500 is a benchtop digital delay and pulse generator that generates four separately programmable delay-and-width outputs. The P500 can generate delays up to 1000 seconds in 1 picosecond increments, and is capable of a high repetition rate of 14 MHz. Applications for the P500 include laser timing, pulse picking, ICCD camera systems, ATE systems, and radar testing.",
             "P500 trigger sources include internal, external, remote, manual, or line. The low-jitter internal synthesized rate generator may be programmed from 0.001 Hz to 14 MHz in 1 mHz steps. The external trigger features selectable trigger level, slope, and termination impedance. Trigger gating and burst facilities are standard.",
@@ -368,7 +368,7 @@ let productSeed = [
       {
       name: "1 to 4 logic buffer",
       model: "T124",
-      category: ["DDG"],
+      category: ["PSG"],
       features: [],
       description: "Provides a fast 1 to 4 fanout buffer/inverter for digital logic signals.",
       imgCaptions: [],
@@ -381,7 +381,7 @@ let productSeed = [
       {
       name: "single-channel picosecond EOM driver",
       model: "T130",
-      category: ["DDG", "PHO"],
+      category: ["PSG", "PHO"],
       features: [],
       description: "Externally-triggered pulse generator, suitable for driving 50Ω Mach-Zehnder LiNBO3 electro-optical type devices.",
       imgCaptions: ["T130 Caption 1", "T130 Caption 2", "T130 Caption 3", "T130 Caption 4"],
@@ -420,7 +420,7 @@ let productSeed = [
       {
       name: "single-channel externally-triggered complementary-output pulse generator",
       model: "T240",
-      category: ["DDG", "LDC", "PHO"],
+      category: ["PSG", "LDC", "PHO"],
       features: [],
       description: "Generates fast complementary pulse outputs with external triggering and programmable amplitude, width, and delay.",
       imgCaptions: [],
@@ -559,7 +559,7 @@ let productSeed = [
       {
       name: "5-channel ethernet time interval counter",
       model: "T680",
-      category: ["DDG", "MAS"],
+      category: ["PSG", "MAS"],
       features: [],
       description: "Five wide-range time stampers can snapshot the time of the rising edge of one electrical input.",
       imgCaptions: [],
@@ -589,7 +589,7 @@ let productSeed = [
       {
       name: "4-channel compact high-voltage driver",
       model: "T750",
-      category: ["DDG"],
+      category: ["PSG"],
       features: [],
       description: "Adjustable global logic level input/output levels accept LVDS, TTL, LVTTL, and LVPECL trigger, and output clean, flat pulses from an input comparator and a transformer-coupled HV power output stage.",
       imgCaptions: [],
@@ -602,7 +602,7 @@ let productSeed = [
       {
       name: "dual-channel compact high voltage optical-to-electrical converter",
       model: "T760",
-      category: ["DDG", "PHO"],
+      category: ["PSG", "PHO"],
       features: [],
       description: "Converts two digital fiberoptic inputs into high-level isolated electrical pulse outputs.",
       imgCaptions: [],
@@ -615,7 +615,7 @@ let productSeed = [
       {
       name: "2-channel high voltage driver",
       model: "T840",
-      category: ["DDG", "PHO"],
+      category: ["PSG", "PHO"],
       features: [],
       description: "Drives PLZT electro-optical modulators, piezo elements, vacuum photo devices, and similar capacitive loads.",
       imgCaptions: [],
@@ -628,7 +628,7 @@ let productSeed = [
       {
       name: "compact pockels cell driver",
       model: "T850",
-      category: ["DDG", "PHO"],
+      category: ["PSG", "PHO"],
       features: [],
       description: "Complementary standard and custom timing controllers can manage pulse picking, Q-switching, chirped pulse amplification, cavity dumping, and two-photon microscopy.",
       imgCaptions: [],
@@ -641,7 +641,7 @@ let productSeed = [
       {
       name: "single-channel compact logic buffer and driver",
       model: "T860",
-      category: ["DDG", "PHO"],
+      category: ["PSG", "PHO"],
       features: [],
       description: "Incorporates a differential-input comparator and an output driver stage which has adjustable low and high levels and 50 ohm output impedance.",
       imgCaptions: [],
@@ -1073,7 +1073,7 @@ let productSeed = [
       {
       name: "6-channel VME pulse amplifier",
       model: "V860",
-      category: ["VME", "DDG"],
+      category: ["VME", "PSG"],
       features: [],
       description: "Accepts user adjustable logic-level inputs and generates high-level, very fast positive output pulses.",
       imgCaptions: [],

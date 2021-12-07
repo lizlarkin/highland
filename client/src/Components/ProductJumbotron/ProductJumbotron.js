@@ -25,7 +25,8 @@ const ProductJumbotron = ({ name, model, captions }) => {
         },
         caption: {
             color: "#0039a6", 
-            bottom: "-10px"
+            bottom: "-25px",
+            fontSize: "50%"
         },
         arrowBtns: {
             height: "10%",

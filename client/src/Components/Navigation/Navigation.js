@@ -60,7 +60,8 @@ const Navigation = (props) => {
                   <Link className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={navigationStyles.links}>All Products</Link>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li onClick={goToCategory} title={"VME"} className="dropdown-item">VME</li> 
-                    <li onClick={goToCategory} title={"DDG"} className="dropdown-item">Delay/Pulse Generators</li>
+                    <li onClick={goToCategory} title={"DDG"} className="dropdown-item">Digital Delay Generators</li>
+                    <li onClick={goToCategory} title={"PSG"} className="dropdown-item">Pulse Generators</li>
                     <li onClick={goToCategory} title={"WFG"} className="dropdown-item">Waveform Generators</li> 
                     <li onClick={goToCategory} title={"LDC"} className="dropdown-item">Laser Drivers/Controllers</li>
                     <li onClick={goToCategory} title={"PHO"} className="dropdown-item">Photonics</li>

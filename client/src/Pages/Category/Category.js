@@ -15,7 +15,8 @@ const Category = () => {
 
     const assignPageTitle = () => {
         if (categorySelected==="VME") setTitle("VME")
-        if (categorySelected==="DDG") setTitle("Digital Delay and Pulse Generators")
+        if (categorySelected==="DDG") setTitle("Digital Delay Generators")
+        if (categorySelected==="PSG") setTitle("Pulse Generators")
         if (categorySelected==="WFG") setTitle("Waveform Generators")
         if (categorySelected==="LDC") setTitle("Laser Drivers & Controllers")
         if (categorySelected==="PHO") setTitle("Photonics")
@@ -43,7 +44,7 @@ const Category = () => {
             <div className="row">
                 <div className="col-md-1"></div>
                 <div className="col-md-10">
-                    <ProductCard props={categoryData}/>
+                    <ProductCard categoryData={categoryData}/>
                 </div>
                 <div className="col-md-1"></div>
                 
