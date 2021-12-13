@@ -17,7 +17,7 @@ let productSeed = [
       category: ["LDC"],
       features: [],
       description: "Drives bar laser stacks or VCSEL arrays up to 250 amps and 30 volts.",
-      imgCaptions: [],
+      imgCaptions: ["D100 compact 250A laser driver"],
       about: [],
       related: [],
       specifications: [],
@@ -30,7 +30,7 @@ let productSeed = [
       category: ["LDC"],
       features: [],
       description: "DC-coupled fast laser driver provides up to 4 amps of regulated constant current.",
-      imgCaptions: [],
+      imgCaptions: ["D200 diode laser driver"],
       about: [],
       related: [],
       specifications: [],
@@ -43,10 +43,14 @@ let productSeed = [
       category: ["PSG", "LDC"],
       features: [],
       description: "Generates fast complementary rectangular or Gaussian outputs with external triggering and adjustable trigger levels.",
-      imgCaptions: [],
+      imgCaptions: ["J240 single-channel compact pulse generator"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        [" Does the J240 have a programmable PRF?", "No, the J240 will need an external PRF source as a trigger."],
+      ]
       },
 
       // ****************************** J270 Data ******************************
@@ -56,7 +60,7 @@ let productSeed = [
       category: ["PSG"],
       features: [],
       description: "Very compact GaN-based nanosecond high-voltage pulse generator includes adjustable time delay and pulse width.",
-      imgCaptions: ["J270 Caption One", "J270 Caption Two", "J720 Caption Three"],
+      imgCaptions: ["J270 compact single-channel adjustable delay and width electrical pulse generator", "J270 Caption Two", "J720 Caption Three"],
       about: [],
       related: [],
       specifications: [],
@@ -69,7 +73,7 @@ let productSeed = [
       category: ["PHO"],
       features: [],
       description: "Transports logic level or critical timing triggers over kilometer distances in high EMI environments.",
-      imgCaptions: [],
+      imgCaptions: ["J720 single-channel compact electrical-to-fiberoptic converter"],
       about: [],
       related: [],
       specifications: [],
@@ -77,6 +81,10 @@ let productSeed = [
         ["Connector Type",[[null, "ST"], ["1", "FC"]]],    
         ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"]]],
       ],
+      accessories: [],
+      FAQs: [
+        ["Does the J720 require a power supply?", "A power supply is not needed. Any low impedance 5V TTL source will power the J720. "], 
+      ]
       },
 
       // ****************************** J724 Data ******************************
@@ -86,7 +94,7 @@ let productSeed = [
       category: ["PHO"],
       features: [],
       description: "Accepts an adjustable digital logic level input and functions as a fast fiber-coupled laser source.",
-      imgCaptions: [],
+      imgCaptions: ["J724 single-channel compact buffered electrical-to-fiberoptic converter"],
       about: [],
       related: [],
       specifications: [],
@@ -107,7 +115,7 @@ let productSeed = [
           "J730-3, J730-5, J730-13, and J730-15 use singlemode or multimode ST or FC connectorized fiber at 1310 or 1550 nanometers",
       ],
       description: "Converts fiber-coupled laser signals to TTL levels.",
-      imgCaptions: [],
+      imgCaptions: ["J730 single-channel compact fiberoptic-to-electrical converter"],
       about: [
           "It has always been difficult to transport fast logic signals long distances over copper conductors. Coaxial or twisted-pair transmission lines introduce attenuation, dispersion, ground loops, and provide an entrance point for external electrical noise. The result can be jitter, pulse width distortion, and ultimately logic errors.",
           "A J720/J730 combination can transport logic level or critical timing triggers over kilometer distances in high EMI environments with link jitter typically below 12 picoseconds RMS. The J730 provides a digital logic output with risetime below 750 picoseconds, and a fast analog (180 MHz bandwidth) output is also provided for monitoring link integrity.",
@@ -154,6 +162,9 @@ let productSeed = [
         ["J60-1", "3' FC to FC fiberoptic cable (single mode simplex)"],
         ["J61-1", "3' ST to ST fiberoptic cable (single mode simplex)"],
       ],
+      FAQs: [
+        ["Are the SMB connectors on the J730 male or female?", "The connectors on the J730 are technically SMB 'Jacks', but their gender is 'male' because the center conductor is a pin, not a socket."], 
+      ]
       },
 
       // ****************************** J750 Data ******************************
@@ -163,7 +174,7 @@ let productSeed = [
       category: ["PSG", "PHO"],
       features: [],
       description: "Amplifies DC to 1 GHz signals with loop-through (signal pickoff) and photodiode modes.",
-      imgCaptions: [],
+      imgCaptions: ["J750 single-channel compact wideband amplifier"],
       about: [],
       related: [],
       specifications: [],
@@ -176,7 +187,7 @@ let productSeed = [
       category: ["MAS"],
       features: [],
       description: "Simulator of capacitive fuel or oil liquid level sensors can measure and report realtime excitation voltages and frequencies and simulate sensor faults.",
-      imgCaptions: [],
+      imgCaptions: ["P330 4-channel capacitive level sensor simulator"],
       about: [],
       related: [],
       specifications: [],
@@ -189,7 +200,7 @@ let productSeed = [
       category: ["MAS"],
       features: [],
       description: "Simulates a wide range of inductive proximity and eddy-current transducers, such as jet engine blade tip sensors and automotive engine measurements.",
-      imgCaptions: [],
+      imgCaptions: ["P348 dual-channel benchtop I/Q modulator"],
       about: [],
       related: [],
       specifications: [],
@@ -202,7 +213,7 @@ let productSeed = [
       category: ["WFG"],
       features: [],
       description: "A standalone 8-channel waveform generator intended to play stored waveform files for aerospace simulations.",
-      imgCaptions: [],
+      imgCaptions: ["P350 8-channel waveform playback/ARB module"],
       about: [],
       related: [],
       specifications: [],
@@ -215,10 +226,14 @@ let productSeed = [
       category: ["LEG"],
       features: [],
       description: "Generates delays up to 1000 seconds in 1 picosecond increments, on four separately programmable delay-and-width outputs.",
-      imgCaptions: [],
+      imgCaptions: ["P400 4-channel benchtop digital delay and pulse generator"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["What is the difference between the P400 and the P500?", "The Highland Model P500 Digital Delay/Pulse Generator is the successor of Model P400. We typically recommend purchasing the P500 over the P400 because it is less expensive, it has an improved user interface, and it will be supported for a very long time. The P400 design is over 10 years old and is being gradually phased out of our product offerings due to component obsolescence challenges. Some new features of the P500 include: improved packaging, color LCD, quiet fan, streamlined design, standard USB, Ethernet, and RS232, high performance pulse output stages with clean fast pulses from 0.5 to 25 volts p-p into 50 ohms, rep-rate to 14 MHz, glitch-free timing changes, and optional per-shot timing lists and multiple pulses per trigger."], 
+      ]
       },
 
       // ****************************** P470 Data ******************************
@@ -228,10 +243,16 @@ let productSeed = [
       category: ["MAS"],
       features: [],
       description: "Voltage source thermocouple simulator/calibrator for system-level testing of process control and critical systems.",
-      imgCaptions: ["P470 Caption 1", "P470 Caption 2", "P470 Caption 3", "P470 Caption 4"],
+      imgCaptions: ["P470 8-channel benchtop thermocouple simulator", "P470 Caption 2", "P470 Caption 3", "P470 Caption 4"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Does the P470 come with software drivers?", "There is no need for software drivers because this unit comes equipped with Ethernet."],
+        ["Can the P470 be set to output temperatures in degrees Fahrenheit?", "When the P470 is used in thermocouple mode, users may directly request temperatures in degrees Celsius, but not in degrees Fahrenheit."], 
+        ["Can you provide a calibration procedure for the P470?", "Unfortunately, we do not have a calibration procedure that we can share because we use proprietary test software. We provide calibration services for all of our products, so the unit can be returned to us for factory calibration at any time."], 
+      ]
       },
 
 
@@ -255,7 +276,7 @@ let productSeed = [
             "Web page controls from any browser",
         ],
         description: "Generates delays up to 1000 seconds in 1 picosecond increments, and is capable of a high repetition rate of 14 MHz.",
-        imgCaptions: ["", "P500 with Trigger Menu running", "P500 Digital Delay Generator", "P500 Front Panel", "P500 Standard Rear Panel (high voltage output option not installed)"],
+        imgCaptions: ["P500 4-channel benchtop digital delay and pulse generator", "P500 with Trigger Menu running", "P500 Digital Delay Generator", "P500 Front Panel", "P500 Standard Rear Panel (high voltage output option not installed)"],
         about: [
             "The P500 is a benchtop digital delay and pulse generator that generates four separately programmable delay-and-width outputs. The P500 can generate delays up to 1000 seconds in 1 picosecond increments, and is capable of a high repetition rate of 14 MHz. Applications for the P500 include laser timing, pulse picking, ICCD camera systems, ATE systems, and radar testing.",
             "P500 trigger sources include internal, external, remote, manual, or line. The low-jitter internal synthesized rate generator may be programmed from 0.001 Hz to 14 MHz in 1 mHz steps. The external trigger features selectable trigger level, slope, and termination impedance. Trigger gating and burst facilities are standard.",
@@ -302,6 +323,9 @@ let productSeed = [
           ["P10-1", '19" rack mount shelf (two p-boxes per rack)'],
           ["P492-1", "AC line triggering transformer for P400/P500"],
         ],
+        FAQs: [
+          ["What is the difference between the P400 and the P500?", "The Highland Model P500 Digital Delay/Pulse Generator is the successor of Model P400. We typically recommend purchasing the P500 over the P400 because it is less expensive, it has an improved user interface, and it will be supported for a very long time. The P400 design is over 10 years old and is being gradually phased out of our product offerings due to component obsolescence challenges. Some new features of the P500 include: improved packaging, color LCD, quiet fan, streamlined design, standard USB, Ethernet, and RS232, high performance pulse output stages with clean fast pulses from 0.5 to 25 volts p-p into 50 ohms, rep-rate to 14 MHz, glitch-free timing changes, and optional per-shot timing lists and multiple pulses per trigger."], 
+        ]
         // status: [
         //   "EOL",
         //   "Custom",
@@ -316,7 +340,7 @@ let productSeed = [
       category: ["MAS"],
       features: [],
       description: "Sinewave processor intended for both simulation and acquisition of LVDTs, RVDTs, synchros, and resolvers.",
-      imgCaptions: [],
+      imgCaptions: ["P545 12-channel synchro / LVDT simulation / acquisition module"],
       about: [],
       related: [],
       specifications: [],
@@ -329,10 +353,13 @@ let productSeed = [
       category: ["MAS"],
       features: [],
       description: "RTD and resistance simulator intended for system-level testing of process control systems, FADEC engine controllers, and other critical systems.",
-      imgCaptions: [],
+      imgCaptions: ["P620 6-channel isolated resistance simulator"],
       about: [],
       related: [],
       specifications: [],
+      FAQs: [
+        ["Does the P620 come with software drivers?", "There is no need for software drivers because this unit comes equipped with Ethernet."],
+      ]
       },
 
       // ****************************** P730 Data ******************************
@@ -342,7 +369,7 @@ let productSeed = [
       category: ["PHO"],
       features: [],
       description: "Converts two fast fiber-coupled laser signals to two user-routable output banks, each consisting of four parallel buffered electrical outputs.",
-      imgCaptions: [],
+      imgCaptions: ["P730 dual 1:4 benchtop optical-to-electrical fanout buffer"],
       about: [],
       related: [],
       specifications: [],
@@ -358,7 +385,7 @@ let productSeed = [
       category: ["MAS"],
       features: [],
       description: "Powers shunt/chopper type voltage regulators in jet engine controller FADECs and other aircraft equipment.",
-      imgCaptions: [],
+      imgCaptions: ["P900 3-phase power source and permanent-magnet alternator simulator"],
       about: [],
       related: [],
       specifications: [],
@@ -371,7 +398,7 @@ let productSeed = [
       category: ["PSG"],
       features: [],
       description: "Provides a fast 1 to 4 fanout buffer/inverter for digital logic signals.",
-      imgCaptions: [],
+      imgCaptions: ["T124 1 to 4 logic buffer"],
       about: [],
       related: [],
       specifications: [],
@@ -384,7 +411,7 @@ let productSeed = [
       category: ["PSG", "PHO"],
       features: [],
       description: "Externally-triggered pulse generator, suitable for driving 50Ω Mach-Zehnder LiNBO3 electro-optical type devices.",
-      imgCaptions: ["T130 Caption 1", "T130 Caption 2", "T130 Caption 3", "T130 Caption 4"],
+      imgCaptions: ["T130 single-channel picosecond EOM driver", "T130 Caption 2", "T130 Caption 3", "T130 Caption 4"],
       about: [],
       related: [],
       specifications: [],
@@ -397,10 +424,15 @@ let productSeed = [
       category: ["LDC"],
       features: [],
       description: "Accepts LVDS or TTL logic inputs, and laser drive pulse width follows the input waveform.",
-      imgCaptions: [],
+      imgCaptions: ["T160 picosecond to nanosecond laser diode driver"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Is the 4-pin micro USB on the T160 the control and power?", "The micro USB jack is only utilized for +5V power in."],
+        ["What is the difference between the T160 and T165?", "Both the T160 and T165 require an external trigger source; however, the T160 is a logic follower that routes current to the laser for the duration of the input source. The T165 has a built-in ‘one shot’, enabling the formation of adjustable output current pulses when fed an arbitrarily wide input trigger. Both are AC-coupled, and have duty limits. The T160 is better suited for applications requiring pulse widths beyond hundreds of nanoseconds. Both T160 and T165 utilize the same switched current sink output topology, as shown in the block diagrams, with similar switching dynamics. Both require that drive path inductance remain very low for fast falling edges."], 
+      ]
       },
 
       // ****************************** T165 Data ******************************
@@ -410,10 +442,21 @@ let productSeed = [
       category: ["LDC"],
       features: [],
       description: "Combines a picosecond class pulse width generator with a precision laser diode driver.",
-      imgCaptions: [],
+      imgCaptions: ["T165 picosecond to nanosecond laser diode pulser"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["What type of laser is best to use with the T165?", "The T165 pinout is designed to interface with 14-pin butterfly lasers that have the anode on pin-10 and the cathode on pin-9 and/or pin-11, sometimes referred to as Type-1."],
+        ["Do you sell laser diodes?", "We do not sell or manufacture laser diodes; rather, we build the driver and leave it up to the application to determine the laser. Photodigm is the recommended laser vendor for customers looking for fast, gain-switched impulses."],
+        ["Can you recommend a laser to use with your laser drivers?", "The T165 can drive laser diodes with forward voltages up to 3V and laser drive currents up to 700mA. We've done some gain switched experiments with Photodigm 1064 DBR butterfly lasers, and do recommend Photodigm as a laser vendor for customers looking for fast, gain-switched impulses. Beyond Photodigm, we have no had an opportunity to evaluate other laser manufacturers, but are open to do further evaluation if the laser can be provided to Highland for testing."],
+        ["Is the T165 available with a temperature controller option?", "The T165 does not include an onboard temperature controller option; however, provisions are made to allow for connecting one. The T165 is very high-speed, so the interface requires that the laser be physically close to avoid anomalies due to circuit parasitics. The T165 is designed to interface with one side of a butterfly laser, pins 8 - 14; Typically, the TEC '-' connection is made at pin 14. The T165 includes a 3-pin male header that has one of its pins connect to pin 14 on the butterfly. The TEC '+' connection for a typical butterfly is on Pin 1 (the side that is not connected at all to the T165), so it would be directly connected to the TEC controller."],
+        ["Do I need a cooling device for the T165 laser pulser?", "A fan or other cooling device is not necessary for the evaluation kit versions. It comes with an aluminum baseplate that should keep the T165 at a safe operating temperature in a standard lab environment."],
+        ["What is the range of the pulse repetition rate for the T165?", "While the T165 drive current can be set as high as 700 mA, the average current is not to exceed 50 mA, constrained by an absolute maximum 40% duty cycle limit. Table 3 in the T165 technical manual correlates maximum pulse repetition rate (PRR) as a function of laser drive current and width."],
+        ["What is the pulse width range of the T165?", "Depending on the version, the effective electrical pulse width range is 0 to 2.5ns for the T165-9, and 0 to 850ns for the T165-13 or T165-15. Narrow width pulses are best handled by the T165-9, as the 850ns wide-range versions trade resolution for span."],
+        ["What is the difference between the T160 and T165?", "Both the T160 and T165 require an external trigger source; however, the T160 is a logic follower that routes current to the laser for the duration of the input source. The T165 has a built-in ‘one shot’, enabling the formation of adjustable output current pulses when fed an arbitrarily wide input trigger. Both are AC-coupled, and have duty limits. The T160 is better suited for applications requiring pulse widths beyond hundreds of nanoseconds. Both T160 and T165 utilize the same switched current sink output topology, as shown in the block diagrams, with similar switching dynamics. Both require that drive path inductance remain very low for fast falling edges."], 
+      ]
       },
 
       // ****************************** T240 Data ******************************
@@ -423,10 +466,15 @@ let productSeed = [
       category: ["PSG", "LDC", "PHO"],
       features: [],
       description: "Generates fast complementary pulse outputs with external triggering and programmable amplitude, width, and delay.",
-      imgCaptions: [],
+      imgCaptions: ["T240 single-channel externally-triggered complementary-output pulse generator"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Can the T240 operate without an external trigger?", "The T240 won't operate without an external trigger. Any conventional RF or function generator can trigger it, including digital delay generators and arbitrary waveform generators products available from Highland. Period jitter will be determined by the generator."], 
+        [" Does the T240 have a programmable PRF?", "No, the T240 will need an external PRF source as a trigger."],
+      ]
       },
 
       // ****************************** T340 Data ******************************
@@ -436,7 +484,7 @@ let productSeed = [
       category: ["WFG"],
       features: [],
       description: "Provides four DDS waveform outputs, each programmable for frequency and amplitude. Synchronizable in any combination of channels to produce polyphase signals.",
-      imgCaptions: [],
+      imgCaptions: ["T340 4-channel compact function generator"],
       about: [],
       related: [],
       specifications: [],
@@ -449,7 +497,7 @@ let productSeed = [
       category: ["WFG"],
       features: [],
       description: "Generates four independently programmable waveforms with standard functions, noise, and user-loaded arbitrary waveforms.",
-      imgCaptions: [],
+      imgCaptions: ["T344 4-channel compact 32 MHz arbitrary waveform generator"],
       about: [],
       related: [],
       specifications: [],
@@ -462,10 +510,14 @@ let productSeed = [
       category: ["WFG"], 
       features: [],
       description: "Generates sweeps, chirps, I/Q and constellations, and calibrated jitter, and simulates a wide range of radar, communications, power, encoders, and electro-mechanical systems.",
-      imgCaptions: [],
+      imgCaptions: ["T346 4-channel compact 32 MHz arbitrary waveform generator w/ complex modulation"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Where can I find the test program for the T346?", "The program can be downloaded from Dropbox. A link is provided in the Resources menu under Drivers & Software. The Dropbox repository contains both the source code and the executable, which is under the dist folder. You'll need Java to run it, and there are instructions in the dist/README.TXT about installing librxtxserial."], 
+      ]
       },
 
       // ****************************** T400 Data ******************************
@@ -475,7 +527,7 @@ let productSeed = [
       category: ["OEM"],
       features: [],
       description: "Integrated beam-profile modulator for large-scale fusion and other high-energy laser installations.",
-      imgCaptions: [],
+      imgCaptions: ["T400 precision laser modulator system"],
       about: [],
       related: [],
       specifications: [],
@@ -499,7 +551,7 @@ let productSeed = [
             "OEM packaged or board-only custom versions available",
         ],
         description: "Accepts an internal or external trigger and generates four precise output pulses, each user programmable in time delay and width.",
-        imgCaptions: [],
+        imgCaptions: ["T560 4-channel benchtop digital delay and pulse generator"],
         about: [
             "The T560 series is a family of small digital delay generators, intended for use in embedded OEM applications. The T560-1 is the standard, packaged version, usable in many OEM applications and as the evaluation unit for custom versions. It uses the technology developed for the Highland model V851 (VME module) and P400 (benchtop) digital delay generators, with basic TTL/CMOS input and output levels and advanced logic.",
             "The T560 accepts an internal or external trigger and generates four precise output pulses, each user programmable in time delay and width. It is ideal for laser sequencing, radar/lidar simulation, or sequential event triggering. It is easily mounted within systems enclosures, allowing short cable runs and reliable, unattended operation.",
@@ -516,6 +568,14 @@ let productSeed = [
         optionsRequired: [],
         optionsOptional: [],
         accessories: [],
+        driversSoftware: [
+          ["Demo Software", "https://www.Dropbox.com/s/g4wto8k0ph97bx8/DemoSW.zip?dl=0"],
+        ],
+        FAQs: [
+          ["Where can I find the demo software for the T560?", "The software can be downloaded from Dropbox. A link is provided in the Resources menu under Drivers & Software."], 
+          ["Should I use the demo software to communicate with the T560?", "In general, Highland no longer recommends the use of the T560 demo software. We are not able to provide support for it and it seems to have problems communicating on newer versions of Windows. It's easier to use a serial port program such as TeraTerm or PuTTY. Extensive instructions on communicating with the T560 can be found in the technical manual."],
+          ["Is it possible to drive the T560 using LabView?", "While we don't provide any LabView support, you can use LabView to communicate with the T560 and create your own driver."],
+        ]
       },
 
       // ****************************** T564 Data ******************************
@@ -536,7 +596,7 @@ let productSeed = [
             "OEM packaged or board-only custom versions available",
         ],
         description: "Allows a scenario of more than 8000 frames to be preloaded and then executed in rapid succession, advancing automatically as triggers are received.",
-        imgCaptions: [],
+        imgCaptions: ["T564 4-channel compact advanced digital delay and pulse train generator"],
         about: [
             "The T560 series is a family of small digital delay generators, intended for use in embedded OEM applications.",
             "The T564 extends the capabilities of Highland's original T560 digital delay generator, allowing not only a single delay program, but a scenario of more than 8000 frames to be preloaded and then executed in rapid succession. Frames can be advanced automatically as triggers are received or simply stored and recalled manually. Each trigger generates four precise pulse outputs, independently programmable with 10 picosecond resolution in both delay and width. The T564 can generate single pulses per trigger as a standard digital delay generator or, new to the T560 DDG family, pulse trains. The Queue function allows new timing settings to be installed without disturbing ongoing cycles or missing triggers.",
@@ -562,7 +622,7 @@ let productSeed = [
       category: ["PSG", "MAS"],
       features: [],
       description: "Five wide-range time stampers can snapshot the time of the rising edge of one electrical input.",
-      imgCaptions: [],
+      imgCaptions: ["T680 5-channel ethernet time interval counter"],
       about: [],
       related: [],
       specifications: [],
@@ -575,7 +635,7 @@ let productSeed = [
       category: ["PHO"],
       features: [],
       description: "Converts fiberoptic input to electrical logic-level outputs, with DC coupled logic and monitor paths.",
-      imgCaptions: [],
+      imgCaptions: ["T735 compact DC-coupled optical-to-RS-422/RS-485/LVDS converter"],
       about: [],
       related: [],
       specifications: [],
@@ -592,7 +652,7 @@ let productSeed = [
       category: ["PSG"],
       features: [],
       description: "Adjustable global logic level input/output levels accept LVDS, TTL, LVTTL, and LVPECL trigger, and output clean, flat pulses from an input comparator and a transformer-coupled HV power output stage.",
-      imgCaptions: [],
+      imgCaptions: ["T750 4-channel compact high-voltage driver"],
       about: [],
       related: [],
       specifications: [],
@@ -605,7 +665,7 @@ let productSeed = [
       category: ["PSG", "PHO"],
       features: [],
       description: "Converts two digital fiberoptic inputs into high-level isolated electrical pulse outputs.",
-      imgCaptions: [],
+      imgCaptions: ["T760 dual-channel compact high voltage optical-to-electrical converter"],
       about: [],
       related: [],
       specifications: [],
@@ -618,7 +678,7 @@ let productSeed = [
       category: ["PSG", "PHO"],
       features: [],
       description: "Drives PLZT electro-optical modulators, piezo elements, vacuum photo devices, and similar capacitive loads.",
-      imgCaptions: [],
+      imgCaptions: ["T840 2-channel high voltage driver"],
       about: [],
       related: [],
       specifications: [],
@@ -631,7 +691,7 @@ let productSeed = [
       category: ["PSG", "PHO"],
       features: [],
       description: "Complementary standard and custom timing controllers can manage pulse picking, Q-switching, chirped pulse amplification, cavity dumping, and two-photon microscopy.",
-      imgCaptions: [],
+      imgCaptions: ["T850 compact pockels cell driver"],
       about: [],
       related: [],
       specifications: [],
@@ -644,7 +704,7 @@ let productSeed = [
       category: ["PSG", "PHO"],
       features: [],
       description: "Incorporates a differential-input comparator and an output driver stage which has adjustable low and high levels and 50 ohm output impedance.",
-      imgCaptions: [],
+      imgCaptions: ["T860 single-channel compact logic buffer and driver"],
       about: [],
       related: [],
       specifications: [],
@@ -657,7 +717,7 @@ let productSeed = [
       category: ["OEM"],
       features: [],
       description: "Manages high-rate laser timing on a shot-by-shot basis, with picosecond resolution of both laser system drive and photodiode diagnostics.",
-      imgCaptions: [],
+      imgCaptions: ["T900 laser timing unit"],
       about: [],
       related: [],
       specifications: [],
@@ -670,7 +730,7 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "VME bus master crate controller, usable as a crate slot 0 arbiter or as a secondary controller.",
-      imgCaptions: [],
+      imgCaptions: ["V120 VME PCI express crate controller"],
       about: [],
       related: [],
       specifications: [],
@@ -678,7 +738,14 @@ let productSeed = [
             ["Advanced Features", [["21", "1", "Conformal coating"], ]],
       ],
       accessories: [],
-      FAQs: [["Does the V120 come with OS support?", "We provide a fully open-source Linux driver as well as C libraries and some command line applications. See resources tab for link to download drivers."], ["Do you sell an optical cable with the V120?", "We do not sell a fiber-optic link for the V120, but we have successfully tested it with"]]
+      FAQs: [
+        ["Does the V120 come with OS support?", "We provide a fully open-source Linux driver as well as C libraries and some command line applications. See resources tab for link to download drivers."], 
+        ["Do you sell an optical cable with the V120?", "We do not sell a fiber-optic link for the V120, but we have successfully tested it with "],
+        ["What type of software support do you provide?", "A Linux driver and API support are available for the V120."],
+        ["Where can I download the V120 driver to use it with Linux?", "The driver can be downloaded from GitHub. A link is provided in the Resources menu under Drivers & Software."],
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V124 Data ******************************
@@ -688,12 +755,19 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "VXI bus master crate controller, usable as a crate slot 0 arbiter or as a secondary controller.",
-      imgCaptions: [],
+      imgCaptions: ["V124 VXI PCI express crate controller"],
       about: [],
       related: [],
       specifications: [],
       optionsOptional: [
         ["Advanced Features", [["21", "1", "Conformal coating"], ]],
+      ],
+      accessories: [],
+      FAQs: [
+        ["Does the V124 come with OS support?", "We provide a fully open-source Linux driver as well as C libraries and some command line applications. See resources tab for link to download drivers."], 
+        ["Do you sell an optical cable with the V124?", "We do not sell a fiber-optic link for the V124, but we have successfully tested it with"],
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["What type of software support do you provide?", "A Linux driver and API support are available for the V120. Links are provided in the Resources menu under Drivers & Software. "]
       ],
       },
 
@@ -704,10 +778,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Allows accurate and comprehensive measurement of AC power circuits by acquiring powerline current and voltage inputs.",
-      imgCaptions: [],
+      imgCaptions: ["V180 16-channel VME AC power analysis module"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V210 Data ******************************
@@ -717,13 +796,20 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "VME-2210 compatible relay module includes 64 SPDT relays and drivers, user-configured to operate in static or latching modes.",
-      imgCaptions: [],
+      imgCaptions: ["V210 64-channel VME relay module"],
       about: [],
       related: [],
       specifications: [],
       optionsOptional: [
         ["Advanced Features", [["11", "1", "Conformal coating"], ]],
       ],
+      accessories: [],
+      FAQs: [
+        ["Where can I find instructions for controlling the V210?", "Documentation on controlling the V210 can be found in the V210 technical manual. To drive relays, both the appropriate bank control bit in the CSR register and the channel control bit in the CTL0-CTL3 registers must be set."], 
+        ["Is the V210 a drop in replacement for the VMIVME-2210?", "Yes, the Highland V210 64-channel VME relay module is fully compatible with all versions of the VMIVME-2210."],
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ]
       },
 
       // ****************************** V220 Data ******************************
@@ -733,12 +819,17 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Drives and senses transducers in computer or PLC-based control systems, and simulates complex industrial processes.",
-      imgCaptions: [],
+      imgCaptions: ["V220 12-channel VME current loop/process control I/O module"],
       about: [],
       related: [],
       specifications: [],
       optionsOptional: [
         ["Advanced Features", [["2", "1", "Built-in self-test (BIST)"], ]],
+      ],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       },
 
@@ -749,13 +840,18 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "VME-3122 compatible analog input module provides high channel-count data acquisition for dense monitoring applications.",
-      imgCaptions: [],
+      imgCaptions: ["V230 64-channel VME analog input module"],
       about: [],
       related: [],
       specifications: [],
       optionsOptional: [
         ["Advanced Features", [["2", "1", "Built-in self-test (BIST)"], ["1", null, "Conformal coating"]]],
-  ],
+      ],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V250 Data ******************************
@@ -765,10 +861,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Provides 64 non-isolated channels of digital input/output.",
-      imgCaptions: [],
+      imgCaptions: ["V250 64-channel VME digital input/output module"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V280 Data ******************************
@@ -778,12 +879,17 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Provides 48 isolated digital inputs, with independently programmable rise and fall time responses for contact debounce or AC inputs.",
-      imgCaptions: [],
+      imgCaptions: ["V280 48-channel VME isolated digital input module"],
       about: [],
       related: [],
       specifications: [],
       optionsRequired: [
         ["Configuration", [["1", "5V nominal input threshold"], ["2", "24V nominal input threshold"], ["12", "24V nominal input threshold and built-in self-test (BIST)"]]],
+      ],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       },
 
@@ -794,7 +900,7 @@ let productSeed = [
       category: ["VME", "WFG"],
       features: [],
       description: "Provides eight DDS waveform outputs, each programmable for frequency and amplitude. Synchronizable in any combination of channels to produce polyphase signals.",
-      imgCaptions: [],
+      imgCaptions: ["V340 8-channel VME function generator with transformer coupling"],
       about: [],
       related: [],
       specifications: [],
@@ -803,6 +909,11 @@ let productSeed = [
       ],
       optionsOptional: [
         ["Advanced Features", [["1", "0", "Built-in self-test (BIST)"]]],
+      ],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       },
 
@@ -813,10 +924,15 @@ let productSeed = [
       category: ["VME", "WFG"],
       features: [],
       description: "Generates eight independently programmable waveforms with standard functions, noise, and user-loaded arbitrary waveforms.",
-      imgCaptions: [],
+      imgCaptions: ["V344 8-channel VME 32 MHz arbitrary waveform generator"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V346 Data ******************************
@@ -826,10 +942,15 @@ let productSeed = [
       category: ["VME", "WFG"],
       features: [],
       description: "Generates sweeps, chirps, I/Q and constellations, and calibrated jitter, and simulates a wide range of radar, communications, power, encoders, and electro-mechanical systems.",
-      imgCaptions: [],
+      imgCaptions: ["V346 8-channel VME 32 MHz arbitrary waveform generator w/ complex modulation"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V360 Data ******************************
@@ -839,10 +960,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Acquires low frequency inputs from industrial speed sensors and measures frequency and period over a wide dynamic range. ",
-      imgCaptions: [],
+      imgCaptions: ["V360 8-channel VME tachometer"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V365 Data ******************************
@@ -852,10 +978,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Provides V360 functions plus four independent overspeed blocks, each programmable to trip on static or latched overspeed or underspeed conditions.",
-      imgCaptions: [],
+      imgCaptions: ["V365 8-channel VME tachometer with overspeed/underspeed capability"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V375 Data ******************************
@@ -865,10 +996,15 @@ let productSeed = [
       category: ["VME", "WFG"],
       features: [],
       description: "Provides accurate simulation of real-world sensor inputs, ideal for simulation of complex rotating machines.",
-      imgCaptions: [],
+      imgCaptions: ["V375 4-channel VME arbitrary waveform generator"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V380 Data ******************************
@@ -878,10 +1014,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Excites and measures up to eight strain gauge load cells, and includes tare (zero reference), DSP-based high-order filtering, averaging, and triggered weighing.",
-      imgCaptions: [],
+      imgCaptions: ["V380 8-channel VME strain gauge/weighing module"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V385 Data ******************************
@@ -891,10 +1032,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Excites and measures up to eight strain gauge load cells, with separate, remotely sensed excitation supply for each channel.",
-      imgCaptions: [],
+      imgCaptions: ["V385 8-channel VME strain gauge/load cell module"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V410 Data ******************************
@@ -904,10 +1050,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Provides sixteen independent analog inputs that may be used to read cryogenic diodes, RTDs, thermistors, and other similar resistive sensors.",
-      imgCaptions: [],
+      imgCaptions: ["V410 16-channel VME RTD/resistance input module"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V420 Data ******************************
@@ -917,10 +1068,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Eliminates transient errors associated with relay switching, and provides for monotonic resistance changes using entirely solid-state simulation.",
-      imgCaptions: [],
+      imgCaptions: ["V420 8-channel VME isolated resistance simulator"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V450 Data ******************************
@@ -930,10 +1086,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Acquires a wide range of DC voltages, including thermocouple temperatures, and includes four precise RTD reference junction sensors.",
-      imgCaptions: [],
+      imgCaptions: ["V450 16-channel VME analog/thermocouple input module"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V460 Data ******************************
@@ -943,10 +1104,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Measures nearly any mixture of resistive-, bridge- or semiconductor-type sensors, using 4-wire connections.",
-      imgCaptions: [],
+      imgCaptions: ["V460 16-channel VME current source and analog measurement module"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V470 Data ******************************
@@ -956,10 +1122,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Simulates most common thermocouples with sixteen independent, isolated analog outputs that may be user-programmed to operate as voltage outputs or thermocouple simulators.",
-      imgCaptions: [],
+      imgCaptions: ["V470 16-channel VME analog output/thermocouple simulator module"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V490 Data ******************************
@@ -969,10 +1140,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Provides triggerable, simultaneous data acquisition for mid-speed tasks with programmable preamplification and filtering.",
-      imgCaptions: [],
+      imgCaptions: ["V490 16-channel VME multi-range digitizer"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V545 Data ******************************
@@ -982,12 +1158,17 @@ let productSeed = [
       category: ["VME", "WFG", "MAS"],
       features: [],
       description: "Performs LVDT and synchro/resolver simulation and acquisition using internal or external excitation.",
-      imgCaptions: [],
+      imgCaptions: ["V545 24-channel VME synchro/LVDT simulation/acquisition module"],
       about: [],
       related: [],
       specifications: [],
       optionsRequired: [
         ["Plugin Transformers", [["1", "1:1 ratio"], ["4", "3.7:1 ratio"], ["6", "5.3:1 ratio"]]],
+      ],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       },
 
@@ -998,10 +1179,15 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Acquires position data from up to 8 LVDT (linear variable differential transformer) position sensors.",
-      imgCaptions: [],
+      imgCaptions: ["V550 8-channel VME LVDT/RVDT scanner"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
       // ****************************** V660 Data ******************************
       {
@@ -1010,12 +1196,17 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Records the time of occurrence of twelve independent electrical pulse inputs, in time-interval or timestamp modes.",
-      imgCaptions: [],
+      imgCaptions: ["V660 12-channel VME picosecond resolution time-interval measurement module"],
       about: [],
       related: [],
       specifications: [],
       optionsRequired: [
         ["Inputs", [["1", "differential ECL"], ["2", "optical"]]],
+      ],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       },
 
@@ -1026,12 +1217,17 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "Records the time of occurrence of eight independent electrical pulse inputs, each measured relative to a single, common reference input.",
-      imgCaptions: [],
+      imgCaptions: ["V680 8-channel VME time-to-digital converter"],
       about: [],
       related: [],
       specifications: [],
       optionsRequired: [
         ["Connector Type", [["1", "SMB"], ["2", "LEMO"]]],
+      ],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       },
 
@@ -1042,13 +1238,18 @@ let productSeed = [
       category: ["VME", "PHO"],
       features: [],
       description: "Converts ECL, NIM, TTL, and adjustable logic level inputs to fast, fiber-coupled optical signals for EMI-proof distribution of pulses, triggers, and precision timing signals.",
-      imgCaptions: [],
+      imgCaptions: ["V720 6-channel VME buffered electrical-to-optical converter"],
       about: [],
       related: [],
       specifications: [],
       optionsRequired: [
         ["Connector Type",[[null, "ST"], ["1", "FC"]]],    
         ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
+      ],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       },
 
@@ -1059,13 +1260,18 @@ let productSeed = [
       category: ["VME", "PHO"],
       features: [],
       description: "Converts fiber-coupled laser signals to ECL, NIM, or TTL logic levels for EMI-proof distribution of pulses, triggers, and precision timing signals.",
-      imgCaptions: [],
+      imgCaptions: ["V730 6-channel VME optical-to-electrical converter"],
       about: [],
       related: [],
       specifications: [],
       optionsRequired: [
         ["Connector Type",[[null, "ST"], ["1", "FC"]]],    
         ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
+      ],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       },
 
@@ -1076,10 +1282,15 @@ let productSeed = [
       category: ["VME", "PSG"],
       features: [],
       description: "Accepts user adjustable logic-level inputs and generates high-level, very fast positive output pulses.",
-      imgCaptions: [],
+      imgCaptions: ["V860 6-channel VME pulse amplifier"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
       // ****************************** V880 Data ******************************
@@ -1089,10 +1300,15 @@ let productSeed = [
       category: ["OEM"],
       features: [],
       description: "Distributes picosecond-precision timing pulses across physically distributed facilities.",
-      imgCaptions: [],
+      imgCaptions: ["V880 8-channel VME delay generator for facility timing systems"],
       about: [],
       related: [],
       specifications: [],
+      accessories: [],
+      FAQs: [
+        ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+        ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+      ],
       },
 
 

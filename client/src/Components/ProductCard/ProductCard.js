@@ -1,12 +1,8 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
-
-// Image imports
 import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 
 const ProductCard = ({categoryData}) => {
-
-    console.log("here", ProductPhotos)
 
     const history = useHistory();
 

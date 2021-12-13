@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import UserContext from "../../Context/UserContext";
 import { DateContext } from "../../Context/DateContext";
 import axios from "axios";
-import CategoryJumbotron from '../../Components/CategoryJumbotron/CategoryJumbotron';
+import HighlandPanorama from "./Highland_Panorama2.jpg"
+
 
 // TO DO:
 //     (1) better Map
@@ -18,6 +19,19 @@ const Contact = () => {
     const { dateNow } = useContext(DateContext);
 
     const contactStyles={
+        heroContainer: {
+            height: "300px",
+            border: "1px solid lightgray",
+            marginBottom: "2%",
+            backgroundImage: `url(${HighlandPanorama})`,
+            color: "white",
+            fontWeight: "bold",
+            width: "100%",
+        },
+        heroHeading: {
+            textAlign: "center",
+            marginTop: "2%",
+        },
         center: {
             textAlign: "center",
         },
@@ -100,9 +114,11 @@ const Contact = () => {
 
     return (
         <div>
-            <CategoryJumbotron 
-            title={"Contact Us"}
-            />
+            <div className="row">
+                <div className="col-md-12" style={contactStyles.heroContainer}>
+                    <h1 style={contactStyles.heroHeading}>Contact Us</h1>
+                </div>
+            </div>
 
             <div className="row">
                 <div className="col-md-1"></div>

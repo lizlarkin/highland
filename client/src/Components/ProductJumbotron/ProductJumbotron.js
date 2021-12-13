@@ -16,17 +16,25 @@ const ProductJumbotron = ({ name, model, captions }) => {
             marginTop: "15px",
             marginBottom: "15px",
         },
+        rightDiv: {
+            // border: "1px solid blue",
+            height: "auto"
+        },
         indicators: {
             backgroundColor: "#0039a6",
-            bottom: "-50px"
         },
         indicatorDiv: {
-            bottom: "-50px"
+            bottom: "-50px",
+            // border: "1px solid green"
+        },
+        captionDiv: {
+            // bottom: "-65px",
+            border: "1px solid red",
         },
         caption: {
             color: "#0039a6", 
-            bottom: "-25px",
-            fontSize: "50%"
+            fontFamily: "STIXGeneral",
+            fontSize: "80%",
         },
         arrowBtns: {
             height: "10%",
@@ -64,23 +72,23 @@ const ProductJumbotron = ({ name, model, captions }) => {
                             :null}
                         </div>
                         {/* Default Product Image */}
-                        <div className="carousel-inner">
+                        <div className="carousel-inner" style={jumbotronStyles.rightDiv}>
                             {ProductPhotos[photoArrIndex]?
                                 <div className="carousel-item active">
                                     <img src={ProductPhotos[photoArrIndex][0]} className="d-block w-100" alt={captions?captions[0]:null}/>
-                                    <div className="carousel-caption d-none d-md-block" style={jumbotronStyles.caption}>
-                                        <h6>{captions?captions[0]:null}</h6>
-                                    </div>
+                                    {/* <div className="carousel-caption d-none d-md-block" style={jumbotronStyles.captionDiv}>
+                                        <p style={jumbotronStyles.caption}>{captions?captions[0]:null}</p>
+                                    </div> */}
                                 </div>
                             :null}
                         {/* Additional Product Images */}
                             {ProductPhotos[photoArrIndex]?
                             ProductPhotos[photoArrIndex].slice(1).map((photo, idx) => (
-                                <div className="carousel-item" key={idx}>
+                            <div className="carousel-item" key={idx}>
                                 <img src={photo} className="d-block w-100" alt={captions?captions[idx+1]:null}/>
-                                <div className="carousel-caption d-none d-md-block" style={jumbotronStyles.caption}>
-                                    <h6>{captions?captions[idx+1]:null}</h6>
-                                </div>
+                                {/* <div className="carousel-caption d-none d-md-block" style={jumbotronStyles.captionDiv}>
+                                    <p style={jumbotronStyles.caption}>{captions?captions[idx+1]:null}</p>
+                                </div> */}
                             </div>
                             ))
                             :null}

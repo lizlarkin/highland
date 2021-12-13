@@ -27,7 +27,8 @@ const ProductFAQ = ({ FAQs }) => {
                             </div>
                         </div>
                     </div>
-                )):null}
+                )):
+                <p>No technical FAQs are on record for this product yet. To submit a technical question, please contact our team using the following form: <a href = "../Contact">Contact Us</a></p>}
                 </div>
                 
         </div>

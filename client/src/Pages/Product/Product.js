@@ -43,6 +43,7 @@ const Product = () => {
     const [productRelatives, setProductRelatives] = useState();
     const [productFAQs, setProductFAQs] = useState();
     const [productImgCaptions, setProductImgCaptions] = useState();
+    const [productDriversSoftware, setProductDriversSoftware] = useState();
 
     useEffect(() => {
         const getProductData = async () => {
@@ -59,6 +60,7 @@ const Product = () => {
                setProductRelatives(prodData.data[0].related);
                setProductFAQs(prodData.data[0].FAQs);
                setProductImgCaptions(prodData.data[0].imgCaptions);
+               setProductDriversSoftware(prodData.data[0].driversSoftware);
             } catch (error) {
                 console.log(error.response)
             }
@@ -151,7 +153,7 @@ const Product = () => {
                 <div>
                     {content.showOverview && <ProductOverview features={productFeatures} description={productDescription}/>}
                     {content.showSpecifications && <ProductSpecs specs={productSpecs}/>}
-                    {content.showResources && <ProductResources model={productModel}/>}
+                    {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware}/>}
                     {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
                     {content.showRelated && <ProductRelated related={productRelatives}/>}
                     {content.showQuote && <ProductQuote name={productName} model={productModel} requiredOptions={productRequired} optionalOptions={productOptions} accessories={productAccessories}/>}  
