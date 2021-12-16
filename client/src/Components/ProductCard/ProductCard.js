@@ -6,6 +6,8 @@ const ProductCard = ({categoryData}) => {
 
     const history = useHistory();
 
+    console.log("this right here", ProductPhotos)
+
     const productCardStyles = {
         margin: "20px 20px 0px 20px",
         width: "100%",
@@ -26,7 +28,7 @@ const ProductCard = ({categoryData}) => {
                 <div className="col-md-4 d-flex align-items-stretch text-center" key ={idx}>
                     <div className="card " style={productCardStyles}>
                     <h5 className="card-title" style={productCardStyles.title}>{product.model} {product.name}</h5>
-                        <img src={ProductPhotos[ProductPhotos.findIndex(search => search[0].includes(product.model))][0]} className="card-img-top" alt={product.imgCaptions[0]}/>
+                        <img src={ProductPhotos[ProductPhotos.findIndex(search => search[0].includes(product.model))][0]} className="card-img-top" alt={ProductPhotos?product.imgCaptions[0]:null}/>
                         <div className="card-body d-flex flex-column">
                             <p className="card-text">{product.description}</p>
                             <button onClick={() => history.push(`/Product/${product.model}`)} 

@@ -596,7 +596,7 @@ let productSeed = [
             "OEM packaged or board-only custom versions available",
         ],
         description: "Allows a scenario of more than 8000 frames to be preloaded and then executed in rapid succession, advancing automatically as triggers are received.",
-        imgCaptions: ["T564 4-channel compact advanced digital delay and pulse train generator"],
+        imgCaptions: ["T564 4-channel compact advanced digital delay and pulse train generator", "", "T564-1 version without Ethernet", "T564-2 version with Ethernet"],
         about: [
             "The T560 series is a family of small digital delay generators, intended for use in embedded OEM applications.",
             "The T564 extends the capabilities of Highland's original T560 digital delay generator, allowing not only a single delay program, but a scenario of more than 8000 frames to be preloaded and then executed in rapid succession. Frames can be advanced automatically as triggers are received or simply stored and recalled manually. Each trigger generates four precise pulse outputs, independently programmable with 10 picosecond resolution in both delay and width. The T564 can generate single pulses per trigger as a standard digital delay generator or, new to the T560 DDG family, pulse trains. The Queue function allows new timing settings to be installed without disturbing ongoing cycles or missing triggers.",

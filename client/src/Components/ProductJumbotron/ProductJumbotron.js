@@ -16,20 +16,19 @@ const ProductJumbotron = ({ name, model, captions }) => {
             marginTop: "15px",
             marginBottom: "15px",
         },
-        rightDiv: {
-            // border: "1px solid blue",
-            height: "auto"
+        photoDiv: {
+            paddingBottom: "5%"
         },
         indicators: {
             backgroundColor: "#0039a6",
         },
         indicatorDiv: {
             bottom: "-50px",
-            // border: "1px solid green"
         },
         captionDiv: {
-            // bottom: "-65px",
-            border: "1px solid red",
+            position: "absolute",
+            bottom: "-25px",
+            height: "5%"
         },
         caption: {
             color: "#0039a6", 
@@ -71,28 +70,31 @@ const ProductJumbotron = ({ name, model, captions }) => {
                                 ))
                             :null}
                         </div>
+
                         {/* Default Product Image */}
-                        <div className="carousel-inner" style={jumbotronStyles.rightDiv}>
+                        <div className="carousel-inner" style={jumbotronStyles.photoDiv}>
                             {ProductPhotos[photoArrIndex]?
                                 <div className="carousel-item active">
                                     <img src={ProductPhotos[photoArrIndex][0]} className="d-block w-100" alt={captions?captions[0]:null}/>
-                                    {/* <div className="carousel-caption d-none d-md-block" style={jumbotronStyles.captionDiv}>
+                                    <div className="carousel-caption d-none d-md-block" style={jumbotronStyles.captionDiv}>
                                         <p style={jumbotronStyles.caption}>{captions?captions[0]:null}</p>
-                                    </div> */}
+                                    </div>
                                 </div>
                             :null}
+
                         {/* Additional Product Images */}
                             {ProductPhotos[photoArrIndex]?
                             ProductPhotos[photoArrIndex].slice(1).map((photo, idx) => (
                             <div className="carousel-item" key={idx}>
                                 <img src={photo} className="d-block w-100" alt={captions?captions[idx+1]:null}/>
-                                {/* <div className="carousel-caption d-none d-md-block" style={jumbotronStyles.captionDiv}>
+                                <div className="carousel-caption d-none d-md-block" style={jumbotronStyles.captionDiv}>
                                     <p style={jumbotronStyles.caption}>{captions?captions[idx+1]:null}</p>
-                                </div> */}
+                                </div>
                             </div>
                             ))
                             :null}
                         </div>
+
                         {/* Next and Previous Arrow Buttons */}
                         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev" style={jumbotronStyles.arrowBtns}>
                             <span><i className="fas fa-chevron-left" aria-hidden="true"></i></span>
