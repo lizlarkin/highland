@@ -51,6 +51,8 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
         accessories: selectedAccessories,
     }
 
+    const [userCartNum, setUserCartNum] = useState(userData.user.cartActivity)
+
     const selectQuantity = (e) => {
         setSelectedQuantity(e.target.value);
     }
@@ -96,13 +98,15 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                 }
                 else {
                     const authToken = localStorage.getItem("auth-token");
-                    // console.log(authToken)
-                    // console.log(cart)
                     const newCart = await axios.post("/cart", 
-                    cart, 
-                    { headers: { "x-auth-token": authToken },
+                        cart, 
+                        { headers: { "x-auth-token": authToken },
                     });
-                    console.log(newCart);
+                    console.log("newCart hit", newCart);
+                    setUserCartNum(userCartNum+1)
+                    console.log("new userCartNum", userCartNum)
+                    await axios.put("/users/cartActivity", {cartActivity: userCartNum})
+                    console.log("this ran too", userCartNum)
                     history.push("/cart")     
                 }
             } catch (error) {
@@ -168,20 +172,20 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
 
                                 {optionalOptions.length>0?
                                 optionalOptions.map((option, idx) => (
-                                    <>
-                                    <h6 key={idx} style={quoteStyles.header}>Select {option[0]} (optional):</h6>
-                                    <form>
-                                    <div>{option[1].map((option, idx) => (
-                                        <div className="form-check" key={idx}>
-                                            <input onClick={handleOptionalOptions} className="form-check-input" type="checkbox" title={option[2]} value={option[0]} min={option[1]} id={idx}/>
-                                            <label className="form-check-label" for="defaultCheck1">
-                                                {option[2]}
-                                            </label>
-                                        </div>
-                                    ))}      
-                                    </div> 
-                                    </form>   
-                                    </>                                    
+                                    <div key={idx}>
+                                        <h6 style={quoteStyles.header}>Select {option[0]} (optional):</h6>
+                                        <form>
+                                        <div>{option[1].map((option, idx) => (
+                                            <div className="form-check" key={idx}>
+                                                <input onClick={handleOptionalOptions} className="form-check-input" type="checkbox" title={option[2]} value={option[0]} min={option[1]} id={idx}/>
+                                                <label className="form-check-label" htmlFor="defaultCheck1">
+                                                    {option[2]}
+                                                </label>
+                                            </div>
+                                        ))}      
+                                        </div> 
+                                        </form>   
+                                    </div>                                    
                                 ))
                                 :null}  
 

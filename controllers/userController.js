@@ -22,7 +22,8 @@ module.exports = {
                 city,
                 state,
                 country,
-                optIn
+                optIn, 
+                cartActivity,
             } = req.body;
     
                 if (!email || !password || !passwordCheck || !firstName || !lastName || !organization || !phone || !street || !city || !state || !city || !state || !country) {
@@ -57,7 +58,8 @@ module.exports = {
                     city,
                     state,
                     country,
-                    optIn
+                    optIn,
+                    cartActivity
                 });
 
                 // start confirmation code here
@@ -141,7 +143,9 @@ module.exports = {
                     organization: user.organization,
                     phone: user.phone,
                     email: user.email,
-                    confirmed: user.confirmed},
+                    confirmed: user.confirmed,
+                    cartActivity: user.cartActivity,
+                },
             });
 
         } catch (error) {
@@ -160,6 +164,7 @@ module.exports = {
                 organization: user.organization,
                 email: user.email,
                 phone: user.phone,
+                cartActivity: user.cartActivity,
             });
 
         } catch (error) {
@@ -176,11 +181,17 @@ module.exports = {
         }
     },
     
-    // addCartCount: async (req,res) => {
-    //     try {
+    updateCartActivity: async (req,res) => {
+        console.log("user cart route hit")
+        try {
+            const postCart = await User.updateOne(
+                req.user,
+                {cartActivity: req.body.cartActivity}
+                )
+        } catch (error) {
+            res.send(error.response)
+        }
+    },
 
-    //     } catch (error) {
-            
-    //     }
-    // }
+
 };

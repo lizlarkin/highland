@@ -26,6 +26,7 @@ body {
   min-height: 100vh;
   position: relative;
   margin: 0;
+  padding: 0;
   padding-bottom: 100px;
   max-width: 100%;
   overflow-x: hidden;
@@ -36,7 +37,42 @@ body {
 #root {
   margin-bottom: 5%;
 }
+
 .asterisk {
   color: #D0342C;
   font-size: 125%;
+}
+
+.heroContainer {
+  margin-bottom: 2%;
+  width: 100%;
+  background-repeat: no-repeat;
+  min-height: 550px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.heroHeading {
+  text-align: center;
+  margin-top: 3%;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 6px;
+  font-size: 70px;
+}
+
+.heroBody {
+  border: 1px solid white;
+  color: white;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2%;
+  margin-top: 2.5%;
+  text-align: center;
+}
+
+.heroText {
+  line-height: 150%;
+  font-weight: 400;
 }

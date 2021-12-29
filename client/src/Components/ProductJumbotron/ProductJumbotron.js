@@ -33,7 +33,7 @@ const ProductJumbotron = ({ name, model, captions }) => {
         caption: {
             color: "#0039a6", 
             fontFamily: "STIXGeneral",
-            fontSize: "80%",
+            fontSize: "110%",
         },
         arrowBtns: {
             height: "10%",
@@ -66,7 +66,7 @@ const ProductJumbotron = ({ name, model, captions }) => {
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1" style={jumbotronStyles.indicators}></button>
                             {ProductPhotos[photoArrIndex]?
                                 ProductPhotos[photoArrIndex].slice(1).map((photo, idx) => (
-                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to={idx+1} aria-label={"Slide " + idx+1} style={jumbotronStyles.indicators}></button>
+                                    <button key={idx} type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to={idx+1} aria-label={"Slide " + idx+1} style={jumbotronStyles.indicators}></button>
                                 ))
                             :null}
                         </div>

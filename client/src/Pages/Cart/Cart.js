@@ -245,7 +245,7 @@ const Cart = () => {
                         <div className="col-md-9"></div>
                         <div className="col-md-3" >
                             <button onClick={() => finalizeItems()} type="submit" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style={{width: "100%"}}>Request Quote</button>
-                            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div className="modal-dialog">
                                 <div className="modal-content">
                                 <div className="modal-header">

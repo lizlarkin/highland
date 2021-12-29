@@ -2,15 +2,16 @@ import React, { useContext, useEffect, useState } from 'react';
 import UserContext from "../../Context/UserContext";
 import { DateContext } from "../../Context/DateContext";
 import axios from "axios";
-import HighlandPanorama from "./Highland_Panorama2.jpg"
+import contact from "./contact.jpg"
 
 
 // TO DO:
 //     (1) better Map
 //     (2) keep contact history in account section
 //     (3) change auth to no-reply
-//     (4) button should be reset to disabled after send
+//     (4) page reset uses location.window.reload() - find something more sophisticated
 //     (5) change internal send to sales@
+//     (6) contact db will grow too large
 
 
 const Contact = () => {
@@ -19,18 +20,8 @@ const Contact = () => {
     const { dateNow } = useContext(DateContext);
 
     const contactStyles={
-        heroContainer: {
-            height: "300px",
-            border: "1px solid lightgray",
-            marginBottom: "2%",
-            backgroundImage: `url(${HighlandPanorama})`,
-            color: "white",
-            fontWeight: "bold",
-            width: "100%",
-        },
-        heroHeading: {
-            textAlign: "center",
-            marginTop: "2%",
+        heroImg: {
+            backgroundImage: `url(${contact})`,
         },
         center: {
             textAlign: "center",
@@ -99,6 +90,7 @@ const Contact = () => {
             }
         document.querySelector('textarea[name="comments"]').value = "";
         document.getElementById("inputState").selectedIndex = 0;
+        window.location.reload()
     }
 
     useEffect(() => {
@@ -115,8 +107,8 @@ const Contact = () => {
     return (
         <div>
             <div className="row">
-                <div className="col-md-12" style={contactStyles.heroContainer}>
-                    <h1 style={contactStyles.heroHeading}>Contact Us</h1>
+                <div className="col-md-12 heroContainer" style={contactStyles.heroImg}>
+                    <h1 className="heroHeading">CONTACT US</h1>
                 </div>
             </div>
 
@@ -212,7 +204,7 @@ const Contact = () => {
                         </div>
 
                         <div className="row">
-                            <div className="col-md-6" style={contactStyles.submitRow}>
+                            <div className="col-md-12" style={contactStyles.submitRow}>
                                 {form.organization==="" || form.firstName==="" || form.lastName==="" || form.email==="" || form.phone===""?
                                 <>
                                 <button type="button" className="btn btn-outline-danger" style={contactStyles.submitBtn} disabled>Submit</button> 
@@ -243,7 +235,6 @@ const Contact = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-9"></div>
                         </div>
                     </form>
                 </div>

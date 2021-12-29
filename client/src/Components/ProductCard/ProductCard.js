@@ -6,8 +6,6 @@ const ProductCard = ({categoryData}) => {
 
     const history = useHistory();
 
-    console.log("this right here", ProductPhotos)
-
     const productCardStyles = {
         margin: "20px 20px 0px 20px",
         width: "100%",

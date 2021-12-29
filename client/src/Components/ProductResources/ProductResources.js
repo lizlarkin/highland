@@ -81,23 +81,6 @@ const ProductResources = ({ model, driversSoftware }) => {
                         </div>
                         :null}
 
-                        {/* <div className="accordion-item">
-                            <h2 className="accordion-header" id="headingTwo">
-                                <button style={resourcesStyles.accordianBtn} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Drivers &amp; Software
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div className="accordion-body">
-                                <div className="list-group">
-                                    <Link to="/" className="list-group-item list-group-item-action">
-                                        <img className = "resource-image" src={softwareDrivers} alt="Drivers &amp; Software"/> Download TBD
-                                    </Link>
-                                </div>
-                            </div>
-                            </div>
-                        </div> */}
-
                         <div className="accordion-item">
                             <h2 className="accordion-header" id="headingThree">
                                 <button style={resourcesStyles.accordianBtn} className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">

@@ -4,13 +4,16 @@ const {
     register, 
     login, 
     getUser, 
-    deleteUser 
+    deleteUser,
+    updateCartActivity
 } = require("../controllers/userController");
 
 router.post("/register", register);
 router.post("/login", login);
 
 router.get("/", auth, getUser);
+
+router.put("/cartActivity", updateCartActivity);
 
 router.delete("/", auth, deleteUser);
 

@@ -9,6 +9,7 @@ const Navigation = (props) => {
 
   const  { userData }  = useContext(UserContext);
   const history = useHistory();
+  console.log("user data from Nav", userData)
 
   const navigationStyles = {
     logo: {
@@ -36,7 +37,6 @@ const Navigation = (props) => {
 
     const goToCategory = (e) => {
       const categorySelected = e.target.title;
-      console.log(categorySelected)
       history.push(`/Category/${categorySelected}`)
     }
 
@@ -85,7 +85,10 @@ const Navigation = (props) => {
                   {!userData.user ? <Link to="/Login" className="nav-link active" style={navigationStyles.links}>Login</Link> : <Link to = "/Login" onClick={props.logout} className="nav-link active" style={navigationStyles.links}>Logout</Link> }
                 </li>
                 <li className="nav-item">
-                  {userData.user ? <Link to="/Cart" className="nav-link active" style={navigationStyles.links}><i className="fas fa-shopping-cart"></i>{cartQuantity>0?" ("+cartQuantity+")":null}</Link> : null }
+                  {userData.user ? <Link to="/Cart" className="nav-link active" style={navigationStyles.links}><i className="fas fa-shopping-cart"></i>
+                  {cartQuantity>0?" ("+cartQuantity+")":null}
+                  </Link> 
+                  : null }
                 </li>
               </ul>
               <form className="d-flex">
