@@ -4,3 +4,4 @@ node_modules
 # Large Directories
 /client/src/Components/ProductResources/assets
 /client/src/Pages/Product/Images
+/client/src/Pages/Customers/Images

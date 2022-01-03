@@ -17,7 +17,15 @@ const ProductOverview = ({ features, description }) => {
                             <ul>
                                 {features?
                                 features.map((feature, idx) => (
-                                <li key={idx} style={overviewStyles}>{feature}</li>
+                                <li key={idx} style={overviewStyles}>{feature[0]}
+                                    {feature[1]?
+                                    <ul>
+                                        {feature[1].map((nestedFeature, idx) => (
+                                            <li key={idx} style={overviewStyles}>{nestedFeature}</li>
+                                        ))}
+                                    </ul>
+                                    :null}
+                                </li>
                                 ))
                                 :null}
                             </ul>

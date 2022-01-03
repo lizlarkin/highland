@@ -181,13 +181,14 @@ module.exports = {
         }
     },
     
-    updateCartActivity: async (req,res) => {
-        console.log("user cart route hit")
+    addCartActivity: async (req,res) => {
+        console.log("add to cart route hit")
         try {
             const postCart = await User.updateOne(
                 req.user,
-                {cartActivity: req.body.cartActivity}
-                )
+                { "$inc" : { "cartActivity": 1} 
+            })
+            res.json(postCart);
         } catch (error) {
             res.send(error.response)
         }

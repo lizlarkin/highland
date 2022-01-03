@@ -40,6 +40,7 @@ const Product = () => {
     const [productFeatures, setProductFeatures] = useState();
     const [productDescription, setProductDescription] = useState();
     const [productSpecs, setProductSpecs] = useState();
+    const [productSpecsTwo, setProductSpecsTwo] = useState();
     const [productRelatives, setProductRelatives] = useState();
     const [productFAQs, setProductFAQs] = useState();
     const [productImgCaptions, setProductImgCaptions] = useState();
@@ -57,6 +58,7 @@ const Product = () => {
                setProductFeatures(prodData.data[0].features);
                setProductDescription(prodData.data[0].about);
                setProductSpecs(prodData.data[0].specifications);
+               setProductSpecsTwo(prodData.data[0].specificationsTwo);
                setProductRelatives(prodData.data[0].related);
                setProductFAQs(prodData.data[0].FAQs);
                setProductImgCaptions(prodData.data[0].imgCaptions);
@@ -152,7 +154,7 @@ const Product = () => {
             <div className = "col-md-7">
                 <div>
                     {content.showOverview && <ProductOverview features={productFeatures} description={productDescription}/>}
-                    {content.showSpecifications && <ProductSpecs specs={productSpecs}/>}
+                    {content.showSpecifications && <ProductSpecs specs={productSpecs} specsTwo={productSpecsTwo}/>}
                     {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware}/>}
                     {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
                     {content.showRelated && <ProductRelated related={productRelatives}/>}

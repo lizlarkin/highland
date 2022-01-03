@@ -5,7 +5,7 @@ const {
     login, 
     getUser, 
     deleteUser,
-    updateCartActivity
+    addCartActivity
 } = require("../controllers/userController");
 
 router.post("/register", register);
@@ -13,7 +13,7 @@ router.post("/login", login);
 
 router.get("/", auth, getUser);
 
-router.put("/cartActivity", updateCartActivity);
+router.post("/addCartActivity", addCartActivity);
 
 router.delete("/", auth, deleteUser);
 

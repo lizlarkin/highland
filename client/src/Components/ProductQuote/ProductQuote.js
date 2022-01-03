@@ -51,7 +51,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
         accessories: selectedAccessories,
     }
 
-    const [userCartNum, setUserCartNum] = useState(userData.user.cartActivity)
+    // const [userCartNum, setUserCartNum] = useState(userData.user.cartActivity?:user)
 
     const selectQuantity = (e) => {
         setSelectedQuantity(e.target.value);
@@ -102,11 +102,9 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                         cart, 
                         { headers: { "x-auth-token": authToken },
                     });
-                    console.log("newCart hit", newCart);
-                    setUserCartNum(userCartNum+1)
-                    console.log("new userCartNum", userCartNum)
-                    await axios.put("/users/cartActivity", {cartActivity: userCartNum})
-                    console.log("this ran too", userCartNum)
+                    // console.log("newCart hit", newCart);
+                    axios.post("/users/addCartActivity");
+                    // console.log("next hit")
                     history.push("/cart")     
                 }
             } catch (error) {
@@ -116,7 +114,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
  
     useEffect(() => {
         if (!userData.user) history.push("/login");
-        if (optionalOptions.length>0) initializeOptions()
+        if (optionalOptions.length>0) initializeOptions();
     }, [userData.user, history])
 
     return (

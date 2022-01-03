@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProductSpecs = ({ specs }) => {
+const ProductSpecs = ({ specs, specsTwo }) => {
 
     const specStyles = {
         specSpan: {
@@ -34,6 +34,32 @@ const ProductSpecs = ({ specs }) => {
                         :null}
                     </tbody>
                 </table>
+
+                {specsTwo?
+                <>
+                <h5>{specsTwo[0]}</h5>
+                <table className="table table-striped table-hover">
+                    <tbody>
+                        {specsTwo?
+                        specsTwo.slice(1).map((specification, idx) => (
+                            <tr key={idx}>
+                                <td>{specification[0]}</td>
+                                <td>{specification[1].map((specLine, idx) => (
+                                    <div key={idx}>
+                                        {typeof(specLine) === "string" ? 
+                                        <td>{specLine}</td> : 
+                                        specLine.map((specSpan, idx) => (
+                                            <div key={idx} style={specStyles.specSpan}>{specSpan}</div>
+                                        ))}
+                                    </div>
+                                ))}</td>
+                            </tr>
+                        ))
+                        :null}
+                    </tbody>
+                    </table>
+                </>
+                :null}
 
                 </div>
         </div>

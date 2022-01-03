@@ -17,6 +17,7 @@ const productSchema = new mongoose.Schema({
     about: [{}],
     related: [{}],
     specifications: [[],[]],
+    specificationsTwo: [],
     optionsRequired: [[]],
     optionsOptional: [[]],
     accessories: [],

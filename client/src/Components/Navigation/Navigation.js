@@ -9,7 +9,7 @@ const Navigation = (props) => {
 
   const  { userData }  = useContext(UserContext);
   const history = useHistory();
-  console.log("user data from Nav", userData)
+  console.log("user data from Nav", userData.user)
 
   const navigationStyles = {
     logo: {
@@ -19,6 +19,9 @@ const Navigation = (props) => {
         fontWeight: "bold",
         marginLeft: "40px",
     },
+    cartNum: {
+        fontSize: "75%",
+    }
   }
 
   const [cartQuantity, setCartQuantity] = useState();
@@ -86,7 +89,7 @@ const Navigation = (props) => {
                 </li>
                 <li className="nav-item">
                   {userData.user ? <Link to="/Cart" className="nav-link active" style={navigationStyles.links}><i className="fas fa-shopping-cart"></i>
-                  {cartQuantity>0?" ("+cartQuantity+")":null}
+                  <span style={navigationStyles.cartNum}>{cartQuantity>0?" ("+cartQuantity+")":null}</span>
                   </Link> 
                   : null }
                 </li>

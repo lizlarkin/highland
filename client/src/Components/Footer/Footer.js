@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
 import {Link} from 'react-router-dom';
-import "./FooterStyles.css"
-import instagram from "./Images/instagram.png"
-import linkedin from "./Images/linkedin.png"
+import "./FooterStyles.css";
+import instagram from "./Images/instagram.png";
+import linkedin from "./Images/linkedin.png";
 
 
 const Footer = () => {
+
+    const year = new Date().getFullYear()
+
     return (
         <footer>
             {/* <div className = "row footer-space">
@@ -41,7 +44,7 @@ const Footer = () => {
                     </div>
                     <div className = "row">
                         <div className = "col-md-12">
-                            &copy; 2021 Highland Technology, Inc.
+                            &copy; {year} Highland Technology, Inc.
                         </div>    
                     </div>
                 </div>
