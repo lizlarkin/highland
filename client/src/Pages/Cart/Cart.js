@@ -144,7 +144,7 @@ const Cart = () => {
                                                                   
                                                             )))}
                                                         </>
-                                                    :null}
+                                                    :data.baseModel}
                                                     {": "}
                                                     {data.name}
                                                 </h5>

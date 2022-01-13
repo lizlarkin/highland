@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./ProductStyles.css"
+import "./ProductNavigation.css"
 import ProductJumbotron from '../../Components/ProductJumbotron/ProductJumbotron'
 import ProductOverview from '../../Components/ProductOverview/ProductOverview';
 import ProductSpecs from './../../Components/ProductSpecs/ProductSpecs';
 import ProductResources from './../../Components/ProductResources/ProductResources';
 import ProductQuote from './../../Components/ProductQuote/ProductQuote';
-import './../../Components/ProductNavigation/ProductNavigation';
 import ProductRelated from '../../Components/ProductRelated/ProductRelated';
 import ProductFAQ from '../../Components/ProductFAQ/ProductFAQ';
 import SalesContact from '../../Components/ProductContact/SalesContact';
@@ -36,11 +36,14 @@ const Product = () => {
     const [productModel, setProductModel] = useState();
     const [productRequired, setProductRequired] = useState();
     const [productOptions, setProductOptions] = useState()
+    const [baseModel, setBaseModel] = useState()
     const [productAccessories, setProductAccessories] = useState();
     const [productFeatures, setProductFeatures] = useState();
     const [productDescription, setProductDescription] = useState();
     const [productSpecs, setProductSpecs] = useState();
     const [productSpecsTwo, setProductSpecsTwo] = useState();
+    const [productSpecsFour, setProductSpecsFour] = useState();
+    const [productSpecsNotes, setProductSpecsNotes] = useState();
     const [productRelatives, setProductRelatives] = useState();
     const [productFAQs, setProductFAQs] = useState();
     const [productImgCaptions, setProductImgCaptions] = useState();
@@ -54,11 +57,14 @@ const Product = () => {
                setProductModel(prodData.data[0].model);
                setProductRequired(prodData.data[0].optionsRequired);
                setProductOptions(prodData.data[0].optionsOptional);
+               setBaseModel(prodData.data[0].baseModel);
                setProductAccessories(prodData.data[0].accessories);
                setProductFeatures(prodData.data[0].features);
                setProductDescription(prodData.data[0].about);
                setProductSpecs(prodData.data[0].specifications);
                setProductSpecsTwo(prodData.data[0].specificationsTwo);
+               setProductSpecsFour(prodData.data[0].specificationsFour);
+               setProductSpecsNotes(prodData.data[0].specificationsNotes);
                setProductRelatives(prodData.data[0].related);
                setProductFAQs(prodData.data[0].FAQs);
                setProductImgCaptions(prodData.data[0].imgCaptions);
@@ -134,16 +140,21 @@ const Product = () => {
                             backgroundColor: content.showFAQ ? "#3359A6" : ""}}
                             >Technical FAQs</button>
                         </li>
-                        <li className="nav-item">
-                            <button className="nav-btn" 
-                            onClick={() => {
-                                setContent({showRelated: true})
-                                setContact({})
-                            }}
-                            style={{ color: content.showRelated ? "white" : "", 
-                            backgroundColor: content.showRelated ? "#3359A6" : ""}}
-                            >Related Products</button>
-                        </li>
+                        {
+                        productRelatives?
+                        productRelatives.length>0?
+                            <li className="nav-item">
+                                <button className="nav-btn" 
+                                onClick={() => {
+                                    setContent({showRelated: true})
+                                    setContact({})
+                                }}
+                                style={{ color: content.showRelated ? "white" : "", 
+                                backgroundColor: content.showRelated ? "#3359A6" : ""}}
+                                >Related Products</button>
+                            </li>
+                        :null
+                        :null}
                     </ul>
               
                     {contact.showSales && <SalesContact />}
@@ -154,11 +165,11 @@ const Product = () => {
             <div className = "col-md-7">
                 <div>
                     {content.showOverview && <ProductOverview features={productFeatures} description={productDescription}/>}
-                    {content.showSpecifications && <ProductSpecs specs={productSpecs} specsTwo={productSpecsTwo}/>}
+                    {content.showSpecifications && <ProductSpecs specs={productSpecs} specsTwo={productSpecsTwo} specsFour={productSpecsFour} specsNotes={productSpecsNotes}/>}
                     {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware}/>}
                     {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
                     {content.showRelated && <ProductRelated related={productRelatives}/>}
-                    {content.showQuote && <ProductQuote name={productName} model={productModel} requiredOptions={productRequired} optionalOptions={productOptions} accessories={productAccessories}/>}  
+                    {content.showQuote && <ProductQuote name={productName} model={productModel} requiredOptions={productRequired} optionalOptions={productOptions} baseModel={baseModel} accessories={productAccessories}/>}  
                 </div>
             </div>
             

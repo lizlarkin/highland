@@ -18,8 +18,13 @@ const productSchema = new mongoose.Schema({
     related: [{}],
     specifications: [[],[]],
     specificationsTwo: [],
+    specificationsFour: [],
+    specificationsNotes: [],
     optionsRequired: [[]],
     optionsOptional: [[]],
+    baseModel: {
+        type: String,
+    },
     accessories: [],
     // img: {
     //     data: Buffer,
@@ -27,11 +32,11 @@ const productSchema = new mongoose.Schema({
     // }
     
     // move the below to data model
-    manDownloads: [],
-    dsDownloads: [],
-    softwareClicks: [],
-    otherDownloads: [],
-    quoteRequests: [], 
+    // manDownloads: [],
+    // dsDownloads: [],
+    // softwareClicks: [],
+    // otherDownloads: [],
+    // quoteRequests: [], 
 
 });
 

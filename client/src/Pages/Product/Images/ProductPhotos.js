@@ -16,6 +16,9 @@ import J240_1 from "./J240_Pulse_Generator_1.png";
 import J240_2 from "./J240_Pulse_Generator_2.png"; 
 import J240_3 from "./J240_Pulse_Generator_3.png"; 
 import J240_4 from "./J240_Pulse_Generator_4.png"; 
+import J240_5 from "./J240_Pulse_Generator_5.png"; 
+import J240_6 from "./J240_Pulse_Generator_6.png"; 
+import J240_7 from "./J240_Pulse_Generator_7.png"; 
 import J270_1 from "./J270_Pulse_Generator_1.png";
 import J270_2 from "./J270_Pulse_Generator_2.png";
 import J270_3 from "./J270_Pulse_Generator_3.png";
@@ -23,7 +26,13 @@ import J270_4 from "./J270_Pulse_Generator_4.png";
 import J270_5 from "./J270_Pulse_Generator_5.png";
 import J720_1 from "./placeholder.jpg"; 
 import J724_1 from "./placeholder.jpg"; 
-import J730_1 from "./placeholder.jpg"; 
+import J730_1 from "./J730_Optic_Electric_Converter_1.png"; 
+import J730_2 from "./J730_Optic_Electric_Converter_2.png";
+import J730_3 from "./J730_Optic_Electric_Converter_3.png";
+import J730_4 from "./J730_Optic_Electric_Converter_4.png";
+import J730_5 from "./J730_Optic_Electric_Converter_5.png";
+import J730_6 from "./J730_Optic_Electric_Converter_6.png";
+import J730_7 from "./J730_Optic_Electric_Converter_7.png";
 import J736_1 from "./J736_Optical_Electrical_Converter_1.png";
 import J736_2 from "./J736_Optical_Electrical_Converter_2.png";
 import J736_3 from "./J736_Optical_Electrical_Converter_3.png";
@@ -72,6 +81,7 @@ import T160_1 from "./T160_Laser_Diode_Driver_1.png";
 import T160_2 from "./T160_Laser_Diode_Driver_2.png";
 import T165_1 from "./T165_Laser_Diode_Pulser_1.png";
 import T165_2 from "./T165_Laser_Diode_Pulser_2.png";
+import T165_3 from "./T165_Laser_Diode_Pulser_3.png";
 import T240_1 from "./T240_Pulse_Generator_1.png";
 import T240_2 from "./T240_Pulse_Generator_2.png";
 import T240_3 from "./T240_Pulse_Generator_3.png";
@@ -200,6 +210,9 @@ const J240PhotoArr = [
     J240_2,
     J240_3,
     J240_4,
+    J240_5,
+    J240_6,
+    J240_7,
 ]
 
 const J270PhotoArr = [
@@ -220,6 +233,12 @@ const J724PhotoArr = [
 
 const J730PhotoArr = [
     J730_1,
+    J730_2,
+    J730_3,
+    J730_4,
+    J730_5,
+    J730_6,
+    J730_7,
 ]
 
 const J736PhotoArr = [
@@ -312,6 +331,7 @@ const T160PhotoArr = [
 const T165PhotoArr = [
     T165_1,
     T165_2,
+    T165_3,
 ]
 
 const T240PhotoArr = [

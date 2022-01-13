@@ -4,7 +4,7 @@ import UserContext from "../../Context/UserContext";
 import axios from "axios";
 
 
-const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessories }) => {
+const ProductQuote = ({ name, model, requiredOptions, optionalOptions, baseModel, accessories }) => {
 
     const quoteStyles = {
         qtyInput: {
@@ -48,6 +48,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
         quantity: selectedQuantity,
         required: selectedRequired,
         optional: selectedOptions,
+        baseModel: baseModel,
         accessories: selectedAccessories,
     }
 
@@ -102,7 +103,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, accessori
                         cart, 
                         { headers: { "x-auth-token": authToken },
                     });
-                    // console.log("newCart hit", newCart);
+                    console.log("newCart hit", newCart);
                     axios.post("/users/addCartActivity");
                     // console.log("next hit")
                     history.push("/cart")     

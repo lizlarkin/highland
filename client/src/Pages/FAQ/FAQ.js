@@ -71,7 +71,7 @@ const FAQ = () => {
         [
             "SixShip", 
             "Can all Highland products be exported?", 
-            "All sales are subject to U.S. Department of Commerce Export Regulations. Highland will collect an End User Statement for all international sales in order to ensure that product export to the destination country is permitted. Each End User Statement requires disclosure of the Ultimate and Intermediate Consignees, and agreement to comply with export laws of the United States. Highland reserves the right to deny export for any reason. A copy of the End User Statement form can be downloaded ",
+            "All sales are subject to U.S. Department of Commerce Export Regulations. Highland will collect an End User Statement for all international sales to ensure that product export to the destination country is permitted. Each End User Statement requires disclosure of the Ultimate and Intermediate Consignees, and agreement to comply with export laws of the United States. Highland reserves the right to deny export for any reason. A copy of the End User Statement form can be downloaded ",
             EUS
             
         ],
@@ -152,7 +152,7 @@ const FAQ = () => {
         [
             "OneMnf", 
             "Where are Highland products manufactured?", 
-            "We manufacture nearly all of our own products in our San Francisco, CA facility. A select few products are partially manuactured by carefully vetted, domestic, contract manufacturers. All products are 100% tested and inspected at our San Francisco facility prior to delivery."
+            "We manufacture nearly all our own products in our San Francisco, CA facility. A select few products are partially manufactured by carefully vetted, domestic, contract manufacturers. All products are 100% tested and inspected at our San Francisco facility prior to delivery."
         ],
         [
             "TwoMnf", 
@@ -165,7 +165,7 @@ const FAQ = () => {
         [
             "OneTech", 
             "How often do Highland products need to be calibrated? How does the calibration process work?", 
-            "A recommended calibration interval is stated in the published specifications of each Highland product. Typically, products must be returned back to the factory for calibration services. "
+            "A recommended calibration interval is stated in the published specifications of each Highland product. Typically, products must be returned to the factory for calibration services. "
         ],
         [
             "TwoTech", 
@@ -199,7 +199,7 @@ const FAQ = () => {
     const FAQs = [
         ["Sales FAQs", salesFAQs], 
         ["Shipping & Export FAQs", shipFAQs],
-        ["Payment FAQS", payFAQs],
+        ["Payment FAQs", payFAQs],
         ["Lead Time FAQs", leadFAQs],
         ["Warranty FAQs", warrantyFAQs],
         ["Manufacturing FAQs", mnfFAQs],

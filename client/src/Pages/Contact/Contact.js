@@ -108,7 +108,7 @@ const Contact = () => {
         <div>
             <div className="row">
                 <div className="col-md-12 heroContainer" style={contactStyles.heroImg}>
-                    <h1 className="heroHeading">CONTACT US</h1>
+                    {/* <h1 className="heroHeading">CONTACT US</h1> */}
                 </div>
             </div>
 

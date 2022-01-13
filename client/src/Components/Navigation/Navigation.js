@@ -19,9 +19,6 @@ const Navigation = (props) => {
         fontWeight: "bold",
         marginLeft: "40px",
     },
-    cartNum: {
-        fontSize: "75%",
-    }
   }
 
   const [cartQuantity, setCartQuantity] = useState();
@@ -88,8 +85,8 @@ const Navigation = (props) => {
                   {!userData.user ? <Link to="/Login" className="nav-link active" style={navigationStyles.links}>Login</Link> : <Link to = "/Login" onClick={props.logout} className="nav-link active" style={navigationStyles.links}>Logout</Link> }
                 </li>
                 <li className="nav-item">
-                  {userData.user ? <Link to="/Cart" className="nav-link active" style={navigationStyles.links}><i className="fas fa-shopping-cart"></i>
-                  <span style={navigationStyles.cartNum}>{cartQuantity>0?" ("+cartQuantity+")":null}</span>
+                  {userData.user ? <Link to="/Cart" className="nav-link active" style={navigationStyles.links}>
+                    <i className="fas fa-shopping-cart"></i><span className="badge bg-light text-dark">{cartQuantity>0?" ("+cartQuantity+")":null}</span>
                   </Link> 
                   : null }
                 </li>
