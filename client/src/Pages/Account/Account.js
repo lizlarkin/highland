@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
-import CategoryJumbotron from '../../Components/CategoryJumbotron/CategoryJumbotron';
 import QuoteHistory from './../../Components/Account/QuoteHistory';
 import AccountInformation from '../../Components/Account/AccountInformation';
+import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 
 const Account = () => {
     const { userData } = useContext(UserContext);
@@ -31,10 +31,9 @@ const Account = () => {
 
     return (
         <div>
-            <CategoryJumbotron 
-                title={"Account"}
-                text={"Hello, " + userData.user?.firstName + " " + userData.user?.lastName}
-            />
+            <div>
+                <GenJumbo />
+            </div>
 
             <div className="row">
                 <div className="col-md-3"></div>

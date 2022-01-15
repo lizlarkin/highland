@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import UserContext from "../../Context/UserContext";
 import { DateContext } from "../../Context/DateContext";
 import axios from "axios";
-import contact from "./contact.jpg"
-
+import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 
 // TO DO:
 //     (1) better Map
@@ -20,9 +19,6 @@ const Contact = () => {
     const { dateNow } = useContext(DateContext);
 
     const contactStyles={
-        heroImg: {
-            backgroundImage: `url(${contact})`,
-        },
         center: {
             textAlign: "center",
         },
@@ -106,10 +102,8 @@ const Contact = () => {
 
     return (
         <div>
-            <div className="row">
-                <div className="col-md-12 heroContainer" style={contactStyles.heroImg}>
-                    {/* <h1 className="heroHeading">CONTACT US</h1> */}
-                </div>
+            <div>
+                <GenJumbo />
             </div>
 
             <div className="row">

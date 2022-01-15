@@ -482,6 +482,7 @@ let productSeed = [
       baseModel: "1",
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply ", "(furnished with purchase)"],
+        ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
         ["P10-1", '19" rack mount shelf (two p-boxes per rack)'],
         ["P51-1", "Mounting Flange"],
       ],
@@ -549,6 +550,7 @@ let productSeed = [
         ["Note 6: ", "100mV minimum test voltage"],
         ["", "For a more in-depth discussion of accuracy, see manual section 6."]
       ],
+      baseModel: "1",
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -680,9 +682,19 @@ let productSeed = [
         ["LED INDICATORS", ["Orange POWER"]],
         ["PACKAGING", ['2" x 2" printed circuit board']],
       ],
+      optionsRequired: [   
+        ["configuration", [
+          ["2", "picosecond laser diode pulser with pin sockets"], 
+          ["9", "picosecond laser diode pulser evaluation kit (furnished on T163 mounting flange with two J53-1 3' SMB to BNC cables)"], 
+          ["12", "picosecond laser diode pulser with TTL trigger and output pulse widths extended to 850 nanoseconds"],
+          ["13", "picosecond laser diode pulser with TTL trigger and output pulse widths extended to 850 nanoseconds evaluation kit (furnished on T163 mounting flange with two J53-1 3' SMB to BNC cables)"],
+          ["14", "nanosecond laser diode pulser with TTL trigger, pin sockets, and output pulse widths extended to 850 nanoseconds"],
+          ["15", "nanosecond laser diode pulser with TTL trigger, pin sockets, and output pulse widths extended to 850 nanoseconds evaluation kit (furnished on T163 mounting flange with two J53-1 3' SMB to BNC cables)"],
+        ]],
+      ],
       accessories: [
         ["J6-1", "5 volt USB power supply", "(furnished with purchase)"],
-        ["J53-1", "3′ SMB to BNC cable",],
+        ["J53-1", "3′ SMB to BNC cable", "(furnished with evaluation kit purchase)"],
       ],
       FAQs: [
         ["What type of laser is best to use with the T165?", "The T165 pinout is designed to interface with 14-pin butterfly lasers that have the anode on pin-10 and the cathode on pin-9 and/or pin-11, sometimes referred to as Type-1."],

@@ -5,21 +5,6 @@ import Laser_Drivers_Controllers from "./img/Laser_Drivers_Controllers.png"
 
 const CategoryJumbotron = ({title, text}) => {
 
-    const jumbotronStyles = {
-        container: {
-            height: "300px",
-            border: "1px solid lightgray",
-            marginTop: "2%",
-            marginBottom: "2%",
-            color: "black",
-            fontWeight: "bold",
-        },
-        heading: {
-            textAlign: "center",
-            marginTop: "2%",
-        },
-    }
-
     const [background, setBackground] = useState()
 
     useEffect(() => {

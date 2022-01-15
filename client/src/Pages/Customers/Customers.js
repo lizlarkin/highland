@@ -1,5 +1,4 @@
 import React, { useState} from "react";
-import CategoryJumbotron from '../../Components/CategoryJumbotron/CategoryJumbotron';
 import Agilent from './Images/Agilent.png';
 import Andor from './Images/Andor.png';
 import BAE from './Images/BAE.png';
@@ -35,17 +34,24 @@ import Thales from './Images/Thales.png';
 import Thorlabs from './Images/Thorlabs.png';
 import Trumpf from './Images/Trumpf.png';
 import United from './Images/United.png';
+import GenJumbo from "../../Components/GeneralJumbotron/GenJumbo";
 
 const Customers = () => {
 
     // TO DO: Needs to be in correct multiple. 
 
     const customerStyles = {
+        custDiv: {
+            minHeight: "175px",
+            border: "1px solid red"
+        },
         logo: {
             border: "none",
         },
         text: {
             textAlign: "center",
+            display: "none"
+
         }
     }
 
@@ -102,8 +108,6 @@ const Customers = () => {
     
     const rows = custGroups(customersArr, [3,2]);
 
-    const [custNum, setCustNum] = useState(0);
-
     const storeCustNum = (e) => {
         setCustNum(e.target.id)
         console.log(custNum)
@@ -126,16 +130,7 @@ const Customers = () => {
     // }
 
 
-    // const showText = (e) => {
-    //     const logo = e.target.getAttribute('id');
-    //     const text = e.target.getAttribute('name');
-    //     if (logo.style.display=="block") {
-    //         logo.style.display=="none"
-    //         text.style.display=="block"
-    //     } else {
-    //         text.style.display="none"
-    //         logo.style.display=="block"
-    //     }
+
 
     // const test1 = (e) => {
     //     const text = e.target.getAttribute('name');
@@ -155,12 +150,25 @@ const Customers = () => {
     //     const text = e.target.getAttribute('name');
     //         console.log("also works", text)
     // }
-        
 
+    const [custNum, setCustNum] = useState(0);
+
+    const hideLogo = (e) => {
+        setCustNum(e.target.id)
+        const logoId = e.target.id;
+        const logoEl = document.getElementById(logoId);
+        // logoEl.style.display='none';
+        // const textVal = e.target.value
+        // const textEl = document.getElementsByAttribute(textVal);
+        // console.log(textVal)
+        // textEl.style.display='block'
+    }
 
     return (
         <div>
-            <CategoryJumbotron title={"Customers"}/>
+            <div>
+                <GenJumbo />
+            </div>
 
             {rows?
             rows.map((customers, index) => (
@@ -182,19 +190,18 @@ const Customers = () => {
                         //     <div className="col-md-2"></div>
                         // </>
                         <>
-                            <div className="col-md-2" id={1} onMouseOver={storeCustNum} onMouseOut={resetCustNum} style={{border: "1px solid green"}}>
-                                <a role="button" > 
-                                    {custNum===0?
-                                        <div>
-                                            <img src={customer[0]} className="img-fluid" alt={customer[1]} />  
-                                        </div>
-                                    :
-                                    <div className="card card-body" style={customerStyles.text} >
-                                        {customer[2]}
+                            <button className="col-md-2" 
+                                onClick={hideLogo}
+                                // onMouseOver={storeCustNum} 
+                                // onMouseOut={resetCustNum} 
+                                style={customerStyles.custDiv}>
+                                    <img src={customer[0]} className="img-fluid" alt={customer[1]} id={index.toString()+idx.toString()}/>  
+                                    <div className="card card-body" value={index.toString()+idx.toString()}>
+                                    {customer[2]}
                                     </div>
-                                    }       
-                                </a>
-                            </div>
+                                        
+
+                            </button>
                             <div className="col-md-2"></div>
                         </>
                     ))

@@ -1,10 +1,10 @@
-import React from 'react'
-import CategoryJumbotron from './../../Components/CategoryJumbotron/CategoryJumbotron';
+import React from 'react';
+import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 
 const Careers = () => {
     return (
         <div>
-            <CategoryJumbotron title={"Careers"}/>
+            <GenJumbo />
         </div>
     )
 }

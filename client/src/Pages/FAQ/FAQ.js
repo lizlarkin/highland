@@ -1,8 +1,9 @@
 import React from 'react';
-import CategoryJumbotron from '../../Components/CategoryJumbotron/CategoryJumbotron';
+import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 import TCs from './Terms & Conditions of Sale.pdf';
 import EUS from './End User Statement.pdf';
-import CreditApp from './Highland Credit Application Form.pdf'
+import CreditApp from './Highland Credit Application Form.pdf';
+
 
 const FAQ = () => {
 
@@ -209,7 +210,9 @@ const FAQ = () => {
 
     return (
         <div>
-            <CategoryJumbotron title={"Frequently Asked Questions"}/>
+            <div>
+                <GenJumbo />
+            </div>
 
             <div className = "row">
                 <div className = "col-md-1"></div>
