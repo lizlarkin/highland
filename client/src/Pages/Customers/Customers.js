@@ -42,16 +42,12 @@ const Customers = () => {
 
     const customerStyles = {
         custDiv: {
-            minHeight: "175px",
-            border: "1px solid red"
-        },
-        logo: {
+            minHeight: "100px",
             border: "none",
         },
         text: {
             textAlign: "center",
             display: "none"
-
         }
     }
 
@@ -108,61 +104,13 @@ const Customers = () => {
     
     const rows = custGroups(customersArr, [3,2]);
 
+    // Flip customer logo and customer application text
+    const [custNum, setCustNum] = useState();
+
     const storeCustNum = (e) => {
         setCustNum(e.target.id)
         console.log(custNum)
     } 
-
-    const resetCustNum = () => {
-        setCustNum(0)
-    } 
-
-    // const [logo, setLogo] = useState({
-    //     showLogo: true,
-    //     showText: false,
-    // })
-
-    // const showText = () => {
-    //     alert();
-    // }
-
-    // const showLogo = () => {
-    // }
-
-
-
-
-    // const test1 = (e) => {
-    //     const text = e.target.getAttribute('name');
-    //     const logo = e.target.getAttribute('id');
-        
-    //     const logoEl = document.getElementById(logo)
-    //     const textEl = document.getElementById(text)
-    //         console.log("works", logo)
-    //         console.log("works 2", text)
-    //         console.log(logoEl)
-    //         console.log(textEl)
-    //     // logoEl.setAttribute("diplay", "none")    
-        
-    // }
-
-    // const test2 = (e) => {
-    //     const text = e.target.getAttribute('name');
-    //         console.log("also works", text)
-    // }
-
-    const [custNum, setCustNum] = useState(0);
-
-    const hideLogo = (e) => {
-        setCustNum(e.target.id)
-        const logoId = e.target.id;
-        const logoEl = document.getElementById(logoId);
-        // logoEl.style.display='none';
-        // const textVal = e.target.value
-        // const textEl = document.getElementsByAttribute(textVal);
-        // console.log(textVal)
-        // textEl.style.display='block'
-    }
 
     return (
         <div>
@@ -176,31 +124,17 @@ const Customers = () => {
                     <div className="col-md-1"></div>
                     {customers.length===3?
                     customers.map((customer,idx) => (
-                        // <>
-                        //     <div className="col-md-2">
-                        //         <a data-bs-toggle="collapse" href={"#collapseExample"+index.toString()+idx.toString()} role="button" aria-expanded="false" aria-controls={"collapseExample"+index.toString()+idx.toString()}>
-                        //             <img src={customer[0]} className="img-fluid" alt={customer[1]}/>
-                        //         </a>
-                        //         <div className="collapse" id={"collapseExample"+index.toString()+idx.toString()}>
-                        //             <div className="card card-body" style={customerStyles.text}>
-                        //                 {customer[2]}
-                        //             </div>
-                        //         </div>
-                        //     </div>
-                        //     <div className="col-md-2"></div>
-                        // </>
                         <>
                             <button className="col-md-2" 
-                                onClick={hideLogo}
-                                // onMouseOver={storeCustNum} 
-                                // onMouseOut={resetCustNum} 
+                                onClick={storeCustNum}
                                 style={customerStyles.custDiv}>
-                                    <img src={customer[0]} className="img-fluid" alt={customer[1]} id={index.toString()+idx.toString()}/>  
-                                    <div className="card card-body" value={index.toString()+idx.toString()}>
-                                    {customer[2]}
+                                    {custNum===index.toString()+idx.toString()?
+                                    <div className="card card-body">
+                                        {customer[2]}
                                     </div>
-                                        
-
+                                    :
+                                    <img src={customer[0]} className="img-fluid" alt={customer[1]} id={index.toString()+idx.toString()}/>
+                                    }
                             </button>
                             <div className="col-md-2"></div>
                         </>
@@ -209,16 +143,17 @@ const Customers = () => {
                     customers.map((customer,idx) => (
                         <>
                             <div className="col-md-2"></div>
-                            <div className="col-md-2">
-                                <a data-bs-toggle="collapse" href={"#collapseExample"+index.toString()+idx.toString()} role="button" aria-expanded="false" aria-controls={"collapseExample"+index.toString()+idx.toString()}>
-                                    <img src={customer[0]} className="img-fluid" alt={customer[1]}/>
-                                </a>
-                                <div className="collapse" id={"collapseExample"+index.toString()+idx.toString()}>
-                                    <div className="card card-body" style={customerStyles.text}>
+                            <button className="col-md-2" 
+                                onClick={storeCustNum}
+                                style={customerStyles.custDiv}>
+                                    {custNum===index.toString()+idx.toString()?
+                                    <div className="card card-body">
                                         {customer[2]}
                                     </div>
-                                </div>
-                            </div>
+                                    :
+                                    <img src={customer[0]} className="img-fluid" alt={customer[1]} id={index.toString()+idx.toString()}/>
+                                    }
+                            </button>
                         </>
                     ))
                     :null}   

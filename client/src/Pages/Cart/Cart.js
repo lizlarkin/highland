@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from "axios";
-import CategoryJumbotron from '../../Components/CategoryJumbotron/CategoryJumbotron';
 import { useHistory } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
 import { DateContext } from "../../Context/DateContext";
+import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 
 const Cart = () => {
 
@@ -106,7 +106,9 @@ const Cart = () => {
 
     return (
         <div>
-            <CategoryJumbotron title={"Cart"} text={"Please review items and submit quote request below."}/>
+            <div>
+                <GenJumbo />
+            </div>
             
             <div className="row">
 
@@ -227,7 +229,7 @@ const Cart = () => {
                                         <div className="row">
                                             <div className="col-md-8"></div>
                                             <div className="col-md-4">
-                                                    <button onClick={editCart} className="btn btn-outline-secondary" type="button" style={cartStyles.cartBtnLg} name={data.model}>Edit</button>
+                                                    <button onClick={editCart} className="btn btn-outline-secondary" type="button" style={cartStyles.cartBtnLg} name={data.model}><i class="far fa-edit"></i> Edit</button>
                                                     <button onClick={deleteCart} className="btn btn-outline-danger" type="button" style={cartStyles.cartBtnLg} id={data._id}><i className="fas fa-trash-alt"></i> Remove</button>
                                             </div>
                                         </div>

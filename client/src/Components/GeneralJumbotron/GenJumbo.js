@@ -3,6 +3,7 @@ import UserContext from "../../Context/UserContext";
 // About
 import Account from "./Images/Account.png";
 import Careers from "./Images/Careers.png";
+import Cart from "./Images/Cart.png";
 import Contact from "./Images/Contact.jpg";
 import Customers from "./Images/Customers.png";
 import FAQs from "./Images/FAQs.png";
@@ -28,6 +29,10 @@ const GenJumbo = () => {
                 setBackground(Careers) 
                 setTitle("Careers") 
                 setText("Highland always wants to meet people with a talent and passion for electronic design. If you're interested in analog circuit and PCB design, low noise signal conditioning, high-speed time-domain electronics, free-space and fiber photonics, signals-and-systems, filtering, control, analog and DSP crunching, interfacing with physics, semiconductor fabrication, or scientific instrumentation for aerospace and industrial applications, we'd love to hear from you.")
+            } else if (pageName==="Cart") {
+                setBackground(Cart) 
+                setTitle("Quote Request") 
+                setText("Please review items in cart and submit quote request below.")
             } else if (pageName==="Contact") {
                 setBackground(Contact) 
                 setTitle("") 
@@ -35,7 +40,7 @@ const GenJumbo = () => {
             } else if (pageName==="Customers") {
                 setBackground(Customers) 
                 setTitle("Customers") 
-                setText("Highland Technology has over 1000 customers in more than 40 countries worldwide. Industries served include: Aerospace, Photonic, Scientific, Semiconductor, and Industrial/Energy. Some customers and their applications are highlighted below.")
+                setText("Highland Technology has over 1000 customers in more than 40 countries worldwide. Industries served include: Aerospace & Defense, Photonic, Scientific, Semiconductor, and Industrial/Energy. Some customers and their applications are highlighted below.")
             } else if (pageName==="FAQ") {
                 setBackground(FAQs) 
                 setTitle("Frequently Asked Questions") 
