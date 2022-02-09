@@ -232,7 +232,7 @@ const FAQ = () => {
                                     <div id={"collapse"+qa[0]} className="accordion-collapse collapse" aria-labelledby={"heading"+qa[0]} data-bs-parent="#accordionExample">
                                         <div className="accordion-body">
                                             {qa[2]}
-                                            {qa[3]?<a href={qa[3]} target="_blank">here.</a>:null}
+                                            {qa[3]?<a href={qa[3]} target="_blank" rel="noopener noreferrer">here.</a>:null}
                                         </div>
                                     </div>
                                 </div>

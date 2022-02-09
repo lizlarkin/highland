@@ -48,7 +48,7 @@ const ProductJumbotron = ({ name, model, captions }) => {
             setPhotoArrindex(ProductPhotos.findIndex(search => search[0].includes(model)))
         };
         setPhotoIndex()
-    }, [model, ProductPhotos])
+    }, [model])
 
     return (
         <div className = 'container'>

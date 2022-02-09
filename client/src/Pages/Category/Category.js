@@ -48,7 +48,7 @@ const Category = () => {
             }
         }
         getCategoryData();
-    }, [categorySelected])
+    }, [window.location.href])
 
     return (
         <div>

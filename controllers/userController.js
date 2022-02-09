@@ -115,20 +115,23 @@ module.exports = {
             const { email, password } = req.body;  
 
             if (!email || !password) {
-                res.status(400).json({ msg: "Missing required field(s)." })
+                return res.status(400).json({ msg: "Required field(s) missing. Please try again or register." })
             }
 
             const user = await User.findOne({ email: email }) 
 
             if (!user) {
-                res.status(400).json({ msg: "User not found." })
+                return res.status(400).json({ msg: "User not found. Please try again." })
             }
 
             const isMatch = await bcrypt.compare(password, user.password);
 
             if (!isMatch) {
-                res.status(400).json({ msg: "Password is incorrect." })
+                return res.status(400).json({ msg: "Password is incorrect. Please try again." })
             }
+
+            if (!user.confirmed)
+            return res.json({ token: null, user: { confirmed: user.confirmed } });
 
             const token = jwt.sign({ id: user._id}, process.env.JWT_SECRET, {
                 expiresIn: "24h", 
@@ -138,18 +141,23 @@ module.exports = {
                 token, 
                 user: { 
                     id: user._id, 
+                    email: user.email,
                     firstName: user.firstName, 
                     lastName: user.lastName, 
                     organization: user.organization,
                     phone: user.phone,
-                    email: user.email,
+                    street: user.street,
+                    city: user.city,
+                    state: user.state,
+                    country: user.country,
+                    optIn: user.optIn,
                     confirmed: user.confirmed,
                     cartActivity: user.cartActivity,
                 },
             });
 
         } catch (error) {
-            res.status(500).json({ msg: "error here 2!",  error })
+            res.status(500).json({ error: error.message })
         }
     },
 
@@ -158,15 +166,35 @@ module.exports = {
             const user = await User.findById(req.user);
 
             res.json({
-                firstName: user.firstName,
-                lastName: user.lastName,
-                id: user._id,
-                organization: user.organization,
+                id: user._id, 
                 email: user.email,
+                firstName: user.firstName, 
+                lastName: user.lastName, 
+                organization: user.organization,
                 phone: user.phone,
+                street: user.street,
+                city: user.city,
+                state: user.state,
+                country: user.country,
+                optIn: user.optIn,
+                confirmed: user.confirmed,
                 cartActivity: user.cartActivity,
             });
 
+        } catch (error) {
+            res.send(error.response)
+        }
+    },
+
+    updateUser: async (req, res) => {
+        try {
+            const userToUpdate = await User.updateOne(
+                { _id: req.params.id },
+                {
+                    $set: req.body
+                }
+            );
+            res.json(userToUpdate)
         } catch (error) {
             res.send(error.response)
         }

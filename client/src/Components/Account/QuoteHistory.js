@@ -90,7 +90,7 @@ const QuoteHistory = () => {
                                             </div>
                                             <div className="col-md-8">
                                                 <div className="card-body">
-                                                    <h6 className="card-title">{item.model+"-"+"## "+item.name} </h6>
+                                                    <h6 className="card-title">{item.model+"-"+" "+item.name} </h6>
                                                     {item.quantity>0?
                                                     <ul className="list-group list-group-horizontal">
                                                             <li key={idx} className="list-group-item list-group-item-light" style={quoteHistStyles.quoteLi}><span style={quoteHistStyles.liSpan}>Quantity: </span>{item.quantity}</li>

@@ -53,7 +53,7 @@ const Register = () => {
                         </div>
                         <div className="col-md-6">
                             <label for="text (required)" className="form-label" id="org-label">Organization<span className="asterisk">*</span></label>
-                            <input onChange={onChange} type="text" className="form-control" placeholder="Company Name" name="organization" id="org-input" required />
+                            <input onChange={onChange} type="text" className="form-control" name="organization" id="org-input" required />
                         </div>
                         <div className="col-md-6">
                             <label for="inputPassword8 (required)" className="form-label">Password<span className="asterisk">*</span></label>
@@ -73,7 +73,7 @@ const Register = () => {
                         </div>
                         <div className="col-12">
                             <label for="inputAddress (required)" className="form-label">Address<span className="asterisk">*</span></label>
-                            <input onChange={onChange} type="text" className="form-control" id="address-input" placeholder="1234 Main St" name="street" required />
+                            <input onChange={onChange} type="text" className="form-control" id="address-input" name="street" required />
                         </div>
                         <div className="col-md-6">
                             <label for="inputCity (required)" className="form-label">City<span className="asterisk">*</span></label>

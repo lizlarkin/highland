@@ -5,16 +5,15 @@ const {
     login, 
     getUser, 
     deleteUser,
-    addCartActivity
+    addCartActivity,
+    updateUser,
 } = require("../controllers/userController");
 
 router.post("/register", register);
 router.post("/login", login);
-
 router.get("/", auth, getUser);
-
 router.post("/addCartActivity", addCartActivity);
-
+router.put("/updateUser/:id", updateUser);
 router.delete("/", auth, deleteUser);
 
 module.exports = router;

@@ -23,8 +23,18 @@ const Cart = () => {
         inputText: {
             textAlign: "center",
         },
-        accDesc: {
-            width: "75%"
+        configDetail: {
+            marginBottom: "3%",
+        },
+        accDetail: {
+            marginBottom: "3%"
+        },
+        accQuantity: {
+            float: "right",
+            fontSize: "85%",
+            color: "black",
+            fontWeight: "normal",
+            backgroundColor: "white"
         }
     }
 
@@ -91,8 +101,9 @@ const Cart = () => {
             quoteList,
             { headers: { "x-auth-token": authToken },
             });
+            console.log("HERE QUOTE LIST HERE! ", quoteList)
             console.log("save quote", saveQuote);
-            history.push("/pages/account");
+            history.push("/Account");
             deleteAll();
         } catch (error) {
             console.log("error saving quote: ", error)
@@ -155,81 +166,84 @@ const Cart = () => {
 
                                         <div className="row">
                                             <div className="col-md-1"></div>
-                                            <div className="col-md-7">
+                                            <div className="col-md-3">
                                                 {data.quantity?
                                                     <>
                                                     <h6>Quantity:</h6>
-                                                    <div className="input-group mb-3">
-                                                        <input type="text" className="form-control" placeholder={data.quantity} style={cartStyles.accDesc} disabled/>                                                     
-                                                    </div>                  
+                                                    <ul className="list-group" key={index}>
+                                                        <li className="list-group-item list-group-item-dark" style={cartStyles.configDetail}>{data.quantity}</li>                                                   
+                                                    </ul>               
                                                     </>
                                                 :null}
                                             </div>
-                                            <div className="col-md-4"></div>
+                                            <div className="col-md-8"></div>
                                         </div>
 
                                         <div className="row">
                                             <div className="col-md-1"></div>
-                                            <div className="col-md-7">
+                                            <div className="col-md-10">
                                                 {data.required.length>0?
                                                     <>
                                                     <h6>Product Configuration:</h6>
                                                     {Object.entries(data.required[0]).sort().map(((config, index) => (
                                                         config[1]?
-                                                        <div className="input-group mb-3" key={index}>
-                                                            <input type="text" className="form-control" placeholder={config[1][0] +" "+ config[0].toLowerCase()} style={cartStyles.accDesc} disabled/>                                                     
-                                                        </div>
+                                                        <ul className="list-group" key={index}>
+                                                            <li className="list-group-item list-group-item-dark" style={cartStyles.configDetail}>{config[1][0]} {config[0].toLowerCase()==="configuration"?null:config[0].toLowerCase()}</li>  
+                                                        </ul>
                                                         :null
                                                     )))}
                                                     </>
                                                 :null}
                                             </div>
-                                            <div className="col-md-4"></div>
+                                            <div className="col-md-1"></div>
                                         </div>
 
                                         <div className="row">
                                             <div className="col-md-1"></div>
-                                            <div className="col-md-7">
+                                            <div className="col-md-10">
                                                 {data.optional.length>0?
                                                     <>
                                                     <h6>Additional Features:</h6>
                                                     {data.optional.map(((option, index) => (
                                                         option[2]?
-                                                        <div className="input-group mb-3" key={index}>
-                                                            <input type="text" className="form-control" placeholder={option[0]} style={cartStyles.accDesc} disabled/>                                                     
-                                                        </div>
+                                                        <ul className="list-group" key={index}>
+                                                            <li className="list-group-item list-group-item-dark" style={cartStyles.configDetail}>{option[0]} </li>                                                   
+                                                        </ul>
                                                         :null
                                                     )))}
                                                     </>
                                                 :null}
                                             </div>
-                                            <div className="col-md-4"></div>
+                                            <div className="col-md-1"></div>
                                         </div>
 
                                         <div className="row">
                                             <div className="col-md-1"></div>
-                                            <div className="col-md-7">
+                                            <div className="col-md-10">
                                                 {data.accessories.length>0?
                                                     <>
                                                     <h6>Accessories | Quantity:</h6>
+                                                    <div className="col-md-10"></div>
                                                     {Object.entries(data.accessories[0]).map(((accessory, index) => (
                                                         accessory[1][0]>0?
-                                                        <div className="input-group mb-3" key={index}>
-                                                            <input type="text" className="form-control" placeholder={accessory[0] + ": " + accessory[1][1]} style={cartStyles.accDesc} disabled/>
-                                                            <input type="number" min="0" className="form-control" placeholder={accessory[1][0]} disabled/>
-                                                        </div>
+                                                        <ul className="list-group" key={index}>
+                                                            <li className="list-group-item list-group-item-dark" style={cartStyles.accDetail}>{accessory[0] + ": " + accessory[1][1]}  
+                                                                <span className="badge badge-dark badge-pill" style={cartStyles.accQuantity} > Qty: {accessory[1][0]}</span>  
+                                                            </li>
+                                                        </ul>
                                                         :null
                                                     )))}
                                                     </>
                                                 :null}
                                             </div>
-                                            <div className="col-md-4"></div>
+
+                                            <div className="col-md-1"></div>
                                         </div>
 
                                         <div className="row">
                                             <div className="col-md-8"></div>
                                             <div className="col-md-4">
-                                                    <button onClick={editCart} className="btn btn-outline-secondary" type="button" style={cartStyles.cartBtnLg} name={data.model}><i class="far fa-edit"></i> Edit</button>
+                                                    <button onClick={editCart} className="btn btn-outline-secondary" type="button" style={cartStyles.cartBtnLg} name={data.model}><i className="far fa-edit"></i> Edit</button>
                                                     <button onClick={deleteCart} className="btn btn-outline-danger" type="button" style={cartStyles.cartBtnLg} id={data._id}><i className="fas fa-trash-alt"></i> Remove</button>
                                             </div>
                                         </div>

@@ -15,7 +15,7 @@ const Login = () => {
         setForm({...form, [e.target.name]: e.target.value});
     }
 
-    console.log(userData)
+    // console.log(userData)
 
     const submitLogin = async (e) => {
         e.preventDefault();
@@ -38,6 +38,7 @@ const Login = () => {
 
         } catch (error) {
             console.log(error.response);
+            alert(error.response.data.msg)
         }
     };
 

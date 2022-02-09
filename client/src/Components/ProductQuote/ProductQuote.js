@@ -105,7 +105,6 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, baseModel
                     });
                     console.log("newCart hit", newCart);
                     axios.post("/users/addCartActivity");
-                    // console.log("next hit")
                     history.push("/cart")     
                 }
             } catch (error) {
@@ -198,7 +197,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, baseModel
                                 accessories.map((accessory, idx) => (
                                     <form>
                                         <div className="input-group mb-3" key={idx}>
-                                            <span className="input-group-text" style={quoteStyles.accessoryDesc} >{accessory[1]} {accessory[2]}</span>
+                                            <span className="input-group-text overflow-auto" style={quoteStyles.accessoryDesc} >{accessory[1]} {accessory[2]}</span>
                                             <input onChange={handleAddAccessories} id={accessory[0]} name={accessory[1]} type="number" min="0" className="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
                                         </div>
                                     </form>
@@ -209,6 +208,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, baseModel
                     </div>
 
                     <div className="col-md-1"></div>
+
                 </div>
                 : null}
 
