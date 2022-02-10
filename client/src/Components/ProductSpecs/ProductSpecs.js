@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProductSpecs = ({ specs, specsTwo, specsFour, specsNotes }) => {
+const ProductSpecs = ({ specs, specsTwo, specsMulti, specsNotes }) => {
 
     const specStyles = {
         specSpan: {
@@ -10,8 +10,6 @@ const ProductSpecs = ({ specs, specsTwo, specsFour, specsNotes }) => {
             fontSize: "smaller",
         }
     }
-
-    console.log(specsFour.length>0?specsFour:"nope")
 
     return (
         <div >
@@ -66,20 +64,20 @@ const ProductSpecs = ({ specs, specsTwo, specsFour, specsNotes }) => {
                 </>
                 :null}
 
-                {specsFour.length>0?
+                {specsMulti.length>0?
                 <>
-                <h5>{specsFour[0]}</h5>
+                <h5>{specsMulti[0]}</h5>
                 <table className="table table-striped table-hover">
-                    {specsFour?
-                    specsFour[1].map((specTitle, idx) => (
+                    {specsMulti?
+                    specsMulti[1].map((specTitle, idx) => (
                         <th key={idx}>{specTitle}</th>
                     )):null}
                     <tbody>
-                        {specsFour?
-                        specsFour.slice(2).map((specification, idx) => (
+                        {specsMulti?
+                        specsMulti.slice(2).map((specification, idx) => (
                             <tr key={idx}>
                                 {specification.map((specRow, idx) => (
-                                    <td key={idx} className="col-md-3">
+                                    <td key={idx} className={specsMulti.length>0?specsMulti[1].length===3?"col-md-4":specsMulti[1].length===4?"col-md-3":specsMulti[1].length===5?"col-md-2":"col-md-1":null}>
                                         {typeof(specRow) === "string" ? 
                                         specRow
                                         :
@@ -95,6 +93,7 @@ const ProductSpecs = ({ specs, specsTwo, specsFour, specsNotes }) => {
                 </table>
                 </>
                 :null}
+
 
                 {specsNotes.length>0?
                 specsNotes.map((note, idx) => (

@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
     related: [{}],
     specifications: [[],[]],
     specificationsTwo: [],
-    specificationsFour: [],
+    specificationsMulti: [],
     specificationsNotes: [],
     optionsRequired: [[]],
     optionsOptional: [[]],

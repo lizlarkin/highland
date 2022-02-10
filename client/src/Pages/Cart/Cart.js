@@ -220,7 +220,9 @@ const Cart = () => {
                                         <div className="row">
                                             <div className="col-md-1"></div>
                                             <div className="col-md-10">
+                                                {console.log(data.accessories)}
                                                 {data.accessories.length>0?
+                                                data.accessories[0][0]>0?
                                                     <>
                                                     <h6>Accessories | Quantity:</h6>
                                                     <div className="col-md-10"></div>
@@ -234,6 +236,7 @@ const Cart = () => {
                                                         :null
                                                     )))}
                                                     </>
+                                                :null
                                                 :null}
                                             </div>
 

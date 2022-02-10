@@ -139,6 +139,9 @@ import V210_2 from "./V210_VME_Relay_Module_2.png";
 import V210_3 from "./V210_VME_Relay_Module_3.png";
 import V210_4 from "./V210_VME_Relay_Module_4.png";
 import V220_1 from "./V220_VME_Current_Loop_Process_Control_IO_Module_1.png";
+import V220_2 from "./V220_VME_Current_Loop_Process_Control_IO_Module_2.png";
+import V220_3 from "./V220_VME_Current_Loop_Process_Control_IO_Module_3.png";
+import V220_4 from "./V220_VME_Current_Loop_Process_Control_IO_Module_4.png";
 import V230_1 from "./V230_VME_Analog_Input_Module_1.png";
 import V250_1 from "./V250_VME_Digital_Input_Output_Module_1.png";
 import V280_1 from "./V280_VME_Digital_Input_Module_1.png";
@@ -178,10 +181,16 @@ import V545_4 from "./V545_VME_Synchro_LVDT_Simulator_4.png";
 import V550_1 from "./V550_VME_LVDT_RVDT_Scanner_1.png";
 import V660_1 from "./V660_VME_Time_Interval_Measurement_1.png";
 import V680_1 from "./V680_VME_Time_To_Digital_Converter_1.png";
-import V720_1 from "./placeholder.jpg";
-import V730_1 from "./placeholder.jpg";
+import V720_1 from "./V720_VME_Electrical_Optical_Converter_1.png";
+import V730_1 from "./V730_VME_Optical_Electrical_Converter_1.png";
+import V730_2 from "./V730_VME_Optical_Electrical_Converter_2.png";
+import V730_3 from "./V730_VME_Optical_Electrical_Converter_3.png";
+import V730_4 from "./V730_VME_Optical_Electrical_Converter_4.png";
 import V860_1 from "./V860_VME_Pulse_Amplifier_1.png";
-import V880_1 from "./placeholder.jpg";
+import V880_1 from "./V880_VME_Facility_Timing_Delay_Generator_1.png";
+import V880_2 from "./V880_VME_Facility_Timing_Delay_Generator_2.png";
+import V880_3 from "./V880_VME_Facility_Timing_Delay_Generator_3.png";
+import V880_4 from "./V880_VME_Facility_Timing_Delay_Generator_4.png";
 
 
 // Individual Product Photo Arrays
@@ -443,6 +452,9 @@ const V210PhotoArr = [
 
 const V220PhotoArr = [
     V220_1,
+    V220_2,
+    V220_3,
+    V220_4,
 ]
 
 const V230PhotoArr = [
@@ -553,6 +565,9 @@ const V720PhotoArr = [
 
 const V730PhotoArr = [
     V730_1,
+    V730_2,
+    V730_3,
+    V730_4,
 ]
 
 const V860PhotoArr = [
@@ -561,6 +576,9 @@ const V860PhotoArr = [
 
 const V880PhotoArr = [
     V880_1,
+    V880_2,
+    V880_3,
+    V880_4,
 ]
 
 

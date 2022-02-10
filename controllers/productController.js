@@ -31,7 +31,7 @@ module.exports = {
                 related: req.body.related,
                 specifications: req.body.specifications,
                 specificationsTwo: req.body.specificationsTwo,
-                specificationsFour: req.body.specificationsFour,
+                specificationsMulti: req.body.specificationsMulti,
                 specificationsNotes: req.body.specificationsNotes,
                 optionsRequired: req.body.optionsRequired,
                 optionsOptional: req.body.optionsOptional,
