@@ -35,8 +35,10 @@ module.exports = {
                 specificationsNotes: req.body.specificationsNotes,
                 optionsRequired: req.body.optionsRequired,
                 optionsOptional: req.body.optionsOptional,
+                optionsOptionalGoofy: req.body.optionsOptionalGoofy,
                 baseModel: req.body.baseModel,
                 accessories: req.body.accessories,
+                EOL: req.body.EOL,
             });
             const successSave = await newProduct.save();
             res.json(successSave);

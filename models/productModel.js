@@ -7,9 +7,7 @@ const productSchema = new mongoose.Schema({
     model: {
         type: String,
     },
-    category: {
-        type: String,
-    },
+    category: [],
     features: [{}],
     description: {
         type: String,
@@ -22,10 +20,12 @@ const productSchema = new mongoose.Schema({
     specificationsNotes: [],
     optionsRequired: [[]],
     optionsOptional: [[]],
+    optionsOptionalGoofy: [[]],
     baseModel: {
         type: String,
     },
     accessories: [],
+    EOL: [], // last time buy date, end of support date, remaining stock
     // img: {
     //     data: Buffer,
     //     contentType: String,

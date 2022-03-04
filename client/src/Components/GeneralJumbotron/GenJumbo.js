@@ -29,7 +29,7 @@ const GenJumbo = () => {
                 setBackground(Careers) 
                 setTitle("Careers") 
                 setText("Highland always wants to meet people with a talent and passion for electronic design. If you're interested in analog circuit and PCB design, low noise signal conditioning, high-speed time-domain electronics, free-space and fiber photonics, signals-and-systems, filtering, control, analog and DSP crunching, interfacing with physics, semiconductor fabrication, or scientific instrumentation for aerospace and industrial applications, we'd love to hear from you.")
-            } else if (pageName==="Cart") {
+            } else if (pageName==="cart") {
                 setBackground(Cart) 
                 setTitle("Quote Request") 
                 setText("Please review items in cart and submit quote request below.")

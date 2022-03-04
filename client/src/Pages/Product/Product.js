@@ -34,10 +34,13 @@ const Product = () => {
 
     const [productName, setProductName] = useState();
     const [productModel, setProductModel] = useState();
+    const [productCategory, setProductCategory] = useState();
     const [productRequired, setProductRequired] = useState();
-    const [productOptions, setProductOptions] = useState()
+    const [productOptions, setProductOptions] = useState();
+    const [optionsGoofy, setOptionsGoofy] = useState();
     const [baseModel, setBaseModel] = useState()
     const [productAccessories, setProductAccessories] = useState();
+    const [productEOL, setProductEOL] = useState();
     const [productFeatures, setProductFeatures] = useState();
     const [productDescription, setProductDescription] = useState();
     const [productSpecs, setProductSpecs] = useState();
@@ -53,12 +56,16 @@ const Product = () => {
         const getProductData = async () => {
             try {
                const prodData = await axios.get(`/products/${model}`);
+               console.log(prodData, "HERE")
                setProductName(prodData.data[0].name);
                setProductModel(prodData.data[0].model);
+               setProductCategory(prodData.data[0].category);
                setProductRequired(prodData.data[0].optionsRequired);
                setProductOptions(prodData.data[0].optionsOptional);
+               setOptionsGoofy(prodData.data[0].optionsOptionalGoofy);
                setBaseModel(prodData.data[0].baseModel);
                setProductAccessories(prodData.data[0].accessories);
+               setProductEOL(prodData.data[0].EOL);
                setProductFeatures(prodData.data[0].features);
                setProductDescription(prodData.data[0].about);
                setProductSpecs(prodData.data[0].specifications);
@@ -81,7 +88,7 @@ const Product = () => {
         <div className='product-container'>
 
             <div>
-            <ProductJumbotron name={productName} model={productModel} captions={productImgCaptions}/>
+            <ProductJumbotron name={productName} model={productModel} captions={productImgCaptions} category={productCategory} EOLdates={productEOL}/>
             </div>
 
         <div className="row product-content">
@@ -169,7 +176,7 @@ const Product = () => {
                     {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware}/>}
                     {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
                     {content.showRelated && <ProductRelated related={productRelatives}/>}
-                    {content.showQuote && <ProductQuote name={productName} model={productModel} requiredOptions={productRequired} optionalOptions={productOptions} baseModel={baseModel} accessories={productAccessories}/>}  
+                    {content.showQuote && <ProductQuote name={productName} model={productModel} requiredOptions={productRequired} optionalOptions={productOptions} optionsGoofy={optionsGoofy} baseModel={baseModel} accessories={productAccessories}/>}  
                 </div>
             </div>
             

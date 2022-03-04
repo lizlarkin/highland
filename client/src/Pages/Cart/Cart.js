@@ -148,6 +148,16 @@ const Cart = () => {
                                                             )))}
                                                         </>
                                                     :null}
+                                                    {/* {data.optionsP500.length>0?
+                                                        <>
+                                                            {Object.entries(data.optional).sort().map(((option, index) => (
+                                                                option.map((dash, idx) => (
+                                                                    <span index={index} key={idx}>{dash[1]}</span>
+                                                                ))
+                                                                  
+                                                            )))}
+                                                        </>
+                                                    :null} */}
                                                     {data.optional.length>0?
                                                         <>
                                                             {Object.entries(data.optional).sort().map(((option, index) => (
@@ -220,7 +230,6 @@ const Cart = () => {
                                         <div className="row">
                                             <div className="col-md-1"></div>
                                             <div className="col-md-10">
-                                                {console.log(data.accessories)}
                                                 {data.accessories.length>0?
                                                 data.accessories[0][0]>0?
                                                     <>
@@ -259,7 +268,7 @@ const Cart = () => {
                         ))
                     :null}
 
-                    {cartList?
+                    {cartList.length>0?
                     <div className = "row">
                         <div className="col-md-9"></div>
                         <div className="col-md-3" >

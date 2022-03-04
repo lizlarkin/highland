@@ -18,6 +18,7 @@ const cartSchema = new mongoose.Schema({
     }, 
     required: [], 
     optional: [],
+    optionalGoofy: [],
     baseModel: {
         type: String
     },

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 
-const ProductJumbotron = ({ name, model, captions }) => {
+const ProductJumbotron = ({ name, model, captions, category, EOLdates }) => {
 
     const [photoArrIndex, setPhotoArrindex] = useState();
 
@@ -57,6 +57,19 @@ const ProductJumbotron = ({ name, model, captions }) => {
                 <div className = 'col-md-5' style={jumbotronStyles.title}>
                     <h1 style={jumbotronStyles.model}>Model {model?model:null}</h1>
                     <h1>{name?name:null}</h1>
+                    {category?category[0]==="LEG"?
+                        <div className="alert alert-danger" role="alert">
+                            <h6><i className="fas fa-exclamation-triangle"></i> End of life procedures have been initiated for this product.</h6>
+                            <div>Last Time Buy: {EOLdates?EOLdates[0]:null}</div>
+                            <div>End of Support: {EOLdates?EOLdates[1]:null}</div>
+                            {EOLdates?
+                            EOLdates[2]?
+                            <div>Remaining Stock: {EOLdates[2]}</div>
+                            :null
+                            :null}  
+                    </div>
+                    :null:null}
+
                 </div>
 
                 <div className = 'col-md-7'>

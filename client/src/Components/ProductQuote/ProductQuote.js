@@ -4,7 +4,7 @@ import UserContext from "../../Context/UserContext";
 import axios from "axios";
 
 
-const ProductQuote = ({ name, model, requiredOptions, optionalOptions, baseModel, accessories }) => {
+const ProductQuote = ({ name, model, requiredOptions, optionalOptions, optionsGoofy, baseModel, accessories }) => {
 
     const quoteStyles = {
         qtyInput: {
@@ -41,6 +41,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, baseModel
     const [selectedAccessories, setSelectedAccessories] = useState([]);
     const [selectedRequired, setSelectedRequired] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
+    const [selectedOptionsGoofy, setSelectedOptionsGoofy] = useState([]);
 
     const cart = {
         model: model,
@@ -48,6 +49,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, baseModel
         quantity: selectedQuantity,
         required: selectedRequired,
         optional: selectedOptions,
+        optionalGoofy: selectedOptionsGoofy,
         baseModel: baseModel,
         accessories: selectedAccessories,
     }
@@ -65,23 +67,45 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, baseModel
     const [options, setOptions] = useState();
 
     let initialOptions=[];
+    let initialGoofy=[];
 
     const initializeOptions = () => {
-        for (let i = 0; i < optionalOptions[0][1].length; i++) {
-            let childArr = optionalOptions[0][1]
-            initialOptions.push([childArr[i][2], childArr[i][1]])    
+        if (optionalOptions.length>0) {
+            for (let i = 0; i < optionalOptions[0][1].length; i++) {
+                let childArr = optionalOptions[0][1]
+                initialOptions.push([childArr[i][2], childArr[i][1]])    
+            }
+            setOptions(initialOptions)  
+            setSelectedOptions(initialOptions)
         }
-        setOptions(initialOptions)  
-        setSelectedOptions(initialOptions)
+        else if (optionsGoofy.length>0) {
+            for (let i = 0; i < optionsGoofy[0][1].length; i++) {
+                let childArr = optionsGoofy[0][1]
+                initialGoofy.push([childArr[i][2], childArr[i][1]])    
+            }
+            setOptions(initialGoofy)  
+            setSelectedOptions(initialGoofy)
+        }
     }
 
     const handleOptionalOptions = (e) => {
-        if (e.target.checked) {
-            options[e.target.id] = [e.target.title, e.target.value, "true"]
-            setSelectedOptions(options)
-        } else {
-            options[e.target.id] = [e.target.title, e.target.min] 
-            setSelectedOptions(options)
+        if (optionalOptions.length>0) {
+            if (e.target.checked) {
+                options[e.target.id] = [e.target.title, e.target.value, "true"]
+                setSelectedOptions(options)
+            } else {
+                options[e.target.id] = [e.target.title, e.target.min] 
+                setSelectedOptions(options)
+            }
+        }
+        else if (optionsGoofy.length>0) {
+            if (e.target.checked) {
+                options[e.target.id] = [e.target.title, e.target.value, "true"]
+                setSelectedOptionsGoofy(options)
+            } else {
+                options[e.target.id] = [e.target.title, e.target.min] 
+                setSelectedOptionsGoofy(options)
+            }
         }
     }
 
@@ -115,6 +139,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, baseModel
     useEffect(() => {
         if (!userData.user) history.push("/login");
         if (optionalOptions.length>0) initializeOptions();
+        if (optionsGoofy.length>0) initializeOptions();
     }, [userData.user, history])
 
     return (
@@ -167,6 +192,25 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, baseModel
                                     </>                                    
                                 ))
                                 :null}
+
+                                {optionsGoofy.length>0?
+                                optionsGoofy.map((option, idx) => (
+                                    <div key={idx}>
+                                        <h6 style={quoteStyles.header}>Select {option[0]} (optional):</h6>
+                                        <form>
+                                        <div>{option[1].map((option, idx) => (
+                                            <div className="form-check" key={idx}>
+                                                <input onClick={handleOptionalOptions} className="form-check-input" type="checkbox" title={option[2]} value={option[0]} min={option[1]} id={idx}/>
+                                                <label className="form-check-label" htmlFor="defaultCheck1">
+                                                    {option[2]}
+                                                </label>
+                                            </div>
+                                        ))}      
+                                        </div> 
+                                        </form>   
+                                    </div>                                    
+                                ))
+                                :null} 
 
                                 {optionalOptions.length>0?
                                 optionalOptions.map((option, idx) => (

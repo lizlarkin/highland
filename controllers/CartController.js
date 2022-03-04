@@ -10,6 +10,7 @@ module.exports = {
                 quantity: req.body.quantity,
                 required: req.body.required,
                 optional: req.body.optional,
+                optionalGoofy: req.body.optionalGoofy,
                 baseModel: req.body.baseModel,
                 accessories: req.body.accessories,
                 userId: req.user,

@@ -44,6 +44,8 @@ const Customers = () => {
         custDiv: {
             minHeight: "100px",
             border: "none",
+            backgroundColor: "white",
+            marginBottom: "3%",
         },
         text: {
             textAlign: "center",
@@ -109,7 +111,7 @@ const Customers = () => {
 
     const storeCustNum = (e) => {
         setCustNum(e.target.id)
-        console.log(custNum)
+        // console.log(custNum)
     } 
 
     return (

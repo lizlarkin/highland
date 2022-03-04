@@ -570,16 +570,47 @@ let productSeed = [
       {
       name: "dual 1:4 benchtop optical-to-electrical fanout buffer",
       model: "P730",
-      category: ["PHO"],
-      features: [],
+      category: ["LEG"],
+      features: [
+        ["Electrical logic input thresholds adjustable from -4V to +4V"],
+        ["Input-to-output bank assignment is routable without moving cabling"],
+        ["Programmable logic out bank voltages adjustable from -3.6V to +5V, 50 Ω source"],
+        ["850 nanometer, 1310 nanometer or 1550 nanometer fiberoptic input options available with ST connectors and calibrated 1V/mW analog front panel monitor output"],
+        ["Stable, ultra-low jitter, sub 500 picosecond output edge transition times"],
+      ],
       description: "Converts two fast fiber-coupled laser signals to two user-routable output banks, each consisting of four parallel buffered electrical outputs.",
-      imgCaptions: ["P730 dual 1:4 benchtop optical-to-electrical fanout buffer"],
-      about: [],
+      imgCaptions: ["", "P730 front/signal panel", "", "P730 rear/power panel"],
+      about: [
+        "The P730 is a high-speed, multipurpose digital fanout buffer housed in an anodized aluminum enclosure, which may be surface-mounted for OEM use or placed on a bench top for lab use.",
+        "The P730 features two input banks that are user-routable to two output banks, each consisting of four parallel buffered electrical outputs. Input and output levels are independently adjustable enabling compatibility with CMOS, TTL, LVDS, NECL, PECL, NIM and sine wave systems. Fiberoptic inputs are optionally available, expanding electrical signal translation to include optical-to-electrical conversion and galvanic isolation. A fully DC-coupled signal path maintains signal integrity to greater than 500 MHz pulse repetition rates.",
+        "The P730 is compatible with Highland's photonics, timing, benchtop, and VME products.",
+      ],
       related: [],
-      specifications: [],
+      specifications: [
+        ["FUNCTION", ["1:8 or dual 1:4 universal fanout"]],
+        ["OUTPUT VOLTAGES", ["Electrical input voltage range (E0, E1): +6 V to -4 V (50 Ω termination)", "Optional optical input range (F0, F1): 0 µW to 2 mW",]],
+        ["INPUT THRESHOLDS", ["Electrical: ±4 V", "Optical: 500 µW to 2 mW, typical",]],
+        ["PROPAGATION DELAY", ["3 ns, typical"]],
+        ["OUTPUTS", ["Two independent banks of four outputs each (X0-X3, Y0-Y3)", "Unloaded output voltage: +5 V, maximum", "Unloaded output voltage: -3.6 V, minimum", "Unloaded output swing: 5 V peak to peak, maximum", "Source impedance: 50 Ω"]],
+        ["MONITOR OUTPUT", ["Optical monitor scaling: 100 mV/mW ±10% into 50 Ω", "Source impedance: 50 Ω"]],
+        ["BANDWIDTH", ["500 MHz analog, 1 Gb/s NRZ"]],
+        ["RISETIME", ["≤ 500 ps"]],
+        ["FALLTIME", ["≤ 500 ps"]],
+        ["JITTER", ["≤ 12 ps RMS"]],
+        ["OUTPUT SKEW", ["Within Bank: < 800 ps", "Bank X to Bank Y: < 1 ns"]],
+        ["MINIMUM PULSE WIDTH", ["≥ 750 ps"]],
+        ["OPERATING TEMPERATURE", ["0 to 60°C; extended MIL/COTS ranges available"]],
+        ["CALIBRATION INTERVAL", ["One year"]],
+        ["POWER", ["+15 V to +24 V, 26 Watts, typical", "Highland Technology J24 Universal AC adapter supplied"]],
+        ["CONNECTORS", ["ST optical input receptacles", "Gold plated SMB electrical inputs, electrical outputs and optical monitor outputs", "2.1 mm X 5.5 mm barrel power connector"]],
+        ["INDICATORS", ["LEDS: Green power, blue channel triggers"]],
+        ["PACKAGING", ['5.0" (L) x 7.0" (W) x 2.25" (H) anodized aluminum enclosure']],
+        ["CONFORMANCE", ["Designed to meet UL/FCC/CE requirements"]],
+      ],
       optionsRequired: [
         ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
       ],
+      EOL: ["April 1, 2023", "April 1, 2027", 24],
       },
 
       // ****************************** P900 Data ******************************
@@ -1426,12 +1457,15 @@ let productSeed = [
         ["Offset", ["±5uV", "±30ppm of range"], ["±20uV", "±175ppm of range"], ["±30uV", "±300ppm of range"], ["±40uV", "±400ppm of range"],],
         ["Gain", "±50ppm of output", "±310ppm of output", "±660ppm of output", "±940ppm of output"],
       ],
-      optionsRequired: [   
-        ["configuration", [
-          ["1", "16-channel VME analog output and thermocouple simulator module"], 
-          ["2", "16-channel VME analog output and thermocouple simulator module with BIST"], 
-          ["12", "16-channel VME analog output and thermocouple simulator module with BIST and conformal coating"],
-        ]],
+      // optionsRequired: [   
+      //   ["configuration", [
+      //     ["1", "16-channel VME analog output and thermocouple simulator module"], 
+      //     ["2", "16-channel VME analog output and thermocouple simulator module with BIST"], 
+      //     ["12", "16-channel VME analog output and thermocouple simulator module with BIST and conformal coating"],
+      //   ]],
+      // ],
+      optionsOptionalGoofy: [
+        ["Advanced Features", [["2", "1", "Built-in self-test (BIST)"], ["1", "0", "Conformal Coating"], ]],
       ],
       accessories: [
         ["J55-1", "6' shielded D25 male to D25 male cable"],
@@ -1509,7 +1543,7 @@ let productSeed = [
       {
       name: "12-channel VME picosecond resolution time-interval measurement module",
       model: "V660",
-      category: ["VME", "MAS"],
+      category: ["LEG"],
       features: [],
       description: "Records the time of occurrence of twelve independent electrical pulse inputs, in time-interval or timestamp modes.",
       imgCaptions: ["V660 12-channel VME picosecond resolution time-interval measurement module"],
@@ -1524,6 +1558,7 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
+      EOL: ["April 1, 2022", "April 1, 2024"],
       },
 
       // ****************************** V680 Data ******************************

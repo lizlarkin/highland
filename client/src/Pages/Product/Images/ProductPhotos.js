@@ -49,6 +49,7 @@ import P350_1 from "./P350_Waveform_Playback_ARB_1.png";
 import P350_2 from "./P350_Waveform_Playback_ARB_2.png"; 
 import P350_3 from "./P350_Waveform_Playback_ARB_3.png"; 
 import P350_4 from "./P350_Waveform_Playback_ARB_4.png"; 
+import P400_1 from "./P400_Digital_Delay_Generator_1.png";
 import P470_1 from "./P470_Thermocouple Simulator_1.png";
 import P470_2 from "./P470_Thermocouple Simulator_2.png";
 import P470_3 from "./P470_Thermocouple Simulator_3.png";
@@ -67,7 +68,10 @@ import P620_2 from "./P620_Resistance_Simulator_2.png";
 import P620_3 from "./P620_Resistance_Simulator_3.png";
 import P620_4 from "./P620_Resistance_Simulator_4.png";
 import P620_5 from "./P620_Resistance_Simulator_5.png";
-import P730_1 from "./placeholder.jpg";
+import P730_1 from "./P730_Optical_Electrialc_Fanout_Buffer_1.png";
+import P730_2 from "./P730_Optical_Electrialc_Fanout_Buffer_2.png";
+import P730_3 from "./P730_Optical_Electrialc_Fanout_Buffer_3.png";
+import P730_4 from "./P730_Optical_Electrialc_Fanout_Buffer_4.png";
 import P900_1 from "./P900_Permanent_Magnet_Alternator_Simulator_1.png";
 import P900_2 from "./P900_Permanent_Magnet_Alternator_Simulator_2.png";
 import P900_3 from "./P900_Permanent_Magnet_Alternator_Simulator_3.png";
@@ -280,6 +284,10 @@ const P350PhotoArr = [
     P350_4,
 ]
 
+const P400PhotoArr = [
+    P400_1,
+]
+
 const P470PhotoArr = [
     P470_1,
     P470_2,
@@ -312,6 +320,9 @@ const P620PhotoArr = [
 
 const P730PhotoArr = [
     P730_1,
+    P730_2,
+    P730_3,
+    P730_4,
 ]
 
 const P900PhotoArr = [
@@ -597,6 +608,7 @@ export const ProductPhotos = [
     P348PhotoArr,
     P350PhotoArr,
     P470PhotoArr,
+    P400PhotoArr,
     P500PhotoArr,
     P545PhotoArr,
     P620PhotoArr,
