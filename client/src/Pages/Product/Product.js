@@ -37,7 +37,6 @@ const Product = () => {
     const [productCategory, setProductCategory] = useState();
     const [productRequired, setProductRequired] = useState();
     const [productOptions, setProductOptions] = useState();
-    const [optionsGoofy, setOptionsGoofy] = useState();
     const [baseModel, setBaseModel] = useState()
     const [productAccessories, setProductAccessories] = useState();
     const [productEOL, setProductEOL] = useState();
@@ -62,7 +61,6 @@ const Product = () => {
                setProductCategory(prodData.data[0].category);
                setProductRequired(prodData.data[0].optionsRequired);
                setProductOptions(prodData.data[0].optionsOptional);
-               setOptionsGoofy(prodData.data[0].optionsOptionalGoofy);
                setBaseModel(prodData.data[0].baseModel);
                setProductAccessories(prodData.data[0].accessories);
                setProductEOL(prodData.data[0].EOL);
@@ -176,7 +174,7 @@ const Product = () => {
                     {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware}/>}
                     {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
                     {content.showRelated && <ProductRelated related={productRelatives}/>}
-                    {content.showQuote && <ProductQuote name={productName} model={productModel} requiredOptions={productRequired} optionalOptions={productOptions} optionsGoofy={optionsGoofy} baseModel={baseModel} accessories={productAccessories} category={productCategory} EOLdates={productEOL}/>}  
+                    {content.showQuote && <ProductQuote name={productName} model={productModel} requiredOptions={productRequired} baseModel={baseModel} accessories={productAccessories} category={productCategory} EOLdates={productEOL}/>}  
                 </div>
             </div>
             

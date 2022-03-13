@@ -19,17 +19,12 @@ const productSchema = new mongoose.Schema({
     specificationsMulti: [],
     specificationsNotes: [],
     optionsRequired: [[]],
-    optionsOptional: [[]],
-    optionsOptionalGoofy: [[]],
+    optionsOptional: [],
     baseModel: {
         type: String,
     },
     accessories: [],
     EOL: [], // last time buy date, end of support date, remaining stock
-    // img: {
-    //     data: Buffer,
-    //     contentType: String,
-    // }
     
     // move the below to data model
     // manDownloads: [],

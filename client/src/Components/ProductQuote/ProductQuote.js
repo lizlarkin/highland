@@ -4,7 +4,8 @@ import UserContext from "../../Context/UserContext";
 import axios from "axios";
 
 
-const ProductQuote = ({ name, model, requiredOptions, optionalOptions, optionsGoofy, baseModel, accessories, category, EOLdates }) => {
+const ProductQuote = ({ name, model, requiredOptions, baseModel, accessories, category, EOLdates }) => {
+
 
     const quoteStyles = {
         qtyInput: {
@@ -40,74 +41,59 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, optionsGo
     const [selectedQuantity, setSelectedQuantity] = useState(0);
     const [selectedAccessories, setSelectedAccessories] = useState([]);
     const [selectedRequired, setSelectedRequired] = useState([]);
-    const [selectedOptions, setSelectedOptions] = useState([]);
-    const [selectedOptionsGoofy, setSelectedOptionsGoofy] = useState([]);
+    // const [selectedOptions, setSelectedOptions] = useState([]);
+    const [optionalOptions, setOptionalOptions] = useState([]);
+    const [dash, setDash] = useState([]);
+    const [helpLoad, setHelpLoad] = useState(0);
 
     const cart = {
         model: model,
         name: name,
         quantity: selectedQuantity,
         required: selectedRequired,
-        optional: selectedOptions,
-        optionalGoofy: selectedOptionsGoofy,
         baseModel: baseModel,
         accessories: selectedAccessories,
     }
-
-    // const [userCartNum, setUserCartNum] = useState(userData.user.cartActivity?:user)
 
     const selectQuantity = (e) => {
         setSelectedQuantity(e.target.value);
     }
 
+    // Initialize standard/base dash number
+    const configureStandardDash = () => {
+        for (let i = 1; i < optionalOptions.length; i++) {
+            dashArr.push(optionalOptions[i][0][0]);
+            cart.optional = dashArr;
+            setDash(dashArr);
+        }
+    }
+
+    // const [userCartNum, setUserCartNum] = useState(userData.user.cartActivity?:user)
+
+    let dashArr = [];
+
+    // modify dash number based on customer selections of optional featues
+    const handleOptionalOptions = (e) => {
+        if (e.target.checked) {
+            // when option is checked, update index of standard/base dash number, found at index corresponding to that version position
+            let dashCopy = [...dash];
+            let newDash = [dashCopy[e.target.id]];
+            newDash = e.target.value;
+            dashCopy[e.target.id] = newDash;
+            setDash(dashCopy);
+        } else if (!e.target.checked) {
+            // when option is unchecked, restore standard/base dash number
+            let dashCopy = [...dash];
+            let newDash = [dashCopy[e.target.id]];
+            newDash = e.target.min;
+            dashCopy[e.target.id] = newDash;
+            setDash(dashCopy);
+        }
+    }
+
     const handleRequiredOptions = (e) => {
         setSelectedRequired({...selectedRequired, [e.target.title]: [e.target.value, e.target.id]})
-    }
-
-    const [options, setOptions] = useState();
-
-    let initialOptions=[];
-    let initialGoofy=[];
-
-    const initializeOptions = () => {
-        if (optionalOptions.length>0) {
-            for (let i = 0; i < optionalOptions[0][1].length; i++) {
-                let childArr = optionalOptions[0][1]
-                initialOptions.push([childArr[i][2], childArr[i][1]])    
-            }
-            setOptions(initialOptions)  
-            setSelectedOptions(initialOptions)
-        }
-        else if (optionsGoofy.length>0) {
-            for (let i = 0; i < optionsGoofy[0][1].length; i++) {
-                let childArr = optionsGoofy[0][1]
-                initialGoofy.push([childArr[i][2], childArr[i][1]])    
-            }
-            setOptions(initialGoofy)  
-            setSelectedOptions(initialGoofy)
-        }
-    }
-
-    const handleOptionalOptions = (e) => {
-        if (optionalOptions.length>0) {
-            if (e.target.checked) {
-                options[e.target.id] = [e.target.title, e.target.value, "true"]
-                setSelectedOptions(options)
-            } else {
-                options[e.target.id] = [e.target.title, e.target.min] 
-                setSelectedOptions(options)
-            }
-        }
-        else if (optionsGoofy.length>0) {
-            if (e.target.checked) {
-                options[e.target.id] = [e.target.title, e.target.value, "true"]
-                setSelectedOptionsGoofy(options)
-            } else {
-                options[e.target.id] = [e.target.title, e.target.min] 
-                setSelectedOptionsGoofy(options)
-            }
-        }
-    }
+    } 
 
     const handleAddAccessories = (e) => {
         setSelectedAccessories({...selectedAccessories, [e.target.id]: [e.target.value, e.target.name]})
@@ -122,7 +108,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, optionsGo
                     return alert("Please make all required selections.")
                 } else if (EOLdates[2] && cart.quantity > EOLdates[2]) {
                     return alert ("Maximum quantity is " + EOLdates[2]+".")
-                }
+                } 
                 else {
                     const authToken = localStorage.getItem("auth-token");
                     const newCart = await axios.post("/cart", 
@@ -140,9 +126,21 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, optionsGo
  
     useEffect(() => {
         if (!userData.user) history.push("/login");
-        if (optionalOptions.length>0) initializeOptions();
-        if (optionsGoofy.length>0) initializeOptions();
-    }, [userData.user, history])
+        // if (optionalOptions.length>0) initializeOptions();
+        const getProductData = async () => {
+            try {
+               const prodData = await axios.get(`/products/${model}`);
+               setOptionalOptions(prodData.data[0].optionsOptional);
+               setHelpLoad(1);
+            } catch (error) {
+                console.log(error.response)
+            }
+        }
+        getProductData();
+        if (optionalOptions.length>0) configureStandardDash();
+    }, [userData.user, history, helpLoad])
+
+
 
     return (
         <div>
@@ -162,7 +160,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, optionsGo
 
                         <div className="col-md-8">
                         {model && name?
-                                <h5>{model} {name}</h5>
+                                <h5>{model}-{dash} {name}</h5>
                             :null}
                         </div>
 
@@ -173,7 +171,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, optionsGo
                         <div className="col-md-1"></div>
                     </div>
 
-                    {requiredOptions.length>0 || optionalOptions.length>0 || accessories.length>0 ?
+                    {/* {requiredOptions.length>0 || optionalOptions?optionalOptions.length>0:false || accessories.length>0 ? */}
                     <div className="row">
 
                         <div className="col-md-1"></div>
@@ -181,6 +179,25 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, optionsGo
                         <div className="col-md-10">
                                                         
                             <div style={quoteStyles.configContainer}>
+
+                                {optionalOptions?optionalOptions.length>0?
+                                    <>
+                                        <h6 style={quoteStyles.header}>Select {optionalOptions[0]} (optional):</h6>
+                                        <form>
+                                            {optionalOptions.slice(1).map((option, idx) => (
+                                                <div className="form-check" key={idx}>
+                                                    <input onClick={handleOptionalOptions} className="form-check-input" type="checkbox" title={option[1][1]} value={option[1][0]} min={option[0]} id={idx}/>
+                                                    <label className="form-check-label" htmlFor="defaultCheck1">
+                                                        {option[1][1]}
+                                                    </label>
+                                                </div>
+                                            ))}
+                                        </form>     
+                                    </>
+                                :null
+                                :null}  
+
+
                                 {requiredOptions.length>0?
                                     requiredOptions.map((required, idx) => (
                                         <>
@@ -198,45 +215,10 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, optionsGo
                                         </form>   
                                         </>                                    
                                     ))
-                                    :null}
-
-                                    {optionsGoofy.length>0?
-                                    optionsGoofy.map((option, idx) => (
-                                        <div key={idx}>
-                                            <h6 style={quoteStyles.header}>Select {option[0]} (optional):</h6>
-                                            <form>
-                                            <div>{option[1].map((option, idx) => (
-                                                <div className="form-check" key={idx}>
-                                                    <input onClick={handleOptionalOptions} className="form-check-input" type="checkbox" title={option[2]} value={option[0]} min={option[1]} id={idx}/>
-                                                    <label className="form-check-label" htmlFor="defaultCheck1">
-                                                        {option[2]}
-                                                    </label>
-                                                </div>
-                                            ))}      
-                                            </div> 
-                                            </form>   
-                                        </div>                                    
-                                    ))
                                     :null} 
 
-                                    {optionalOptions.length>0?
-                                    optionalOptions.map((option, idx) => (
-                                        <div key={idx}>
-                                            <h6 style={quoteStyles.header}>Select {option[0]} (optional):</h6>
-                                            <form>
-                                            <div>{option[1].map((option, idx) => (
-                                                <div className="form-check" key={idx}>
-                                                    <input onClick={handleOptionalOptions} className="form-check-input" type="checkbox" title={option[2]} value={option[0]} min={option[1]} id={idx}/>
-                                                    <label className="form-check-label" htmlFor="defaultCheck1">
-                                                        {option[2]}
-                                                    </label>
-                                                </div>
-                                            ))}      
-                                            </div> 
-                                            </form>   
-                                        </div>                                    
-                                    ))
-                                    :null}  
+                                
+
 
                                     {accessories.length>0?
                                     <>
@@ -261,7 +243,7 @@ const ProductQuote = ({ name, model, requiredOptions, optionalOptions, optionsGo
                     <div className="col-md-1"></div>
 
                     </div>
-                    : null}
+                    {/* : null} */}
 
                     <div className = "row" style={quoteStyles.title}>
                         <div className="col-md-9"></div>

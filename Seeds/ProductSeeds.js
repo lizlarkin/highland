@@ -409,8 +409,14 @@ let productSeed = [
           ["WARRANTY", ["2 years limited"]],
           ["OPTIONS", ["Rear-panel isolated HV outputs", "Frames: per-trigger delay/width lists", "Trains: multiple channel outputs per trigger", "OCXO timebase", "Rackmount adapter"]],
         ],
+        // optionsOptional: [
+        //       ["Advanced Features", [["2", "1", "advanced pulse train/frame generation"], ["2", "1", "50V isolated high-voltage output"],["2", "1", "high stability ovenized oscillator"]]],
+        // ],
         optionsOptional: [
-              ["Advanced Features", [["2", "1", "advanced pulse train/frame generation"], ["2", "1", "50V isolated high-voltage output"],["2", "1", "high stability ovenized oscillator"]]],
+          "Advanced Features",
+          [[1], [2, "high stability ovenized oscillator"]], // digit 1
+          [[1], [2, "50V isolated high-voltage output"]], // digit 2
+          [[1], [2, "advanced pulse train/frame generation"]], // digit 3
         ],
         accessories: [
           ["J25-1", "24 volt 65W power supply", "(1 included with purchase)"],
@@ -1033,7 +1039,9 @@ let productSeed = [
       related: [],
       specifications: [],
       optionsOptional: [
-            ["Advanced Features", [["21", "1", "Conformal coating"], ]],
+            "Advanced Features",
+            [[1], [2, "BIST"], [3, "test"]], // digit 1
+            [[null], [1, "Conformal Coating"]], // digit 2
       ],
       accessories: [],
       FAQs: [
@@ -1474,16 +1482,11 @@ let productSeed = [
         ["Offset", ["±5uV", "±30ppm of range"], ["±20uV", "±175ppm of range"], ["±30uV", "±300ppm of range"], ["±40uV", "±400ppm of range"],],
         ["Gain", "±50ppm of output", "±310ppm of output", "±660ppm of output", "±940ppm of output"],
       ],
-      // optionsRequired: [   
-      //   ["configuration", [
-      //     ["1", "16-channel VME analog output and thermocouple simulator module"], 
-      //     ["2", "16-channel VME analog output and thermocouple simulator module with BIST"], 
-      //     ["12", "16-channel VME analog output and thermocouple simulator module with BIST and conformal coating"],
-      //   ]],
-      // ],
-      optionsOptionalGoofy: [
-        ["Advanced Features", [["2", "1", "Built-in self-test (BIST)"], ["1", "0", "Conformal Coating"], ]],
-      ],
+      optionsOptional: [
+        "Advanced Features",
+        [[null], [1, "Conformal Coating"]], // digit 1
+        [[1], [2, "BIST"],], // digit 2
+        ],
       accessories: [
         ["J55-1", "6' shielded D25 male to D25 male cable"],
         ["J56-1", "10' shielded D25 male to D25 male cable"],

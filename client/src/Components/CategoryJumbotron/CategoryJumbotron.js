@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Digital_Delay_Generators from "./img/Digital_Delay_Generators.png"
 import Laser_Drivers_Controllers from "./img/Laser_Drivers_Controllers.png"
+import VME from "./img/VME.png"
 
 
 const CategoryJumbotron = ({title, text}) => {
@@ -9,7 +10,7 @@ const CategoryJumbotron = ({title, text}) => {
 
     useEffect(() => {
         const assignBackground = () => {
-            if (title==="VME") setBackground("VME")
+            if (title==="VME") setBackground(VME)
             if (title==="DIGITAL DELAY GENERATORS") setBackground(Digital_Delay_Generators)
             if (title==="PULSE GENERATORS") setBackground("PULSE GENERATORS")
             if (title==="WAVEFORM GENERATORS") setBackground("WAVEFORM GENERATORS")
