@@ -21,6 +21,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["optional", "recommended bundle", 1, [9, "add evaluation kit: D100 furnished with 24 volt power supply, SMB to BNC cable, and mounting flange"]],
+      ],
       },
 
       // ****************************** D200 Data ******************************
@@ -34,6 +37,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 9],
+      ],
       },
 
       // ****************************** J240 Data ******************************
@@ -47,6 +53,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["required", "select configuration", 1, [1, "130 ps nominal Gaussian pulse outputs and rising-edge trigger"], [2, "input follower with 60 ps nominal 20:80 rise/fall time"], [3, "input follower with 60 ps nominal 20:80 rise/fall time LVDS"]], 
+      ],
       accessories: [],
       FAQs: [
         [" Does the J240 have a programmable PRF?", "No, the J240 will need an external PRF source as a trigger."],
@@ -64,6 +73,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       },
 
       // ****************************** J720 Data ******************************
@@ -77,9 +89,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsRequired: [
-        ["Connector Type",[[null, "ST"], ["1", "FC"]]],    
-        ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"]]],
+      versions: [
+        ["required", "Connector Type", null, [null, "ST"], [1, "FC"]], 
+        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"]], 
       ],
       accessories: [],
       FAQs: [
@@ -409,14 +421,11 @@ let productSeed = [
           ["WARRANTY", ["2 years limited"]],
           ["OPTIONS", ["Rear-panel isolated HV outputs", "Frames: per-trigger delay/width lists", "Trains: multiple channel outputs per trigger", "OCXO timebase", "Rackmount adapter"]],
         ],
-        // optionsOptional: [
-        //       ["Advanced Features", [["2", "1", "advanced pulse train/frame generation"], ["2", "1", "50V isolated high-voltage output"],["2", "1", "high stability ovenized oscillator"]]],
-        // ],
-        optionsOptional: [
-          "Advanced Features",
-          [[1], [2, "high stability ovenized oscillator"]], // digit 1
-          [[1], [2, "50V isolated high-voltage output"]], // digit 2
-          [[1], [2, "advanced pulse train/frame generation"]], // digit 3
+        versions: [
+          // [0] type of selection, [1] description, [2] base dash num, 3 [alt dash num, "alt dash description"]
+          ["optional", "OCXO timebase", 1, [2, "add high stability ovenized oscillator"]], // digit 1
+          ["optional", "high-voltage outputs", 1, [2, "add 50V isolated high-voltage output"]], // digit 2
+          ["optional", "frame and train engine", 1, [2, "add advanced pulse train/frame generation"]], // digit 3
         ],
         accessories: [
           ["J25-1", "24 volt 65W power supply", "(1 included with purchase)"],
@@ -1066,7 +1075,9 @@ let productSeed = [
       related: [],
       specifications: [],
       optionsOptional: [
-        ["Advanced Features", [["21", "1", "Conformal coating"], ]],
+        "Advanced Features",
+        [[1], [2, "BIST"], [3, "test"]], // digit 1
+        [[null], [1, "Conformal Coating"]], // digit 2
       ],
       accessories: [],
       FAQs: [
@@ -1107,7 +1118,9 @@ let productSeed = [
       related: [],
       specifications: [],
       optionsOptional: [
-        ["Advanced Features", [["11", "1", "Conformal coating"], ]],
+        "Advanced Features",
+        [[1],], // digit 1
+        [[null], [1, "Conformal Coating"]], // digit 2
       ],
       accessories: [],
       FAQs: [
@@ -1130,7 +1143,8 @@ let productSeed = [
       related: [],
       specifications: [],
       optionsOptional: [
-        ["Advanced Features", [["2", "1", "Built-in self-test (BIST)"], ]],
+        "Advanced Features",
+        [[1], [2, "BIST"]] // digit 1
       ],
       accessories: [],
       FAQs: [
@@ -1151,7 +1165,9 @@ let productSeed = [
       related: [],
       specifications: [],
       optionsOptional: [
-        ["Advanced Features", [["2", "1", "Built-in self-test (BIST)"], ["1", null, "Conformal coating"]]],
+        "Advanced Features",
+        [[1], [2, "BIST"], [3, "test"]], // digit 1
+        [[null], [1, "Conformal Coating"]], // digit 2
       ],
       accessories: [],
       FAQs: [
@@ -1210,11 +1226,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsRequired: [
-        ["Software Switchable Transformers", [["1", "none"], ["2", "1:1 ratio"], ["3", "5:1 ratio"]]],
-      ],
-      optionsOptional: [
-        ["Advanced Features", [["1", "0", "Built-in self-test (BIST)"]]],
+      versions: [
+        ["required", "select transformer coupling", 1, [1, "none"], [2, "switchable 1:1 transformers"], [3, "switchable 5:1 transformers"]],
+        ["optional", "built-in self-test", 0, [1, "add BIST"]],
       ],
       accessories: [],
       FAQs: [
@@ -1396,6 +1410,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+          ["optional", "built-in self-test", 1, [2, "add BIST"]],
+          ["required", "select pre-installed analog bessel filter option", null, [null, "none"], [51, "50 Hz 6-pole"], [81, "200 Hz 6-pole"]],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],

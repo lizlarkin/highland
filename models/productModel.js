@@ -18,11 +18,7 @@ const productSchema = new mongoose.Schema({
     specificationsTwo: [],
     specificationsMulti: [],
     specificationsNotes: [],
-    optionsRequired: [[]],
-    optionsOptional: [],
-    baseModel: {
-        type: String,
-    },
+    versions: [],
     accessories: [],
     EOL: [], // last time buy date, end of support date, remaining stock
     

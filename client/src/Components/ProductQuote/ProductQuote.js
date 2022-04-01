@@ -4,7 +4,7 @@ import UserContext from "../../Context/UserContext";
 import axios from "axios";
 
 
-const ProductQuote = ({ name, model, requiredOptions, baseModel, accessories, category, EOLdates }) => {
+const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
 
 
     const quoteStyles = {
@@ -40,18 +40,14 @@ const ProductQuote = ({ name, model, requiredOptions, baseModel, accessories, ca
     const history = useHistory();
     const [selectedQuantity, setSelectedQuantity] = useState(0);
     const [selectedAccessories, setSelectedAccessories] = useState([]);
-    const [selectedRequired, setSelectedRequired] = useState([]);
-    // const [selectedOptions, setSelectedOptions] = useState([]);
-    const [optionalOptions, setOptionalOptions] = useState([]);
-    const [dash, setDash] = useState([]);
-    const [helpLoad, setHelpLoad] = useState(0);
+    const [dash, setDash] = useState([]);  // configured on page load and updated based on user selections
+    const [helpLoad, setHelpLoad] = useState(0); // helps configure base dash numbers
+    const [versions, setVersions] = useState([]); // holds backend data about product version options
 
     const cart = {
         model: model,
         name: name,
         quantity: selectedQuantity,
-        required: selectedRequired,
-        baseModel: baseModel,
         accessories: selectedAccessories,
     }
 
@@ -59,21 +55,18 @@ const ProductQuote = ({ name, model, requiredOptions, baseModel, accessories, ca
         setSelectedQuantity(e.target.value);
     }
 
+    let dashArr = [];
     // Initialize standard/base dash number
     const configureStandardDash = () => {
-        for (let i = 1; i < optionalOptions.length; i++) {
-            dashArr.push(optionalOptions[i][0][0]);
-            cart.optional = dashArr;
+        for (let i = 0; i < versions.length; i++) {
+            dashArr.push(versions[i][2]);
+            cart.configuredDash = dashArr;
             setDash(dashArr);
         }
     }
 
-    // const [userCartNum, setUserCartNum] = useState(userData.user.cartActivity?:user)
-
-    let dashArr = [];
-
     // modify dash number based on customer selections of optional featues
-    const handleOptionalOptions = (e) => {
+    const handleOptionalVersions = (e) => {
         if (e.target.checked) {
             // when option is checked, update index of standard/base dash number, found at index corresponding to that version position
             let dashCopy = [...dash];
@@ -85,15 +78,19 @@ const ProductQuote = ({ name, model, requiredOptions, baseModel, accessories, ca
             // when option is unchecked, restore standard/base dash number
             let dashCopy = [...dash];
             let newDash = [dashCopy[e.target.id]];
-            newDash = e.target.min;
+            newDash = e.target.getAttribute('data-defaultDash');
             dashCopy[e.target.id] = newDash;
             setDash(dashCopy);
         }
     }
 
-    const handleRequiredOptions = (e) => {
-        setSelectedRequired({...selectedRequired, [e.target.title]: [e.target.value, e.target.id]})
-    } 
+    const handleRequiredVersions = (e) => {
+        let dashCopy = [...dash];
+        let newDash = [dashCopy[e.target.id]];
+        newDash = e.target.value;
+        dashCopy[e.target.id] = newDash;
+        setDash(dashCopy);
+    }
 
     const handleAddAccessories = (e) => {
         setSelectedAccessories({...selectedAccessories, [e.target.id]: [e.target.value, e.target.name]})
@@ -104,8 +101,8 @@ const ProductQuote = ({ name, model, requiredOptions, baseModel, accessories, ca
             try {
                 if (cart.quantity < 1) {
                     return alert("Please add quantity.")
-                } else if (requiredOptions.length !== Object.keys(cart.required).length) {
-                    return alert("Please make all required selections.")
+                // } else if (requiredOptions.length !== Object.keys(cart.required).length) {
+                //     return alert("Please make all required selections.")
                 } else if (EOLdates[2] && cart.quantity > EOLdates[2]) {
                     return alert ("Maximum quantity is " + EOLdates[2]+".")
                 } 
@@ -126,18 +123,17 @@ const ProductQuote = ({ name, model, requiredOptions, baseModel, accessories, ca
  
     useEffect(() => {
         if (!userData.user) history.push("/login");
-        // if (optionalOptions.length>0) initializeOptions();
         const getProductData = async () => {
             try {
                const prodData = await axios.get(`/products/${model}`);
-               setOptionalOptions(prodData.data[0].optionsOptional);
+               setVersions(prodData.data[0].versions);
                setHelpLoad(1);
             } catch (error) {
                 console.log(error.response)
             }
         }
         getProductData();
-        if (optionalOptions.length>0) configureStandardDash();
+        if (versions.length>0) configureStandardDash();
     }, [userData.user, history, helpLoad])
 
 
@@ -171,53 +167,47 @@ const ProductQuote = ({ name, model, requiredOptions, baseModel, accessories, ca
                         <div className="col-md-1"></div>
                     </div>
 
-                    {/* {requiredOptions.length>0 || optionalOptions?optionalOptions.length>0:false || accessories.length>0 ? */}
+
                     <div className="row">
 
                         <div className="col-md-1"></div>
 
                         <div className="col-md-10">
-                                                        
-                            <div style={quoteStyles.configContainer}>
+                 
+                            {/* <div style={quoteStyles.configContainer}> */}
 
-                                {optionalOptions?optionalOptions.length>0?
-                                    <>
-                                        <h6 style={quoteStyles.header}>Select {optionalOptions[0]} (optional):</h6>
-                                        <form>
-                                            {optionalOptions.slice(1).map((option, idx) => (
-                                                <div className="form-check" key={idx}>
-                                                    <input onClick={handleOptionalOptions} className="form-check-input" type="checkbox" title={option[1][1]} value={option[1][0]} min={option[0]} id={idx}/>
-                                                    <label className="form-check-label" htmlFor="defaultCheck1">
-                                                        {option[1][1]}
+                                {versions.length>0?
+                                    versions.map((options, index) => (
+                                        options[0]==="noOptions"?
+                                        null
+                                        :
+                                        options[0]==="required"?
+                                            <div style={quoteStyles.configContainer}>
+                                            <h6 style={quoteStyles.header}>{options[1]}<span className="asterisk">* (required)</span></h6>
+                                            {options.slice(3).map((option, idx) => (
+                                                <div className="form-check">
+                                                    <input onClick={handleRequiredVersions} className="form-check-input" type="radio" name={"flexRadioDefault"+index} value={option[0]} id={index}/>
+                                                    <label className="form-check-label" htmlFor={index}>
+                                                        {option[1]}
                                                     </label>
                                                 </div>
                                             ))}
-                                        </form>     
-                                    </>
-                                :null
-                                :null}  
-
-
-                                {requiredOptions.length>0?
-                                    requiredOptions.map((required, idx) => (
-                                        <>
-                                        <h6 key={idx} style={quoteStyles.header}>Select {required[0]}:<span className="asterisk">*</span></h6>
-                                        <form>
-                                        <div>{required[1].map((option, index) => (
-                                            <div className="form-check" key={index}>
-                                                <input onClick={handleRequiredOptions} className="form-check-input" type="radio" value={option[1]} name="requiredRadios" title={required[0]} id={option[0]}/>
-                                                <label className="form-check-label">
-                                                {option[1]}
-                                                </label>
                                             </div>
-                                        ))}      
-                                        </div> 
-                                        </form>   
-                                        </>                                    
-                                    ))
-                                    :null} 
-
-                                
+                                        :
+                                        options[0]==="optional"?
+                                            <div style={quoteStyles.configContainer}>
+                                                <h6 style={quoteStyles.header}>{options[1]} (optional)</h6>
+                                                {options.slice(3).map((option, idx) => (
+                                                    <div className="form-check" key={idx}>
+                                                        <input onClick={handleOptionalVersions} className="form-check-input" type="checkbox" value={option[0]} data-defaultDash={options[2]} id={index}/>
+                                                        <label className="form-check-label">
+                                                            {option[1]}
+                                                        </label>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        :null))
+                                :null}
 
 
                                     {accessories.length>0?
@@ -236,14 +226,13 @@ const ProductQuote = ({ name, model, requiredOptions, baseModel, accessories, ca
                                         </form>
                                     ))
                                     :null}
-                            </div>
+                            {/* </div> */}
                             
                         </div>
 
                     <div className="col-md-1"></div>
 
                     </div>
-                    {/* : null} */}
 
                     <div className = "row" style={quoteStyles.title}>
                         <div className="col-md-9"></div>

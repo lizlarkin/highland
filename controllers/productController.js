@@ -33,9 +33,7 @@ module.exports = {
                 specificationsTwo: req.body.specificationsTwo,
                 specificationsMulti: req.body.specificationsMulti,
                 specificationsNotes: req.body.specificationsNotes,
-                optionsRequired: req.body.optionsRequired,
-                optionsOptional: req.body.optionsOptional,
-                baseModel: req.body.baseModel,
+                versions: req.body.versions,
                 accessories: req.body.accessories,
                 EOL: req.body.EOL,
             });
