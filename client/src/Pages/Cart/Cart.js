@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
 import { DateContext } from "../../Context/DateContext";
 import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
+import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 
 const Cart = () => {
 
@@ -39,20 +40,33 @@ const Cart = () => {
     }
 
     const [cartList, setCartList] = useState([]);
-    // const [version, setVersion] = useState([]);
 
     const getAllCart = async () => {
         try {
             const allInCart = await axios.get(`/cart`, {
                 headers: { "x-auth-token": localStorage.getItem("auth-token") }
             });
-            console.log("cart list", allInCart)
             setCartList(allInCart.data)
-            // setVersion(cartList.required)
+            getProductData();
         } catch (error) {
             console.log(error)   
         }
     }
+
+    const [prodInfo, setProdInfo] = useState([])
+
+    const getProductData = async () => {
+        try {
+           const prodData = await axios.get(`/products/cartData/${cartList[0].model}`);
+           console.log(prodData)
+           setProdInfo(prodData);
+        //    setHelpLoad(1);
+        } catch (error) {
+            console.log(error.response)
+        }
+    }
+
+
 
     // Delete All in one cart section
     const deleteCart = async (e) => {
@@ -127,6 +141,27 @@ const Cart = () => {
 
                 <div className="col-md-10">
                     {cartList?
+                        cartList.map((carts, index) => (
+                            <div className="card mb-3" key={index}>
+                                <div className="row g-0">
+                                    <div className="col-md-4">
+                                        <img src={ProductPhotos[ProductPhotos.findIndex(search => search[0].includes(carts.model))][0]} 
+                                             className="img-fluid rounded-start" 
+                                             alt={carts.model}/>
+                                    </div>
+                                    <div className="col-md-8">
+                                        <div className="card-body">
+                                            <h5 className="card-title">{carts.model}-{carts.version}</h5>
+                                            <p>Quantity: {carts.quantity}</p>
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    :null
+                    }
+                    {/* {cartList?
                         cartList.map((data, index) => (
                             <>
                             <div className="card mb-3" key={index}>
@@ -148,16 +183,6 @@ const Cart = () => {
                                                             )))}
                                                         </>
                                                     :null}
-                                                    {/* {data.optionsP500.length>0?
-                                                        <>
-                                                            {Object.entries(data.optional).sort().map(((option, index) => (
-                                                                option.map((dash, idx) => (
-                                                                    <span index={index} key={idx}>{dash[1]}</span>
-                                                                ))
-                                                                  
-                                                            )))}
-                                                        </>
-                                                    :null} */}
                                                     {data.optional.length>0?
                                                         <>
                                                             {Object.entries(data.optional).sort().map(((option, index) => (
@@ -266,7 +291,7 @@ const Cart = () => {
                         </div>
                         </>
                         ))
-                    :null}
+                    :null} */}
 
                     {cartList.length>0?
                     <div className = "row">

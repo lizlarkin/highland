@@ -3,9 +3,7 @@ import { useHistory } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
 import axios from "axios";
 
-
 const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
-
 
     const quoteStyles = {
         qtyInput: {
@@ -46,9 +44,10 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
 
     const cart = {
         model: model,
-        name: name,
+        version: dash,
         quantity: selectedQuantity,
         accessories: selectedAccessories,
+        userId: userData.user, 
     }
 
     const selectQuantity = (e) => {
@@ -93,7 +92,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
     }
 
     const handleAddAccessories = (e) => {
-        setSelectedAccessories({...selectedAccessories, [e.target.id]: [e.target.value, e.target.name]})
+        setSelectedAccessories({...selectedAccessories, [e.target.id]: e.target.value})
     }
 
     const addToCart = async (e) => {
@@ -185,7 +184,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                             <div style={quoteStyles.configContainer}>
                                             <h6 style={quoteStyles.header}>{options[1]}<span className="asterisk">* (required)</span></h6>
                                             {options.slice(3).map((option, idx) => (
-                                                <div className="form-check">
+                                                <div className="form-check" key={idx}>
                                                     <input onClick={handleRequiredVersions} className="form-check-input" type="radio" name={"flexRadioDefault"+index} value={option[0]} id={index}/>
                                                     <label className="form-check-label" htmlFor={index}>
                                                         {option[1]}

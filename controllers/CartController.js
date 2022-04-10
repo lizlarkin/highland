@@ -4,13 +4,9 @@ module.exports = {
     newCart: async (req, res) => {
         try {
             const newCart = new Cart({ 
-                date: req.body.date,
                 model: req.body.model,
-                name: req.body.name,
-                quantity: req.body.quantity,
-                required: req.body.required,
-                optional: req.body.optional,
-                baseModel: req.body.baseModel,
+                version: req.body.version,
+                quantity: req.body.quantity,             
                 accessories: req.body.accessories,
                 userId: req.user,
             });

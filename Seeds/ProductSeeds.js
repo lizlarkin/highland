@@ -110,6 +110,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["required", "Connector Type", null, [null, "ST"], [1, "FC"]], 
+        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
+      ],
       },
   
   
@@ -158,9 +162,9 @@ let productSeed = [
         ["INDICATOR", ["LED: Green power"]],
         ["PACKAGING", ['3.3" (L) x 2.1" (W) x 0.9" (H) extruded anodized aluminum enclosure']],
       ],
-      optionsRequired: [
-        ["Connector Type",[[null, "ST"], ["1", "FC"]]],    
-        ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
+      versions: [
+        ["required", "Connector Type", null, [null, "ST"], [1, "FC"]], 
+        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
       ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 included with purchase)"],
@@ -190,6 +194,9 @@ let productSeed = [
         about: [],
         related: [],
         specifications: [],
+        versions: [
+          ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm/1550nm"],], 
+        ],
         },
 
       // ****************************** J750 Data ******************************
@@ -203,6 +210,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       },
 
       // ****************************** P330 Data ******************************
@@ -245,7 +255,9 @@ let productSeed = [
         ["INDICATORS", ["LEDs indicate power, communications, excitations, USER"]],
         ["BIST", ["Functional self-test provided"]],
       ],
-      baseModel: "1",
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply ", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable "],
@@ -300,7 +312,9 @@ let productSeed = [
         ["CALIBRATION INTERVAL", ["No internal calibrations"]],
         ["POWER", ["24 volts DC, 500mA max", "model J24, 24 VDC, 30 watt external adapter furnished", "2.1 x 5.5 mm barrel connector, center pin positive",]],
       ],
-      baseModel: "1",
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -324,6 +338,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       },
 
       // ****************************** P400 Data ******************************
@@ -337,6 +354,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 2],
+      ],
       accessories: [],
       FAQs: [
         ["What is the difference between the P400 and the P500?", "The Highland Model P500 Digital Delay/Pulse Generator is the successor of Model P400. We typically recommend purchasing the P500 over the P400 because it is less expensive, it has an improved user interface, and it will be supported for a very long time. The P400 design is over 10 years old and is being gradually phased out of our product offerings due to component obsolescence challenges. Some new features of the P500 include: improved packaging, color LCD, quiet fan, streamlined design, standard USB, Ethernet, and RS232, high performance pulse output stages with clean fast pulses from 0.5 to 25 volts p-p into 50 ohms, rep-rate to 14 MHz, glitch-free timing changes, and optional per-shot timing lists and multiple pulses per trigger."], 
@@ -354,6 +374,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [],
       FAQs: [
         ["Does the P470 come with software drivers?", "There is no need for software drivers because this unit comes equipped with Ethernet."],
@@ -494,7 +517,9 @@ let productSeed = [
         ["FREQUENCY MEASUREMENT", ["0.05%"]],
         ["FREQUENCY GENERATION", ["0.05%"]],
       ],
-      baseModel: "1",
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply ", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -565,7 +590,9 @@ let productSeed = [
         ["Note 6: ", "100mV minimum test voltage"],
         ["", "For a more in-depth discussion of accuracy, see manual section 6."]
       ],
-      baseModel: "1",
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -630,8 +657,8 @@ let productSeed = [
         ["PACKAGING", ['5.0" (L) x 7.0" (W) x 2.25" (H) anodized aluminum enclosure']],
         ["CONFORMANCE", ["Designed to meet UL/FCC/CE requirements"]],
       ],
-      optionsRequired: [
-        ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
+      versions: [
+        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
       ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply", "(furnished with purchase)"],
@@ -656,6 +683,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       },
 
       // ****************************** T124 Data ******************************
@@ -665,10 +695,13 @@ let productSeed = [
       category: ["PSG"],
       features: [],
       description: "Provides a fast 1 to 4 fanout buffer/inverter for digital logic signals.",
-      imgCaptions: ["T124 1 to 4 logic buffer"],
+      imgCaptions: ["T124 1 to 4 logic buffer", "", "", "T124 signal endplate", "T124 signal endplate", "T124 power endplate", "T124 power endplate"],
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       },
 
       // ****************************** T130 Data ******************************
@@ -682,6 +715,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 9],
+      ],
       },
 
       // ****************************** T160 Data ******************************
@@ -801,6 +837,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["optional", "Ethernet", 1, [2, "add ethernet"]],
+      ],
       },
 
       // ****************************** T344 Data ******************************
@@ -808,12 +847,56 @@ let productSeed = [
       name: "4-channel compact 32 MHz arbitrary waveform generator",
       model: "T344",
       category: ["WFG"],
-      features: [],
+      features: [
+        ["Four independently programmable waveform outputs: sine, triangle, sawtooth, square/PWM, Gaussian noise, and arbitrary waveforms"], 
+        ["Channels may be synchronized for coordinated polyphase or time-sync'd signals at same or ratio frequencies"],
+        ["Multiple T344's may be synchronized"],
+        ["0-32 MHz outputs with milli-Hertz resolution"],
+        ["Up to 10.24 volts peak-to-peak output, programmable 5:1 attenuation and DC offset"],
+        ["Test output and BIST are included"],
+        ["External universal power supply or 12-volt DC power"],
+        ["RS-232 and Ethernet interfaces standard"],
+        ["OEM packaged or board-only custom"],
+    ],
       description: "Generates four independently programmable waveforms with standard functions, noise, and user-loaded arbitrary waveforms.",
-      imgCaptions: ["T344 4-channel compact 32 MHz arbitrary waveform generator"],
-      about: [],
-      related: [],
-      specifications: [],
+      imgCaptions: ["T344 4-channel compact 32 MHz arbitrary waveform generator", "", "T344 signal endplate", "T344 signal endplate", "T344 power endplate", "T344 power endplate"],
+      about: [
+        "The T344 is a compact 4-channel, 32 MHz arbitrary waveform generator. It incorporates four DDS waveform synthesizers that may be used independently or synchronously to produce polyphase signals. Waveforms include sine, triangle, sawtooth, noise, and precision square/PWM outputs. User-loaded arbitrary waveforms may be generated.",
+        "Test relays allow any output to be diverted to a test connector for in-system calibration verification. Built-In-Self-Test is provided.",
+        "The T34x family of generators includes the T340 and T346."
+      ],
+      related: [
+        "T340 4-channel compact function generator",
+        "T346 4-channel compact 32 MHz arbitrary waveform generator w/ complex modulation",
+        "V340 8-channel VME function generator with transformer coupling",
+        "V344 8-channel VME 32 MHz arbitrary waveform generator",
+        "V346 8-channel VME 32 MHz arbitrary waveform generator w/ complex modulation"
+      ],
+      specifications: [
+        ["FUNCTION", ["4-channel arbitrary waveform generator"]],
+        ["STANDARD WAVEFORMS", ["Sine, sawtooth, triangle, Gaussian noise, or square/pulse/PWM outputs"]],
+        ["ARBITRARY WAVEFORM", ["4096 point, 16 bit user-loadable arbitrary waveform with programmable hardware interpolation"]],
+        ["SIGNAL SWING", ["Normal range: ±5.12 V ±1%", "Attenuated range: ±1.024 V ±1%"]],
+        ["IMPEDANCE", ["50 Ω nominal output impedance"]],
+        ["DC OFFSET", ["± 2 mV typ, 15-35°C", "± 10 mV max, 0-60°C"]],
+        ["GAIN ERROR", ["± 0.5 % max"]],
+        ["FLATNESS", ["-0.1 dB @ 12 MHz typical", "-1 dB @ 32 MHz typical", "-3 dB @ 46 MHz typical", "Amplitude rolls off monotonically with frequency"]],
+        ["DAC RESOLUTION", ["14 bit DAC output resolution"]],
+        ["FREQUENCY RANGES", ["High range: 0 to 32 MHz with 0.0149 Hz resolution", "Mid range: 0 to 4 MHz with 0.0018 Hz resolution", "Low range: 0 to 250 KHz with 116 µHz resolution", "Extra range usable to 40 MHz"]],
+        ["GAUSSIAN NOISE", ["Programmable amplitude 0 to 1 V RMS, programmable 3 dB bandwidth 0 to 2 MHz"]],
+        ["PHASE SHIFT", ["1/65536 cycles ≈ 0.0055°"]],
+        ["PWM DUTY RESOLUTION", ["1/65536 = 0.0015%"]],
+        ["SUMMING", ["Any channel may be summed with the output of channel 1 to 3, cascadable in any groupings"]],
+        ["FREQUENCY ACCURACY", ["Frequency ±20 PPM", "Lockable to external 10 MHz source"]],
+        ["COMMUNICATIONS", ["RS-232 standard, 38.4 kbaud", "10/100 Ethernet standard"]],
+        ["CONNECTORS", ["Signals, SMB jacks", "Power, 2.5 mm coaxial, center positive", "RS-232 and alternate power, D9 female", "Ethernet RJ45"]],
+        ["POWER", ["+12 V, 750 mA max", "Universal AC adapter supplied for evaluation"]],
+        ["PACKAGING", ['4.75" (L) x 4.05" (W) x 1.25" (H) extruded aluminum enclosure']],
+        ["CONFORMANCE", ["OEM product has no UL/FCC/CE compliance requirements", "Designed to meet UL/FCC/CE requirements", "Power adapter when furnished is UL/CE certified"]],
+      ],
+      versions: [
+        ["optional", "recommended bundle", 1, [9, "add evaluation kit: T344 furnished with 12 volt power supply, removable mounting flange, RS-232 cable, and four 3' SMB to BNC cables"]],
+      ],
       },
 
       // ****************************** T346 Data ******************************
@@ -827,6 +910,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["optional", "recommended bundle", 1, [9, "add evaluation kit: T346 furnished with 12 volt power supply, removable mounting flange, RS-232 cable, and four 3' SMB to BNC cables"]],
+      ],
       accessories: [],
       FAQs: [
         ["Where can I find the test program for the T346?", "The program can be downloaded from Dropbox. A link is provided in the Resources menu under Drivers & Software. The Dropbox repository contains both the source code and the executable, which is under the dist folder. You'll need Java to run it, and there are instructions in the dist/README.TXT about installing librxtxserial."], 
@@ -844,6 +930,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       },
 
 
@@ -939,6 +1028,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       },
 
       // ****************************** T735 Data ******************************
@@ -948,7 +1040,7 @@ let productSeed = [
       category: ["PHO"],
       features: [],
       description: "Converts fiberoptic input to electrical logic-level outputs, with DC coupled logic and monitor paths.",
-      imgCaptions: ["T735 compact DC-coupled optical-to-RS-422/RS-485/LVDS converter"],
+      imgCaptions: ["T735 compact DC-coupled optical-to-RS-422/RS-485/LVDS converter", "", "T735 signal endplate", "T735 power endplate", ""],
       about: [],
       related: [],
       specifications: [],
@@ -969,6 +1061,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 2],
+      ],
       },
 
       // ****************************** T760 Data ******************************
@@ -982,6 +1077,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["required", "select configuration", 1, [1, "80V maximum pulse amplitude and <1 nanosecond risetime"], [2, "100V maximum pulse amplitude and <2.5 nanosecond risetime"]], 
+      ],
       },
 
       // ****************************** T840 Data ******************************
@@ -995,6 +1093,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       },
 
       // ****************************** T850 Data ******************************
@@ -1008,6 +1109,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       },
 
       // ****************************** T860 Data ******************************
@@ -1021,6 +1125,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["required", "select connector type", 1, [1, "SMB"], [2, "SMA"]], 
+      ],
       },
 
       // ****************************** T900 Data ******************************
@@ -1047,10 +1154,8 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsOptional: [
-            "Advanced Features",
-            [[1], [2, "BIST"], [3, "test"]], // digit 1
-            [[null], [1, "Conformal Coating"]], // digit 2
+      versions: [
+        ["optional", "built-in self-test", 1, [21, "add BIST"]],
       ],
       accessories: [],
       FAQs: [
@@ -1074,10 +1179,8 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsOptional: [
-        "Advanced Features",
-        [[1], [2, "BIST"], [3, "test"]], // digit 1
-        [[null], [1, "Conformal Coating"]], // digit 2
+      versions: [
+        ["optional", "built-in self-test", 1, [21, "add BIST"]],
       ],
       accessories: [],
       FAQs: [
@@ -1099,6 +1202,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1117,10 +1223,8 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsOptional: [
-        "Advanced Features",
-        [[1],], // digit 1
-        [[null], [1, "Conformal Coating"]], // digit 2
+      versions: [
+        ["optional", "built-in self-test", 1, [11, "add BIST"]],
       ],
       accessories: [],
       FAQs: [
@@ -1142,9 +1246,8 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsOptional: [
-        "Advanced Features",
-        [[1], [2, "BIST"]] // digit 1
+      versions: [
+        ["optional", "built-in self-test", 1, [2, "add BIST"]],
       ],
       accessories: [],
       FAQs: [
@@ -1160,7 +1263,7 @@ let productSeed = [
       category: ["VME", "MAS"],
       features: [],
       description: "VME-3122 compatible analog input module provides high channel-count data acquisition for dense monitoring applications.",
-      imgCaptions: ["V230 64-channel VME analog input module"],
+      imgCaptions: ["V230 64-channel VME analog input module", "", "", "V230 with built-in self-test", "V230 without built-in self-test"],
       about: [],
       related: [],
       specifications: [],
@@ -1222,7 +1325,7 @@ let productSeed = [
       category: ["VME", "WFG"],
       features: [],
       description: "Provides eight DDS waveform outputs, each programmable for frequency and amplitude. Synchronizable in any combination of channels to produce polyphase signals.",
-      imgCaptions: ["V340 8-channel VME function generator with transformer coupling"],
+      imgCaptions: ["V340 8-channel VME function generator with transformer coupling", "", "", "V340 without transformer coupling", "V340 with transformer coupling"],
       about: [],
       related: [],
       specifications: [],

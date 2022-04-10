@@ -35,9 +35,6 @@ const Product = () => {
     const [productName, setProductName] = useState();
     const [productModel, setProductModel] = useState();
     const [productCategory, setProductCategory] = useState();
-    const [productRequired, setProductRequired] = useState();
-    const [productOptions, setProductOptions] = useState();
-    const [baseModel, setBaseModel] = useState()
     const [productAccessories, setProductAccessories] = useState();
     const [productEOL, setProductEOL] = useState();
     const [productFeatures, setProductFeatures] = useState();
@@ -59,9 +56,6 @@ const Product = () => {
                setProductName(prodData.data[0].name);
                setProductModel(prodData.data[0].model);
                setProductCategory(prodData.data[0].category);
-               setProductRequired(prodData.data[0].optionsRequired);
-               setProductOptions(prodData.data[0].optionsOptional);
-               setBaseModel(prodData.data[0].baseModel);
                setProductAccessories(prodData.data[0].accessories);
                setProductEOL(prodData.data[0].EOL);
                setProductFeatures(prodData.data[0].features);
@@ -174,7 +168,7 @@ const Product = () => {
                     {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware}/>}
                     {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
                     {content.showRelated && <ProductRelated related={productRelatives}/>}
-                    {content.showQuote && <ProductQuote name={productName} model={productModel} requiredOptions={productRequired} baseModel={baseModel} accessories={productAccessories} category={productCategory} EOLdates={productEOL}/>}  
+                    {content.showQuote && <ProductQuote name={productName} model={productModel} accessories={productAccessories} category={productCategory} EOLdates={productEOL}/>}  
                 </div>
             </div>
             

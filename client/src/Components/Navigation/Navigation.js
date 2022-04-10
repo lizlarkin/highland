@@ -9,7 +9,7 @@ const Navigation = (props) => {
 
   const  { userData }  = useContext(UserContext);
   const history = useHistory();
-  console.log("user data from Nav", userData.user)
+  // console.log("user data from Nav", userData.user)
 
   const navigationStyles = {
     logo: {
