@@ -5,12 +5,17 @@ const cartSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    name: {
+        type: String,
+        required: true
+    },
     version: [],
-    quantity: {
+    config: [],
+    qty: {
         type: Number,
         required: true
     }, 
-    accessories: [], 
+    acc: [], 
     userId: {
         type: String,
         required: true,

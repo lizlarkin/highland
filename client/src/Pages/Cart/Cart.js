@@ -47,26 +47,10 @@ const Cart = () => {
                 headers: { "x-auth-token": localStorage.getItem("auth-token") }
             });
             setCartList(allInCart.data)
-            getProductData();
         } catch (error) {
             console.log(error)   
         }
     }
-
-    const [prodInfo, setProdInfo] = useState([])
-
-    const getProductData = async () => {
-        try {
-           const prodData = await axios.get(`/products/cartData/${cartList[0].model}`);
-           console.log(prodData)
-           setProdInfo(prodData);
-        //    setHelpLoad(1);
-        } catch (error) {
-            console.log(error.response)
-        }
-    }
-
-
 
     // Delete All in one cart section
     const deleteCart = async (e) => {
@@ -98,7 +82,6 @@ const Cart = () => {
     }
 
     // Request Quote
-
     const [quoteList, setQuoteList] = useState()
 
     const finalizeItems = () => {
@@ -149,11 +132,23 @@ const Cart = () => {
                                              className="img-fluid rounded-start" 
                                              alt={carts.model}/>
                                     </div>
-                                    <div className="col-md-8">
+                                    <div className="col-md-8"> 
                                         <div className="card-body">
-                                            <h5 className="card-title">{carts.model}-{carts.version}</h5>
-                                            <p>Quantity: {carts.quantity}</p>
-                                            <p></p>
+                                            <h5 className="card-title">{carts.model}-{carts.version} {carts.name}</h5>
+                                            <div>quantity: {carts.qty}</div>
+                                            {carts.config.length>0?
+                                                carts.config.map((option, idx) => (
+                                                    <div key={idx}>{option}</div>
+                                                ))
+                                            :null}
+                                            {carts.acc.length>0?
+                                                <div>
+                                                accessories: 
+                                                {carts.acc.map((ac, idx) => (
+                                                    console.log(ac, idx)
+                                                ))}
+                                                </div>
+                                            :null}
                                         </div>
                                     </div>
                                 </div>

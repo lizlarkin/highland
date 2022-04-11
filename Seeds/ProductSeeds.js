@@ -1330,7 +1330,7 @@ let productSeed = [
       related: [],
       specifications: [],
       versions: [
-        ["required", "select transformer coupling", 1, [1, "none"], [2, "switchable 1:1 transformers"], [3, "switchable 5:1 transformers"]],
+        ["required", "select transformer coupling", 1, [1, "no transformer coupling"], [2, "switchable 1:1 transformers"], [3, "switchable 5:1 transformers"]],
         ["optional", "built-in self-test", 0, [1, "add BIST"]],
       ],
       accessories: [],

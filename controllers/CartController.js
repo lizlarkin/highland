@@ -5,9 +5,11 @@ module.exports = {
         try {
             const newCart = new Cart({ 
                 model: req.body.model,
+                name: req.body.name,
                 version: req.body.version,
-                quantity: req.body.quantity,             
-                accessories: req.body.accessories,
+                config: req.body.config,
+                qty: req.body.qty,             
+                acc: req.body.acc,
                 userId: req.user,
             });
             const successSave = await newCart.save();

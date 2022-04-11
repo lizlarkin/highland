@@ -41,12 +41,15 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
     const [dash, setDash] = useState([]);  // configured on page load and updated based on user selections
     const [helpLoad, setHelpLoad] = useState(0); // helps configure base dash numbers
     const [versions, setVersions] = useState([]); // holds backend data about product version options
+    const [configuration, setConfiguration] = useState([])
 
     const cart = {
         model: model,
+        name: name,
         version: dash,
-        quantity: selectedQuantity,
-        accessories: selectedAccessories,
+        config: configuration,
+        qty: selectedQuantity,
+        acc: selectedAccessories,
         userId: userData.user, 
     }
 
@@ -73,13 +76,21 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
             newDash = e.target.value;
             dashCopy[e.target.id] = newDash;
             setDash(dashCopy);
+            let configCopy = [...configuration];
+            let newConfig = [configCopy[e.target.id]];
+            newConfig = e.target.getAttribute('data-config');
+            configCopy[e.target.id] = newConfig;
+            setConfiguration(configCopy)
         } else if (!e.target.checked) {
             // when option is unchecked, restore standard/base dash number
             let dashCopy = [...dash];
             let newDash = [dashCopy[e.target.id]];
-            newDash = e.target.getAttribute('data-defaultDash');
+            newDash = e.target.getAttribute('data-defaultdash');
             dashCopy[e.target.id] = newDash;
             setDash(dashCopy);
+            let configCopy = [...configuration];
+            configCopy[e.target.id] = null
+            setConfiguration(configCopy)
         }
     }
 
@@ -89,10 +100,15 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
         newDash = e.target.value;
         dashCopy[e.target.id] = newDash;
         setDash(dashCopy);
+        let configCopy = [...configuration];
+        let newConfig = [configCopy[e.target.id]];
+        newConfig = e.target.getAttribute('data-config');
+        configCopy[e.target.id] = newConfig;
+        setConfiguration(configCopy)
     }
 
     const handleAddAccessories = (e) => {
-        setSelectedAccessories({...selectedAccessories, [e.target.id]: e.target.value})
+        setSelectedAccessories({...selectedAccessories, [e.target.id]: [e.target.name, e.target.value]})
     }
 
     const addToCart = async (e) => {
@@ -113,7 +129,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                     });
                     console.log("newCart hit", newCart);
                     axios.post("/users/addCartActivity");
-                    history.push("/cart")     
+                    history.push("/Cart")     
                 }
             } catch (error) {
                 console.log(error)
@@ -185,7 +201,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                             <h6 style={quoteStyles.header}>{options[1]}<span className="asterisk">* (required)</span></h6>
                                             {options.slice(3).map((option, idx) => (
                                                 <div className="form-check" key={idx}>
-                                                    <input onClick={handleRequiredVersions} className="form-check-input" type="radio" name={"flexRadioDefault"+index} value={option[0]} id={index}/>
+                                                    <input onClick={handleRequiredVersions} className="form-check-input" type="radio" name={"flexRadioDefault"+index} value={option[0]} id={index} data-config={option[1]}/>
                                                     <label className="form-check-label" htmlFor={index}>
                                                         {option[1]}
                                                     </label>
@@ -198,7 +214,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                                 <h6 style={quoteStyles.header}>{options[1]} (optional)</h6>
                                                 {options.slice(3).map((option, idx) => (
                                                     <div className="form-check" key={idx}>
-                                                        <input onClick={handleOptionalVersions} className="form-check-input" type="checkbox" value={option[0]} data-defaultDash={options[2]} id={index}/>
+                                                        <input onClick={handleOptionalVersions} className="form-check-input" type="checkbox" value={option[0]} data-defaultdash={options[2]} id={index} data-config={option[1]}/>
                                                         <label className="form-check-label">
                                                             {option[1]}
                                                         </label>

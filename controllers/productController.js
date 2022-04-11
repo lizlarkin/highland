@@ -19,17 +19,6 @@ module.exports = {
             console.log(error);          
         }
     },
-    getCartData: async (req, res) => {
-        console.log('cart route hit from product')
-        try {
-            // use projection to collect only name and version information
-            const allCartData = await Product.find({ model: req.params.model }, {name: 1, versions: 1});
-            res.json(allCartData)
-        } catch (error) {
-            res.send(error);
-            console.log(error)
-        }
-    },
     postProduct: async (req, res) => {
         try {
             const newProduct = new Product({
