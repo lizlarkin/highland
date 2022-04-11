@@ -41,7 +41,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
     const [dash, setDash] = useState([]);  // configured on page load and updated based on user selections
     const [helpLoad, setHelpLoad] = useState(0); // helps configure base dash numbers
     const [versions, setVersions] = useState([]); // holds backend data about product version options
-    const [configuration, setConfiguration] = useState([])
+    const [configuration, setConfiguration] = useState([]) // holds descriptions of selected options
 
     const cart = {
         model: model,
@@ -108,26 +108,27 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
     }
 
     const handleAddAccessories = (e) => {
+        if (e.target.value > 0) {
         setSelectedAccessories({...selectedAccessories, [e.target.id]: [e.target.name, e.target.value]})
+        } else { // else is for cases in which uses adds and then removes accessories (sets the accessory quantity >1 and then =0)
+            setSelectedAccessories({...selectedAccessories, [e.target.id]: undefined})
+        }
     }
 
     const addToCart = async (e) => {
         e.preventDefault();
             try {
-                if (cart.quantity < 1) {
+                if (cart.qty < 1) {
                     return alert("Please add quantity.")
-                // } else if (requiredOptions.length !== Object.keys(cart.required).length) {
-                //     return alert("Please make all required selections.")
                 } else if (EOLdates[2] && cart.quantity > EOLdates[2]) {
                     return alert ("Maximum quantity is " + EOLdates[2]+".")
                 } 
                 else {
                     const authToken = localStorage.getItem("auth-token");
-                    const newCart = await axios.post("/cart", 
+                    await axios.post("/cart", 
                         cart, 
                         { headers: { "x-auth-token": authToken },
                     });
-                    console.log("newCart hit", newCart);
                     axios.post("/users/addCartActivity");
                     history.push("/Cart")     
                 }
@@ -149,7 +150,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
         }
         getProductData();
         if (versions.length>0) configureStandardDash();
-    }, [userData.user, history, helpLoad])
+    }, [userData.user, history, helpLoad, model])
 
 
 

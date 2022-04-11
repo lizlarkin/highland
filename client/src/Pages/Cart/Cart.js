@@ -135,20 +135,29 @@ const Cart = () => {
                                     <div className="col-md-8"> 
                                         <div className="card-body">
                                             <h5 className="card-title">{carts.model}-{carts.version} {carts.name}</h5>
-                                            <div>quantity: {carts.qty}</div>
-                                            {carts.config.length>0?
-                                                carts.config.map((option, idx) => (
-                                                    <div key={idx}>{option}</div>
-                                                ))
-                                            :null}
-                                            {carts.acc.length>0?
-                                                <div>
-                                                accessories: 
-                                                {carts.acc.map((ac, idx) => (
-                                                    console.log(ac, idx)
-                                                ))}
+                                            <div className="row">
+                                                <div className="col-md-1"></div>
+                                                <div className="col-md-11">
+                                                    <div>quantity: {carts.qty}</div>
+                                                    {carts.config.length>0?
+                                                        carts.config.map((option, idx) => (
+                                                            <div key={idx}>{option}</div>
+                                                        ))
+                                                    :null}
+                                                    {carts.acc.length>0?
+                                                        <div> 
+                                                        {carts.acc.map((accessories) => (
+                                                            Object.entries(accessories).map((accessory, ix) => (
+                                                                <div key={ix}>
+                                                                    include {accessory[0]+": "+accessory[1][0]}
+                                                                    <span className="badge bg-light text-dark">Quantity: {accessory[1][1]}</span>
+                                                                </div>
+                                                            ))
+                                                        ))}
+                                                        </div>
+                                                    :null}
                                                 </div>
-                                            :null}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

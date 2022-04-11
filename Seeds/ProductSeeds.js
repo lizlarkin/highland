@@ -90,7 +90,7 @@ let productSeed = [
       related: [],
       specifications: [],
       versions: [
-        ["required", "Connector Type", null, [null, "ST"], [1, "FC"]], 
+        ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
         ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"]], 
       ],
       accessories: [],
@@ -111,7 +111,7 @@ let productSeed = [
       related: [],
       specifications: [],
       versions: [
-        ["required", "Connector Type", null, [null, "ST"], [1, "FC"]], 
+        ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
         ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
       ],
       },
@@ -163,7 +163,7 @@ let productSeed = [
         ["PACKAGING", ['3.3" (L) x 2.1" (W) x 0.9" (H) extruded anodized aluminum enclosure']],
       ],
       versions: [
-        ["required", "Connector Type", null, [null, "ST"], [1, "FC"]], 
+        ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
         ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
       ],
       accessories: [
@@ -1515,7 +1515,7 @@ let productSeed = [
       specifications: [],
       versions: [
           ["optional", "built-in self-test", 1, [2, "add BIST"]],
-          ["required", "select pre-installed analog bessel filter option", null, [null, "none"], [51, "50 Hz 6-pole"], [81, "200 Hz 6-pole"]],
+          ["required", "select pre-installed analog bessel filter option", null, ["", "none"], [51, "50 Hz 6-pole"], [81, "200 Hz 6-pole"]],
       ],
       accessories: [],
       FAQs: [
