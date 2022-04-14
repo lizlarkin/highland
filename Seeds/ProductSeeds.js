@@ -92,6 +92,8 @@ let productSeed = [
       versions: [
         ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
         ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"]], 
+        ["optional", "recommended bundle", 1, [9, "add evaluation kit: D100 furnished with 24 volt power supply, SMB to BNC cable, and mounting flange"]],
+        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"]], 
       ],
       accessories: [],
       FAQs: [

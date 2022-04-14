@@ -42,6 +42,8 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
     const [helpLoad, setHelpLoad] = useState(0); // helps configure base dash numbers
     const [versions, setVersions] = useState([]); // holds backend data about product version options
     const [configuration, setConfiguration] = useState([]) // holds descriptions of selected options
+    let   [checkRequired, setCheckRequired] = useState([]) // array generated when users make required selections to check that all required selections are made
+    let   [checkNum, setCheckNum] = useState(0) // stores number of required selections
 
     const cart = {
         model: model,
@@ -65,6 +67,14 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
             cart.configuredDash = dashArr;
             setDash(dashArr);
         }
+        // Count number of occurences of "required" selections
+        let count = []
+        for (let j = 0; j < versions.length; j++) {
+            if (versions[j][0]==='required') {
+                count++
+            }
+        }
+        setCheckNum(count)
     }
 
     // modify dash number based on customer selections of optional featues
@@ -105,12 +115,20 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
         newConfig = e.target.getAttribute('data-config');
         configCopy[e.target.id] = newConfig;
         setConfiguration(configCopy)
+        // Check to make sure user has made all required selections
+        if (e.target.checked) {
+            let checkRequiredCopy = [...checkRequired];
+            let newCheck = [checkRequiredCopy[e.target.id]];
+            newCheck = e.target.value;
+            checkRequiredCopy[e.target.id] = newCheck;
+            setCheckRequired(checkRequiredCopy);
+        }
     }
 
     const handleAddAccessories = (e) => {
         if (e.target.value > 0) {
         setSelectedAccessories({...selectedAccessories, [e.target.id]: [e.target.name, e.target.value]})
-        } else { // else is for cases in which uses adds and then removes accessories (sets the accessory quantity >1 and then =0)
+        } else { // for cases in which user adds and then removes accessories (sets the accessory quantity >1 and then =0)
             setSelectedAccessories({...selectedAccessories, [e.target.id]: undefined})
         }
     }
@@ -120,6 +138,8 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
             try {
                 if (cart.qty < 1) {
                     return alert("Please add quantity.")
+                } else if (checkRequired.length<checkNum) {
+                    return alert ("Please make all required selections.")
                 } else if (EOLdates[2] && cart.quantity > EOLdates[2]) {
                     return alert ("Maximum quantity is " + EOLdates[2]+".")
                 } 
