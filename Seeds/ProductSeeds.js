@@ -92,8 +92,6 @@ let productSeed = [
       versions: [
         ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
         ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"]], 
-        ["optional", "recommended bundle", 1, [9, "add evaluation kit: D100 furnished with 24 volt power supply, SMB to BNC cable, and mounting flange"]],
-        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"]], 
       ],
       accessories: [],
       FAQs: [
@@ -906,12 +904,56 @@ let productSeed = [
       name: "4-channel compact 32 MHz arbitrary waveform generator w/ complex modulation",
       model: "T346",
       category: ["WFG"], 
-      features: [],
+      features: [
+        ["Four independently programmable waveform outputs: sine, triangle, sawtooth, square/PWM, Gaussian noise, and arbitrary waveforms"],
+        ["Four additional internal wave generators are available as modulation or summing sources"],
+        ["Channels may be synchronized for coordinated polyphase or time-sync'd signals at same or ratio frequencies"],
+        ["0-32 MHz outputs with milli-Hertz resolution"],
+        ["Up to 10.24 volts peak-to-peak output, programmable 5:1 attenuation and DC offset"],
+        ["Test output and BIST are included"],
+        ["External universal power supply or 12-volt DC power"],
+        ["RS-232 interface standard; Ethernet optional"],
+        ["OEM packaged or board-only custom"],
+      ],
       description: "Generates sweeps, chirps, I/Q and constellations, and calibrated jitter, and simulates a wide range of radar, communications, power, encoders, and electro-mechanical systems.",
       imgCaptions: ["T346 4-channel compact 32 MHz arbitrary waveform generator w/ complex modulation", "", "", "T346 signal endplate", "T346 power endplate"],
-      about: [],
-      related: [],
-      specifications: [],
+      about: [
+        "The T346 is a compact 4-channel, 32 MHz arbitrary waveform generator. It incorporates four DDS waveform synthesizers that may be used independently or synchronously to produce coherent signals. Waveforms include sine, triangle, sawtooth, Gaussian noise, and precision pulse/PWM outputs. User-loaded arbitrary waveforms may be generated.",
+        "Four additional waveform generators are provided internally as modulation/summing sources. Channel-channel modulation capability allows generation of sweeps, chirps, I/Q and constellations, and calibrated jitter, and simulation of a wide range of radar, communications, power, encoders, and electro-mechanical systems.",
+        "The T34x family of generators includes the T340 and T344.",
+        "The T346 can be an ideal system replacement for the HP models 3314A, 3325A, 3325B, 3326A, 8111A, 8116A, 8165A, 8175A, and 8904A.",
+      ],
+      related: [
+        "T340 4-channel compact function generator",
+        "T344 4-channel compact 32 MHz arbitrary waveform generator",
+        "V340 8-channel VME function generator with transformer coupling",
+        "V344 8-channel VME 32 MHz arbitrary waveform generator",
+        "V346 8-channel VME 32 MHz arbitrary waveform generator w/ complex modulation",
+      ],
+      specifications: [
+        ["FUNCTION", ["4-channel arbitrary waveform generator"]],
+        ["STANDARD WAVEFORMS", ["Sine, sawtooth, triangle, Gaussian noise, or square/pulse/PWM outputs"]],
+        ["ARBITRARY WAVEFORM", ["4096 point, 16 bit user-loadable arbitrary waveform with programmable hardware interpolation"]],
+        ["SIGNAL SWING", ["Normal range: ±5.12 V ±1%", "Attenuated range: ±1.024 V ±1%",]],
+        ["IMPEDANCE", ["50 Ω nominal output impedance"]],
+        ["DC OFFSET", ["± 2 mV typ, 15-35°C", "± 10 mV max, 0-60°C",]],
+        ["GAIN ERROR", ["± 0.5 % max"]],
+        ["FLATNESS", ["-0.1 dB @ 12 MHz typical", "-1 dB @ 32 MHz typical", "-3 dB @ 46 MHz typical", "Amplitude rolls off monotonically with frequency",]],
+        ["DAC RESOLUTION", ["14 bit DAC output resolution"]],
+        ["FREQUENCY RANGES", ["High range: 0 to 32 MHz with 0.0149 Hz resolution", "Mid range: 0 to 4 MHz with 0.0018 Hz resolution", "Low range: 0 to 250 KHz with 116 µHz resolution", "Extra range usable to 40 MHz",]],
+        ["GAUSSIAN NOISE", ["Programmable amplitude 0 to 1 V RMS, programmable 3 dB bandwidth 0 to 2 MHz"]],
+        ["PHASE SHIFT", ["1/65536 cycles ≈ 0.0055°"]],
+        ["PWM DUTY RESOLUTION", ["1/65536 = 0.0015%"]],
+        ["SUMMING", ["Any channel may be summed with the output of channel 1 to 7, cascadable in any groupings", "Sums may be modulation sources",]],
+        ["MODULATION", ["Any channel may be amplitude, frequency, phase, or PWM modulated by the outputs of channels 1 to 7, in any combination"]],
+        ["MODULATIONS", ["Channel to channel AM, FM, PM, PWM", "Adds internal channels 4 to 7 as modulation and summing sources"]],
+        ["FREQUENCY ACCURACY", ["Frequency ±20 PPM", "Lockable to external 10 MHz source"]],
+        ["COMMUNICATIONS", ["RS-232 standard, 38.4 kbaud", "10/100 Ethernet"]],
+        ["CONNECTORS", ["Signals, SMB jacks", "Power, 2.5 mm coaxial, center positive", "RS-232 and alternate power, D9 female", "Ethernet RJ45"]],
+        ["POWER", ["+12 V, 750 mA max", "Universal AC adapter supplied for evaluation"]],
+        ["PACKAGING", ['4.75" (L) x 4.05" (W) x 1.25" (H) extruded aluminum enclosure']],
+        ["CONFORMANCE", ["OEM product has no UL/FCC/CE compliance requirements", "Designed to meet UL/FCC/CE requirements", "Power adapter when furnished is UL/CE certified"]],
+      ],
       versions: [
         ["optional", "recommended bundle", 1, [9, "add evaluation kit: T346 furnished with 12 volt power supply, removable mounting flange, RS-232 cable, and four 3' SMB to BNC cables"]],
       ],
@@ -1128,7 +1170,7 @@ let productSeed = [
       related: [],
       specifications: [],
       versions: [
-        ["required", "select connector type", 1, [1, "SMB"], [2, "SMA"]], 
+        ["required", "Connector Type", 1, [1, "SMB"], [2, "SMA"]], 
       ],
       },
 
@@ -1269,10 +1311,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsOptional: [
-        "Advanced Features",
-        [[1], [2, "BIST"], [3, "test"]], // digit 1
-        [[null], [1, "Conformal Coating"]], // digit 2
+      versions: [
+        ["optional", "built-in self-test", 1, [2, "add BIST"]],
+        ["optional", "conformal coating", "", [1, "add conformal coating"]],
       ],
       accessories: [],
       FAQs: [
@@ -1292,6 +1333,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1310,8 +1354,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsRequired: [
-        ["Configuration", [["1", "5V nominal input threshold"], ["2", "24V nominal input threshold"], ["12", "24V nominal input threshold and built-in self-test (BIST)"]]],
+      versions: [
+        ["required", "select input voltage", 1, [1, "+5 volts"], [2, "+24 volts"],],
+        ["optional", "conformal coating", "", [1, "add conformal coating"]],
       ],
       accessories: [],
       FAQs: [
@@ -1353,6 +1398,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1371,6 +1419,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1389,6 +1440,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1407,6 +1461,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1425,6 +1482,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 2],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1443,6 +1503,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1461,6 +1524,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1479,6 +1545,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["optional", "conformal coating", "", [1, "add conformal coating"]],
+        ["optional", "P2 Connector", 1, [2, "add P2 connector"]],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1497,6 +1567,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["optional", "built-in self-test", 1, [2, "add BIST"]],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1537,6 +1610,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1605,11 +1681,10 @@ let productSeed = [
         ["Offset", ["±5uV", "±30ppm of range"], ["±20uV", "±175ppm of range"], ["±30uV", "±300ppm of range"], ["±40uV", "±400ppm of range"],],
         ["Gain", "±50ppm of output", "±310ppm of output", "±660ppm of output", "±940ppm of output"],
       ],
-      optionsOptional: [
-        "Advanced Features",
-        [[null], [1, "Conformal Coating"]], // digit 1
-        [[1], [2, "BIST"],], // digit 2
-        ],
+      versions: [
+        ["optional", "conformal coating", "", [1, "add conformal coating"]],
+        ["optional", "built-in self-test", 1, [2, "add BIST"]],
+      ],
       accessories: [
         ["J55-1", "6' shielded D25 male to D25 male cable"],
         ["J56-1", "10' shielded D25 male to D25 male cable"],
@@ -1637,6 +1712,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["optional", "built-in self-test", 1, [2, "add BIST"]],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1655,8 +1733,8 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsRequired: [
-        ["Plugin Transformers", [["1", "1:1 ratio"], ["4", "3.7:1 ratio"], ["6", "5.3:1 ratio"]]],
+      versions: [
+        ["required", "Select Transformers", 1, [1, "small signal 1:1 730MH plugin transformer"], [4, "small signal 3.7:1 750MH plugin transformer"], [6, "small signal 5.3:1 750MH plugin transformer"]],
       ],
       accessories: [],
       FAQs: [
@@ -1676,6 +1754,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1693,8 +1774,8 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsRequired: [
-        ["Inputs", [["1", "differential ECL"], ["2", "optical"]]],
+      versions: [
+        ["required", "Select Inputs", 1, [1, "differential ECL inputs"], [2, "optical inputs"],],
       ],
       accessories: [],
       FAQs: [
@@ -1715,8 +1796,8 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsRequired: [
-        ["Connector Type", [["1", "SMB"], ["2", "LEMO"]]],
+      versions: [
+        ["required", "Select Connector Type", 1, [1, "SMB connectors"], [2, "LEMO connectors"],],
       ],
       accessories: [],
       FAQs: [
@@ -1736,9 +1817,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsRequired: [
-        ["Connector Type",[[null, "ST"], ["1", "FC"]]],    
-        ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
+      versions: [
+        ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
+        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
       ],
       accessories: [],
       FAQs: [
@@ -1758,9 +1839,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      optionsRequired: [
-        ["Connector Type",[[null, "ST"], ["1", "FC"]]],    
-        ["Wavelength", [["1", "850 nm"], ["3", "1310 nm"], ["5", "1550 nm"]]],
+      versions: [
+        ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
+        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
       ],
       accessories: [],
       FAQs: [
@@ -1780,6 +1861,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["required", "Select Connector Type", 1, [1, "SMB connectors"], [2, "LEMO connectors"], [3, "SMA connectors"]],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -1798,6 +1882,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      versions: [
+        ["noChoice", null, 1],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
