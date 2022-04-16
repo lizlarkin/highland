@@ -120,7 +120,9 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
             let checkRequiredCopy = [...checkRequired];
             let newCheck = [checkRequiredCopy[e.target.id]];
             newCheck = e.target.value;
-            checkRequiredCopy[e.target.id] = newCheck;
+            checkRequiredCopy[e.target.id] = true;
+            // let countTrue = checkRequiredCopy.filter(value => value === true).length;
+            // console.log(countTrue)
             setCheckRequired(checkRequiredCopy);
         }
     }
@@ -138,7 +140,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
             try {
                 if (cart.qty < 1) {
                     return alert("Please add quantity.")
-                } else if (checkRequired.length<checkNum) {
+                } else if (checkRequired.filter(value => value === true).length<checkNum) {
                     return alert ("Please make all required selections.")
                 } else if (EOLdates[2] && cart.quantity > EOLdates[2]) {
                     return alert ("Maximum quantity is " + EOLdates[2]+".")

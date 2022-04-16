@@ -32,6 +32,7 @@ const Cart = () => {
                 headers: { "x-auth-token": localStorage.getItem("auth-token") }
             });
             setCartList(allInCart.data)
+            console.log("cart list", cartList)
         } catch (error) {
             console.log(error)   
         }

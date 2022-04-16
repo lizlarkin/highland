@@ -91,7 +91,7 @@ let productSeed = [
       specifications: [],
       versions: [
         ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
-        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"]], 
+        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"]],
       ],
       accessories: [],
       FAQs: [
