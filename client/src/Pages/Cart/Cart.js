@@ -115,7 +115,7 @@ const Cart = () => {
                                     <div className="col-md-4">
                                         <img src={ProductPhotos[ProductPhotos.findIndex(search => search[0].includes(carts.model))][0]} 
                                              className="img-fluid rounded-start" 
-                                             alt={carts.model}/>
+                                             alt={carts.name}/>
                                     </div>
                                     <div className="col-md-8"> 
                                         <div className="card-body">
@@ -159,12 +159,14 @@ const Cart = () => {
                     :null
                     }
 
-                    <div className = "row">
-                        <div className="col-md-9"></div>
-                        <div className="col-md-3">
-                            <button onClick={deleteAll} className="btn btn-outline-danger" type="button" style={cartStyles.cartBtnLg} id={1}><i className="fas fa-trash-alt"></i> Remove All</button>
+                    {cartList.length>1?
+                        <div className = "row">
+                            <div className="col-md-9"></div>
+                            <div className="col-md-3">
+                                <button onClick={deleteAll} className="btn btn-outline-danger" type="button" style={cartStyles.cartBtnLg} id={1}><i className="fas fa-trash-alt"></i> Remove All</button>
+                            </div>
                         </div>
-                    </div>
+                    :null}
 
                     {cartList.length>0?
                     <div className = "row">

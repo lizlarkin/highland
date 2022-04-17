@@ -121,8 +121,6 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
             let newCheck = [checkRequiredCopy[e.target.id]];
             newCheck = e.target.value;
             checkRequiredCopy[e.target.id] = true;
-            // let countTrue = checkRequiredCopy.filter(value => value === true).length;
-            // console.log(countTrue)
             setCheckRequired(checkRequiredCopy);
         }
     }
@@ -220,7 +218,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                         null
                                         :
                                         options[0]==="required"?
-                                            <div style={quoteStyles.configContainer}>
+                                            <div style={quoteStyles.configContainer} key={index}>
                                             <h6 style={quoteStyles.header}>{options[1]}<span className="asterisk">* (required)</span></h6>
                                             {options.slice(3).map((option, idx) => (
                                                 <div className="form-check" key={idx}>

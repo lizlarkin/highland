@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Account.css';
 import axios from "axios";
+import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 
 const QuoteHistory = () => {
 
@@ -8,11 +9,9 @@ const QuoteHistory = () => {
         mainCard: {
             marginBottom: "3%"
         },
-        quoteLi: {
-            marginTop: "1px"
-        },
-        liSpan: {
+        historyKey: {
             fontWeight: "500",
+            marginRight: "1%"
         },
         requoteBtn: {
             float: "right",
@@ -22,20 +21,6 @@ const QuoteHistory = () => {
     }
 
     const [allQuoteRequests, setAllQuoteRequests] = useState([]);
-
-    // const getAllQuotes = async () => {
-    //     try {
-    //         const allQuotes = await axios.get(`/quotes`, {
-    //             headers: { "x-auth-token": localStorage.getItem("auth-token") }
-    //         });
-    //         setAllQuoteRequests(allQuotes.data)
-    //         // console.log("allQuotes", allQuotes.data.length);
-    //     } catch (error) {
-    //         console.log("error getting quote history", error)   
-    //     }
-    // }
-
-    console.log("Quote history state: ", allQuoteRequests)
 
     useEffect(() => {
         const cancelToken = axios.CancelToken;
@@ -48,6 +33,7 @@ const QuoteHistory = () => {
                     headers: { "x-auth-token": localStorage.getItem("auth-token") }
                 });
                 setAllQuoteRequests(allQuotes.data)
+                console.log("all quotes here:", allQuoteRequests)
                 // console.log("allQuotes", allQuotes.data.length);
             } catch (error) {
                 console.log("error getting quote history", error)   
@@ -86,44 +72,44 @@ const QuoteHistory = () => {
                                     <div key={idx} className="card mb-3">
                                         <div className="row g-0">
                                             <div className="col-md-4">
-                                                <img src="..." className="img-fluid rounded-start" alt="..."/>
+                                                <img src={ProductPhotos[ProductPhotos.findIndex(search => search[0].includes(item.model))][0]} 
+                                                className="img-fluid rounded-start" 
+                                                alt={item.name}/>
                                             </div>
                                             <div className="col-md-8">
                                                 <div className="card-body">
-                                                    <h6 className="card-title">{item.model+"-"+" "+item.name} </h6>
-                                                    {item.quantity>0?
-                                                    <ul className="list-group list-group-horizontal">
-                                                            <li key={idx} className="list-group-item list-group-item-light" style={quoteHistStyles.quoteLi}><span style={quoteHistStyles.liSpan}>Quantity: </span>{item.quantity}</li>
-                                                    </ul>
+                                                    <h5 className="card-title">{
+                                                        item.model+"-"+
+                                                        item.version.join("")
+                                                        +" "
+                                                        +item.name} 
+                                                    </h5>
+                                                    {item.qty>0?
+                                                        <li key={idx} className="list-group-item list-group-item-light">
+                                                            <span style={quoteHistStyles.historyKey}>Quantity:</span>
+                                                            {item.qty}</li>
                                                     :null}
-                                                    {item.required.length>0?
-                                                    <ul className="list-group list-group-horizontal">
-                                                        {Object.entries(item.required[0]).map((require, idx) => (
-                                                            <li key={idx} className="list-group-item list-group-item-light" style={quoteHistStyles.quoteLi}><span style={quoteHistStyles.liSpan}>{require[0]+": "}</span>{require[1][0]}</li>
-                                                        ))}
-                                                    </ul>
+                                                    {item.config.length>0?
+                                                    <li className="list-group-item list-group-item-light"> 
+                                                        <span style={quoteHistStyles.historyKey}>Configuration:</span>
+                                                        {" " + item.config.filter(x=> !!x).join(", ")}
+                                                    </li>
                                                     :null}
-                                                    {item.optional.length>0?
-                                                    <ul className="list-group list-group-horizontal">
-                                                        {Object.entries(item.optional).map((option, idx) => (
-                                                            <li key={idx} className="list-group-item list-group-item-light" style={quoteHistStyles.quoteLi}><span style={quoteHistStyles.liSpan}>Extra: </span>{option[1][0]}</li>
-                                                        ))}
-                                                    </ul>
-                                                    :null}
-                                                    {item.accessories.length>0?
-                                                    <ul className="list-group list-group-horizontal">
-                                                        {Object.entries(item.accessories[0]).map((accessory, idx) => (
-                                                            <li key={idx} className="list-group-item list-group-item-light" style={quoteHistStyles.quoteLi}><span style={quoteHistStyles.liSpan}>Accessory: </span>
-                                                            {
-                                                            accessory[0] + ": " +
-                                                            accessory[1][1] + " " +
-                                                            "(Qty " + accessory[1][0] + ")"}
+                                                    {item.acc.length>0?
+                                                    <ul className="list-group-item list-group-item-light">
+                                                        <ul className="list-group list-group-flush">
+                                                            <span style={quoteHistStyles.historyKey}>Accessories:</span>
+                                                        {Object.entries(item.acc[0]).map((accessory, idx) => (
+                                                            <li className="list-group-item list-group-item-light" key={idx}>
+                                                                {accessory[0]+": " + accessory[1][0]}
+                                                                <span className="badge bg-light text-dark">Quantity: {accessory[1][1]}</span>
                                                             </li>
                                                         ))}
+                                                        </ul>
                                                     </ul>
                                                     :null}
                                                 </div>
-                                                <button style={quoteHistStyles.requoteBtn} className="btn btn-outline-danger">Quote Again</button>
+                                                <button style={quoteHistStyles.requoteBtn} className="btn btn-outline-primary">Quote Again</button>
                                             </div>
                                         </div>
                                     </div>

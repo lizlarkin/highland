@@ -36,21 +36,21 @@ const Account = () => {
             </div>
 
             <div className="row">
-                <div className="col-md-3"></div>
+                <div className="col-md-2"></div>
 
-                <div className="col-md-3">
+                <div className="col-md-4">
                     <div className="btn-group" role="group" aria-label="Basic outlined example" style={accountStyles.navBtns}>
                             <button onClick={()=>setShowContent({showAccount:true})} type="button" className="btn btn-outline-primary btn-lg">View Account Information</button>
                     </div>
                 </div>
 
-                <div className="col-md-3">
+                <div className="col-md-4">
                     <div className="btn-group" role="group" aria-label="Basic outlined example" style={accountStyles.navBtns}>
                             <button onClick={()=>setShowContent({showHistory:true})} type="button" className="btn btn-outline-primary btn-lg">View Quote History</button>
                     </div>
                 </div>
 
-                <div className="col-md-3"></div>
+                <div className="col-md-2"></div>
             </div>
 
             {showContent.showHistory && <QuoteHistory />}
