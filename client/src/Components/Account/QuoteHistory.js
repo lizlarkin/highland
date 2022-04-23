@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './Account.css';
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+import UserContext from "../../Context/UserContext";
 import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 
 const QuoteHistory = () => {
+
+    const history = useHistory();
+    const { userData } = useContext(UserContext);
 
     const quoteHistStyles = {
         mainCard: {
@@ -21,6 +26,13 @@ const QuoteHistory = () => {
     }
 
     const [allQuoteRequests, setAllQuoteRequests] = useState([]);
+    const [histNum, setHistNum] = useState(5);
+    const [userNum, setUserNum] = useState(); 
+
+    // Show next 5 items of quote history
+    const showNextHistory = () => {
+        setHistNum(histNum + 5)
+    }
 
     useEffect(() => {
         const cancelToken = axios.CancelToken;
@@ -28,13 +40,13 @@ const QuoteHistory = () => {
 
         (async () => {
             try {
-                const allQuotes = await axios.get(`/quotes`, {
+                const allQuotes = await axios.get(`/quotes/${histNum}`, {
                     cancelToken: source.token,
-                    headers: { "x-auth-token": localStorage.getItem("auth-token") }
+                    headers: { "x-auth-token": localStorage.getItem("auth-token") },
                 });
                 setAllQuoteRequests(allQuotes.data)
-                console.log("all quotes here:", allQuoteRequests)
-                // console.log("allQuotes", allQuotes.data.length);
+                console.log("HEREREEE", allQuotes.data[0]._id)
+                setUserNum(userData.user.quoteNum)
             } catch (error) {
                 console.log("error getting quote history", error)   
             }
@@ -43,7 +55,7 @@ const QuoteHistory = () => {
         return () => {
             source.cancel();
         }
-    }, [])
+    }, [histNum])
 
     return (
         <div>
@@ -121,6 +133,14 @@ const QuoteHistory = () => {
                 </div>
                 <div className="col-md-1"></div>
             </div>
+            {userNum>histNum?
+                <div className="row">
+                    <div className="col-md-9"></div>
+                    <div className="col-md-3">
+                        <button onClick={showNextHistory} type="button" className="btn btn-outline-secondary btn-sm">Show Additional History</button>
+                    </div>
+                </div>
+            :null}
         </div>
     )
 }

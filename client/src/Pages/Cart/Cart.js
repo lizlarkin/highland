@@ -1,17 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import UserContext from "../../Context/UserContext";
 import { DateContext } from "../../Context/DateContext";
+import UserContext from "../../Context/UserContext";
 import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 
 const Cart = () => {
 
     const history = useHistory();
-
-    const { userData } = useContext(UserContext);
-    const { dateNow } = useContext(DateContext);
+    const { dateNow, refreshDate } = useContext(DateContext);
+    const { userData, incrementQuoteNum } = useContext(UserContext); 
 
     const cartStyles = {
         cartBtnSm: {
@@ -72,6 +71,8 @@ const Cart = () => {
     const [quoteList, setQuoteList] = useState()
 
     const finalizeItems = () => {
+        // refreshDate()
+        // console.log('ran from Cart', dateNow)
         setQuoteList({
             date: dateNow,
             products: [cartList],
@@ -80,19 +81,25 @@ const Cart = () => {
 
     const requestQuote = async () => {
         try {
+            // Store Quote in Quote History
             const authToken = localStorage.getItem("auth-token");
             await axios.post("/quotes", 
             quoteList,
             { headers: { "x-auth-token": authToken },
             });
+            // Update Users Quote Activity
+            await axios.put("/users/updateQuoteNum");
+            // Update Context
+            incrementQuoteNum()
+            // Take user to account page
             history.push("/Account");
+            // Delete Items from Cart List
             deleteAll();
         } catch (error) {
             console.log("error saving quote: ", error)
         }
-        }
+    }
     
-
     useEffect(() => {
         getAllCart();
     }, [])

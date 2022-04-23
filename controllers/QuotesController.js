@@ -16,7 +16,7 @@ module.exports = {
     },
     getAllQuotes: async (req, res) => {
         try {
-            const allQuotes = await Quote.find({ userId: req.user });
+            const allQuotes = await Quote.find({ userId: req.user }).sort({date:-1}).limit(parseInt(req.params.showNum));
             res.json(allQuotes)
         } catch (error) {
             console.log(error)

@@ -10,6 +10,7 @@ const quotesSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    showNum: {}
 });
 
 var Quote = mongoose.model("Quote", quotesSchema);

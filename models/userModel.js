@@ -65,7 +65,11 @@ const userSchema = new mongoose.Schema({
     cartActivity: {
         type: Number,
         default: 0,
-    }
+    },
+    quoteNum: {
+        type: Number,
+        default: 0,
+    },
 });
 
 userSchema.post("findOneAndDelete", async (user) => {

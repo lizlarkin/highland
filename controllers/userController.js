@@ -24,6 +24,7 @@ module.exports = {
                 country,
                 optIn, 
                 cartActivity,
+                quoteNum,
             } = req.body;
     
                 if (!email || !password || !passwordCheck || !firstName || !lastName || !organization || !phone || !street || !city || !state || !city || !state || !country) {
@@ -59,7 +60,8 @@ module.exports = {
                     state,
                     country,
                     optIn,
-                    cartActivity
+                    cartActivity,
+                    quoteNum
                 });
 
                 // start confirmation code here
@@ -153,6 +155,7 @@ module.exports = {
                     optIn: user.optIn,
                     confirmed: user.confirmed,
                     cartActivity: user.cartActivity,
+                    quoteNum: user.quoteNum,
                 },
             });
 
@@ -179,6 +182,7 @@ module.exports = {
                 optIn: user.optIn,
                 confirmed: user.confirmed,
                 cartActivity: user.cartActivity,
+                quoteNum: user.quoteNum,
             });
 
         } catch (error) {
@@ -222,5 +226,16 @@ module.exports = {
         }
     },
 
+    updateQuoteNum: async (req,res) => {
+        try {
+            const incrementQuote = await User.updateOne(
+                req.user,
+                { "$inc" : { "quoteNum": 1} 
+            })
+            res.json(incrementQuote);
+        } catch (error) {
+            res.send(error.response);
+        }
+    },
 
 };

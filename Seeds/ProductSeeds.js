@@ -1590,7 +1590,7 @@ let productSeed = [
       specifications: [],
       versions: [
           ["optional", "built-in self-test", 1, [2, "add BIST"]],
-          ["required", "select pre-installed analog bessel filter option", null, ["", "none"], [51, "50 Hz 6-pole"], [81, "200 Hz 6-pole"]],
+          ["required", "select pre-installed analog bessel filter option", null, ["", "no filter option"], [51, "50 Hz 6-pole filter option"], [81, "200 Hz 6-pole filter option"]],
       ],
       accessories: [],
       FAQs: [

@@ -31,6 +31,10 @@ function App() {
     token: undefined,
   });
 
+  const incrementQuoteNum = () => {
+    setUserData({...userData, [userData.user.quoteNum]: userData.user.quoteNum++})
+  }
+
   const checkLoggedIn = async () => {
     let token = localStorage.getItem("auth-token");
     if (token === null) {
@@ -61,44 +65,56 @@ function App() {
 
   useEffect(() => {
     checkLoggedIn();
+    refreshDate();
   }, [])
 
-  let date = new Date();
-  const monthNames = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
-  ];
-  let newDate =
-    date.getDate() +
-    "-" +
-    monthNames[date.getMonth()] +
-    "-" +
-    date.getFullYear();
+  const [dateNow, setDateNow] = useState();
 
-  const [dateNow, setDateNow] = useState(newDate);
+  const refreshDate = () => {
+    let date = new Date();
+    const monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+    let newDate =
+      date.getDate() +
+      "-" +
+      monthNames[date.getMonth()] +
+      "-" +
+      date.getFullYear()+
+      " "+
+      date.getHours()+
+      ":"+
+      date.getMinutes().toString().padStart(2, "0");
+      ;
+      setDateNow(newDate)
+      console.log('newdate from app', newDate)
+      console.log('dateNow from app', dateNow)
+  }
+
 
   //provider value can only change if the set value changes
-  const dateValue = useMemo(
-    () => ({ dateNow, setDateNow }),
-    [dateNow, setDateNow]
-  );
+  // const dateValue = useMemo(
+  //   () => ({ dateNow, setDateNow }),
+  //   [dateNow, setDateNow]
+  // );
 
   return (
     <div className="App">
       <BrowserRouter>
 
-        <UserContext.Provider value = {{ userData, setUserData }}>
-          <DateContext.Provider value={dateValue}>
+        <UserContext.Provider value = {{ userData, setUserData, incrementQuoteNum }}>
+          <DateContext.Provider value={{ dateNow, refreshDate }}>
             <Navigation logout={logout}/>
 
             <Switch>
