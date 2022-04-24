@@ -8,7 +8,7 @@ import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 const Cart = () => {
 
     const history = useHistory();
-    const { userData, incrementQuoteNum } = useContext(UserContext); 
+    const { incrementQuoteNum } = useContext(UserContext); 
 
     const cartStyles = {
         cartBtnSm: {
@@ -29,7 +29,6 @@ const Cart = () => {
                 headers: { "x-auth-token": localStorage.getItem("auth-token") }
             });
             setCartList(allInCart.data)
-            console.log("cart list", cartList)
         } catch (error) {
             console.log(error)   
         }
@@ -43,7 +42,7 @@ const Cart = () => {
             const removeItem = await axios.delete(`/cart/${cartIdToDelete}`);
             getAllCart();
         } catch (error) {
-            console.log("error deleting whole cart", error)
+            console.log("error deleting one cart", error)
         }
     }
 

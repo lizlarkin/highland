@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import axios from "axios";
 import Navigation from './Components/Navigation/Navigation';
 import About from './Pages/About/About';
@@ -12,6 +12,7 @@ import Product from './Pages/Product/Product';
 import Register from './Pages/Register/Register';
 import Footer from './Components/Footer/Footer';
 import UserContext from "./Context/UserContext";
+import NavContext from "./Context/NavContext";
 import Account from './Pages/Account/Account';
 import Cart from './Pages/Cart/Cart';
 import Category from './Pages/Category/Category';
@@ -62,8 +63,23 @@ function App() {
     localStorage.setItem("auth-token", "");
 };
 
+  const [cartQuantity, setCartQuantity] = useState();
+
+  const getCartQuantity = async () => {
+    try {
+        const quantityAggregate = await axios.get(`/cart/quantity`, {
+          headers: { "x-auth-token": localStorage.getItem("auth-token") }
+      });
+        console.log("AGG HERE!", quantityAggregate.data[0].sum)
+        setCartQuantity(quantityAggregate.data[0].sum)
+    } catch (error) {
+        console.log("error getting cart quantity", error)   
+    }
+  }
+
   useEffect(() => {
     checkLoggedIn();
+    getCartQuantity();
   }, [])
 
   return (
@@ -71,8 +87,8 @@ function App() {
       <BrowserRouter>
 
         <UserContext.Provider value = {{ userData, setUserData, incrementQuoteNum }}>
+          <NavContext.Provider value = {{cartQuantity, getCartQuantity}}>
             <Navigation logout={logout}/>
-
             <Switch>
                 <Route path="/Category" component={Category}/>
                 <Route path="/Products" component={Products}/>
@@ -92,6 +108,7 @@ function App() {
                 <Route path="/Testimonials" component={Testimonials}/>
                 <Route path="/Home" component={Home}/>
             </Switch>
+            </NavContext.Provider>
         </UserContext.Provider>
 
         <Footer />

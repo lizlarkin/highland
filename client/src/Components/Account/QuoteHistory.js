@@ -76,8 +76,7 @@ const QuoteHistory = () => {
                       allQuoteRequests.map((quote, idx) => (
                             <div key={idx} className="card" style={quoteHistStyles.mainCard}>
                                 <div className="card-header">
-                                    <h5>{quote.date.replace(/T/g,' ').slice(0,16)}</h5>
-
+                                    <h5>{((new Date(quote.date)).toString()).slice(0,21)}</h5>
                                 </div>
                                 {quote.products[0].map((item, idx) => (
                                 <div className="card-body">

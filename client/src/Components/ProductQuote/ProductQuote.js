@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom"; 
 import UserContext from "../../Context/UserContext";
+import NavContext from "../../Context/NavContext";
 import axios from "axios";
 import {AccessoryPhotos} from '../../Pages/Product/AccImages/AccImages';
 
@@ -37,6 +38,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
     }
 
     const { userData } = useContext(UserContext);
+    const { getCartQuantity } = useContext(NavContext);
     const history = useHistory();
     const [selectedQuantity, setSelectedQuantity] = useState(0);
     const [selectedAccessories, setSelectedAccessories] = useState([]);
@@ -146,12 +148,17 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                     return alert ("Maximum quantity is " + EOLdates[2]+".")
                 } 
                 else {
+                    // Add items to Cart DB
                     const authToken = localStorage.getItem("auth-token");
                     await axios.post("/cart", 
                         cart, 
                         { headers: { "x-auth-token": authToken },
                     });
+                    // Update User information with count in cart
                     axios.post("/users/addCartActivity");
+                    // Update Context
+                    getCartQuantity()
+                    // Redirect to cart page
                     history.push("/Cart")     
                 }
             } catch (error) {

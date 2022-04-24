@@ -2,14 +2,16 @@ import React, { useContext, useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import highlandLogo from './logo.png';
 import UserContext from "../../Context/UserContext";
+import NavContext from "../../Context/NavContext";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const Navigation = (props) => {
 
   const  { userData }  = useContext(UserContext);
+  const  { cartQuantity }  = useContext(NavContext);
   const history = useHistory();
-  // console.log("user data from Nav", userData.user)
+  console.log("cart data from Nav", cartQuantity)
 
   const navigationStyles = {
     logo: {
@@ -21,28 +23,28 @@ const Navigation = (props) => {
     },
   }
 
-  const [cartQuantity, setCartQuantity] = useState();
+  // const [cartQuantity, setCartQuantity] = useState();
 
-  const getCartQuantity = async () => {
-    try {
-        const quantityAggregate = await axios.get(`/cart/quantity`, {
-          headers: { "x-auth-token": localStorage.getItem("auth-token") }
-      });
-        // console.log("AGG HERE!", quantityAggregate.data[0].sum)
-        setCartQuantity(quantityAggregate.data[0].sum)
-    } catch (error) {
-        console.log("error getting cart quantity", error)   
-    }
-}
+  // const getCartQuantity = async () => {
+  //   try {
+  //       const quantityAggregate = await axios.get(`/cart/quantity`, {
+  //         headers: { "x-auth-token": localStorage.getItem("auth-token") }
+  //     });
+  //       console.log("AGG HERE!", quantityAggregate.data[0].sum)
+  //       setCartQuantity(quantityAggregate.data[0].sum)
+  //   } catch (error) {
+  //       console.log("error getting cart quantity", error)   
+  //   }
+  // }
 
     const goToCategory = (e) => {
       const categorySelected = e.target.title;
       history.push(`/Category/${categorySelected}`)
     }
 
-    useEffect(() => {
-      getCartQuantity();
-    }, [userData.user])
+    // useEffect(() => {
+    //   getCartQuantity()
+    // }, [])
 
     return (
       <nav>
@@ -86,7 +88,9 @@ const Navigation = (props) => {
                 </li>
                 <li className="nav-item">
                   {userData.user ? <Link to="/Cart" className="nav-link active" style={navigationStyles.links}>
-                    <i className="fas fa-shopping-cart"></i><span className="badge bg-light text-dark">{cartQuantity>0?" ("+cartQuantity+")":null}</span>
+                    <i className="fas fa-shopping-cart"></i><span className="badge bg-light text-dark">
+                      {cartQuantity>0?" ("+cartQuantity+")":null}
+                      </span>
                   </Link> 
                   : null }
                 </li>

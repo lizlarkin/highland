@@ -37,7 +37,7 @@ module.exports = {
                 {
                 $group: {
                     _id: null,
-                    sum: {$sum: "$quantity"}
+                    sum: {$sum: "$qty"}
                     }
             }   
             ]);
