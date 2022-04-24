@@ -42,6 +42,7 @@ module.exports = {
             }   
             ]);
             res.json(cartCount)
+            console.log("cart count", cartCount)
         } catch (error) {
             res.send(error)
         }

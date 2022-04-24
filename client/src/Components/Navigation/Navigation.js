@@ -1,10 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import {Link} from 'react-router-dom';
 import highlandLogo from './logo.png';
 import UserContext from "../../Context/UserContext";
 import NavContext from "../../Context/NavContext";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
 
 const Navigation = (props) => {
 
@@ -23,29 +22,11 @@ const Navigation = (props) => {
     },
   }
 
-  // const [cartQuantity, setCartQuantity] = useState();
-
-  // const getCartQuantity = async () => {
-  //   try {
-  //       const quantityAggregate = await axios.get(`/cart/quantity`, {
-  //         headers: { "x-auth-token": localStorage.getItem("auth-token") }
-  //     });
-  //       console.log("AGG HERE!", quantityAggregate.data[0].sum)
-  //       setCartQuantity(quantityAggregate.data[0].sum)
-  //   } catch (error) {
-  //       console.log("error getting cart quantity", error)   
-  //   }
-  // }
-
     const goToCategory = (e) => {
       const categorySelected = e.target.title;
       history.push(`/Category/${categorySelected}`)
     }
-
-    // useEffect(() => {
-    //   getCartQuantity()
-    // }, [])
-
+    
     return (
       <nav>
         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">

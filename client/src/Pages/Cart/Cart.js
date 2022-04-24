@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
+import NavContext from "../../Context/NavContext";
 import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 
@@ -9,6 +10,7 @@ const Cart = () => {
 
     const history = useHistory();
     const { incrementQuoteNum } = useContext(UserContext); 
+    const { getCartQuantity } = useContext(NavContext);
 
     const cartStyles = {
         cartBtnSm: {
@@ -41,6 +43,7 @@ const Cart = () => {
         try {
             const removeItem = await axios.delete(`/cart/${cartIdToDelete}`);
             getAllCart();
+            getCartQuantity();
         } catch (error) {
             console.log("error deleting one cart", error)
         }
@@ -53,6 +56,7 @@ const Cart = () => {
                 headers: { "x-auth-token": localStorage.getItem("auth-token") }
             });
             getAllCart();
+            getCartQuantity();
         } catch (error) {
             console.log("error deleting all", error)
         }

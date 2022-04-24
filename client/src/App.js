@@ -70,10 +70,10 @@ function App() {
         const quantityAggregate = await axios.get(`/cart/quantity`, {
           headers: { "x-auth-token": localStorage.getItem("auth-token") }
       });
-        console.log("AGG HERE!", quantityAggregate.data[0].sum)
         setCartQuantity(quantityAggregate.data[0].sum)
     } catch (error) {
-        console.log("error getting cart quantity", error)   
+        setCartQuantity(0)
+        // console.log("error getting cart quantity", error)   
     }
   }
 
