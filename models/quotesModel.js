@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 const quotesSchema = new mongoose.Schema({
     date: {
-        type: String,
-        required: true,
+        type: Date,
+        default: Date.now,
     },
     products: [],
     userId: {

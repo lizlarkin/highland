@@ -4,6 +4,7 @@ node_modules
 # Large Directories
 /client/src/Components/ProductResources/assets
 /client/src/Pages/Product/Images
+/client/src/Pages/Product/AccImages
 /client/src/Pages/Customers/Images
 /client/src/Components/Customers/GeneralJumbotron/Images
 

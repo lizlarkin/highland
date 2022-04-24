@@ -702,6 +702,10 @@ let productSeed = [
       versions: [
         ["noChoice", null, 1],
       ],
+      accessories: [
+        ["J41-1", "test1", "(1 included with purchase)"],
+        ["J42-1", "test2"],
+      ]
       },
 
       // ****************************** T130 Data ******************************

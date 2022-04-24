@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom"; 
 import UserContext from "../../Context/UserContext";
 import axios from "axios";
+import {AccessoryPhotos} from '../../Pages/Product/AccImages/AccImages';
 
 const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
 
     const quoteStyles = {
         qtyInput: {
-            width: "20%",
+            width: "100%",
         },
         title: {
             marginTop: "20px",
@@ -19,8 +20,9 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
             margin: "20px 0px 20px 0px",
             borderBottom: "1px solid lightgrey",
         },
-        accessoryDesc: {
-            width: "80%",
+        accessoryBtn: {
+            width: "100%",
+            textAlign: "left",
         },
         configContainer: {
             border: "1px solid lightgrey",
@@ -251,13 +253,35 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                     <h6 style={quoteStyles.header}>Select Accessories (click to view image): </h6>
                                     </>
                                     :null}
-
                                 {accessories.length>0?
                                     accessories.map((accessory, idx) => (
                                         <form>
-                                            <div className="input-group mb-3" key={idx}>
-                                                <span className="input-group-text overflow-auto" style={quoteStyles.accessoryDesc} >{accessory[1]} {accessory[2]}</span>
-                                                <input onChange={handleAddAccessories} id={accessory[0]} name={accessory[1]} type="number" min="0" className="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
+                                            <div className="row" style={{marginBottom: "1%"}}>
+                                                <div className="col-md-9">
+                                                    <button key={idx} type="button" className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target={"#exampleModal"+idx} style={quoteStyles.accessoryBtn}>
+                                                        {accessory[1]} {accessory[2]}
+                                                    </button>
+                                                </div>
+                                                <div className="col-md-3">
+                                                    <input onChange={handleAddAccessories} id={accessory[0]} name={accessory[1]} type="number" min="0" className="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
+                                                </div>
+                                            </div>
+
+                                            <div className="modal fade" id={"exampleModal"+idx} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div className="modal-dialog">
+                                                    <div className="modal-content">
+                                                    <div className="modal-header">
+                                                        <h5 className="modal-title" id="exampleModalLabel">{accessory[1]} {accessory[2]}</h5>
+                                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div className="modal-body">
+                                                        <img src={AccessoryPhotos[AccessoryPhotos.findIndex(search => search.includes(accessory[0].split("-")[0]))]} className="img-fluid img-thumbnail" alt={accessory[1]}></img> 
+                                                    </div>
+                                                    <div className="modal-footer">
+                                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </form>
                                     ))

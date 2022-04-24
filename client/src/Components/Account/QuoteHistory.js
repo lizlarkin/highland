@@ -45,7 +45,6 @@ const QuoteHistory = () => {
                     headers: { "x-auth-token": localStorage.getItem("auth-token") },
                 });
                 setAllQuoteRequests(allQuotes.data)
-                console.log("HEREREEE", allQuotes.data[0]._id)
                 setUserNum(userData.user.quoteNum)
             } catch (error) {
                 console.log("error getting quote history", error)   
@@ -77,7 +76,8 @@ const QuoteHistory = () => {
                       allQuoteRequests.map((quote, idx) => (
                             <div key={idx} className="card" style={quoteHistStyles.mainCard}>
                                 <div className="card-header">
-                                    <h5>{quote.date}</h5>
+                                    <h5>{quote.date.replace(/T/g,' ').slice(0,16)}</h5>
+
                                 </div>
                                 {quote.products[0].map((item, idx) => (
                                 <div className="card-body">

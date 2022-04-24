@@ -22,7 +22,6 @@ import Partners from './Pages/Partners/Partners';
 import Testimonials from './Pages/Testimonials/Testimonials';
 import Confirm from './Pages/Confirm/Confirm';
 import SuccessConfirm from './Pages/Confirm/SuccessConfirm';
-import { DateContext } from './Context/DateContext';
 
 function App() {
 
@@ -65,56 +64,13 @@ function App() {
 
   useEffect(() => {
     checkLoggedIn();
-    refreshDate();
   }, [])
-
-  const [dateNow, setDateNow] = useState();
-
-  const refreshDate = () => {
-    let date = new Date();
-    const monthNames = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec"
-    ];
-    let newDate =
-      date.getDate() +
-      "-" +
-      monthNames[date.getMonth()] +
-      "-" +
-      date.getFullYear()+
-      " "+
-      date.getHours()+
-      ":"+
-      date.getMinutes().toString().padStart(2, "0");
-      ;
-      setDateNow(newDate)
-      console.log('newdate from app', newDate)
-      console.log('dateNow from app', dateNow)
-  }
-
-
-  //provider value can only change if the set value changes
-  // const dateValue = useMemo(
-  //   () => ({ dateNow, setDateNow }),
-  //   [dateNow, setDateNow]
-  // );
 
   return (
     <div className="App">
       <BrowserRouter>
 
         <UserContext.Provider value = {{ userData, setUserData, incrementQuoteNum }}>
-          <DateContext.Provider value={{ dateNow, refreshDate }}>
             <Navigation logout={logout}/>
 
             <Switch>
@@ -136,7 +92,6 @@ function App() {
                 <Route path="/Testimonials" component={Testimonials}/>
                 <Route path="/Home" component={Home}/>
             </Switch>
-          </DateContext.Provider>
         </UserContext.Provider>
 
         <Footer />

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { DateContext } from "../../Context/DateContext";
 import UserContext from "../../Context/UserContext";
 import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
@@ -9,7 +8,6 @@ import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 const Cart = () => {
 
     const history = useHistory();
-    const { dateNow, refreshDate } = useContext(DateContext);
     const { userData, incrementQuoteNum } = useContext(UserContext); 
 
     const cartStyles = {
@@ -71,10 +69,7 @@ const Cart = () => {
     const [quoteList, setQuoteList] = useState()
 
     const finalizeItems = () => {
-        // refreshDate()
-        // console.log('ran from Cart', dateNow)
         setQuoteList({
-            date: dateNow,
             products: [cartList],
         })
     };
