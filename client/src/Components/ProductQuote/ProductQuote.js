@@ -154,8 +154,6 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                         cart, 
                         { headers: { "x-auth-token": authToken },
                     });
-                    // Update User information with count in cart
-                    axios.post("/users/addCartActivity");
                     // Update Context
                     getCartQuantity()
                     // Redirect to cart page

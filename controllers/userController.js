@@ -23,7 +23,6 @@ module.exports = {
                 state,
                 country,
                 optIn, 
-                cartActivity,
                 quoteNum,
             } = req.body;
     
@@ -60,7 +59,6 @@ module.exports = {
                     state,
                     country,
                     optIn,
-                    cartActivity,
                     quoteNum
                 });
 
@@ -154,7 +152,6 @@ module.exports = {
                     country: user.country,
                     optIn: user.optIn,
                     confirmed: user.confirmed,
-                    cartActivity: user.cartActivity,
                     quoteNum: user.quoteNum,
                 },
             });
@@ -181,7 +178,6 @@ module.exports = {
                 country: user.country,
                 optIn: user.optIn,
                 confirmed: user.confirmed,
-                cartActivity: user.cartActivity,
                 quoteNum: user.quoteNum,
             });
 
@@ -208,19 +204,6 @@ module.exports = {
         try {
             const deletedUser = await User.findByIdAndDelete(req.user);
             res.json(deletedUser);
-        } catch (error) {
-            res.send(error.response)
-        }
-    },
-    
-    addCartActivity: async (req,res) => {
-        console.log("add to cart route hit")
-        try {
-            const postCart = await User.updateOne(
-                req.user,
-                { "$inc" : { "cartActivity": 1} 
-            })
-            res.json(postCart);
         } catch (error) {
             res.send(error.response)
         }
