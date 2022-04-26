@@ -154,10 +154,12 @@ const Product = () => {
                             </li>
                         :null
                         :null}
+
+                    {content.showQuote && <SalesContact />}
+                    {content.showFAQ && <TechnicalContact/>}
                     </ul>
               
-                    {contact.showSales && <SalesContact />}
-                    {contact.showSupport && <TechnicalContact/>}
+
 
             </div>
           

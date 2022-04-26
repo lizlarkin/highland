@@ -3,10 +3,16 @@ import "./ProductContact.css"
 
 const TechnicalContact = () => {
     return (
-        <div className = 'contact-aside'>
-            <h5>Contact our support department</h5>
-            <p>Email Engineering</p>
-            <p>415-551-1700</p>
+        <div className="card contact-aside">
+            <div className="card-body">
+                <h6 className="card-subtitle mb-2 text-muted">Contact Engineering</h6>
+                <p className="card-text">
+                    <i className="fas fa-phone-alt"></i> <br/>
+                    415-551-1700
+                </p>
+                <i className="fas fa-envelope"></i> <br/>
+                <a href="mailto: sales@highlandtechnology.com" className="card-link">Email Engineering</a>
+            </div>
         </div>
     )
 }

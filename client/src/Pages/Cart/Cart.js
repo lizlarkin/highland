@@ -41,7 +41,7 @@ const Cart = () => {
         const cartIdToDelete = e.target.id;
         console.log("id of whole cart", cartIdToDelete)
         try {
-            const removeItem = await axios.delete(`/cart/${cartIdToDelete}`);
+            await axios.delete(`/cart/${cartIdToDelete}`);
             getAllCart();
             getCartQuantity();
         } catch (error) {
@@ -52,7 +52,7 @@ const Cart = () => {
     // Delete Entire Cart
     const deleteAll = async () => {
         try {
-            const removeAll = await axios.delete(`/cart`, {
+            await axios.delete(`/cart`, {
                 headers: { "x-auth-token": localStorage.getItem("auth-token") }
             });
             getAllCart();

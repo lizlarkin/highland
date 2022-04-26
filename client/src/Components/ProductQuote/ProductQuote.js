@@ -122,8 +122,8 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
         // Check to make sure user has made all required selections
         if (e.target.checked) {
             let checkRequiredCopy = [...checkRequired];
-            let newCheck = [checkRequiredCopy[e.target.id]];
-            newCheck = e.target.value;
+            // let newCheck = [checkRequiredCopy[e.target.id]];
+            // newCheck = e.target.value;
             checkRequiredCopy[e.target.id] = true;
             setCheckRequired(checkRequiredCopy);
         }
@@ -272,7 +272,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                                 </div>
                                             </div>
 
-                                            <div className="modal fade" id={"exampleModal"+idx} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div className="modal fade" id={"exampleModal"+idx} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div className="modal-dialog">
                                                     <div className="modal-content">
                                                     <div className="modal-header">

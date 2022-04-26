@@ -7,7 +7,7 @@ import '../Login/formStyles.css'
 const Register = () => {
 
     const [form, setForm] = useState();
-    const { userData, setUserData } = useContext(UserContext);
+    const { userData } = useContext(UserContext);
     const history = useHistory();
 
     const onChange = (e) => {

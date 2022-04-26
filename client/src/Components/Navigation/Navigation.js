@@ -10,7 +10,6 @@ const Navigation = (props) => {
   const  { userData }  = useContext(UserContext);
   const  { cartQuantity }  = useContext(NavContext);
   const history = useHistory();
-  console.log("cart data from Nav", cartQuantity)
 
   const navigationStyles = {
     logo: {
@@ -40,7 +39,7 @@ const Navigation = (props) => {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item dropdown">
-                  <Link className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={navigationStyles.links}>All Products</Link>
+                  <div className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={navigationStyles.links}>All Products</div>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li onClick={goToCategory} title={"VME"} className="dropdown-item">VME</li> 
                     <li onClick={goToCategory} title={"DDG"} className="dropdown-item">Digital Delay Generators</li>

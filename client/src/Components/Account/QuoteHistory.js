@@ -1,13 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './Account.css';
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
 import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 
 const QuoteHistory = () => {
 
-    const history = useHistory();
     const { userData } = useContext(UserContext);
 
     const quoteHistStyles = {
@@ -54,7 +52,7 @@ const QuoteHistory = () => {
         return () => {
             source.cancel();
         }
-    }, [histNum])
+    }, [histNum, userData.user.quoteNum])
 
     return (
         <div>
