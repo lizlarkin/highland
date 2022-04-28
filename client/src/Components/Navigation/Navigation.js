@@ -76,8 +76,7 @@ const Navigation = (props) => {
                 </li>
               </ul>
               <form className="d-flex">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button className="btn btn-outline-primary" type="submit"><i className="fas fa-search"></i></button>
+                <div className="gcse-searchbox-only" data-resultsUrl="/Search"></div>
               </form>
             </div>
           </div>

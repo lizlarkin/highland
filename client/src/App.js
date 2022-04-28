@@ -23,6 +23,7 @@ import Partners from './Pages/Partners/Partners';
 import Testimonials from './Pages/Testimonials/Testimonials';
 import Confirm from './Pages/Confirm/Confirm';
 import SuccessConfirm from './Pages/Confirm/SuccessConfirm';
+import Search from './Pages/Search/Search';
 
 function App() {
 
@@ -45,10 +46,9 @@ function App() {
         const userRes = await axios.get("/users", 
         {headers: {"x-auth-token": token},
       });
-
       console.log("user result:", userRes);
       setUserData({ token, user: userRes.data })
-
+      getCartQuantity()
       } catch (error) {
         console.log("User must login.");
       }
@@ -106,6 +106,7 @@ function App() {
                 <Route path="/FAQ" component={FAQ}/>
                 <Route path="/Partners" component={Partners}/>
                 <Route path="/Testimonials" component={Testimonials}/>
+                <Route path="/Search" component={Search}/>
                 <Route path="/Home" component={Home}/>
             </Switch>
             </NavContext.Provider>

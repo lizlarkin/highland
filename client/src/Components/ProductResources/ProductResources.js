@@ -39,9 +39,9 @@ const ProductResources = ({ model, driversSoftware }) => {
                             <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div className="accordion-body">
                                 <div className="list-group">
-                                        <a href={<Datasheet />} target="_blank" rel="noopener noreferrer" className="list-group-item list-group-item-action">
+                                        {/* <a href={<Datasheet />} target="_blank" rel="noopener noreferrer" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={datasheet} alt="Highland Datasheet"/>Download Datasheet
-                                        </a>
+                                        </a> */}
                                         
                                         <Link to="/" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={manual} alt="Highland Datasheet"/>Download Manual

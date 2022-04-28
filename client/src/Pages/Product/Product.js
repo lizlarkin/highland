@@ -27,11 +27,6 @@ const Product = () => {
         showQuote: false,
     })
 
-    const [contact, setContact] = useState({
-            showSales: false,
-            showSupport: false,
-    });
-
     const [productName, setProductName] = useState();
     const [productModel, setProductModel] = useState();
     const [productCategory, setProductCategory] = useState();
@@ -93,7 +88,6 @@ const Product = () => {
                             <button className="nav-btn-quote" 
                             onClick={() => {
                                 setContent({showQuote: true})
-                                setContact({showSales: true})
                             }}
                             style={{ color: content.showQuote ? "white" : "", 
                             backgroundColor: content.showQuote ? "#b33939" : ""}}
@@ -103,7 +97,6 @@ const Product = () => {
                             <button className="nav-btn" 
                             onClick={() => {
                                 setContent({showOverview: true})
-                                setContact({})
                             }}
                             style={{ color: content.showOverview ? "white" : "", 
                                      backgroundColor: content.showOverview ? "#3359A6" : ""}}
@@ -113,7 +106,6 @@ const Product = () => {
                             <button className="nav-btn" 
                             onClick={() => {
                                 setContent({showSpecifications: true})
-                                setContact({})
                             }}
                             style={{ color: content.showSpecifications ? "white" : "", 
                             backgroundColor: content.showSpecifications ? "#3359A6" : ""}}
@@ -123,7 +115,6 @@ const Product = () => {
                             <button className="nav-btn" 
                             onClick={() => {
                                 setContent({showResources: true})
-                                setContact({})
                             }}
                             style={{ color: content.showResources ? "white" : "", 
                             backgroundColor: content.showResources ? "#3359A6" : ""}}
@@ -133,7 +124,6 @@ const Product = () => {
                             <button className="nav-btn" 
                             onClick={() => {
                                 setContent({showFAQ: true})
-                                setContact({showSupport: true})
                             }}
                             style={{ color: content.showFAQ ? "white" : "", 
                             backgroundColor: content.showFAQ ? "#3359A6" : ""}}
@@ -146,7 +136,6 @@ const Product = () => {
                                 <button className="nav-btn" 
                                 onClick={() => {
                                     setContent({showRelated: true})
-                                    setContact({})
                                 }}
                                 style={{ color: content.showRelated ? "white" : "", 
                                 backgroundColor: content.showRelated ? "#3359A6" : ""}}
