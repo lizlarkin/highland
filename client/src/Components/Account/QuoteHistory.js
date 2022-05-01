@@ -1,12 +1,16 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './Account.css';
 import axios from "axios";
+import { useHistory } from "react-router-dom"; 
 import UserContext from "../../Context/UserContext";
+import NavContext from "../../Context/NavContext";
 import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 
 const QuoteHistory = () => {
 
     const { userData } = useContext(UserContext);
+    const { getCartQuantity } = useContext(NavContext);
+    const history = useHistory();
 
     const quoteHistStyles = {
         mainCard: {
@@ -32,6 +36,42 @@ const QuoteHistory = () => {
         setHistNum(histNum + 5)
     }
 
+    const copyCart = {
+        model: "",
+        name: "",
+        version: "",
+        config: "",
+        qty: "",
+        acc: [],
+        userId: userData.user.id, 
+    }
+
+    const reQuote = (e) => {
+        copyCart.model = (e.target.getAttribute('data-model'));
+        copyCart.name = (e.target.getAttribute('data-name'));
+        copyCart.version = (JSON.parse(e.target.getAttribute('data-version')));
+        copyCart.config = JSON.parse((e.target.getAttribute('data-config')));
+        copyCart.qty = (e.target.getAttribute('data-qty'));
+        copyCart.acc = JSON.parse((e.target.getAttribute('data-acc')));
+        console.log(copyCart)
+    }
+
+    const addToCart = async () => {
+            try {
+                const authToken = localStorage.getItem("auth-token");
+                await axios.post("/cart", 
+                    copyCart, 
+                    { headers: { "x-auth-token": authToken },
+                });
+                // Update Context
+                getCartQuantity()
+                // Redirect to cart page
+                history.push("/Cart")     
+            } catch (error) {
+                console.log(error)
+            } 
+    }
+
     useEffect(() => {
         const cancelToken = axios.CancelToken;
         const source = cancelToken.source();
@@ -52,7 +92,7 @@ const QuoteHistory = () => {
         return () => {
             source.cancel();
         }
-    }, [histNum, userData.user.quoteNum])
+    }, [histNum])
 
     return (
         <div>
@@ -118,7 +158,36 @@ const QuoteHistory = () => {
                                                     </ul>
                                                     :null}
                                                 </div>
-                                                <button style={quoteHistStyles.requoteBtn} className="btn btn-outline-primary">Quote Again</button>
+                                                <button onClick={reQuote} 
+                                                        type="button"
+                                                        data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                        style={quoteHistStyles.requoteBtn} 
+                                                        data-model={item.model}
+                                                        data-name={item.name}
+                                                        // data-version={item.version.join("")}
+                                                        data-version={JSON.stringify(item.version.join(""))}
+                                                        data-config={JSON.stringify(item.config)}
+                                                        data-qty={item.qty}
+                                                        data-acc={JSON.stringify(item.acc)}
+                                                        className="btn btn-outline-primary">
+                                                            Quote Again
+                                                </button>
+                                                {/* <!-- Modal --> */}
+                                                <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div className="modal-dialog">
+                                                    <div className="modal-content">
+                                                    <div className="modal-header">
+                                                        <h5 className="modal-title" id="staticBackdropLabel">Quote Added</h5>
+                                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div className="modal-body">
+                                                        Your quote has been added to the cart. 
+                                                    </div>
+                                                    <div className="modal-footer">
+                                                        <button onClick={addToCart} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>                                                   </div>
+                                                    </div>
+                                                </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
