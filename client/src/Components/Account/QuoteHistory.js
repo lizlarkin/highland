@@ -43,7 +43,7 @@ const QuoteHistory = () => {
         config: "",
         qty: "",
         acc: [],
-        userId: userData.user.id, 
+        userId: "", 
     }
 
     const reQuote = (e) => {
@@ -53,6 +53,7 @@ const QuoteHistory = () => {
         copyCart.config = JSON.parse((e.target.getAttribute('data-config')));
         copyCart.qty = (e.target.getAttribute('data-qty'));
         copyCart.acc = JSON.parse((e.target.getAttribute('data-acc')));
+        copyCart.userId = userData.user.id;
         console.log(copyCart)
     }
 
@@ -173,7 +174,7 @@ const QuoteHistory = () => {
                                                             Quote Again
                                                 </button>
                                                 {/* <!-- Modal --> */}
-                                                <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div className="modal-dialog">
                                                     <div className="modal-content">
                                                     <div className="modal-header">

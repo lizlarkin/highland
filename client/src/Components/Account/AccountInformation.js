@@ -20,7 +20,7 @@ const AccountInformation = () => {
     //     (4): Email re-verify? 
 
     const history = useHistory();
-    const { userData } = useContext(UserContext);
+    const { userData, setUserData } = useContext(UserContext);
     // console.log(userData, "here from account")
 
     const [edit, setEdit] = useState({
@@ -47,12 +47,18 @@ const AccountInformation = () => {
         setForm({...form, [e.target.name]: e.target.value});  
     }
 
+    const handleOpt = (e) => {
+        setForm({...form, optIn: e.target.value});
+    }
+
     const saveUser = async (e) => {
         e.preventDefault();
         try {
             const updatedUser = await axios.put(`/users/updateUser/${userData.user.id}`, form)
             setEdit({...edit, [e.target.name]: false});
-            console.log("success update info", updatedUser);
+            // console.log("success update info", updatedUser);
+            // console.log("form", form)
+            // setUserData({...userData, form})
         } catch (error) {
             console.log(error)
         }
@@ -155,7 +161,7 @@ const AccountInformation = () => {
                     <div className="input-group mb-3">
                         {edit.phoneEl?
                         <>
-                        <input onChange={editUser} type="text" className="form-control" placeholder="Phone" name="phone" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                        <input onChange={editUser} type="tel" className="form-control" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$" placeholder="Phone" name="phone" aria-label="Recipient's username" aria-describedby="button-addon2"/>
                         <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="phoneEl" style={accountInfoStyles.btn}>Save</button>
                         </>
                         :
@@ -170,12 +176,16 @@ const AccountInformation = () => {
                     <div className="input-group mb-3">
                         {edit.optInEl?
                         <>
-                        <input onChange={editUser} type="text" className="form-control" placeholder="Opt In" name="optIn" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                        <select onChange={handleOpt} name="optIn" className="form-select" aria-label="Default select example">
+                            <option>Change Opt-In Election</option>
+                            <option value="true">Opt In to Communications</option>
+                            <option value="false">Opt Out of Communications</option>
+                        </select>
                         <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="optInEl" style={accountInfoStyles.btn}>Save</button>
                         </>
                         :
                         <>
-                        <input type="text" className="form-control" placeholder={"Opt Into Communications: "+userData.user.optIn} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
+                        <input type="text" className="form-control" placeholder={userData.user.optIn?"Opt Into Communications: Yes":"Opt Into Communications: No"} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
                         <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="optInEl" style={accountInfoStyles.btn}>Edit</button>
                         </>
                         }
