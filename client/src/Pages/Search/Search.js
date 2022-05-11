@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 
 const Search = () => {
   return (
     <div>  
-        <h2>Search Results</h2>
+        <div>
+            <GenJumbo />
+        </div>
+
         <div className="row">
             <div className="col-md-2"></div>
             <div className="col-md-8"></div>

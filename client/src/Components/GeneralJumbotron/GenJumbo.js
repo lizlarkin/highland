@@ -9,6 +9,7 @@ import Customers from "./Images/Customers.png";
 import FAQs from "./Images/FAQs.png";
 import Partners from "./Images/Partners.png";
 import Testimonials from "./Images/Testimonials.png";
+import Search from "./Images/Search.png";
 
 const GenJumbo = () => {
 
@@ -52,6 +53,10 @@ const GenJumbo = () => {
             } else if (pageName==="Testimonials") {
                 setBackground(Testimonials) 
                 setTitle("Testimonials") 
+                setText("")
+            } else if (pageName.substring(0,6)==="Search") {
+                setBackground(Search) 
+                setTitle("Search Results") 
                 setText("")
             }
         };
