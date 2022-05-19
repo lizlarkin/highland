@@ -108,6 +108,7 @@ function App() {
                 <Route path="/Testimonials" component={Testimonials}/>
                 <Route path="/Search" component={Search}/>
                 <Route path="/Home" component={Home}/>
+                <Route path="/" component={Home}/>
             </Switch>
             </NavContext.Provider>
         </UserContext.Provider>

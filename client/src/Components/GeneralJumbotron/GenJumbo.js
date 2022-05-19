@@ -65,7 +65,7 @@ const GenJumbo = () => {
 
     return (
         <div className="row">
-            <div className="col-md-12 heroContainer" style={{backgroundImage: `url(${background})`}}>
+            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 heroContainer img-fluid" style={{backgroundImage: `url(${background})`}}>
                 <h1 className="heroHeading">{title}</h1>
                 {text!==""?
                     <div className="heroBody">
