@@ -1,33 +1,63 @@
 import React from 'react';
-import potreroVideo from './assets/HighlandHome5.mp4';
-import arrow from './assets/arrow.png';
-import Bullet0 from './assets/Bullet0.png';
-import Bullet1 from './assets/Bullet1.png';
-import Bullet2 from './assets/Bullet2.png';
-import Bullet3 from './assets/Bullet3.png';
-import Bullet4 from './assets/Bullet4.png';
-import Bullet5 from './assets/Bullet5.png';
+import potreroVideo from './assets/HighlandHome.mp4';
+import VME from '../Product/Images/V120_VME_PCIE_Crate_Controller_1.png';
+import DDG from '../Product/Images/P500_Digital_Delay_Generator_1.png';
+import PulseGen from '../Product/Images/J270_Pulse_Generator_1.png';
+import WaveformGen from '../Product/Images/P350_Waveform_Playback_ARB_1.png';
+import LaserControl from '../Product/Images/D100_Laser_Driver_1.png';
+import Photonics from '../Product/Images/J730_Optic_Electric_Converter_1.png';
+import MeasureSim from '../Product/Images/T680_Time_Interval_Counter_1.png';
+import Legacy from '../Product/Images/P730_Optical_Electrialc_Fanout_Buffer_1.png';
 
 const Home = () => {
 
     const capabilities = [
-        "Standard and custom electronics",
-        "Pulse and picosecond timing delay generation",
-        "High-precision analog measurement and signal generation",
-        "Data acquisition and control instrumentation",
-        "Fiberoptics and photonics",
-        "Laser driver and control solutions"
+        ["Standard and custom electronics", "fa-light fa-waveform fa-5x"],
+        ["Pulse and picosecond timing delay generation", "fa-light fa-wave-square fa-5x"],
+        ["High-precision analog measurement and signal generation", "fa-light fa-wave-sine fa-5x"],
+        ["Data acquisition and control instrumentation", "fa-light fa-chart-scatter fa-5x"],
+        ["Fiberoptics and photonics", "fa-light fa-monitor-waveform fa-5x"],
+        ["Laser driver and control solutions", "fa-light fa-wave-triangle fa-5x"],
+    ]
+
+    const products = [
+        ["VME", VME],
+        ["Digital Delay Generators", DDG],
+        ["Pulse Generators", PulseGen],
+        ["Waveform Generators",WaveformGen],
+        ["Laser Drivers & Controllers",LaserControl],
+        ["Photonics", Photonics],
+        ["Measurement & Simulation", MeasureSim],
+        ["Legacy", Legacy],
     ]
 
     const homeStyles = {
         video: {
-            width: "102%",
-            height: "102%",
-            overflow: "hidden"
+            width: "100%",
+            height: "100%",
+            overflow: "hidden",
+            marginTop: "-2%"
         },
-        // capCard: {
-        //     background: "linear-gradient(90deg, #7092be, #7d9bc4, #9bb2d2, #bfcee3, #dee6f1, #ebf0f7)",
-        // },
+        capabilities: {
+            textAlign: "center",
+            fontWeight: "bold",
+            color: "#30415D",
+        },
+        symbol: {
+            color: "#30415D",
+        },
+        greyRow: {
+            backgroundColor: "#F0F0F0"
+        },
+        heading: {
+            textAlign: "center", 
+            marginBottom: "2%", 
+            marginTop: "2%",
+            color: "#30415D",
+        },
+        productNames: {
+            textAlign: "center"
+        }
     }
 
     return (
@@ -39,38 +69,40 @@ const Home = () => {
                     </video>
                 </div>
             </div>
-            <div className="row row-cols-1 row-cols-md-3 g-4">
-                {capabilities.map((capability, index) => (
-                <div class="col" key={index}>
-                    <div class="card h-100 text-dark bg-light mb-3">
-                        <img src="..." class="card-img-top" alt="..."/>
-                        <div class="card-body card-body align-items-center d-flex justify-content-center">
-                            <h5 class="card-title text-center">{capability}</h5>
-                        </div>
-                    </div>
-                </div>       
-                ))}
-            </div>
-            {/* {capabilities.map((capability, index) => (
-                <div className="row" style={homeStyles.capabilitiesCards}>
-                    <div className="col-md-2"></div>
-                    <div className="col-md-8">
-                        <div className="card mb-3 border-0">
-                            <div className="row g-0">
-                                <div className="col-md-3">
-                                    <img style={homeStyles.bulletPoint} src={Bullet0} className="img-fluid rounded-start align-items-center" alt="bullet point"/>
-                                </div>
-                                <div className="col-md-8 d-flex">
-                                    <div className="card-body align-items-center d-flex">
-                                        <h5 className="card-title">{capability}</h5>
+
+            <div className="row" style={homeStyles.greyRow}>
+                <h1 style={homeStyles.heading}>Capabilities &amp; Applications</h1>
+                <div className="row row-cols-1 row-cols-md-3 g-4">
+                {/* <div className="row"> ALSO SHOW IT LIKE THIS   */}
+                    {capabilities.map((capability, index) => (
+                            <div className="col" key={index}>
+                                <div className="card h-75 border-0" style={homeStyles.greyRow}>
+                                    <div className="card-img-top align-items-center d-flex justify-content-center" style={homeStyles.symbol}>
+                                        <i className={capability[1]}></i>
+                                    </div>
+                                    <div className="card-body">
+                                        <h5 className="card-title" style={homeStyles.capabilities}>{capability[0]}</h5>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="col-md-2"></div>
+                    ))}
                 </div>
-            ))} */}
+            </div>
+
+            <div className="row">
+                <h1 style={homeStyles.heading}>Standard Products</h1>
+                <div className="row row-cols-1 row-cols-md-6 g-1">
+                    {
+                        products.map((product, index) => (
+                            <div className="col" key={index}>
+                                <img src={product[1]} className="img-thumbnail" alt={product}></img>
+                                <h6 style={homeStyles.productNames}>{product[0]}</h6>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
         </div>
     )
 }
