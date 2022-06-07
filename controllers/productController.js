@@ -37,6 +37,7 @@ module.exports = {
                 accessories: req.body.accessories,
                 EOL: req.body.EOL,
                 ECCN: req.body.ECCN,
+                htsCode: req.body.htsCode,
             });
             const successSave = await newProduct.save();
             res.json(successSave);

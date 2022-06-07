@@ -24,6 +24,7 @@ import Testimonials from './Pages/Testimonials/Testimonials';
 import Confirm from './Pages/Confirm/Confirm';
 import SuccessConfirm from './Pages/Confirm/SuccessConfirm';
 import Search from './Pages/Search/Search';
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 
 function App() {
 
@@ -46,9 +47,9 @@ function App() {
         const userRes = await axios.get("/users", 
         {headers: {"x-auth-token": token},
       });
-      console.log("user result:", userRes);
-      setUserData({ token, user: userRes.data })
-      getCartQuantity()
+      // console.log("user result:", userRes);
+      setUserData({ token, user: userRes.data });
+      getCartQuantity(); 
       } catch (error) {
         console.log("User must login.");
       }
@@ -85,8 +86,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop />
 
-        <UserContext.Provider value = {{ userData, setUserData, incrementQuoteNum }}>
+        <UserContext.Provider value = {{ userData, setUserData, incrementQuoteNum, checkLoggedIn }}>
           <NavContext.Provider value = {{cartQuantity, getCartQuantity}}>
             <Navigation logout={logout}/>
             <Switch>

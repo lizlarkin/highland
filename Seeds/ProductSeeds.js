@@ -24,7 +24,8 @@ let productSeed = [
       versions: [
         ["optional", "recommended bundle", 1, [9, "add evaluation kit: D100 furnished with 24 volt power supply, SMB to BNC cable, and mounting flange"]],
       ],
-      ECCN: ""
+      ECCN: "",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** D200 Data ******************************
@@ -41,7 +42,8 @@ let productSeed = [
       versions: [
         ["noChoice", null, 9],
       ],
-      ECCN: "EAR99"
+      ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** J240 Data ******************************
@@ -62,7 +64,8 @@ let productSeed = [
       FAQs: [
         [" Does the J240 have a programmable PRF?", "No, the J240 will need an external PRF source as a trigger."],
       ],
-      ECCN: "EAR99"
+      ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** J270 Data ******************************
@@ -79,7 +82,8 @@ let productSeed = [
       versions: [
         ["noChoice", null, 1],
       ],
-      ECCN: "3A230"
+      ECCN: "3A230",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** J720 Data ******************************
@@ -101,7 +105,8 @@ let productSeed = [
       FAQs: [
         ["Does the J720 require a power supply?", "A power supply is not needed. Any low impedance 5V TTL source will power the J720. "], 
       ],
-      ECCN: "EAR99"
+      ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** J724 Data ******************************
@@ -119,7 +124,8 @@ let productSeed = [
         ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
         ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
       ],
-      ECCN: "EAR99"
+      ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
   
   
@@ -187,7 +193,8 @@ let productSeed = [
       FAQs: [
         ["Are the SMB connectors on the J730 male or female?", "The connectors on the J730 are technically SMB 'Jacks', but their gender is 'male' because the center conductor is a pin, not a socket."], 
       ],
-      ECCN: "EAR99"
+      ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** J736 Data ******************************
@@ -204,6 +211,8 @@ let productSeed = [
         versions: [
           ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm/1550nm"],], 
         ],
+        ECCN: "3A230",
+        htsCode: "8543.70.9655",
         },
 
       // ****************************** J750 Data ******************************
@@ -220,7 +229,8 @@ let productSeed = [
       versions: [
         ["noChoice", null, 1],
       ],
-      ECCN: "3A999"
+      ECCN: "3A999",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** P330 Data ******************************
@@ -272,7 +282,8 @@ let productSeed = [
         ["P10-1", '19" rack mount shelf (two p-boxes per rack)'],
         ["P51-1", "Mounting Flange"],
       ],
-      ECCN: "EAR99"
+      ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** P348 Data ******************************
@@ -334,6 +345,7 @@ let productSeed = [
         ["P10-1", '19" rack mount shelf (two p-boxes per rack)'],
         ["P51-1", "Mounting Flange"],
       ],
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** P350 Data ******************************
@@ -350,7 +362,8 @@ let productSeed = [
       versions: [
         ["noChoice", null, 1],
       ],
-      ECCN: "4A994"
+      ECCN: "4A994",
+      htsCode: "8543.20.0000",
       },
 
       // ****************************** P400 Data ******************************
@@ -371,7 +384,8 @@ let productSeed = [
       FAQs: [
         ["What is the difference between the P400 and the P500?", "The Highland Model P500 Digital Delay/Pulse Generator is the successor of Model P400. We typically recommend purchasing the P500 over the P400 because it is less expensive, it has an improved user interface, and it will be supported for a very long time. The P400 design is over 10 years old and is being gradually phased out of our product offerings due to component obsolescence challenges. Some new features of the P500 include: improved packaging, color LCD, quiet fan, streamlined design, standard USB, Ethernet, and RS232, high performance pulse output stages with clean fast pulses from 0.5 to 25 volts p-p into 50 ohms, rep-rate to 14 MHz, glitch-free timing changes, and optional per-shot timing lists and multiple pulses per trigger."], 
       ],
-      ECCN: "3A999"
+      ECCN: "3A999",
+      htsCode: "8543.20.0000",
       },
 
       // ****************************** P470 Data ******************************
@@ -394,7 +408,8 @@ let productSeed = [
         ["Can the P470 be set to output temperatures in degrees Fahrenheit?", "When the P470 is used in thermocouple mode, users may directly request temperatures in degrees Celsius, but not in degrees Fahrenheit."], 
         ["Can you provide a calibration procedure for the P470?", "Unfortunately, we do not have a calibration procedure that we can share because we use proprietary test software. We provide calibration services for all of our products, so the unit can be returned to us for factory calibration at any time."], 
       ],
-      ECCN: "EAR99"
+      ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
 
@@ -471,7 +486,8 @@ let productSeed = [
         FAQs: [
           ["What is the difference between the P400 and the P500?", "The Highland Model P500 Digital Delay/Pulse Generator is the successor of Model P400. We typically recommend purchasing the P500 over the P400 because it is less expensive, it has an improved user interface, and it will be supported for a very long time. The P400 design is over 10 years old and is being gradually phased out of our product offerings due to component obsolescence challenges. Some new features of the P500 include: improved packaging, color LCD, quiet fan, streamlined design, standard USB, Ethernet, and RS232, high performance pulse output stages with clean fast pulses from 0.5 to 25 volts p-p into 50 ohms, rep-rate to 14 MHz, glitch-free timing changes, and optional per-shot timing lists and multiple pulses per trigger."], 
         ],
-        ECCN: "3A999"
+        ECCN: "3A999",
+        htsCode: "8543.20.0000",
       },
 
       // ****************************** P545 Data ******************************
@@ -539,7 +555,8 @@ let productSeed = [
         ["P10-1", '19" rack mount shelf (two p-boxes per rack)'],
         ["P51-1", "Mounting Flange"],
       ],
-      ECCN: "EAR99"
+      ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** P620 Data ******************************
@@ -620,7 +637,8 @@ let productSeed = [
       FAQs: [
         ["Does the P620 come with software drivers?", "There is no need for software drivers because this unit comes equipped with Ethernet."],
       ],
-      ECCN: "EAR99"
+      ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** P730 Data ******************************
@@ -685,7 +703,8 @@ let productSeed = [
         ["P10-1", '19" rack mount shelf (two p-boxes per rack)'],
       ],
       EOL: ["April 1, 2023", "April 1, 2027", 24],
-      ECCN: "EAR99"
+      ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** P900 Data ******************************
@@ -702,7 +721,8 @@ let productSeed = [
       versions: [
         ["noChoice", null, 1],
       ],
-      ECCN: "3A225"
+      ECCN: "3A225",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T124 Data ******************************
@@ -723,7 +743,8 @@ let productSeed = [
         ["J41-1", "test1", "(1 included with purchase)"],
         ["J42-1", "test2"],
       ],
-      ECCN: "EAR99"
+      ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T130 Data ******************************
@@ -741,6 +762,7 @@ let productSeed = [
         ["noChoice", null, 9],
       ],
       ECCN: "3A320",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T160 Data ******************************
@@ -760,6 +782,7 @@ let productSeed = [
         ["What is the difference between the T160 and T165?", "Both the T160 and T165 require an external trigger source; however, the T160 is a logic follower that routes current to the laser for the duration of the input source. The T165 has a built-in ‘one shot’, enabling the formation of adjustable output current pulses when fed an arbitrarily wide input trigger. Both are AC-coupled, and have duty limits. The T160 is better suited for applications requiring pulse widths beyond hundreds of nanoseconds. Both T160 and T165 utilize the same switched current sink output topology, as shown in the block diagrams, with similar switching dynamics. Both require that drive path inductance remain very low for fast falling edges."], 
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T165 Data ******************************
@@ -831,6 +854,7 @@ let productSeed = [
         ["What is the difference between the T160 and T165?", "Both the T160 and T165 require an external trigger source; however, the T160 is a logic follower that routes current to the laser for the duration of the input source. The T165 has a built-in ‘one shot’, enabling the formation of adjustable output current pulses when fed an arbitrarily wide input trigger. Both are AC-coupled, and have duty limits. The T160 is better suited for applications requiring pulse widths beyond hundreds of nanoseconds. Both T160 and T165 utilize the same switched current sink output topology, as shown in the block diagrams, with similar switching dynamics. Both require that drive path inductance remain very low for fast falling edges."], 
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T240 Data ******************************
@@ -850,6 +874,7 @@ let productSeed = [
         [" Does the T240 have a programmable PRF?", "No, the T240 will need an external PRF source as a trigger."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T340 Data ******************************
@@ -867,6 +892,7 @@ let productSeed = [
         ["optional", "Ethernet", 1, [2, "add ethernet"]],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.20.0000",
       },
 
       // ****************************** T344 Data ******************************
@@ -932,6 +958,7 @@ let productSeed = [
         ["optional", "recommended bundle", 1, [9, "add evaluation kit: T344 furnished with 12 volt power supply, removable mounting flange, RS-232 cable, and four 3' SMB to BNC cables"]],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.20.0000",
       },
 
       // ****************************** T346 Data ******************************
@@ -997,6 +1024,7 @@ let productSeed = [
         ["Where can I find the test program for the T346?", "The program can be downloaded from Dropbox. A link is provided in the Resources menu under Drivers & Software. The Dropbox repository contains both the source code and the executable, which is under the dist folder. You'll need Java to run it, and there are instructions in the dist/README.TXT about installing librxtxserial."], 
       ],
       ECCN: "EAR99",
+      htsCode: "8543.20.0000",
       },
 
       // ****************************** T400 Data ******************************
@@ -1014,6 +1042,7 @@ let productSeed = [
         ["noChoice", null, 1],
       ],
       ECCN: "3A230",
+      htsCode: "8543.70.9655",
       },
 
 
@@ -1060,6 +1089,7 @@ let productSeed = [
           ["Is it possible to drive the T560 using LabView?", "While we don't provide any LabView support, you can use LabView to communicate with the T560 and create your own driver."],
         ],
         ECCN: "3A999",
+        htsCode: "8543.20.0000",
       },
 
       // ****************************** T564 Data ******************************
@@ -1098,6 +1128,7 @@ let productSeed = [
         optionsOptional: [],
         accessories: [],
         ECCN: "3A999",
+        htsCode: "8543.20.0000",
       },
 
       // ****************************** T680 Data ******************************
@@ -1115,6 +1146,7 @@ let productSeed = [
         ["noChoice", null, 1],
       ],
       ECCN: "3A999",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T735 Data ******************************
@@ -1132,7 +1164,8 @@ let productSeed = [
         ["Connector Outputs",[[null, "dual RS422/485"], ["1", "dual LVDS"]]],    
         ["Wavelength", [["3", "1310 nm"], ["5", "1550 nm"]]],
       ],
-      ECCN: "EAR99"
+      ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T750 Data ******************************
@@ -1150,6 +1183,7 @@ let productSeed = [
         ["noChoice", null, 2],
       ],
       ECCN: "3A230",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T760 Data ******************************
@@ -1167,6 +1201,7 @@ let productSeed = [
         ["required", "select configuration", 1, [1, "80V maximum pulse amplitude and <1 nanosecond risetime"], [2, "100V maximum pulse amplitude and <2.5 nanosecond risetime"]], 
       ],
       ECCN: "3A230",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T840 Data ******************************
@@ -1183,6 +1218,7 @@ let productSeed = [
       versions: [
         ["noChoice", null, 1],
       ],
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T850 Data ******************************
@@ -1200,6 +1236,7 @@ let productSeed = [
         ["noChoice", null, 1],
       ],
       ECCN: "3A230",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T860 Data ******************************
@@ -1216,6 +1253,7 @@ let productSeed = [
       versions: [
         ["required", "Connector Type", 1, [1, "SMB"], [2, "SMA"]], 
       ],
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** T900 Data ******************************
@@ -1229,6 +1267,7 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V120 Data ******************************
@@ -1257,6 +1296,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V124 Data ******************************
@@ -1281,6 +1321,7 @@ let productSeed = [
         ["What type of software support do you provide?", "A Linux driver and API support are available for the V120. Links are provided in the Resources menu under Drivers & Software. "]
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V180 Data ******************************
@@ -1303,6 +1344,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V210 Data ******************************
@@ -1327,6 +1369,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V220 Data ******************************
@@ -1349,6 +1392,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V230 Data ******************************
@@ -1372,6 +1416,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V250 Data ******************************
@@ -1393,6 +1438,7 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V280 Data ******************************
@@ -1416,6 +1462,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V340 Data ******************************
@@ -1439,6 +1486,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.20.0000",
       },
 
       // ****************************** V344 Data ******************************
@@ -1461,6 +1509,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.20.0000",
       },
 
       // ****************************** V346 Data ******************************
@@ -1483,6 +1532,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.20.0000",
       },
 
       // ****************************** V360 Data ******************************
@@ -1505,6 +1555,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V365 Data ******************************
@@ -1526,6 +1577,7 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V375 Data ******************************
@@ -1548,6 +1600,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.20.0000",
       },
 
       // ****************************** V380 Data ******************************
@@ -1570,6 +1623,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V385 Data ******************************
@@ -1592,6 +1646,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V410 Data ******************************
@@ -1615,6 +1670,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V420 Data ******************************
@@ -1637,6 +1693,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V450 Data ******************************
@@ -1660,6 +1717,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V460 Data ******************************
@@ -1682,6 +1740,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V470 Data ******************************
@@ -1764,6 +1823,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V490 Data ******************************
@@ -1786,6 +1846,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V545 Data ******************************
@@ -1808,6 +1869,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.20.0000",
       },
 
       // ****************************** V550 Data ******************************
@@ -1830,6 +1892,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
       // ****************************** V660 Data ******************************
       {
@@ -1852,6 +1915,7 @@ let productSeed = [
       ],
       EOL: ["April 1, 2022", "April 1, 2024"],
       ECCN: "3A999",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V680 Data ******************************
@@ -1873,6 +1937,7 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V720 Data ******************************
@@ -1896,6 +1961,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V730 Data ******************************
@@ -1919,6 +1985,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V860 Data ******************************
@@ -1941,6 +2008,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A999",
+      htsCode: "8543.70.9655",
       },
 
       // ****************************** V880 Data ******************************
@@ -1963,6 +2031,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A999",
+      htsCode: "8543.70.9655",
       },
 
 

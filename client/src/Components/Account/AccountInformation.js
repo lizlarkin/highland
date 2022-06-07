@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import './Account.css';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
@@ -20,8 +20,7 @@ const AccountInformation = () => {
     //     (4): Email re-verify? 
 
     const history = useHistory();
-    const { userData, setUserData } = useContext(UserContext);
-    // console.log(userData, "here from account")
+    const { userData, setUserData, checkLoggedIn } = useContext(UserContext);
 
     const [edit, setEdit] = useState({
         firstEl: false,
@@ -36,7 +35,6 @@ const AccountInformation = () => {
         countryEl: false,
     })
 
-
     const toggleEdit = (e) => {
         setEdit({...edit, [e.target.name]: true});
     }
@@ -48,6 +46,7 @@ const AccountInformation = () => {
     }
 
     const handleOpt = (e) => {
+        console.log("opt in value: ", e.target.value)
         setForm({...form, optIn: e.target.value});
     }
 
@@ -56,9 +55,8 @@ const AccountInformation = () => {
         try {
             const updatedUser = await axios.put(`/users/updateUser/${userData.user.id}`, form)
             setEdit({...edit, [e.target.name]: false});
-            // console.log("success update info", updatedUser);
-            // console.log("form", form)
-            // setUserData({...userData, form})
+            setUserData({...userData, form})
+            console.log("success update info", updatedUser);
         } catch (error) {
             console.log(error)
         }
@@ -73,7 +71,12 @@ const AccountInformation = () => {
         } catch (error) {
             console.log("error deleting user", error)
         }
-    } 
+    }
+    
+    useEffect(() => {
+        checkLoggedIn();
+    }, [userData])
+    
 
     return (
         <div>

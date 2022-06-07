@@ -5,6 +5,11 @@ const ProductRelated = ({ related }) => {
 
     const history = useHistory();
 
+    const goToPage = (e) => {
+        let productSelected = e.target.id;
+        history.push(`/Product/${productSelected}`)
+    }
+
 
     return (
         <div >
@@ -16,8 +21,9 @@ const ProductRelated = ({ related }) => {
                             {related?
                             related.map((relative, idx) => (
                             <button 
+                                onClick={goToPage}
                                 key={idx} 
-                                onClick={() => history.replace((`${relative.split(" ")[0]}`))}  
+                                id={relative.split(" ")[0]}  
                                 type="button" className="list-group-item list-group-item-action">
                                 {relative}
                             </button>

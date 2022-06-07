@@ -43,6 +43,7 @@ const Product = () => {
     const [productImgCaptions, setProductImgCaptions] = useState();
     const [productDriversSoftware, setProductDriversSoftware] = useState();
     const [ECCN, setECCN] = useState();
+    const [htsCode, setHtsCode] = useState();
 
     useEffect(() => {
         const getProductData = async () => {
@@ -65,6 +66,7 @@ const Product = () => {
                setProductImgCaptions(prodData.data[0].imgCaptions);
                setProductDriversSoftware(prodData.data[0].driversSoftware);
                setECCN(prodData.data[0].ECCN);
+               setHtsCode(prodData.data[0].htsCode);
             } catch (error) {
                 console.log(error.response)
             }
@@ -158,7 +160,7 @@ const Product = () => {
                 <div>
                     {content.showOverview && <ProductOverview features={productFeatures} description={productDescription}/>}
                     {content.showSpecifications && <ProductSpecs specs={productSpecs} specsTwo={productSpecsTwo} specsMulti={productSpecsMulti} specsNotes={productSpecsNotes}/>}
-                    {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware} ECCN={ECCN}/>}
+                    {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware} ECCN={ECCN} htsCode={htsCode}/>}
                     {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
                     {content.showRelated && <ProductRelated related={productRelatives}/>}
                     {content.showQuote && <ProductQuote name={productName} model={productModel} accessories={productAccessories} category={productCategory} EOLdates={productEOL}/>}  

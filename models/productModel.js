@@ -24,6 +24,9 @@ const productSchema = new mongoose.Schema({
     ECCN: {
         type: String,
     },
+    htsCode: {
+        type: String,
+    },
     // move the below to data model
     // manDownloads: [],
     // dsDownloads: [],

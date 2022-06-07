@@ -1,4 +1,5 @@
 import React from 'react';
+import "./assets/homeStyles.css"
 import potreroVideo from './assets/HighlandHome.mp4';
 import VME from '../Product/Images/V120_VME_PCIE_Crate_Controller_1.png';
 import DDG from '../Product/Images/P500_Digital_Delay_Generator_1.png';
@@ -21,67 +22,38 @@ const Home = () => {
     ]
 
     const products = [
-        ["VME", VME],
-        ["Digital Delay Generators", DDG],
-        ["Pulse Generators", PulseGen],
-        ["Waveform Generators",WaveformGen],
-        ["Laser Drivers & Controllers",LaserControl],
-        ["Photonics", Photonics],
-        ["Measurement & Simulation", MeasureSim],
-        ["Legacy", Legacy],
+        ["VME", VME, "VME"],
+        ["Digital Delay Generators", DDG, "DDG"],
+        ["Pulse Generators", PulseGen, "PSG"],
+        ["Waveform Generators", WaveformGen, "WFG"],
+        ["Laser Drivers & Controllers", LaserControl, "LDC"],
+        ["Photonics", Photonics, "PHO"],
+        ["Measurement & Simulation", MeasureSim, "MAS"],
+        ["Legacy", Legacy, "LEG"],
     ]
-
-    const homeStyles = {
-        video: {
-            width: "100%",
-            height: "100%",
-            overflow: "hidden",
-            marginTop: "-2%"
-        },
-        capabilities: {
-            textAlign: "center",
-            fontWeight: "bold",
-            color: "#30415D",
-        },
-        symbol: {
-            color: "#30415D",
-        },
-        greyRow: {
-            backgroundColor: "#F0F0F0"
-        },
-        heading: {
-            textAlign: "center", 
-            marginBottom: "2%", 
-            marginTop: "2%",
-            color: "#30415D",
-        },
-        productNames: {
-            textAlign: "center"
-        }
-    }
 
     return (
         <div>
             <div className="row">
-                <div className="col-md-12">
-                    <video className='videoTag' autoPlay muted style={homeStyles.video}>
+                <div className="embed-responsive col-md-12">
+                    <video className='videoTag' autoPlay muted id="video">
                         <source src={potreroVideo} type='video/mp4'/>
                     </video>
                 </div>
             </div>
 
-            <div className="row" style={homeStyles.greyRow}>
-                <h1 style={homeStyles.heading}>Capabilities &amp; Applications</h1>
+            <div className="row greyRow">
+                <h1 className="heading">Capabilities &amp; Applications</h1>
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                 {/* <div className="row"> ALSO SHOW IT LIKE THIS   */}
                     {capabilities.map((capability, index) => (
                             <div className="col" key={index}>
-                                <div className="card h-75 border-0" style={homeStyles.greyRow}>
-                                    <div className="card-img-top align-items-center d-flex justify-content-center" style={homeStyles.symbol}>
+                                <div className="card h-75 border-0 greyRow">
+                                    <div className="card-img-top align-items-center d-flex justify-content-center symbol">
                                         <i className={capability[1]}></i>
                                     </div>
                                     <div className="card-body">
-                                        <h5 className="card-title" style={homeStyles.capabilities}>{capability[0]}</h5>
+                                        <h5 className="card-title capabilities">{capability[0]}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -89,17 +61,28 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="row">
-                <h1 style={homeStyles.heading}>Standard Products</h1>
-                <div className="row row-cols-1 row-cols-md-6 g-1">
-                    {
-                        products.map((product, index) => (
-                            <div className="col" key={index}>
-                                <img src={product[1]} className="img-thumbnail" alt={product}></img>
-                                <h6 style={homeStyles.productNames}>{product[0]}</h6>
-                            </div>
-                        ))
-                    }
+            <div className="container-fluid">
+                <div className="row">
+                    <h1 className="heading">Standard Products</h1>
+                    <div className="row">
+                        {
+                            products.map((product, index) => (
+                                <div className="col-sm-3" key={index}>
+                                    <a href ={"/Category/"+product[2]}>
+                                        <img src={product[1]} className="img-thumbnail" alt={product}></img>
+                                    </a>
+                                    <h6 className="productNames">{product[0]}</h6>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div className="row greyRow">
+                <h1 className="heading">Custom Electonics</h1>
+                <div className="row">
+
                 </div>
             </div>
 

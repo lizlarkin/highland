@@ -14,7 +14,7 @@ import {CoCArr} from "./Resources";
 import Datasheet from '../ProductDatasheet/Datasheet';
 import EUS from '../../Pages/FAQ/End User Statement.pdf';
 
-const ProductResources = ({ model, driversSoftware, ECCN }) => {
+const ProductResources = ({ model, driversSoftware, ECCN, htsCode }) => {
 
     const resourcesStyles = {
         accordianBtn: {
@@ -106,26 +106,26 @@ const ProductResources = ({ model, driversSoftware, ECCN }) => {
                                             <img className = "resource-image" src={ECCN} alt="International Commerce"/> Download Export Information
                                         </div> */}
                                         <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <img className = "resource-image" src={ECCNImage} alt="International Commerce"/> Download Export Information
+                                            <img className = "resource-image" src={ECCNImage} alt="International Commerce"/> Export &amp; Classification Information
                                         </button>
                                         {/* <!-- Export Information Modal --> */}
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">{model} Export Control Information</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">{model} Export &amp; Classification Information</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        All sales are subject to U.S. Department of Commerce Export Regulations. Highland will collect an End User Statement for all international sales to ensure that product export to the destination country is permitted. Each End User Statement requires disclosure of the Ultimate and Intermediate Consignees, and agreement to comply with export laws of the United States. Highland reserves the right to deny export for any reason. A copy of the End User Statement form can be downloaded here: {EUS}
-                                                        <ul>
-                                                            <li>ECCN: {ECCN}</li>
-                                                            <li>MfCage Code: 1RHL3</li>
-                                                            <li>HS Code for new products: 8543.70.9655</li>
-                                                            <li>HS Code for RMAs: 9801.10.0000</li>
-                                                            <li>Primary NAICS Code: 334418</li>
-                                                            <li>Secondary NAICS Code: 334515</li>
-                                                            <li>Country of Origin: United States</li>
+                                                        All sales are subject to U.S. Department of Commerce Export Regulations. Highland will collect an End User Statement for all international sales to ensure that product export to the destination country is permitted. Each End User Statement requires disclosure of the Ultimate and Intermediate Consignees, and agreement to comply with export laws of the United States. Highland reserves the right to deny export for any reason. A copy of the End User Statement form can be downloaded <a href={EUS}>here</a>.
+                                                        <ul className="list-group list-group-flush">
+                                                            <li className="list-group-item">{ECCN?"ECCN: "+ ECCN:null}</li>
+                                                            <li className="list-group-item">CAGE Code: 1RHL3</li>
+                                                            <li className="list-group-item">{htsCode?"Harmonized Tariff Schedule (new): "+htsCode:null}</li>
+                                                            <li className="list-group-item">Harmonized Tariff Schedule (return): 9801.10.0000</li>
+                                                            <li className="list-group-item">Primary NAICS Code: 334418</li>
+                                                            <li className="list-group-item">Secondary NAICS Code: 334515</li>
+                                                            <li className="list-group-item">Country of Origin: United States</li>
                                                         </ul>
                                                         
                                                         

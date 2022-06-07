@@ -1,4 +1,5 @@
-const Quote = require("../models/quotesModel")
+const Quote = require("../models/quotesModel");
+const nodemailer = require("nodemailer");
 
 module.exports = {
     newQuote: async (req, res) => {
