@@ -65,13 +65,14 @@ const Home = () => {
                 <div className="row">
                     <h1 className="heading">Standard Products</h1>
                     <div className="row">
+                        <div className="col-md-2"></div>
                         {
                             products.map((product, index) => (
-                                <div className="col-sm-3" key={index}>
+                                <div className="col-sm-1" key={index}>
                                     <a href ={"/Category/"+product[2]}>
                                         <img src={product[1]} className="img-thumbnail" alt={product}></img>
                                     </a>
-                                    <h6 className="productNames">{product[0]}</h6>
+                                    <h5 className="card-title capabilities">{product[0]}</h5>
                                 </div>
                             ))
                         }

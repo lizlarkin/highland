@@ -45,7 +45,7 @@ const GenJumbo = () => {
             } else if (pageName==="FAQ") {
                 setBackground(FAQs) 
                 setTitle("Frequently Asked Questions") 
-                setText("")
+                setText('We are here to help! Browse general FAQs below or feel free to contact us with your questions. Frequently asked questions pertaining to specific products can be found in the "Technical FAQs" section on individual product pages.')
             } else if (pageName==="Partners") {
                 setBackground(Partners) 
                 setTitle("Partners") 
