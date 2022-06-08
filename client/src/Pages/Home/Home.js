@@ -72,7 +72,9 @@ const Home = () => {
                                     <a href ={"/Category/"+product[2]}>
                                         <img src={product[1]} className="img-thumbnail" alt={product}></img>
                                     </a>
-                                    <h5 className="card-title capabilities">{product[0]}</h5>
+                                    <div className="card-body">
+                                        <h5 className="card-title capabilities">{product[0]}</h5>
+                                    </div>
                                 </div>
                             ))
                         }

@@ -113,6 +113,7 @@ import T346_2 from "./T346_Arbitrary_Waveform_Generator_2.png";
 import T346_3 from "./T346_Arbitrary_Waveform_Generator_3.png";
 import T346_4 from "./T346_Arbitrary_Waveform_Generator_4.png";
 import T346_5 from "./T346_Arbitrary_Waveform_Generator_5.png";
+import T400_1 from "./T400_Laser_Modulator_System_1.png";
 import T560_1 from "./T560_Digital_Delay_Generator_1.png";
 import T560_2 from "./T560_Digital_Delay_Generator_2.png";
 import T560_3 from "./T560_Digital_Delay_Generator_3.png";
@@ -150,6 +151,7 @@ import T860_2 from "./T860_Logic_Buffer_Driver_2.png";
 import T860_3 from "./T860_Logic_Buffer_Driver_3.png";
 import T860_4 from "./T860_Logic_Buffer_Driver_4.png";
 import T860_5 from "./T860_Logic_Buffer_Driver_5.png";
+import T900_1 from "./T900_Laser_Timing_Unit_1.png";
 import V120_1 from "./V120_VME_PCIE_Crate_Controller_1.png";
 import V120_2 from "./V120_VME_PCIE_Crate_Controller_2.png";
 import V120_3 from "./V120_VME_PCIE_Crate_Controller_3.png";
@@ -446,6 +448,10 @@ const T346PhotoArr = [
     T346_5,
 ]
 
+const T400PhotoArr = [
+    T400_1,
+]
+
 const T560PhotoArr = [
     T560_1,
     T560_2,
@@ -508,6 +514,10 @@ const T860PhotoArr = [
     T860_3,
     T860_4,
     T860_5,
+]
+
+const T900PhotoArr = [
+    T900_1,
 ]
 
 const V120PhotoArr = [
@@ -728,6 +738,7 @@ export const ProductPhotos = [
     T340PhotoArr,
     T344PhotoArr,
     T346PhotoArr,
+    T400PhotoArr,
     T560PhotoArr,
     T564PhotoArr,
     T680PhotoArr,
@@ -737,6 +748,7 @@ export const ProductPhotos = [
     T840PhotoArr,
     T850PhotoArr,
     T860PhotoArr,
+    T900PhotoArr,
     V120PhotoArr,
     V124PhotoArr,
     V180PhotoArr,

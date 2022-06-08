@@ -36,7 +36,7 @@ const GenJumbo = () => {
                 setText("Please review items in cart and submit quote request below.")
             } else if (pageName==="Contact") {
                 setBackground(Contact) 
-                setTitle("") 
+                setTitle("Contact Us") 
                 setText("")
             } else if (pageName==="Customers") {
                 setBackground(Customers) 
