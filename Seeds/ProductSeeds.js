@@ -93,7 +93,7 @@ let productSeed = [
       category: ["PHO"],
       features: [],
       description: "Transports logic level or critical timing triggers over kilometer distances in high EMI environments.",
-      imgCaptions: ["J720 single-channel compact electrical-to-fiberoptic converter"],
+      imgCaptions: ["850nm ST electrical-to-fiberoptic converter", "1310nm ST electrical-to-fiberoptic converter", "850nm FC electrical-to-fiberoptic converter", "1310nm FC electrical-to-fiberoptic converter", "", ""],
       about: [],
       related: [],
       specifications: [],
