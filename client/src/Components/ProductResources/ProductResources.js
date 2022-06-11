@@ -11,6 +11,7 @@ import conformance from "./assets/conformance.png";
 import softwareDrivers from "./assets/softwareDrivers.png";
 import {Link} from 'react-router-dom';
 import {CoCArr} from "./Resources";
+import USAPolicy from "./assets/USA_Commitment.pdf";
 import Datasheet from '../ProductDatasheet/Datasheet';
 import Export from './Export';
 import Mtbf from './Mtbf';
@@ -104,7 +105,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
                                         <Link to="/" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={rohsCompliant} alt="RoHS Compliant"/>Download RoHS Certificate
                                         </Link>
-                                        <Link to="/" className="list-group-item list-group-item-action">
+                                        <Link to={USAPolicy} target = "_blank" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={madeInUsa} alt="Made In USA"/>Made in USA Commitment
                                         </Link>
                                         <Link to={CoCArr[CoCIndex]} target = "_blank" className="list-group-item list-group-item-action">
