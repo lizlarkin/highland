@@ -42,13 +42,13 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="row greyRow">
+            <div className="row grey-row">
                 <h1 className="heading">Capabilities</h1>
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                 {/* <div className="row"> ALSO SHOW IT LIKE THIS   */}
                     {capabilities.map((capability, index) => (
                             <div className="col" key={index}>
-                                <div className="card h-75 border-0 greyRow">
+                                <div className="card h-75 border-0 grey-row">
                                     <div className="card-img-top align-items-center d-flex justify-content-center symbol">
                                         <i className={capability[1]}></i>
                                     </div>
@@ -62,7 +62,7 @@ const Home = () => {
             </div>
 
             <div className="container-fluid">
-                <div className="row">
+                <div className="row white-row">
                     <h1 className="heading">Standard Products</h1>
                     <div className="row">
                         <div className="col-md-2"></div>
@@ -82,7 +82,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="row greyRow">
+            <div className="row grey-row" id="compensate-footer">
                 <h1 className="heading">Custom Electronics</h1>
                 <div className="row">
                     <div className="col-md-1"></div>
@@ -97,11 +97,11 @@ const Home = () => {
                     <div className="col-md-3"></div>
                     <div className="col-md-6">
                     <ul className="list-group list-group-flush">
-                            <li className="list-group-item greyRow capabilities"><i className="fa-light fa-circle-check"></i> Picosecond timing</li>
-                            <li className="list-group-item greyRow capabilities"><i className="fa-light fa-circle-check"></i> Precision analog and mixed signal processing</li>
-                            <li className="list-group-item greyRow capabilities"><i className="fa-light fa-circle-check"></i> Digital delay and pulse generation</li>
-                            <li className="list-group-item greyRow capabilities"><i className="fa-light fa-circle-check"></i> High speed photonics and fiberoptic timing distribution</li>
-                            <li className="list-group-item greyRow capabilities"><i className="fa-light fa-circle-check"></i> Aerospace instrumentation and simulation</li>
+                            <li className="list-group-item grey-row capabilities"><i className="fa-light fa-circle-check"></i> Picosecond timing</li>
+                            <li className="list-group-item grey-row capabilities"><i className="fa-light fa-circle-check"></i> Precision analog and mixed signal processing</li>
+                            <li className="list-group-item grey-row capabilities"><i className="fa-light fa-circle-check"></i> Digital delay and pulse generation</li>
+                            <li className="list-group-item grey-row capabilities"><i className="fa-light fa-circle-check"></i> High speed photonics and fiberoptic timing distribution</li>
+                            <li className="list-group-item grey-row capabilities"><i className="fa-light fa-circle-check"></i> Aerospace instrumentation and simulation</li>
                         </ul>
                     </div>
                     <div className="col-md-3"></div>

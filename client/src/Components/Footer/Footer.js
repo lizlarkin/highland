@@ -14,10 +14,10 @@ const Footer = () => {
                 <div className = "col-md-12"></div>
             </div> */}
             <div className = "row navbar navbar-dark bg-dark hti-footer">
-                <div className = "col-md-2">
+                <div className = "col-md-3 logo-area">
                     <a href ="/"><img src={highlandHills} className="img-fluid" alt="Highland Logo"/></a>
                 </div>
-                <div className = "col-md-8">
+                <div className = "col-md-6">
                     <div className = "row">
                         <div className = "col-md-12">
                             <ul className="nav justify-content-center navbar navbar-dark bg-dark">
@@ -45,7 +45,7 @@ const Footer = () => {
                         </div>    
                     </div>
                 </div>
-                <div className = "col-md-2">
+                <div className = "col-md-3">
                         <a href="https://instagram.com/highlandtechnology?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram fa-2x socialMedia"></i></a>
                         <a href="https://m.facebook.com/Highland-Technology-108301345160326/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-facebook-f fa-2x socialMedia"></i></a>
                         <a href="https://www.linkedin.com/company/highlandtechnology/.com" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin fa-2x socialMedia"></i></a>

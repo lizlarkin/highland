@@ -3,7 +3,7 @@ html, body {
   position: relative;
   margin: 0;
   padding: 0;
-  padding-bottom: 100px;
+  /* padding-bottom: 100px; */
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -11,7 +11,8 @@ html, body {
 /* This keeps space between body and footer */
 /* Root is the standard id from react that is found in index.html */
 #root {
-  margin-bottom: 5%;
+  /* margin-bottom: 5%; */
+  /* margin-top: 5%; */
 }
 
 .asterisk {
