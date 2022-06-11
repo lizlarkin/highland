@@ -12,9 +12,10 @@ import softwareDrivers from "./assets/softwareDrivers.png";
 import {Link} from 'react-router-dom';
 import {CoCArr} from "./Resources";
 import Datasheet from '../ProductDatasheet/Datasheet';
-import EUS from '../../Pages/FAQ/End User Statement.pdf';
+import Export from './Export';
+import Mtbf from './Mtbf';
 
-const ProductResources = ({ model, driversSoftware, ECCN, htsCode }) => {
+const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
 
     const resourcesStyles = {
         accordianBtn: {
@@ -34,7 +35,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode }) => {
                         <div className="accordion-item">
                             <h2 className="accordion-header" id="headingOne">
                                 <button style={resourcesStyles.accordianBtn} className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Documentation
+                                    Product Information
                                 </button>
                             </h2>
                             <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -53,9 +54,16 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode }) => {
                                         <Link to="/" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={statementOfVolatility} alt="DRAM Symbol"/>Download Statement of Volatility 
                                         </Link>
-                                        <Link to="/" className="list-group-item list-group-item-action">
-                                            <img className = "resource-image" src={mtbfAnalysis} alt="MTBF Symbol"/>Mean Time Between Failure (MTBF)
-                                        </Link>
+                                        {MTBF.length>0?
+                                        <>
+                                            <button type="button" className="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#mtbfModal">
+                                                <img className = "resource-image" src={mtbfAnalysis} alt="MTBF Symbol"/>Reliability
+                                            </button>
+                                            <Mtbf model={model} MTBF={MTBF}/>
+                                        </>
+                                        :
+                                        null}
+
                                 </div>
                             </div>
                             </div>
@@ -102,40 +110,10 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode }) => {
                                         <Link to={CoCArr[CoCIndex]} target = "_blank" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={conformance} alt="Certificate of Conformnce"/>Download Certificate of Conformance
                                         </Link>
-                                        {/* <div className="list-group-item list-group-item-action">
-                                            <img className = "resource-image" src={ECCN} alt="International Commerce"/> Download Export Information
-                                        </div> */}
-                                        <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <button type="button" className="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#exportModal">
                                             <img className = "resource-image" src={ECCNImage} alt="International Commerce"/>Export &amp; Classification Information
                                         </button>
-                                        {/* <!-- Export Information Modal --> */}
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">{model} Export &amp; Classification Information</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        All sales are subject to U.S. Department of Commerce Export Regulations. Highland will collect an End User Statement for all international sales to ensure that product export to the destination country is permitted. Each End User Statement requires disclosure of the Ultimate and Intermediate Consignees, and agreement to comply with export laws of the United States. Highland reserves the right to deny export for any reason. A copy of the End User Statement form can be downloaded <a href={EUS}>here</a>.
-                                                        <ul className="list-group list-group-flush">
-                                                            <li className="list-group-item">{ECCN?"ECCN: "+ ECCN:null}</li>
-                                                            <li className="list-group-item">CAGE Code: 1RHL3</li>
-                                                            <li className="list-group-item">{htsCode?"Harmonized Tariff Schedule (new): "+htsCode:null}</li>
-                                                            <li className="list-group-item">Harmonized Tariff Schedule (return): 9801.10.0000</li>
-                                                            <li className="list-group-item">Primary NAICS Code: 334418</li>
-                                                            <li className="list-group-item">Secondary NAICS Code: 334515</li>
-                                                            <li className="list-group-item">Country of Origin: United States</li>
-                                                        </ul>
-                                                        
-                                                        
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <Export model={model} ECCN={ECCN} htsCode={htsCode} />
                                 </div>
                             </div>
                             </div>

@@ -27,6 +27,7 @@ const productSchema = new mongoose.Schema({
     htsCode: {
         type: String,
     },
+    MTBF: [],
     // move the below to data model
     // manDownloads: [],
     // dsDownloads: [],
