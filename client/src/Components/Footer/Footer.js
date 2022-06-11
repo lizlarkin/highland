@@ -1,8 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import "./FooterStyles.css";
-import instagram from "./Images/instagram.png";
-import linkedin from "./Images/linkedin.png";
+import highlandHills from "./Images/Highland_logo_white.png";
 
 
 const Footer = () => {
@@ -16,9 +15,7 @@ const Footer = () => {
             </div> */}
             <div className = "row navbar navbar-dark bg-dark hti-footer">
                 <div className = "col-md-2">
-                    <Link to="/">
-                        <img src={instagram} alt="Instagram"/>
-                    </Link>
+                    <a href ="/"><img src={highlandHills} className="img-fluid" alt="Highland Logo"/></a>
                 </div>
                 <div className = "col-md-8">
                     <div className = "row">
@@ -49,9 +46,9 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className = "col-md-2">
-                    <Link to="/">
-                        <img src={linkedin} alt="LinkedIn"/>
-                    </Link>
+                        <a href="https://instagram.com/highlandtechnology?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram fa-2x socialMedia"></i></a>
+                        <a href="https://m.facebook.com/Highland-Technology-108301345160326/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-facebook-f fa-2x socialMedia"></i></a>
+                        <a href="https://www.linkedin.com/company/highlandtechnology/.com" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin fa-2x socialMedia"></i></a>
                 </div>
             </div>
 

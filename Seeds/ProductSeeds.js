@@ -222,7 +222,7 @@ let productSeed = [
       category: ["PSG", "PHO"],
       features: [],
       description: "Amplifies DC to 1 GHz signals with loop-through (signal pickoff) and photodiode modes.",
-      imgCaptions: ["J750 single-channel compact wideband amplifier"],
+      imgCaptions: ["", "", "", "Input endplate: Normal/PD Mode Switch, Input, Loop", "Output endplate: +12V Power, Power LED, Output, Zero Offset "],
       about: [],
       related: [],
       specifications: [],
@@ -373,7 +373,7 @@ let productSeed = [
       category: ["LEG"],
       features: [],
       description: "Generates delays up to 1000 seconds in 1 picosecond increments, on four separately programmable delay-and-width outputs.",
-      imgCaptions: ["P400 4-channel benchtop digital delay and pulse generator"],
+      imgCaptions: ["", "", "P400 front panel", "", "P400 rear panel (without options)", "P400 rear panel (with high voltage outputs option)"],
       about: [],
       related: [],
       specifications: [],
@@ -739,10 +739,7 @@ let productSeed = [
       versions: [
         ["noChoice", null, 1],
       ],
-      accessories: [
-        ["J41-1", "test1", "(1 included with purchase)"],
-        ["J42-1", "test2"],
-      ],
+      accessories: [],
       ECCN: "EAR99",
       htsCode: "8543.70.9655",
       },
@@ -1711,7 +1708,12 @@ let productSeed = [
           ["optional", "built-in self-test", 1, [2, "add BIST"]],
           ["required", "select pre-installed analog bessel filter option", null, ["", "no filter option"], [51, "50 Hz 6-pole filter option"], [81, "200 Hz 6-pole filter option"]],
       ],
-      accessories: [],
+      accessories: [
+        ["J75-1", "D9 female to two (2) dual banana plug cable",],
+        ["J99-1", "old example"],
+        // ["J41-1", "test1", "(1 included with purchase)"],
+        // ["J42-1", "test2"],
+      ],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],

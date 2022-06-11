@@ -54,7 +54,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode }) => {
                                             <img className = "resource-image" src={statementOfVolatility} alt="DRAM Symbol"/>Download Statement of Volatility 
                                         </Link>
                                         <Link to="/" className="list-group-item list-group-item-action">
-                                            <img className = "resource-image" src={mtbfAnalysis} alt="MTBF Symbol"/>Download Mean Time Between Failure (MTBF) Analysis
+                                            <img className = "resource-image" src={mtbfAnalysis} alt="MTBF Symbol"/>Mean Time Between Failure (MTBF)
                                         </Link>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode }) => {
                                             <img className = "resource-image" src={rohsCompliant} alt="RoHS Compliant"/>Download RoHS Certificate
                                         </Link>
                                         <Link to="/" className="list-group-item list-group-item-action">
-                                            <img className = "resource-image" src={madeInUsa} alt="Made In USA"/>Download Certificate of Origin (change this name???)
+                                            <img className = "resource-image" src={madeInUsa} alt="Made In USA"/>Made in USA Commitment
                                         </Link>
                                         <Link to={CoCArr[CoCIndex]} target = "_blank" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={conformance} alt="Certificate of Conformnce"/>Download Certificate of Conformance
@@ -106,7 +106,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode }) => {
                                             <img className = "resource-image" src={ECCN} alt="International Commerce"/> Download Export Information
                                         </div> */}
                                         <button type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <img className = "resource-image" src={ECCNImage} alt="International Commerce"/> Export &amp; Classification Information
+                                            <img className = "resource-image" src={ECCNImage} alt="International Commerce"/>Export &amp; Classification Information
                                         </button>
                                         {/* <!-- Export Information Modal --> */}
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

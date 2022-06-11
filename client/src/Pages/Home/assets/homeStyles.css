@@ -28,7 +28,7 @@
 }
 
 .greyRow {
-    background-color: #F0F0F0;
+    background-color: Gainsboro;
 }
 
 .heading {
@@ -38,12 +38,11 @@
     color: #30415D;
 }
 
-.img-thumbnail {
+.homeProduct {
     border: none;
     filter: grayscale(100%);
 }
 
 .img-thumbnail:hover {
-    /* border: 1px solid #30415D; */
     filter: grayscale(0%);
 }
