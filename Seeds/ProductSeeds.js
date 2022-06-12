@@ -24,8 +24,8 @@ let productSeed = [
       versions: [
         ["optional", "recommended bundle", 1, [9, "add evaluation kit: D100 furnished with 24 volt power supply, SMB to BNC cable, and mounting flange"]],
       ],
-      ECCN: "",
-      htsCode: "8543.70.9655",
+      ECCN: "EAR99",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -44,7 +44,7 @@ let productSeed = [
         ["noChoice", null, 9],
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -67,7 +67,7 @@ let productSeed = [
         [" Does the J240 have a programmable PRF?", "No, the J240 will need an external PRF source as a trigger."],
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -86,7 +86,7 @@ let productSeed = [
         ["noChoice", null, 1],
       ],
       ECCN: "3A230",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -110,7 +110,7 @@ let productSeed = [
         ["Does the J720 require a power supply?", "A power supply is not needed. Any low impedance 5V TTL source will power the J720. "], 
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       // MTBF: [MTBF hours, FITs]
       MTBF: ["4,914,004", "203"], 
       },
@@ -131,7 +131,7 @@ let productSeed = [
         ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: ["1,003,492", "996"],
       },
   
@@ -201,7 +201,7 @@ let productSeed = [
         ["Are the SMB connectors on the J730 male or female?", "The connectors on the J730 are technically SMB 'Jacks', but their gender is 'male' because the center conductor is a pin, not a socket."], 
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: ["6,768,189", "147"],
       },
 
@@ -220,7 +220,7 @@ let productSeed = [
           ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm/1550nm"],], 
         ],
         ECCN: "3A230",
-        htsCode: "8543.70.9655",
+        htsCode: "8517.62.0050",
         MTBF: [],
         },
 
@@ -239,7 +239,7 @@ let productSeed = [
         ["noChoice", null, 1],
       ],
       ECCN: "3A999",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -292,8 +292,8 @@ let productSeed = [
         ["P10-1", '19" rack mount shelf (two p-boxes per rack)'],
         ["P51-1", "Mounting Flange"],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8543.20.0000",
       MTBF: [],
       },
 
@@ -356,7 +356,7 @@ let productSeed = [
         ["P10-1", '19" rack mount shelf (two p-boxes per rack)'],
         ["P51-1", "Mounting Flange"],
       ],
-      htsCode: "8543.70.9655",
+      htsCode: "8543.20.0000",
       MTBF: [],
       },
 
@@ -374,7 +374,7 @@ let productSeed = [
       versions: [
         ["noChoice", null, 1],
       ],
-      ECCN: "4A994",
+      ECCN: "3A992",
       htsCode: "8543.20.0000",
       MTBF: [],
       },
@@ -422,8 +422,8 @@ let productSeed = [
         ["Can the P470 be set to output temperatures in degrees Fahrenheit?", "When the P470 is used in thermocouple mode, users may directly request temperatures in degrees Celsius, but not in degrees Fahrenheit."], 
         ["Can you provide a calibration procedure for the P470?", "Unfortunately, we do not have a calibration procedure that we can share because we use proprietary test software. We provide calibration services for all of our products, so the unit can be returned to us for factory calibration at any time."], 
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8543.20.0000",
       MTBF: [],
       },
 
@@ -571,8 +571,8 @@ let productSeed = [
         ["P10-1", '19" rack mount shelf (two p-boxes per rack)'],
         ["P51-1", "Mounting Flange"],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8543.20.0000",
       MTBF: [],
       },
 
@@ -654,8 +654,8 @@ let productSeed = [
       FAQs: [
         ["Does the P620 come with software drivers?", "There is no need for software drivers because this unit comes equipped with Ethernet."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8543.20.0000",
       MTBF: [],
       },
 
@@ -722,7 +722,7 @@ let productSeed = [
       ],
       EOL: ["April 1, 2023", "April 1, 2027", 24],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -741,7 +741,7 @@ let productSeed = [
         ["noChoice", null, 1],
       ],
       ECCN: "3A225",
-      htsCode: "8543.70.9655",
+      htsCode: "8543.20.0000",
       MTBF: [],
       },
 
@@ -761,7 +761,7 @@ let productSeed = [
       ],
       accessories: [],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -780,7 +780,7 @@ let productSeed = [
         ["noChoice", null, 9],
       ],
       ECCN: "3A320",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -801,7 +801,7 @@ let productSeed = [
         ["What is the difference between the T160 and T165?", "Both the T160 and T165 require an external trigger source; however, the T160 is a logic follower that routes current to the laser for the duration of the input source. The T165 has a built-in ‘one shot’, enabling the formation of adjustable output current pulses when fed an arbitrarily wide input trigger. Both are AC-coupled, and have duty limits. The T160 is better suited for applications requiring pulse widths beyond hundreds of nanoseconds. Both T160 and T165 utilize the same switched current sink output topology, as shown in the block diagrams, with similar switching dynamics. Both require that drive path inductance remain very low for fast falling edges."], 
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -874,7 +874,7 @@ let productSeed = [
         ["What is the difference between the T160 and T165?", "Both the T160 and T165 require an external trigger source; however, the T160 is a logic follower that routes current to the laser for the duration of the input source. The T165 has a built-in ‘one shot’, enabling the formation of adjustable output current pulses when fed an arbitrarily wide input trigger. Both are AC-coupled, and have duty limits. The T160 is better suited for applications requiring pulse widths beyond hundreds of nanoseconds. Both T160 and T165 utilize the same switched current sink output topology, as shown in the block diagrams, with similar switching dynamics. Both require that drive path inductance remain very low for fast falling edges."], 
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: ["1,079,179", "926"],
       },
 
@@ -895,7 +895,7 @@ let productSeed = [
         [" Does the T240 have a programmable PRF?", "No, the T240 will need an external PRF source as a trigger."],
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -913,7 +913,7 @@ let productSeed = [
       versions: [
         ["optional", "Ethernet", 1, [2, "add ethernet"]],
       ],
-      ECCN: "EAR99",
+      ECCN: "3A992",
       htsCode: "8543.20.0000",
       MTBF: [],
       },
@@ -980,7 +980,7 @@ let productSeed = [
       versions: [
         ["optional", "recommended bundle", 1, [9, "add evaluation kit: T344 furnished with 12 volt power supply, removable mounting flange, RS-232 cable, and four 3' SMB to BNC cables"]],
       ],
-      ECCN: "EAR99",
+      ECCN: "3A992",
       htsCode: "8543.20.0000",
       MTBF: [],
       },
@@ -1047,7 +1047,7 @@ let productSeed = [
       FAQs: [
         ["Where can I find the test program for the T346?", "The program can be downloaded from Dropbox. A link is provided in the Resources menu under Drivers & Software. The Dropbox repository contains both the source code and the executable, which is under the dist folder. You'll need Java to run it, and there are instructions in the dist/README.TXT about installing librxtxserial."], 
       ],
-      ECCN: "EAR99",
+      ECCN: "3A992",
       htsCode: "8543.20.0000",
       MTBF: [],
       },
@@ -1067,7 +1067,7 @@ let productSeed = [
         ["noChoice", null, 1],
       ],
       ECCN: "3A230",
-      htsCode: "8543.70.9655",
+      htsCode: "8543.20.0000",
       MTBF: [],
       },
 
@@ -1174,7 +1174,7 @@ let productSeed = [
         ["noChoice", null, 1],
       ],
       ECCN: "3A999",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: ["649,291", "1,540"],
       },
 
@@ -1194,7 +1194,7 @@ let productSeed = [
         ["Wavelength", [["3", "1310 nm"], ["5", "1550 nm"]]],
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: ["4,183,925", "239"],
       },
 
@@ -1213,7 +1213,7 @@ let productSeed = [
         ["noChoice", null, 2],
       ],
       ECCN: "3A230",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1232,7 +1232,7 @@ let productSeed = [
         ["required", "select configuration", 1, [1, "80V maximum pulse amplitude and <1 nanosecond risetime"], [2, "100V maximum pulse amplitude and <2.5 nanosecond risetime"]], 
       ],
       ECCN: "3A230",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1250,7 +1250,7 @@ let productSeed = [
       versions: [
         ["noChoice", null, 1],
       ],
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1269,7 +1269,7 @@ let productSeed = [
         ["noChoice", null, 1],
       ],
       ECCN: "3A230",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1287,7 +1287,7 @@ let productSeed = [
       versions: [
         ["required", "Connector Type", 1, [1, "SMB"], [2, "SMA"]], 
       ],
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1332,7 +1332,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: ["1,251,251", "799"],
       },
 
@@ -1358,7 +1358,7 @@ let productSeed = [
         ["What type of software support do you provide?", "A Linux driver and API support are available for the V120. Links are provided in the Resources menu under Drivers & Software. "]
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1381,8 +1381,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1407,8 +1407,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: ["181,392", "5,512"],
       },
 
@@ -1431,8 +1431,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: ["162,843", "6,140"],
       },
 
@@ -1456,8 +1456,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: ["178,374", "5,606"],
       },
 
@@ -1480,7 +1480,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1504,8 +1505,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: ["187,241", "5,340"],
       },
 
@@ -1529,7 +1530,7 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
+      ECCN: "3A992",
       htsCode: "8543.20.0000",
       MTBF: ["1,049,428", "952"],
       },
@@ -1553,7 +1554,7 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
+      ECCN: "3A992",
       htsCode: "8543.20.0000",
       MTBF: [],
       },
@@ -1577,7 +1578,7 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
+      ECCN: "3A992",
       htsCode: "8543.20.0000",
       MTBF: [],
       },
@@ -1601,8 +1602,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: ["1,700,000"],
       },
 
@@ -1625,7 +1626,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1648,7 +1650,7 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
+      ECCN: "3A992",
       htsCode: "8543.20.0000",
       MTBF: [],
       },
@@ -1672,8 +1674,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1696,8 +1698,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1721,8 +1723,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: ["178,709", "5,595"],
       },
 
@@ -1745,8 +1747,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8543.20.0000",
       MTBF: [],
       },
 
@@ -1775,8 +1777,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: ["233,064", "4,290"],
       },
 
@@ -1799,8 +1801,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1883,8 +1885,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8543.20.0000",
       MTBF: ["594,300", "1,682"],
       },
 
@@ -1907,8 +1909,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -1931,7 +1933,7 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
+      ECCN: "3A992",
       htsCode: "8543.20.0000",
       MTBF: ["645,836", "1,548"],
       },
@@ -1955,8 +1957,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
       // ****************************** V660 Data ******************************
@@ -1980,7 +1982,7 @@ let productSeed = [
       ],
       EOL: ["April 1, 2022", "April 1, 2024"],
       ECCN: "3A999",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -2003,7 +2005,8 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      htsCode: "8543.70.9655",
+      ECCN: "3A992",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -2028,7 +2031,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: ["430,390", "2,323"],
       },
 
@@ -2053,7 +2056,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: ["720,118", "1,388"],
       },
 
@@ -2077,7 +2080,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A999",
-      htsCode: "8543.70.9655",
+      htsCode: "8517.62.0050",
       MTBF: [],
       },
 
@@ -2101,7 +2104,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A999",
-      htsCode: "8543.70.9655",
+      htsCode: "8543.20.0000",
       MTBF: ["194,939", "5,130"],
       },
 
