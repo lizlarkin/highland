@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import UserContext from "../../Context/UserContext";
-// import { DateContext } from "../../Context/DateContext";
 import axios from "axios";
 import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 
@@ -16,7 +15,6 @@ import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 const Contact = () => {
 
     const { userData } = useContext(UserContext);
-    // const { dateNow } = useContext(DateContext);
 
     const contactStyles={
         center: {
@@ -41,7 +39,6 @@ const Contact = () => {
     }
  
     const [form, setForm] = useState({
-        // date: dateNow,
         subject: "",
         organization: "",
         firstName: "",
