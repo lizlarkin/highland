@@ -59,13 +59,29 @@ const testimonials = [
     },
 ]
 
+const testimonialsStyles = {
+    testimonialRow: {
+        marginBottom: "2%"
+    },
+    testimonialTitle: {
+        marginTop: "2%",
+        marginBottom: "2%"
+    },
+    testimonialAuthors: {
+        marginTop: "2%"
+    }
+    
+}
+
 
 const Testimonials = () => {
     return (
         <div>
             <GenJumbo />
             <div className="container">
-                <div className="row" style={{marginBottom: "2%"}}>
+
+                {/* Aerospace & Defense Award */}
+                <div className="row" style={testimonialsStyles.testimonialRow}>
                     <div class="row g-1">
                         <div class="col-md-6">
                             <img src={aerospaceAward} class="img-fluid rounded-start" alt={"Aerospace Defense & Review Award"}/>
@@ -78,6 +94,7 @@ const Testimonials = () => {
                     </div>
                 </div>
 
+                {/* Testimonials Array Content */}
                 <div class="row">
                     {testimonials.map((testimonial, index) => (
                         <div className="col-12" key={index}>
@@ -86,14 +103,14 @@ const Testimonials = () => {
                                 <div class="row g-1">
                                     <div class="col-md-9">
                                         <div class="card-body">
-                                            <h5 className="card-title">{testimonial.org}</h5>
+                                            <h5 className="card-title" style={testimonialsStyles.testimonialTitle}>{testimonial.org}</h5>
                                             <blockquote class="blockquote mb-0">
                                                 {testimonial.text.map((para, idx) => (
                                                     <p key={idx}>{para}</p>
                                                 ))}
                                                 {testimonial.authors?
                                                 testimonial.authors.map((auth, id) => (
-                                                    <footer key={id} class="blockquote-footer"> <cite title="Source Title">{auth}</cite></footer>
+                                                    <footer style={testimonialsStyles.testimonialAuthors} key={id} class="blockquote-footer"> <cite title="Source Title">{auth}</cite></footer>
                                                 )):null}
                                             </blockquote>
                                         </div>
@@ -106,14 +123,14 @@ const Testimonials = () => {
                             <div class="row g-1">
                             <div class="col-md-12">
                                 <div class="card-body">
-                                    <h5 className="card-title">{testimonial.org}</h5>
+                                    <h5 className="card-title" style={testimonialsStyles.testimonialTitle}>{testimonial.org}</h5>
                                     <blockquote class="blockquote mb-0">
                                         {testimonial.text.map((para, idx) => (
                                             <p key={idx}>{para}</p>
                                         ))}
                                         {testimonial.authors?
                                         testimonial.authors.map((auth, id) => (
-                                            <footer key={id} class="blockquote-footer"> <cite title="Source Title">{auth}</cite></footer>
+                                            <footer style={testimonialsStyles.testimonialAuthors} key={id} class="blockquote-footer"> <cite title="Source Title">{auth}</cite></footer>
                                         )):null}
                                     </blockquote>
                                 </div>
