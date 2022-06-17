@@ -10,9 +10,6 @@ const Footer = () => {
 
     return (
         <footer>
-            {/* <div className = "row footer-space">
-                <div className = "col-md-12"></div>
-            </div> */}
             <div className = "row navbar navbar-dark bg-dark hti-footer">
                 <div className="col-md-1"></div>
                 <div className = "col-md-2">

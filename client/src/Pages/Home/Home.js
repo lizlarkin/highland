@@ -1,6 +1,7 @@
 import React from 'react';
 import "./assets/homeStyles.css";
-import potreroVideo from './assets/HighlandHome.mp4';
+import potreroVideo from './assets/HighlandHome8.mp4';
+import homeLogo from '../../Components/Footer/Images/Highland_logo_white.png';
 import VME from '../Product/Images/V120_VME_PCIE_Crate_Controller_1.png';
 import DDG from '../Product/Images/P500_Digital_Delay_Generator_1.png';
 import PulseGen from '../Product/Images/J270_Pulse_Generator_1.png';
@@ -32,6 +33,14 @@ const Home = () => {
         ["Legacy", Legacy, "LEG"],
     ]
 
+    const custom = [
+        "Picosecond timing",
+        "Precision analog and mixed signal processing",
+        "Digital delay and pulse generation",
+        "High speed photonics and fiberoptic timing distribution",
+        "Aerospace instrumentation and simulation",
+    ]
+
     return (
         <div>
             <div className="row">
@@ -42,48 +51,39 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="row grey-row">
-                <h1 className="heading">Capabilities</h1>
-                <div className="row row-cols-1 row-cols-md-3 g-4">
-                {/* <div className="row"> ALSO SHOW IT LIKE THIS   */}
-                    {capabilities.map((capability, index) => (
-                            <div className="col" key={index}>
-                                <div className="card h-75 border-0 grey-row">
-                                    <div className="card-img-top align-items-center d-flex justify-content-center symbol">
-                                        <i className={capability[1]}></i>
-                                    </div>
-                                    <div className="card-body">
-                                        <h5 className="card-title capabilities">{capability[0]}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                    ))}
-                </div>
-            </div>
 
-            <div className="container-fluid">
-                <div className="row white-row">
-                    <h1 className="heading">Standard Products</h1>
-                    <div className="row">
-                        <div className="col-md-2"></div>
-                        {
-                            products.map((product, index) => (
-                                <div className="col-sm-1" key={index}>
-                                    <a href ={"/Category/"+product[2]}>
-                                        <img src={product[1]} className="img-thumbnail homeProduct" alt={product}></img>
-                                    </a>
-                                    <div className="card-body">
-                                        <h5 className="card-title capabilities">{product[0]}</h5>
-                                    </div>
-                                </div>
-                            ))
-                        }
+            <div className="content">
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <img src={homeLogo} class="img-fluid" alt="Highland Logo"/>
+                        <h1 id="slogan">Get the easy stuff somewhere else.</h1>
                     </div>
                 </div>
-            </div>
 
-            <div className="row grey-row" id="compensate-footer">
-                <h1 className="heading">Custom Electronics</h1>
+                <h1 className="home-header">Capabilities</h1>
+                <div className="row row-cols-3">
+                    {capabilities.map((capability, index) => (
+                        <div className="col" key={index}>
+                            <i className={capability[1]}></i>
+                            <h5>{capability[0]}</h5>
+                        </div>
+                    ))}
+                </div>
+
+                <h1 className="home-header">Standard Products</h1>
+                <div className="row row-cols-8">
+                    {products.map((product, idx) => (
+                        <div className="col" key={idx}>
+                            <a className="product-link" href ={"/Category/"+product[2]}>
+                                <img src={product[1]} className="img-thumbnail bgOpacity" alt={product}></img>
+                                <h5>{product[0]}</h5>
+                            </a>
+                        </div>
+                    ))}
+                </div>
+
+                <h1 className="home-header">Custom Electronics</h1>
                 <div className="row">
                     <div className="col-md-1"></div>
                     <div className="col-md-10 capabilities">
@@ -94,18 +94,13 @@ const Home = () => {
                     <div className="col-md-1"></div>
                 </div>
                 <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
                     <ul className="list-group list-group-flush">
-                            <li className="list-group-item grey-row capabilities"><i className="fa-light fa-circle-check"></i> Picosecond timing</li>
-                            <li className="list-group-item grey-row capabilities"><i className="fa-light fa-circle-check"></i> Precision analog and mixed signal processing</li>
-                            <li className="list-group-item grey-row capabilities"><i className="fa-light fa-circle-check"></i> Digital delay and pulse generation</li>
-                            <li className="list-group-item grey-row capabilities"><i className="fa-light fa-circle-check"></i> High speed photonics and fiberoptic timing distribution</li>
-                            <li className="list-group-item grey-row capabilities"><i className="fa-light fa-circle-check"></i> Aerospace instrumentation and simulation</li>
-                        </ul>
-                    </div>
-                    <div className="col-md-3"></div>
+                        {custom.map((cust, id) => (
+                            <li key={id} className="list-group-item bgOpacity"><i className="fa-light fa-circle-check"></i>{cust}</li>
+                        ))}
+                    </ul>
                 </div>
+
             </div>
 
         </div>
