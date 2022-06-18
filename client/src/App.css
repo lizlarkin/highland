@@ -1,4 +1,21 @@
 html, body {
+  height:100%;
+  width: 100%;
+}
+
+body {
+  position: relative;
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 200px;
+}
+
+#root {
+  /* position: relative;
+  height: auto;
+  min-height: 100%; */
+}
+/* html, body {
   min-height: 100vh;
   position: relative;
   margin: 0;
@@ -12,7 +29,7 @@ html, body {
 #root {
   /* margin-bottom: 5%; */
   /* margin-top: 5%; */
-}
+} */
 
 .asterisk {
   color: #D0342C;

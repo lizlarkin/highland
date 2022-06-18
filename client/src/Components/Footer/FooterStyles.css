@@ -1,12 +1,11 @@
 .hti-footer {
   color: white;
   text-align: center;
-  position: relative;
-  /* position: absolute; */
+  position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
-  min-height: 150px;
+  height: 150px;
 }
 
 .socialMedia {

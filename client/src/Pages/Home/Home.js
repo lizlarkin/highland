@@ -61,14 +61,16 @@ const Home = () => {
                     </div>
                 </div>
 
+                <div className="test-row">
                 <h1 className="home-header">Capabilities</h1>
                 <div className="row row-cols-3">
                     {capabilities.map((capability, index) => (
                         <div className="col" key={index}>
                             <i className={capability[1]}></i>
-                            <h5>{capability[0]}</h5>
+                            <h5 className="home-description">{capability[0]}</h5>
                         </div>
                     ))}
+                </div>
                 </div>
 
                 <h1 className="home-header">Standard Products</h1>
@@ -83,6 +85,7 @@ const Home = () => {
                     ))}
                 </div>
 
+                <div className="test-row">
                 <h1 className="home-header">Custom Electronics</h1>
                 <div className="row">
                     <div className="col-md-1"></div>
@@ -99,6 +102,7 @@ const Home = () => {
                             <li key={id} className="list-group-item bgOpacity"><i className="fa-light fa-circle-check"></i>{cust}</li>
                         ))}
                     </ul>
+                </div>
                 </div>
 
             </div>
