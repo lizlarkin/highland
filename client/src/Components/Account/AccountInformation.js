@@ -18,6 +18,8 @@ const AccountInformation = () => {
     //     (2): Password change
     //     (3): validation
     //     (4): Email re-verify? 
+    //     (5): phone
+    //     (6): edit all at once or one at a time?
 
     const history = useHistory();
     const { userData, setUserData, checkLoggedIn } = useContext(UserContext);
@@ -88,19 +90,34 @@ const AccountInformation = () => {
                 <div className="col-md-4"></div>
             </div>
 
+            {/* <div className="row">
+                <div className="col-md-1"></div>
+                <div className="col-md-5">
+                    <div class="form-floating mb-3">
+                        <input onClick={toggleEdit} name="firstEl" type="text" class="form-control" id="floatingInput" value={edit.firstEl?null:userData.user.firstName}/>
+                        <label for="floatingInput">First Name {edit.firstEl?"true":"false"}</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                </div>
+            </div> */}
+
             <div className="row">
                 <div className="col-md-1"></div>
                 <div className="col-md-5">
+                    
                     <div className="input-group mb-3">
                         {edit.firstEl?
                         <>
-                        <input onChange={editUser} type="text" className="form-control" placeholder="First Name" name="firstName" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-                        <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="firstEl" style={accountInfoStyles.btn}>Save</button>
+                        <input onChange={editUser} type="text" className="form-control" placeholder="First Name" name="firstName" aria-label="Recipient's username" aria-describedby="button-addon2" required/>
+                        <button onClick={saveUser} className="btn btn-outline-primary" type="button" name="firstEl" style={accountInfoStyles.btn}><i className="fa-duotone fa-floppy-disk"></i></button>
                         </>
                         :
                         <>
                         <input type="text" className="form-control" placeholder={"First Name: "+userData.user.firstName} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
-                        <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="firstEl" style={accountInfoStyles.btn}>Edit</button>
+                        <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="firstEl" style={accountInfoStyles.btn}><i className="fa-duotone fa-pen-to-square"></i></button>
                         </>
                         }
                     </div>
@@ -109,13 +126,13 @@ const AccountInformation = () => {
                     <div className="input-group mb-3">
                         {edit.lastEl?
                         <>
-                        <input onChange={editUser} type="text" className="form-control" placeholder="Last Name" name="lastName" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-                        <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="lastEl" style={accountInfoStyles.btn}>Save</button>
+                        <input onChange={editUser} type="text" className="form-control" placeholder="Last Name" name="lastName" aria-label="Recipient's username" aria-describedby="button-addon2" required/>
+                        <button onClick={saveUser} className="btn btn-outline-primary" type="button" name="lastEl" style={accountInfoStyles.btn}><i className="fa-duotone fa-floppy-disk"></i></button>
                         </>
                         :
                         <>
                         <input type="text" className="form-control" placeholder={"Last Name: "+userData.user.lastName} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
-                        <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="lastEl" style={accountInfoStyles.btn}>Edit</button>
+                        <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="lastEl" style={accountInfoStyles.btn}><i className="fa-duotone fa-pen-to-square"></i></button>
                         </>
                         }
                     </div>
@@ -129,7 +146,7 @@ const AccountInformation = () => {
                     <div className="input-group mb-3">
                         {edit.orgEl?
                         <>
-                        <input onChange={editUser} type="text" className="form-control" placeholder="Organization" name="organization" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                        <input onChange={editUser} type="text" className="form-control" placeholder="Organization" name="organization" aria-label="Recipient's username" aria-describedby="button-addon2" required/>
                         <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="orgEl" style={accountInfoStyles.btn}>Save</button>
                         </>
                         :
@@ -144,7 +161,7 @@ const AccountInformation = () => {
                     <div className="input-group mb-3">
                         {edit.emailEl?
                         <>
-                        <input onChange={editUser} type="text" className="form-control" placeholder="Email" name="email" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                        <input onChange={editUser} type="text" className="form-control" placeholder="Email" name="email" aria-label="Recipient's username" aria-describedby="button-addon2" required/>
                         <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="emailEl" style={accountInfoStyles.btn}>Save</button>
                         </>
                         :
@@ -164,7 +181,7 @@ const AccountInformation = () => {
                     <div className="input-group mb-3">
                         {edit.phoneEl?
                         <>
-                        <input onChange={editUser} type="tel" className="form-control" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$" placeholder="Phone" name="phone" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+                        <input onChange={editUser} type="tel" className="form-control" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$" placeholder="Phone" name="phone" aria-label="Recipient's username" aria-describedby="button-addon2" required/>
                         <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="phoneEl" style={accountInfoStyles.btn}>Save</button>
                         </>
                         :

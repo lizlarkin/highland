@@ -27,7 +27,7 @@ module.exports = {
         const transporter = nodemailer.createTransport({
             service: "Outlook365",
             auth: {
-                user: "lizlarkin@highlandtechnology.com",
+                user: "no-reply@highlandtechnology.com",
                 pass: process.env.EPASS,
             },
         });
