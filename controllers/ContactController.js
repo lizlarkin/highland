@@ -41,9 +41,19 @@ module.exports = {
             Hi ${successSave.firstName + " " + successSave.lastName},
 
             We have received your ${successSave.subject==="Other"?"request":successSave.subject}. A member of our team will respond shortly. 
+
+            The following is a copy of your request for your records:
+            Subject: ${successSave.subject}
+            Comments: ${successSave.comments===undefined?"":successSave.comments}
+            ${successSave.subject==="RMA Request"?
+            `Serial Number: ${successSave.serialNum===undefined?"":successSave.serialNum}
+            Model: ${successSave.model===undefined?"":successSave.model}
+            Version: ${successSave.version===undefined?"":successSave.version}`
+            :" "}
             
             For immediate assistance, please contact us at (415) 551-1700.
             
+            Thank you,
             Highland Technology
             `
         }
@@ -52,7 +62,7 @@ module.exports = {
         const emailSales = {
             from: "no-reply@highlandtechnology.com",
             // CHANGE HERE FOR WHO GETS INTERNAL EMAIL
-            to: "enlarkin@gmail.com",
+            to: "lizlarkin@highlandtechnology.com",
             subject: `New ${successSave.subject==="Other"?" Request Received":successSave.subject + " Received"}`,
             text: 
                 `

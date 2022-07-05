@@ -70,16 +70,16 @@ module.exports = {
 
                 console.log("confirm token from user controller", confirmationToken);
 
-                // Email From
+                // Email From 
                 const transporter = nodemailer.createTransport({
                     service: "Outlook365",
                     auth: {
-                        user: "lizlarkin@highlandtechnology.com",
+                        user: "no-reply@highlandtechnology.com",
                         pass: process.env.EPASS,
                     },
                 });
 
-                // Email To
+                // Email To Client
                 const mailOptions = {
                     from: "no-reply@highlandtechnology.com",
                     to: newUser.email,
@@ -87,11 +87,35 @@ module.exports = {
                     text: `Please click link to confirm account: http://localhost:3000/confirm_token/${confirmationToken.token}`,
                 }
 
+                // Email To Sales
+                const emailSales = {
+                    from: "no-reply@highlandtechnology.com",
+                    to: "lizlarkin@highlandtechnology.com",
+                    subject: "New Website Registration",
+                    text: `New registered user: 
+                    Name: ${newUser.firstName + " " + newUser.lastName}
+                    Email: ${newUser.email}
+                    Organization: ${newUser.organization}
+                    Phone: ${newUser.phone}
+                    City, State: ${newUser.city + ", " + newUser.state}
+                    Country: ${newUser.country}
+                    Opt In: ${newUser.optIn}
+                    `,
+                }
+
                 transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
                         console.log(error);
                     } else {
                         console.log(`Email was sent with: http://localhost:3000/confirm_token/${confirmationToken.token}`);
+                    }
+                });
+
+                transporter.sendMail(emailSales, (error, info) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log("Quote Email Sent to Highland Sales");
                     }
                 });
 
