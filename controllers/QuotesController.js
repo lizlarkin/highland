@@ -46,7 +46,7 @@ ${successSave.products.map((productsArr, index) => (
             +"-"
             +product.version.map((vers, id) => (
                 vers
-            ))
+            )).join("")
             +" "
             +product.name
             +"\n"
@@ -54,15 +54,14 @@ ${successSave.products.map((productsArr, index) => (
             +product.qty 
             +"\n"
             +"Configuration:"    
-            +product.config.map((configuration, i) => (
-                " "+configuration
-            ))
+            +product.config.filter(x=>x).join(", ")
             +"\n"
             +"Accessories:"
+            +"\n"
             +product.acc.map((acOb, iac) => (
                 Object.entries(acOb).map((accessory, i) => (
-                    " "+ accessory[0]+": "+accessory[1][0]+" (Quantity "+accessory[1][1]+")"
-                ))
+                    " "+ accessory[0]+": "+accessory[1][0]+" (Quantity "+accessory[1][1]+")"+"\n"
+                )).join("")
             ))
             +"\n"
             +"\n"
@@ -85,7 +84,6 @@ ${successSave.products.map((productsArr, index) => (
                 ))
             ))
             +"\n"
-            +"\n"
         )).join("")
     ))
 }
@@ -99,7 +97,7 @@ Highland Technology
     // Email To Sales
         const emailSales = {
             from: "no-reply@highlandtechnology.com",
-            to: "sales@highlandtechnology.com",
+            to: "lizlarkin@highlandtechnology.com",
             subject: `Quote Request From Website`,
             text: 
                 `
@@ -121,7 +119,7 @@ ${successSave.products.map((productsArr, index) => (
             +"-"
             +product.version.map((vers, id) => (
                 vers
-            ))
+            )).join("")
             +"\n"
             +"Quantity: "
             +product.qty 

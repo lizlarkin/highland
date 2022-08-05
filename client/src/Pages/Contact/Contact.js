@@ -6,9 +6,7 @@ import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 // TO DO:
 //     (1) better Map
 //     (2) keep contact history in account section
-//     (3) change auth to no-reply
 //     (4) page reset uses location.window.reload() - find something more sophisticated
-//     (5) change internal send to sales@
 //     (6) contact db will grow too large
 
 
@@ -172,11 +170,11 @@ const Contact = () => {
                             <option selected>Choose Topic</option>
                             <option>Technical Inquiry</option>
                             <option>Sales Inquiry</option>
-                            <option>RMA Request</option>
+                            <option>RMA Request (Repair/Calibration Services)</option>
                             <option>Other</option>
                             </select>
                         </div>
-                        {form.subject==="RMA Request"?
+                        {form.subject==="RMA Request (Repair/Calibration Services)"?
                         <div className="row">
                             <p style={contactStyles.marginTop}>Please provide as much information as possible about unit pending return:</p>
                             <div className="col-md-4">
@@ -194,7 +192,7 @@ const Contact = () => {
                         </div>
                         :null}
                         <div className="col-md-12">
-                            <label for="inputState" className="form-label">Comments</label>
+                            <label for="inputState" className="form-label">{form.subject==="RMA Request (Repair/Calibration Services)"?"Reason for Return":"Comments"}</label>
                             <div className="input-group">
                                 <textarea onChange={storeInputs} className="form-control" aria-label="With textarea" name="comments"></textarea>
                             </div>

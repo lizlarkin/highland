@@ -122,7 +122,7 @@ let productSeed = [
       category: ["PHO"],
       features: [],
       description: "Accepts an adjustable digital logic level input and functions as a fast fiber-coupled laser source.",
-      imgCaptions: ["J724 single-channel compact buffered electrical-to-fiberoptic converter"],
+      imgCaptions: ["J724 single-channel compact buffered electrical-to-fiberoptic converter", "", "J724 w/ ST connectorization", "J724 w/ FC connectorization", "", "J724 w/ Pigtail FC-APC connectorization"],
       about: [],
       related: [],
       specifications: [],
@@ -1372,7 +1372,6 @@ let productSeed = [
         ["optional", "built-in self-test", 1, [21, "add BIST"]],
       ],
       accessories: [
-        ["J999-1", "test","test"],
       ],
       FAQs: [
         ["Does the V120 come with OS support?", "We provide a fully open-source Linux driver as well as C libraries and some command line applications. See resources tab for link to download drivers."], 
@@ -1820,9 +1819,6 @@ let productSeed = [
       ],
       accessories: [
         ["J75-1", "D9 female to two (2) dual banana plug cable",],
-        ["J99-1", "old example"],
-        // ["J41-1", "test1", "(1 included with purchase)"],
-        // ["J42-1", "test2"],
       ],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],

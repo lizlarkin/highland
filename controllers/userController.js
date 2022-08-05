@@ -115,7 +115,7 @@ module.exports = {
                     if (error) {
                         console.log(error);
                     } else {
-                        console.log("Quote Email Sent to Highland Sales");
+                        console.log("Registration Email Sent to Highland Sales");
                     }
                 });
 
@@ -210,8 +210,27 @@ module.exports = {
         }
     },
 
-    updateUser: async (req, res) => {
+    updateBasicUser: async (req, res) => {
         try {
+
+            // const existingUser = await User.findOne({ email: req.body.email });
+            // console.log('existing user from update: ', existingUser)
+
+            // if (existingUser.email) {
+            //     console.log('fail update email')
+            //     return res.status(400).json({ msg: "Email is already registered." })
+            // }
+
+            // const newPhone = req.body.phone;
+            // console.log('new phone from update: ', newPhone)
+
+            // const standardPhone = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
+
+            // if (newPhone.value.match(standardPhone)) {
+            //     console.log('ran')
+            //     return res.status(400).json({ msg: "Phone is incorrect. Please try again." })
+            // }
+
             const userToUpdate = await User.updateOne(
                 { _id: req.params.id },
                 {

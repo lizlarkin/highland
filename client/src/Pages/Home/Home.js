@@ -13,6 +13,9 @@ import Legacy from '../Product/Images/P730_Optical_Electrialc_Fanout_Buffer_1.pn
 
 const Home = () => {
 
+    // TO DO:
+    // (1) responsive needs work
+
     const capabilities = [
         ["Standard and custom electronics", "fa-light fa-waveform fa-5x"],
         ["Pulse and picosecond timing delay generation", "fa-light fa-wave-square fa-5x"],
@@ -34,11 +37,11 @@ const Home = () => {
     ]
 
     const custom = [
-        "Picosecond timing",
-        "Precision analog and mixed signal processing",
-        "Digital delay and pulse generation",
-        "High speed photonics and fiberoptic timing distribution",
-        "Aerospace instrumentation and simulation",
+        " Picosecond timing",
+        " Precision analog and mixed signal processing",
+        " Digital delay and pulse generation",
+        " High speed photonics and fiberoptic timing distribution",
+        " Aerospace instrumentation and simulation",
     ]
 
     return (

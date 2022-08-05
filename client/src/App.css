@@ -8,6 +8,7 @@ body {
   height: auto;
   min-height: 100%;
   padding-bottom: 200px;
+  overflow-x: hidden;
 }
 
 .asterisk {

@@ -31,6 +31,11 @@ import J720_4 from "./J720_Electrical_Optical_Converter_4.png";
 import J720_5 from "./J720_Electrical_Optical_Converter_5.png"; 
 import J720_6 from "./J720_Electrical_Optical_Converter_6.png";
 import J724_1 from "./J724_Electrical_Fiberoptic_Converter_1.png"; 
+import J724_2 from "./J724_Electrical_Fiberoptic_Converter_2.png"; 
+import J724_3 from "./J724_Electrical_Fiberoptic_Converter_3.png"; 
+import J724_4 from "./J724_Electrical_Fiberoptic_Converter_4.png"; 
+import J724_5 from "./J724_Electrical_Fiberoptic_Converter_5.png"; 
+import J724_6 from "./J724_Electrical_Fiberoptic_Converter_6.png"; 
 import J730_1 from "./J730_Optic_Electric_Converter_1.png"; 
 import J730_2 from "./J730_Optic_Electric_Converter_2.png";
 import J730_3 from "./J730_Optic_Electric_Converter_3.png";
@@ -157,6 +162,8 @@ import T760_1 from "./T760_High_Voltage_Optical_Electrical_Converter_1.png";
 import T760_2 from "./T760_High_Voltage_Optical_Electrical_Converter_2.png";
 import T760_3 from "./T760_High_Voltage_Optical_Electrical_Converter_3.png";
 import T840_1 from "./T840_High_Voltage_Driver_1.png";
+import T840_2 from "./T840_High_Voltage_Driver_2.png";
+import T840_3 from "./T840_High_Voltage_Driver_3.png";
 import T850_1 from "./T850_Pockels_Cell_Driver_1.png";
 import T850_2 from "./T850_Pockels_Cell_Driver_2.png";
 import T850_3 from "./T850_Pockels_Cell_Driver_3.png";
@@ -219,6 +226,9 @@ import V360_2 from "./V360_VME_Tachometer_2.png";
 import V360_3 from "./V360_VME_Tachometer_3.png";
 import V360_4 from "./V360_VME_Tachometer_4.png";
 import V365_1 from "./V365_VME_Overspeed_Underspeed_Tachometer_1.png";
+import V365_2 from "./V365_VME_Overspeed_Underspeed_Tachometer_2.png";
+import V365_3 from "./V365_VME_Overspeed_Underspeed_Tachometer_3.png";
+import V365_4 from "./V365_VME_Overspeed_Underspeed_Tachometer_4.png";
 import V375_1 from "./V375_VME_Arbitrary_Waveform_Generator_1.png";
 import V375_2 from "./V375_VME_Arbitrary_Waveform_Generator_2.png";
 import V375_3 from "./V375_VME_Arbitrary_Waveform_Generator_3.png";
@@ -262,6 +272,9 @@ import V550_3 from "./V550_VME_LVDT_RVDT_Scanner_3.png";
 import V550_4 from "./V550_VME_LVDT_RVDT_Scanner_4.png";
 import V660_1 from "./V660_VME_Time_Interval_Measurement_1.png";
 import V680_1 from "./V680_VME_Time_To_Digital_Converter_1.png";
+import V680_2 from "./V680_VME_Time_To_Digital_Converter_2.png";
+import V680_3 from "./V680_VME_Time_To_Digital_Converter_3.png";
+import V680_4 from "./V680_VME_Time_To_Digital_Converter_4.png";
 import V720_1 from "./V720_VME_Electrical_Optical_Converter_1.png";
 import V730_1 from "./V730_VME_Optical_Electrical_Converter_1.png";
 import V730_2 from "./V730_VME_Optical_Electrical_Converter_2.png";
@@ -324,6 +337,11 @@ const J720PhotoArr = [
 
 const J724PhotoArr = [
     J724_1,
+    J724_2,
+    J724_3,
+    J724_4,
+    J724_5,
+    J724_6,
 ]
 
 const J730PhotoArr = [
@@ -536,6 +554,8 @@ const T760PhotoArr = [
 
 const T840PhotoArr = [
     T840_1,
+    T840_2,
+    T840_3,
 ]
 
 const T850PhotoArr = [
@@ -646,6 +666,9 @@ const V360PhotoArr = [
 
 const V365PhotoArr = [
     V365_1,
+    V365_2,
+    V365_3,
+    V365_4,
 ]
 
 const V375PhotoArr = [
@@ -728,6 +751,9 @@ const V660PhotoArr = [
 
 const V680PhotoArr = [
     V680_1,
+    V680_2,
+    V680_3,
+    V680_4,
 ]
 
 const V720PhotoArr = [
