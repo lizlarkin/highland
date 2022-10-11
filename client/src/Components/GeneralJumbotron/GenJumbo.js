@@ -58,7 +58,7 @@ const GenJumbo = () => {
                 setBackground(Search) 
                 setTitle("Search Results") 
                 setText("")
-            }
+            }  
         };
         assignJumbotronData();
     }, [pageName])

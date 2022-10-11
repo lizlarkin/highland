@@ -24,9 +24,9 @@ const AccountInformation = () => {
     const { userData, setUserData, checkLoggedIn } = useContext(UserContext);
 
     const [edit, setEdit] = useState({
-        firstEl: false,
-        lastEl: false,
-        orgEl: false,
+        firstNameEl: false,
+        lastNameEl: false,
+        organizationEl: false,
         emailEl: false,
         phoneEl: false,
         optInEl: false,
@@ -91,27 +91,27 @@ const AccountInformation = () => {
             </div>
 
             <div>
-                {/* <div className="row">
+                <div className="row">
                     {Object.entries(userData.user).map((basicUserData, idx) => (
                         <>    
                             <div className="col-md-1"></div>
                             <div className="col-md-5">
-                                {edit.firstEl?
+                                {edit.firstNameEl?
                                     <div className="form-floating mb-3" key={idx}>
-                                        <input onChange={editUser} type="text" name="firstName" className="form-control" id="floatingInput"/>
-                                        <label for="floatingInput">First Name</label>
-                                        <button onClick={saveUser} name="firstEl" className="btn btn-outline-danger" type="button" id="button-addon2">Save<i className="fa-duotone fa-floppy-disk"></i></button>
+                                        <input onChange={editUser} type="text" name={basicUserData[0]} className="form-control" id="floatingInput"/>
+                                        <label for="floatingInput">{basicUserData[0]}</label>
+                                        <button onClick={saveUser} name={basicUserData[0]+"El"} className="btn btn-outline-danger" type="button" id="button-addon2">Save<i className="fa-duotone fa-floppy-disk"></i></button>
                                     </div>
                                     :
                                     <div className="input-group mb-3">
                                         <input type="text" className="form-control" placeholder={basicUserData[0]+": " + basicUserData[1]} disabled/>
-                                        <button onClick={toggleEdit} name="firstEl" className="btn btn-outline-secondary" type="button" id="button-addon2">Edit<i className="fa-duotone fa-pen-to-square"></i></button>
+                                        <button onClick={toggleEdit} name={basicUserData[0]+"El"} className="btn btn-outline-secondary" type="button" id="button-addon2">Edit<i className="fa-duotone fa-pen-to-square"></i></button>
                                     </div>
                                 }
                             </div>
                         </>
                     ))}
-                </div> */}
+                </div>
             </div>
         </div>
         // <div>
