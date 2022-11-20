@@ -44,15 +44,11 @@ const AccountInformation = () => {
         }
     }
 
-    // Set Opt-In to true/false when subscribe/unsubscribe button is hit
-    const editOpt = async (e) => {
-        let newPreference = !e.target.value
-        console.log(newPreference)
+    // Set Opt-In to true/false when subscribe/unsubscribe button is clicked
+    const saveOpt = async (e) => {
         e.preventDefault();
         try {
-            const updatedUser = await axios.put(`/users/updateOpt/${userData.user.id}`)
-            setUserData({...userData, optIn: newPreference})
-            console.log(updatedUser)
+            const updatedUser = await axios.put(`/users/updateOpt/${userData.user.id}`, {optIn: !userData.user.optIn})
         } catch (error) {
             console.log(error)
         }
@@ -76,7 +72,6 @@ const AccountInformation = () => {
     
     useEffect(() => {
         checkLoggedIn();
-
     }, [userData])
     
 
@@ -137,6 +132,7 @@ const AccountInformation = () => {
                 <div className="col-md-5"></div>
             </div>
 
+            {/* OPT-IN SECTION */}
             <div className="row">
                 <div className="col-md-4"></div>
                     <div className="col-md-4 heading">
@@ -158,7 +154,7 @@ const AccountInformation = () => {
             <div className="row p-3">
                 <div className="col-md-5"></div>
                 <div className="col-md-2">
-                    <button onClick={editOpt} type="button" className="btn btn-outline-primary" value={userData.user.optIn} style={accountInfoStyles.btn}>{userData.user.optIn?"Unsubscribe":"Subscribe"}</button>
+                    <button onClick={saveOpt} type="button" className="btn btn-outline-primary" style={accountInfoStyles.btn}>{userData.user.optIn?"Unsubscribe":"Subscribe"}</button>
                 </div>
                 <div className="col-md-5"></div>
             </div>

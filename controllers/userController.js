@@ -224,6 +224,7 @@ module.exports = {
         }
     },
 
+    // Update Opt-In User Preference
     updateOpt: async (req, res) => {
         try {
             const userToUpdate = await User.updateOne(
