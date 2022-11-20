@@ -212,6 +212,33 @@ module.exports = {
 
     updateBasicUser: async (req, res) => {
         try {
+            const userToUpdate = await User.updateOne(
+                { _id: req.params.id },
+                {
+                    $set: req.body
+                }
+            );
+            res.json(userToUpdate)
+        } catch (error) {
+            res.send(error.response)
+        }
+    },
+
+    updateOpt: async (req, res) => {
+        try {
+            const userToUpdate = await User.updateOne(
+                { _id: req.params.id },
+                {
+                    $set: {optIn: req.body.optIn}
+                }
+            );
+            res.json(userToUpdate)
+        } catch (error) {
+            res.send(error.response)
+        }
+    },
+
+            // try {
 
             // const existingUser = await User.findOne({ email: req.body.email });
             // console.log('existing user from update: ', existingUser)
@@ -231,17 +258,16 @@ module.exports = {
             //     return res.status(400).json({ msg: "Phone is incorrect. Please try again." })
             // }
 
-            const userToUpdate = await User.updateOne(
-                { _id: req.params.id },
-                {
-                    $set: req.body
-                }
-            );
-            res.json(userToUpdate)
-        } catch (error) {
-            res.send(error.response)
-        }
-    },
+        //     const userToUpdate = await User.updateOne(
+        //         { _id: req.params.id },
+        //         {
+        //             $set: req.body
+        //         }
+        //     );
+        //     res.json(userToUpdate)
+        // } catch (error) {
+        //     res.send(error.response)
+        // }
 
     deleteUser: async (req, res) => {
         try {

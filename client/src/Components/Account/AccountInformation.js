@@ -5,62 +5,62 @@ import { useHistory } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
 
 const AccountInformation = () => {
+    
+    const history = useHistory();
+    const { userData, setUserData, checkLoggedIn } = useContext(UserContext);
 
     const accountInfoStyles = {
         btn: {
-            width: "20%"
-        }
+            width: "100%"
+        },
     }
-
     // TO DO:
-    //     (0): Edit basic user data
+    //     (0): Edit basic user data - DONE
+    //     (.5): Edit opt-in
     //     (1): Fix Delete User
     //     (2): Password change
     //     (3): validation
     //     (4): Email re-verify? 
     //     (5): phone
+    //     (6): refresh pr confirm when changes are made
 
-    const history = useHistory();
-    const { userData, setUserData, checkLoggedIn } = useContext(UserContext);
-
-    const [edit, setEdit] = useState({
-        firstNameEl: false,
-        lastNameEl: false,
-        organizationEl: false,
-        emailEl: false,
-        phoneEl: false,
-        optInEl: false,
-        streetEl: false,
-        cityEl: false, 
-        stateEl: false,
-        countryEl: false,
-    })
-
-    const toggleEdit = (e) => {
-        setEdit({...edit, [e.target.name]: true});
-    }
-
+    // Variable for basic user data
     const [form, setForm] = useState({});
 
-    const editUser = (e) => {
+    // Set state with basic user data
+    const editBasicUser = (e) => {
         setForm({...form, [e.target.name]: e.target.value});  
     }
 
-    const handleOpt = (e) => {
-        console.log("opt in value: ", e.target.value)
-        setForm({...form, optIn: e.target.value});
-    }
-
+    // Save basic user data
     const saveUser = async (e) => {
         e.preventDefault();
         try {
             const updatedUser = await axios.put(`/users/updateBasicUser/${userData.user.id}`, form)
-            setEdit({...edit, [e.target.name]: false});
             setUserData({...userData, form})
             console.log("success update info", updatedUser);
         } catch (error) {
             console.log(error)
         }
+    }
+
+    // Set Opt-In to true/false when subscribe/unsubscribe button is hit
+    const editOpt = async (e) => {
+        let newPreference = !e.target.value
+        console.log(newPreference)
+        e.preventDefault();
+        try {
+            const updatedUser = await axios.put(`/users/updateOpt/${userData.user.id}`)
+            setUserData({...userData, optIn: newPreference})
+            console.log(updatedUser)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    // prevShowForm => !prevShowForm
+
+    const editPass = (e) => {
+        console.log('edit pass')
     }
 
     const deleteUser = async () => {
@@ -85,233 +85,114 @@ const AccountInformation = () => {
             <div className="row">
                 <div className="col-md-4"></div>
                     <div className="col-md-4 heading">
-                        <h3>Account Information</h3>
+                        <h3>Profile Information</h3>
                     </div>
                 <div className="col-md-4"></div>
             </div>
 
-            <div>
-                <div className="row">
-                    {Object.entries(userData.user).map((basicUserData, idx) => (
-                        <>    
-                            <div className="col-md-1"></div>
-                            <div className="col-md-5">
-                                {edit.firstNameEl?
-                                    <div className="form-floating mb-3" key={idx}>
-                                        <input onChange={editUser} type="text" name={basicUserData[0]} className="form-control" id="floatingInput"/>
-                                        <label for="floatingInput">{basicUserData[0]}</label>
-                                        <button onClick={saveUser} name={basicUserData[0]+"El"} className="btn btn-outline-danger" type="button" id="button-addon2">Save<i className="fa-duotone fa-floppy-disk"></i></button>
-                                    </div>
-                                    :
-                                    <div className="input-group mb-3">
-                                        <input type="text" className="form-control" placeholder={basicUserData[0]+": " + basicUserData[1]} disabled/>
-                                        <button onClick={toggleEdit} name={basicUserData[0]+"El"} className="btn btn-outline-secondary" type="button" id="button-addon2">Edit<i className="fa-duotone fa-pen-to-square"></i></button>
-                                    </div>
-                                }
-                            </div>
-                        </>
-                    ))}
+            <div className="row">
+                <div className="col-md-1"></div>
+                <div className="col g-4">
+                    <label className="form-label">First Name</label>
+                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.firstName} name="firstName"/>
                 </div>
+                <div className="col g-4">
+                    <label className="form-label">Last Name</label>
+                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.lastName} name="lastName"/>
+                </div>
+                <div className="col-md-1"></div>
             </div>
+
+            <div className="row">
+                <div className="col-md-1"></div>
+                <div className="col g-4">
+                    <label className="form-label">Organization</label>
+                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.organization} name="organization"/>
+                </div>
+                <div className="col g-4">
+                    <label className="form-label">Phone</label>
+                    <input onChange={editBasicUser} type="tel" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"  className="form-control" placeholder={userData.user.phone} name="phone"/>
+                </div>
+                <div className="col-md-1"></div>
+            </div>
+
+            <div className="row">
+                <div className="col-md-1"></div>
+                <div class="col g-4">
+                    <label className="form-label">State</label>
+                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.state} name="state"/>
+                </div>
+                <div class="col g-4">
+                    <label className="form-label">Country</label>
+                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.country} name="country"/>
+                </div>
+                <div className="col-md-1"></div>
+            </div>
+
+            <div className="row p-3">
+                <div className="col-md-5"></div>
+                <div className="col-md-2">
+                    <button onClick={saveUser}type="button" className="btn btn-outline-success" style={accountInfoStyles.btn}>Update Profile</button>
+                </div>
+                <div className="col-md-5"></div>
+            </div>
+
+            <div className="row">
+                <div className="col-md-4"></div>
+                    <div className="col-md-4 heading">
+                        <h3>Subscription Information</h3>
+                    </div>
+                <div className="col-md-4"></div>
+            </div>
+
+            <div className="row">
+                <div className="col-md-1"></div>
+                <div className="col-md-10 d-flex justify-content-center">
+                    <div>
+                        You are currently {userData.user.optIn?"subscribed":"unsubscribed"} to Highland's newsletter.
+                    </div>
+                </div>
+                <div className="col-md-1"></div>
+            </div>
+
+            <div className="row p-3">
+                <div className="col-md-5"></div>
+                <div className="col-md-2">
+                    <button onClick={editOpt} type="button" className="btn btn-outline-primary" value={userData.user.optIn} style={accountInfoStyles.btn}>{userData.user.optIn?"Unsubscribe":"Subscribe"}</button>
+                </div>
+                <div className="col-md-5"></div>
+            </div>
+
+            <div className="row">
+                <div className="col-md-4"></div>
+                    <div className="col-md-4 heading">
+                        <h3>Password Reset</h3>
+                    </div>
+                <div className="col-md-4"></div>
+            </div>
+
+            <div className="row">
+                <div className="col-md-1"></div>
+                <div class="col g-4">
+                    <label className="form-label">New Password</label>
+                    <input onChange={editPass} type="password" className="form-control" name="firstName"/>
+                </div>
+                <div class="col g-4">
+                    <label className="form-label">Confirm New Password</label>
+                    <input onChange={editPass} type="password" className="form-control" name="lastName"/>
+                </div>
+                <div className="col-md-1"></div>
+            </div>
+
+            <div className="row p-3">
+                <div className="col-md-5"></div>
+                <div className="col-md-2">
+                    <button type="button" className="btn btn-outline-danger" style={accountInfoStyles.btn}>Update Password</button>
+                </div>
+                <div className="col-md-5"></div>
+            </div>
+
         </div>
-        // <div>
-        //     <div className="row">
-        //         <div className="col-md-4"></div>
-        //         <div className="col-md-4 heading">
-        //             <h3>Account Information</h3>
-        //         </div>
-        //         <div className="col-md-4"></div>
-        //     </div>
-
-        //     <div className="row">
-        //         <div className="col-md-1"></div>
-        //         <div className="col-md-5">
-                    
-        //             <div className="input-group mb-3">
-        //                 {edit.firstEl?
-        //                 <>
-        //                 <input onChange={editUser} type="text" className="form-control" placeholder="First Name" name="firstName" aria-label="Recipient's username" aria-describedby="button-addon2" required/>
-        //                 <button onClick={saveUser} className="btn btn-outline-primary" type="button" name="firstEl" style={accountInfoStyles.btn}><i className="fa-duotone fa-floppy-disk"></i></button>
-        //                 </>
-        //                 :
-        //                 <>
-        //                 <input type="text" className="form-control" placeholder={"First Name: "+userData.user.firstName} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
-        //                 <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="firstEl" style={accountInfoStyles.btn}><i className="fa-duotone fa-pen-to-square"></i></button>
-        //                 </>
-        //                 }
-        //             </div>
-        //         </div>
-        //         <div className="col-md-5">
-        //             <div className="input-group mb-3">
-        //                 {edit.lastEl?
-        //                 <>
-        //                 <input onChange={editUser} type="text" className="form-control" placeholder="Last Name" name="lastName" aria-label="Recipient's username" aria-describedby="button-addon2" required/>
-        //                 <button onClick={saveUser} className="btn btn-outline-primary" type="button" name="lastEl" style={accountInfoStyles.btn}><i className="fa-duotone fa-floppy-disk"></i></button>
-        //                 </>
-        //                 :
-        //                 <>
-        //                 <input type="text" className="form-control" placeholder={"Last Name: "+userData.user.lastName} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
-        //                 <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="lastEl" style={accountInfoStyles.btn}><i className="fa-duotone fa-pen-to-square"></i></button>
-        //                 </>
-        //                 }
-        //             </div>
-        //         </div>
-        //         <div className="col-md-1"></div>
-        //     </div>
-
-        //     <div className="row">
-        //         <div className="col-md-1"></div>
-        //         <div className="col-md-5">
-        //             <div className="input-group mb-3">
-        //                 {edit.orgEl?
-        //                 <>
-        //                 <input onChange={editUser} type="text" className="form-control" placeholder="Organization" name="organization" aria-label="Recipient's username" aria-describedby="button-addon2" required/>
-        //                 <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="orgEl" style={accountInfoStyles.btn}>Save</button>
-        //                 </>
-        //                 :
-        //                 <>
-        //                 <input type="text" className="form-control" placeholder={"Organization: "+userData.user.organization} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
-        //                 <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="orgEl" style={accountInfoStyles.btn}>Edit</button>
-        //                 </>
-        //                 }
-        //             </div>
-        //         </div>
-        //         <div className="col-md-5">
-        //             <div className="input-group mb-3">
-        //                 {edit.emailEl?
-        //                 <>
-        //                 <input onChange={editUser} type="text" className="form-control" placeholder="Email" name="email" aria-label="Recipient's username" aria-describedby="button-addon2" required/>
-        //                 <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="emailEl" style={accountInfoStyles.btn}>Save</button>
-        //                 </>
-        //                 :
-        //                 <>
-        //                 <input type="text" className="form-control" placeholder={"Email: "+userData.user.email} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
-        //                 <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="emailEl" style={accountInfoStyles.btn}>Edit</button>
-        //                 </>
-        //                 }
-        //             </div>
-        //         </div>
-        //         <div className="col-md-1"></div>
-        //     </div>
-
-        //     <div className="row">
-        //         <div className="col-md-1"></div>
-        //         <div className="col-md-5">
-        //             <div className="input-group mb-3">
-        //                 {edit.phoneEl?
-        //                 <>
-        //                 <input onChange={editUser} type="tel" className="form-control" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$" placeholder="Phone" name="phone" aria-label="Recipient's username" aria-describedby="button-addon2" required/>
-        //                 <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="phoneEl" style={accountInfoStyles.btn}>Save</button>
-        //                 </>
-        //                 :
-        //                 <>
-        //                 <input type="text" className="form-control" placeholder={"Phone: "+userData.user.phone} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
-        //                 <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="phoneEl" style={accountInfoStyles.btn}>Edit</button>
-        //                 </>
-        //                 }
-        //             </div>
-        //         </div>
-        //         <div className="col-md-5">
-        //             <div className="input-group mb-3">
-        //                 {edit.optInEl?
-        //                 <>
-        //                 <select onChange={handleOpt} name="optIn" className="form-select" aria-label="Default select example">
-        //                     <option>Change Opt-In Election</option>
-        //                     <option value="true">Opt In to Communications</option>
-        //                     <option value="false">Opt Out of Communications</option>
-        //                 </select>
-        //                 <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="optInEl" style={accountInfoStyles.btn}>Save</button>
-        //                 </>
-        //                 :
-        //                 <>
-        //                 <input type="text" className="form-control" placeholder={userData.user.optIn?"Opt Into Communications: Yes":"Opt Into Communications: No"} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
-        //                 <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="optInEl" style={accountInfoStyles.btn}>Edit</button>
-        //                 </>
-        //                 }
-        //             </div>
-        //         </div>
-        //         <div className="col-md-1"></div>
-        //     </div>
-
-        //     <div className="row">
-        //         <div className="col-md-1"></div>
-        //         <div className="col-md-5">
-        //             <div className="input-group mb-3">
-        //                 {edit.streetEl?
-        //                 <>
-        //                 <input onChange={editUser} type="text" className="form-control" placeholder="Street Address" name="street" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-        //                 <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="streetEl" style={accountInfoStyles.btn}>Save</button>
-        //                 </>
-        //                 :
-        //                 <>
-        //                 <input type="text" className="form-control" placeholder={"Street: "+userData.user.street} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
-        //                 <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="streetEl" style={accountInfoStyles.btn}>Edit</button>
-        //                 </>
-        //                 }
-        //             </div>
-        //         </div>
-        //         <div className="col-md-5">
-        //             <div className="input-group mb-3">
-        //                 {edit.cityEl?
-        //                 <>
-        //                 <input onChange={editUser} type="text" className="form-control" placeholder="City" name="city" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-        //                 <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="cityEl" style={accountInfoStyles.btn}>Save</button>
-        //                 </>
-        //                 :
-        //                 <>
-        //                 <input type="text" className="form-control" placeholder={"City: "+userData.user.city} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
-        //                 <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="cityEl" style={accountInfoStyles.btn}>Edit</button>
-        //                 </>
-        //                 }
-        //             </div>
-        //         </div>
-        //         <div className="col-md-1"></div>
-        //     </div>
-
-        //     <div className="row">
-        //         <div className="col-md-1"></div>
-        //         <div className="col-md-5">
-        //             <div className="input-group mb-3">
-        //                 {edit.stateEl?
-        //                 <>
-        //                 <input onChange={editUser} type="text" className="form-control" placeholder="State" name="state" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-        //                 <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="stateEl" style={accountInfoStyles.btn}>Save</button>
-        //                 </>
-        //                 :
-        //                 <>
-        //                 <input type="text" className="form-control" placeholder={"State: "+userData.user.state} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
-        //                 <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="stateEl" style={accountInfoStyles.btn}>Edit</button>
-        //                 </>
-        //                 }
-        //             </div>
-        //         </div>
-        //         <div className="col-md-5">
-        //             <div className="input-group mb-3">
-        //                 {edit.countryEl?
-        //                 <>
-        //                 <input onChange={editUser} type="text" className="form-control" placeholder="Country" name="country" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-        //                 <button onClick={saveUser} className="btn btn-outline-danger" type="button" name="countryEl" style={accountInfoStyles.btn}>Save</button>
-        //                 </>
-        //                 :
-        //                 <>
-        //                 <input type="text" className="form-control" placeholder={"Country: "+userData.user.country} aria-label="Recipient's username" aria-describedby="button-addon2" disabled/>
-        //                 <button onClick={toggleEdit} className="btn btn-outline-success" type="button" name="countryEl" style={accountInfoStyles.btn}>Edit</button>
-        //                 </>
-        //                 }
-        //             </div>
-        //         </div>
-        //         <div className="col-md-1"></div>
-        //     </div>
-            
-        //     <div className="row">
-        //         <div className="col-md-1"></div>
-        //         <div className="col-md-4">
-        //             <button className="btn btn-outline-danger" onClick={deleteUser}>Delete Account</button>
-        //         </div>
-        //     </div>
-            
-            
-        // </div>
     )
 }
 

@@ -1,34 +1,32 @@
-#video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-}
-
 .content {
-    position: relative;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    width: 100%;
-    padding: 20px;
     text-align: center;
+    color: white;
 }
 
-#logoImg {
-    height: 100px;
+.light-row {
+    color: #474d9b;
 }
 
-#slogan {
-    /* color: #E6534E; */
-    /* color: #859AAF; */
-    /* color: #7DA2A9; */
-    /* color: #ACBFE6; */
-    /* color: #FE4A49; */
-    color: #B4D0E7;
-    font-size: 350%;
-    font-family: 'Abril Fatface', cursive;
+#logo-row {
+    background-image: url("./home.png");
+    padding-top: 3%;
+    padding-bottom: 15%;
 }
+
+#logo {
+    margin-bottom: 5%;
+}
+
+#product-row {
+    background-image: url("./home.png");
+    padding-top: 3%;
+    padding-bottom: 15%;
+    background-repeat: no-repeat;
+}
+
+/* #slogan {
+    color: black;
+} */
 
 .home-header {
     margin-top: 5%;
@@ -41,7 +39,7 @@
 }
 
 .product-link:hover {
-    color: white;
+    color: black;
 }
 
 .home-description {
@@ -59,8 +57,3 @@
     filter: grayscale(0%);
 }
 
-.test-row {
-    background: rgba(0, 0, 0, 0.35);
-    border-radius: 25px;
-    /* padding-top: 1px; */
-}
