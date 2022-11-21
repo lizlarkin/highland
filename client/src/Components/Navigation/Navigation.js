@@ -12,8 +12,19 @@ const Navigation = (props) => {
   const history = useHistory();
 
   const navigationStyles = {
+    navBar: {
+      paddingBottom: "2%",
+      paddingTop: "2%",
+    },
     logo: {
         marginLeft: "30px",
+        position: "absolute",
+        top: "0px",
+        backgroundColor: "#f8f9fa",
+        padding: "1.5%",
+    },
+    firstLink: {
+      marginLeft: "250px"
     },
     links: {
         fontWeight: "bold",
@@ -28,7 +39,7 @@ const Navigation = (props) => {
     
     return (
       <nav>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" style={navigationStyles.navBar}>
           <div className="container-fluid" >
                     <Link to="/Home" className="navbar-brand">
                         <img src={highlandLogo} style={navigationStyles.logo} alt="Highland Logo"/>
@@ -36,7 +47,7 @@ const Navigation = (props) => {
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div className="collapse navbar-collapse" id="navbarSupportedContent" style={navigationStyles.firstLink}>
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item dropdown">
                   <div className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={navigationStyles.links}>All Products</div>

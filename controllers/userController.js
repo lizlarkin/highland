@@ -210,6 +210,7 @@ module.exports = {
         }
     },
 
+    // Update Basic User Data (not for opt-in/out or password)
     updateBasicUser: async (req, res) => {
         try {
             const userToUpdate = await User.updateOne(
@@ -237,6 +238,29 @@ module.exports = {
         } catch (error) {
             res.send(error.response)
         }
+    },
+
+    // Update User Password
+    updatePass: async (req, res) => {
+        console.log('hit', req.body.pass)
+        console.log('second', req.body.password)
+        
+        // try {
+        //     // Check that existing password is correct
+        //     if (oldPass != password) {
+        //         return res.status(400).json({ msg: "Required field(s) missing. Please try again or register." })
+        //     }
+        //     // Check that new password meets length criteria
+        //     if (passwordCheck.length < 8) {
+        //         return res.status(400).json({ msg: "Password must be at least 8 characters." })
+        //     }
+        //     // Check that new password is correctly input
+        //     if (password !== passwordCheck) {
+        //         return res.status(400).json({ msg: "Passwords do not match." })
+        //     }
+        // } catch (error) {
+        //     res.send(error.response)
+        // }
     },
 
             // try {

@@ -15,8 +15,7 @@ const AccountInformation = () => {
         },
     }
     // TO DO:
-    //     (0): Edit basic user data - DONE
-    //     (.5): Edit opt-in
+    //     (0): Edit basic user data 
     //     (1): Fix Delete User
     //     (2): Password change
     //     (3): validation
@@ -32,7 +31,7 @@ const AccountInformation = () => {
         setForm({...form, [e.target.name]: e.target.value});  
     }
 
-    // Save basic user data
+    // Function to Save basic user data
     const saveUser = async (e) => {
         e.preventDefault();
         try {
@@ -44,7 +43,7 @@ const AccountInformation = () => {
         }
     }
 
-    // Set Opt-In to true/false when subscribe/unsubscribe button is clicked
+    // Function to switch Opt-In to true/false when subscribe/unsubscribe button is clicked
     const saveOpt = async (e) => {
         e.preventDefault();
         try {
@@ -53,10 +52,25 @@ const AccountInformation = () => {
             console.log(error)
         }
     }
-    // prevShowForm => !prevShowForm
 
+    // Variable for Password Update
+    const [pass, setPass] = useState({});
+
+    // Function to set Password State
     const editPass = (e) => {
-        console.log('edit pass')
+        setPass({...pass, [e.target.name]: e.target.value});
+    }
+
+    // Function to save new password
+    const savePass = async (e) => {
+        console.log(pass)
+        e.preventDefault();
+        try {
+            const updatedUser = await axios.put(`/users/updatePass/${userData.user.id}`, {pass})
+            console.log(pass)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const deleteUser = async () => {
@@ -85,7 +99,7 @@ const AccountInformation = () => {
                 <div className="col-md-4"></div>
             </div>
 
-            <div className="row">
+            <form className="row">
                 <div className="col-md-1"></div>
                 <div className="col g-4">
                     <label className="form-label">First Name</label>
@@ -96,9 +110,9 @@ const AccountInformation = () => {
                     <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.lastName} name="lastName"/>
                 </div>
                 <div className="col-md-1"></div>
-            </div>
+            </form>
 
-            <div className="row">
+            <form className="row">
                 <div className="col-md-1"></div>
                 <div className="col g-4">
                     <label className="form-label">Organization</label>
@@ -109,9 +123,9 @@ const AccountInformation = () => {
                     <input onChange={editBasicUser} type="tel" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"  className="form-control" placeholder={userData.user.phone} name="phone"/>
                 </div>
                 <div className="col-md-1"></div>
-            </div>
+            </form>
 
-            <div className="row">
+            <form className="row">
                 <div className="col-md-1"></div>
                 <div class="col g-4">
                     <label className="form-label">State</label>
@@ -122,7 +136,7 @@ const AccountInformation = () => {
                     <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.country} name="country"/>
                 </div>
                 <div className="col-md-1"></div>
-            </div>
+            </form>
 
             <div className="row p-3">
                 <div className="col-md-5"></div>
@@ -145,7 +159,7 @@ const AccountInformation = () => {
                 <div className="col-md-1"></div>
                 <div className="col-md-10 d-flex justify-content-center">
                     <div>
-                        You are currently {userData.user.optIn?"subscribed":"unsubscribed"} to Highland's newsletter.
+                        You are currently {userData.user.optIn?"subscribed to":"unsubscribed from"} Highland's newsletter.
                     </div>
                 </div>
                 <div className="col-md-1"></div>
@@ -159,23 +173,28 @@ const AccountInformation = () => {
                 <div className="col-md-5"></div>
             </div>
 
+            {/* Update Password Section */}
             <div className="row">
                 <div className="col-md-4"></div>
                     <div className="col-md-4 heading">
-                        <h3>Password Reset</h3>
+                        <h3>Change Password</h3>
                     </div>
                 <div className="col-md-4"></div>
             </div>
 
             <div className="row">
                 <div className="col-md-1"></div>
-                <div class="col g-4">
-                    <label className="form-label">New Password</label>
-                    <input onChange={editPass} type="password" className="form-control" name="firstName"/>
+                <div class="col g-3">
+                    <label className="form-label">Existing Password</label>
+                    <input onChange={editPass} type="password" className="form-control" name="oldPass"/>
                 </div>
-                <div class="col g-4">
+                <div class="col g-3">
+                    <label className="form-label">New Password</label>
+                    <input onChange={editPass} type="password" className="form-control" name="newPass"/>
+                </div>
+                <div class="col g-3">
                     <label className="form-label">Confirm New Password</label>
-                    <input onChange={editPass} type="password" className="form-control" name="lastName"/>
+                    <input onChange={editPass} type="password" className="form-control" name="checkPass"/>
                 </div>
                 <div className="col-md-1"></div>
             </div>
@@ -183,7 +202,7 @@ const AccountInformation = () => {
             <div className="row p-3">
                 <div className="col-md-5"></div>
                 <div className="col-md-2">
-                    <button type="button" className="btn btn-outline-danger" style={accountInfoStyles.btn}>Update Password</button>
+                    <button onClick={savePass} type="button" className="btn btn-outline-danger" style={accountInfoStyles.btn}>Update Password</button>
                 </div>
                 <div className="col-md-5"></div>
             </div>
