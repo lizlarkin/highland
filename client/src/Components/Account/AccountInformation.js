@@ -39,7 +39,9 @@ const AccountInformation = () => {
             setUserData({...userData, form})
             console.log("success update info", updatedUser);
         } catch (error) {
-            console.log(error)
+            if(error.response.status) {
+                alert('hi')
+            }
         }
     }
 
@@ -67,7 +69,7 @@ const AccountInformation = () => {
         e.preventDefault();
         try {
             const updatedUser = await axios.put(`/users/updatePass/${userData.user.id}`, {pass})
-            console.log(pass)
+            console.log("updated pass: ", updatedUser)
         } catch (error) {
             console.log(error)
         }
@@ -184,15 +186,15 @@ const AccountInformation = () => {
 
             <div className="row">
                 <div className="col-md-1"></div>
-                <div class="col g-3">
+                <div className="col g-3">
                     <label className="form-label">Existing Password</label>
                     <input onChange={editPass} type="password" className="form-control" name="oldPass"/>
                 </div>
-                <div class="col g-3">
+                <div className="col g-3">
                     <label className="form-label">New Password</label>
                     <input onChange={editPass} type="password" className="form-control" name="newPass"/>
                 </div>
-                <div class="col g-3">
+                <div className="col g-3">
                     <label className="form-label">Confirm New Password</label>
                     <input onChange={editPass} type="password" className="form-control" name="checkPass"/>
                 </div>

@@ -241,58 +241,55 @@ module.exports = {
     },
 
     // Update User Password
-    updatePass: async (req, res) => {
-        console.log('hit', req.body.pass)
-        console.log('second', req.body.password)
-        
-        // try {
-        //     // Check that existing password is correct
-        //     if (oldPass != password) {
-        //         return res.status(400).json({ msg: "Required field(s) missing. Please try again or register." })
-        //     }
-        //     // Check that new password meets length criteria
-        //     if (passwordCheck.length < 8) {
-        //         return res.status(400).json({ msg: "Password must be at least 8 characters." })
-        //     }
-        //     // Check that new password is correctly input
-        //     if (password !== passwordCheck) {
-        //         return res.status(400).json({ msg: "Passwords do not match." })
-        //     }
-        // } catch (error) {
-        //     res.send(error.response)
-        // }
+    updatePass: async (req, res) => {   
+        try {
+            console.log("hit here")
+            // Get existing password from database 
+            const {password} = await User.findById(req.params.id);  
+            
+            // Old password as input by user
+            const oldPass = req.body.pass.oldPass;
+            
+            // New password to set
+            const newPass = req.body.pass.newPass;
+            const newSalt = await bcrypt.genSalt();
+            const newPassHash = await bcrypt.hash(newPass, newSalt);
+            
+            // Check that new password matches second input of new password
+            const checkPass = req.body.pass.checkPass;
+            console.log("pass", password)
+            console.log(oldPass, newPass, checkPass)
+            
+            // Check that existing password is correct
+            const compare = await bcrypt.compare(oldPass, password)
+            if (!compare) {
+                return res.status(400).json({msg: "Existing password is incorrect."})
+            };
+            
+            // Check that new password meets length criteria
+            if (newPass.length < 8) {
+                return res.status(401).json({ msg: "Password must be at least 8 characters." })
+            }
+           
+            // Check that new password is correctly input
+            if (newPass !== checkPass) {
+                return res.status(402).json({ msg: "Passwords do not match." })
+            }
+
+            // Save new password to database
+            const userToUpdate = await User.updateOne(
+                { _id: req.params.id },
+                {
+                    $set: {password: newPass}
+                }
+            );
+            res.json(userToUpdate)
+
+        } catch (error) {
+            // res.send(error.response)  
+            console.log("error", error)          
+        }
     },
-
-            // try {
-
-            // const existingUser = await User.findOne({ email: req.body.email });
-            // console.log('existing user from update: ', existingUser)
-
-            // if (existingUser.email) {
-            //     console.log('fail update email')
-            //     return res.status(400).json({ msg: "Email is already registered." })
-            // }
-
-            // const newPhone = req.body.phone;
-            // console.log('new phone from update: ', newPhone)
-
-            // const standardPhone = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
-
-            // if (newPhone.value.match(standardPhone)) {
-            //     console.log('ran')
-            //     return res.status(400).json({ msg: "Phone is incorrect. Please try again." })
-            // }
-
-        //     const userToUpdate = await User.updateOne(
-        //         { _id: req.params.id },
-        //         {
-        //             $set: req.body
-        //         }
-        //     );
-        //     res.json(userToUpdate)
-        // } catch (error) {
-        //     res.send(error.response)
-        // }
 
     deleteUser: async (req, res) => {
         try {
