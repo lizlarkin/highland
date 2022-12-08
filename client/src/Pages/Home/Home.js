@@ -1,7 +1,5 @@
 import React from 'react';
 import "./assets/homeStyles.css";
-import homeImg from './assets/home.png'
-import potreroVideo from './assets/HighlandHome8.mp4';
 import homeLogo from '../../Components/Footer/Images/Highland_logo_white.png';
 import VME from '../Product/Images/V120_VME_PCIE_Crate_Controller_1.png';
 import DDG from '../Product/Images/P500_Digital_Delay_Generator_1.png';

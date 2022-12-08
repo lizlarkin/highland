@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react';
 import UserContext from "../../Context/UserContext";
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
-import '../Login/formStyles.css'
+import '../Login/formStyles.css';
 
 const Register = () => {
 
@@ -13,19 +13,9 @@ const Register = () => {
     const onChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value, optIn: e.target.checked });
     };
-
-    // const passwordCheck = (e) => {
-    //     let passInput = document.getElementById("password-input");
-    //     let checkInput = document.getElementById("check-input");
-    //     if (checkInput.value !== passInput.value) {
-    //         alert ('Passwords do not match.')
-    //         return
-    //     }
-    // }
     
     const onSubmit = async (e) => {
         e.preventDefault();
-        // passwordCheck();
         try {
             const newUser = await axios.post("/users/register", form);
             console.log(newUser);

@@ -15,13 +15,10 @@ const AccountInformation = () => {
         },
     }
     // TO DO:
-    //     (0): Edit basic user data 
     //     (1): Fix Delete User
-    //     (2): Password change
-    //     (3): validation
-    //     (4): Email re-verify? 
-    //     (5): phone
     //     (6): refresh pr confirm when changes are made
+    //     (2): handle empty fields without making user re-fill all fields
+    //     (3): phone validation
 
     // Variable for basic user data
     const [form, setForm] = useState({});
@@ -32,16 +29,13 @@ const AccountInformation = () => {
     }
 
     // Function to Save basic user data
-    const saveUser = async (e) => {
-        e.preventDefault();
+    const saveUser = async () => {
         try {
             const updatedUser = await axios.put(`/users/updateBasicUser/${userData.user.id}`, form)
             setUserData({...userData, form})
-            console.log("success update info", updatedUser);
+            alert('Update Successful')
         } catch (error) {
-            if(error.response.status) {
-                alert('hi')
-            }
+            console.log(error)
         }
     }
 
@@ -69,9 +63,9 @@ const AccountInformation = () => {
         e.preventDefault();
         try {
             const updatedUser = await axios.put(`/users/updatePass/${userData.user.id}`, {pass})
-            console.log("updated pass: ", updatedUser)
+            alert("Password successfully updated!")
         } catch (error) {
-            console.log(error)
+            alert(error.response.data.msg)
         }
     }
 
@@ -93,6 +87,7 @@ const AccountInformation = () => {
 
     return (
         <div>
+            {/* Update Basic User Data Section */}
             <div className="row">
                 <div className="col-md-4"></div>
                     <div className="col-md-4 heading">
@@ -123,6 +118,19 @@ const AccountInformation = () => {
                 <div className="col g-4">
                     <label className="form-label">Phone</label>
                     <input onChange={editBasicUser} type="tel" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"  className="form-control" placeholder={userData.user.phone} name="phone"/>
+                </div>
+                <div className="col-md-1"></div>
+            </form>
+
+            <form className="row">
+                <div className="col-md-1"></div>
+                <div class="col g-4">
+                    <label className="form-label">Address</label>
+                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.street} name="street"/>
+                </div>
+                <div class="col g-4">
+                    <label className="form-label">City</label>
+                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.city} name="city"/>
                 </div>
                 <div className="col-md-1"></div>
             </form>

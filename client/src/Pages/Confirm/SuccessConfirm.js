@@ -4,6 +4,10 @@ import axios from "axios";
 
 const SuccessConfirm = (props) => {
 
+    const confirmStyles = {
+        marginTop: "10%",
+    }
+
     const history = useHistory();
 
     useEffect(() => {
@@ -20,7 +24,7 @@ const SuccessConfirm = (props) => {
     }, [history, props.match.params.token])
 
     return (
-        <div className="row">
+        <div className="row" style={confirmStyles}>
             <div className="col-md-2"></div>
             <div className="col-md-8">
                 Thank you for confirming your account! You will be redirected to login in a moment.

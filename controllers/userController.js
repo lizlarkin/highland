@@ -219,6 +219,7 @@ module.exports = {
                     $set: req.body
                 }
             );
+            console.log(req.body)
             res.json(userToUpdate)
         } catch (error) {
             res.send(error.response)
@@ -244,18 +245,18 @@ module.exports = {
     updatePass: async (req, res) => {   
         try {
             console.log("hit here")
-            // Get existing password from database 
+            // Store existing password from database 
             const {password} = await User.findById(req.params.id);  
             
-            // Old password as input by user
+            // Store existing password as input by user
             const oldPass = req.body.pass.oldPass;
             
-            // New password to set
+            // Store new password to set
             const newPass = req.body.pass.newPass;
             const newSalt = await bcrypt.genSalt();
             const newPassHash = await bcrypt.hash(newPass, newSalt);
             
-            // Check that new password matches second input of new password
+            // Stpre password check to make sure password inputs are correct
             const checkPass = req.body.pass.checkPass;
             console.log("pass", password)
             console.log(oldPass, newPass, checkPass)
@@ -280,14 +281,16 @@ module.exports = {
             const userToUpdate = await User.updateOne(
                 { _id: req.params.id },
                 {
-                    $set: {password: newPass}
+                    $set: {password: newPassHash}
                 }
             );
             res.json(userToUpdate)
+            console.log("save new pass ran", userToUpdate)
 
         } catch (error) {
             // res.send(error.response)  
-            console.log("error", error)          
+            console.log("error", error) 
+            res.send(error.response)         
         }
     },
 
