@@ -4,43 +4,48 @@
 }
 
 .light-row {
-    color: #474d9b;
+    color: #1a3e9f;
 }
 
 #logo-row {
-    background-image: url("./home.png");
+    background-image: url("./pcb3.jpg");
     padding-top: 3%;
     padding-bottom: 15%;
+    background-size: cover;
 }
 
-#logo {
-    margin-bottom: 5%;
+#logo-img {
+    margin-bottom: 4%;
+}
+
+#logo-text {
+    font-style: italic;
+}
+
+#home-dropdown {
+    margin-top: 10%;
+    width: 100%;
 }
 
 #product-row {
-    background-image: url("./home.png");
+    /* background-image: url("./home.png"); */
+    background-color: Whitesmoke;
     padding-top: 3%;
-    padding-bottom: 15%;
+    padding-bottom: 3%;
     background-repeat: no-repeat;
+    color: #1a3e9f;
 }
 
-/* #slogan {
-    color: black;
-} */
-
 .home-header {
-    margin-top: 5%;
+    margin-top: 1%;
     margin-bottom: 3%;
 }
 
 .product-link {
     text-decoration: none;
-    color: white;
-}
-
-.product-link:hover {
     color: black;
 }
+
 
 .home-description {
     margin-bottom: 10%;
@@ -51,9 +56,24 @@
     opacity: 1;
     filter: grayscale(85%);
     border: none;
-}
+} 
 
 .bgOpacity:hover {
     filter: grayscale(0%);
+}
+
+.carousel-button {
+    width: 75%;
+    margin-top: 10%;
+}
+
+#highlightedProduct {
+    background: rgba(0, 0, 0, 0.0);
+    opacity: 1;
+    border: none;
+}
+
+#background-product-row {
+    margin-bottom: 2%;
 }
 

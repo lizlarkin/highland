@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import "./assets/homeStyles.css";
 import homeLogo from '../../Components/Footer/Images/Highland_logo_white.png';
 import VME from '../Product/Images/V120_VME_PCIE_Crate_Controller_1.png';
@@ -12,8 +13,7 @@ import Legacy from '../Product/Images/P730_Optical_Electrialc_Fanout_Buffer_1.pn
 
 const Home = () => {
 
-    // TO DO:
-    // (1) responsive needs work
+    const history = useHistory();
 
     const capabilities = [
         ["Standard and custom electronics", "fa-light fa-waveform fa-5x"],
@@ -27,11 +27,11 @@ const Home = () => {
     const products = [
         ["VME", VME, "VME"],
         ["Digital Delay Generators", DDG, "DDG"],
-        ["Pulse Generators", PulseGen, "PSG"],
-        ["Waveform Generators", WaveformGen, "WFG"],
         ["Laser Drivers & Controllers", LaserControl, "LDC"],
         ["Photonics", Photonics, "PHO"],
         ["Measurement & Simulation", MeasureSim, "MAS"],
+        ["Pulse Generators", PulseGen, "PSG"],
+        ["Waveform Generators", WaveformGen, "WFG"],
         ["Legacy", Legacy, "LEG"],
     ]
 
@@ -43,36 +43,141 @@ const Home = () => {
         " Aerospace instrumentation and simulation",
     ]
 
+    // Dropdown navigation
+    const goToCategory = (e) => {
+        const categorySelected = e.target.title;
+        history.push(`/Category/${categorySelected}`)
+      }
+
+    // Carousel of Standard Products
+      let [productIndex, setProductIndex] = useState(0);
+
+      const incrementProdIndex = () => {
+        if (productIndex === 7) {
+            setProductIndex(0);
+        } else {
+            setProductIndex(idx => idx + 1);
+        }
+        console.log("product index: ", productIndex)
+      }
+
+      const decrementProdIndex = () => {
+        if (productIndex === 0) {
+            setProductIndex(7)
+        } else {
+            setProductIndex(idx => idx - 1)
+        }
+        console.log("product index: ", productIndex)
+      }
+
+    //   useEffect(() => {
+    //     setProductIndex();
+    //   }, [])
+      
+
     return (
         <div>
             <div className="content">
 
                 <div className="row" id="logo-row">
                     <div className="col-md-4"></div>
-                    <div className="col-md-4" id="logo">
+                    <div className="col-md-4" id="logo-img">
                         <img src={homeLogo} class="img-fluid" alt="Highland Logo"/>
                     </div>
                     <div className="col-md-4"></div>
                     <div className="row">
-                        <div className="col-md-12" id="slogan">
-                            <h2>Get the easy stuff somewhere else.</h2>
+                        <div className="col-md-12" id="logo-text">
+                            <h1>Get the easy stuff somewhere else.</h1>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-12">
+                        <div className="btn-group dropend">
+                            <button type="button" className="btn btn-light dropdown-toggle" id="home-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Select Product Category
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li onClick={goToCategory} title={"VME"} className="dropdown-item">VME</li> 
+                                <li onClick={goToCategory} title={"DDG"} className="dropdown-item">Digital Delay Generators</li>
+                                <li onClick={goToCategory} title={"PSG"} className="dropdown-item">Pulse Generators</li>
+                                <li onClick={goToCategory} title={"WFG"} className="dropdown-item">Waveform Generators</li> 
+                                <li onClick={goToCategory} title={"LDC"} className="dropdown-item">Laser Drivers/Controllers</li>
+                                <li onClick={goToCategory} title={"PHO"} className="dropdown-item">Photonics</li>
+                                <li onClick={goToCategory} title={"MAS"} className="dropdown-item">Measurement/Simulation</li>
+                                <li onClick={goToCategory} title={"OEM"} className="dropdown-item">OEM/Embedded</li>
+                                <li onClick={goToCategory} title={"LEG"} className="dropdown-item">Legacy</li>
+                            </ul>
+                        </div>
                         </div>
                     </div>
                 </div>        
 
                 <div className="light-row">
                     <h1 className="home-header">Capabilities</h1>
-                    <div className="row row-cols-3">
-                        {capabilities.map((capability, index) => (
-                            <div className="col" key={index}>
-                                <i className={capability[1]}></i>
-                                <h5 className="home-description">{capability[0]}</h5>
-                            </div>
-                        ))}
+                        <div className="row row-cols-2">
+                            {capabilities.map((capability, index) => (
+                                <div className="col" key={index}>
+                                    <i className={capability[1]}></i>
+                                    <h5 className="home-description">{capability[0]}</h5>
+                                </div>
+                            ))}
+                        </div>
+                </div>
+
+                <div id = "product-row">
+                    <h1 className="home-header" >Standard Products</h1>
+                    <div className="row" id="background-product-row">
+                        <div className="col-md-3"></div>
+                        <div className="col-md-2">
+                            <a className="product-link" href ={"/Category/"}>
+                                <img src={products[productIndex][1]} className="img-thumbnail bgOpacity" alt={products[productIndex][0]}></img>
+                                <h5>{products[productIndex][0]}</h5>
+                            </a>
+                        </div>
+                        <div className="col-md-2"></div>
+                        <div className="col-md-2">
+                            <a className="product-link" href ={"/Category/"}>
+                                <img src={products[productIndex][1]} className="img-thumbnail bgOpacity" alt={products[productIndex][0]}></img>
+                                <h5>{products[productIndex][0]}</h5>
+                            </a>
+                        </div>
+                        <div className="col-md-3"></div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-1"></div>
+                        <div className="col-md-3">
+                            <a className="product-link" href ={"/Category/"}>
+                                <img src={products[productIndex][1]} className="img-thumbnail bgOpacity" alt={products[productIndex][0]}></img>
+                                <h5>{products[productIndex][0]}</h5>
+                            </a>
+                        </div>
+                        <div className="col-md-4">
+                            <a className="product-link" href ={"/Category/"}>
+                                <img src={products[productIndex][1]} className="img-thumbnail" id="highlightedProduct" alt={products[productIndex][0]}></img>
+                                <h5>{products[productIndex][0]}</h5>
+                            </a>
+                        </div>
+                        <div className="col-md-3">
+                            <a className="product-link" href ={"/Category/"}>
+                                <img src={products[productIndex][1]} className="img-thumbnail bgOpacity" alt={products[productIndex][0]}></img>
+                                <h5>{products[productIndex][0]}</h5>
+                            </a>
+                        </div>
+                        <div className="col-md-1"></div>
+                    </div>
+                    <div className = "row">
+                        <div className="col-md-4"></div>
+                        <div className="col-md-2">
+                            <button onClick={decrementProdIndex} type="button" className="btn btn-outline-primary carousel-button"><i className="fa-solid fa-chevrons-left"></i></button>
+                        </div>
+                        <div className="col-md-2">
+                            <button onClick={incrementProdIndex} type="button" className="btn btn-outline-primary carousel-button"><i className="fa-solid fa-chevrons-right"></i></button>
+                        </div>
+                        <div className="col-md-4"></div>
                     </div>
                 </div>
 
-                <div id="product-row">
+                {/* <div id="product-row">
                     <h1 className="home-header" >Standard Products</h1>
                     <div className="row row-cols-8">
                         {products.map((product, idx) => (
@@ -84,7 +189,7 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
                 <div className="light-row">
                     <h1 className="home-header">Custom Electronics</h1>

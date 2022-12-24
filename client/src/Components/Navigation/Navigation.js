@@ -13,13 +13,15 @@ const Navigation = (props) => {
 
   const navigationStyles = {
     navBar: {
-      paddingTop: "1.5%",
-      paddingBottom: "1.5%",
+      // paddingTop: "2%",
+      // paddingBottom: "2%",
+      height: "100px"
     },
     logo: {
-        marginLeft: "30px",
+        marginLeft: "25px",
         position: "absolute",
         top: "0px",
+        // display: "block",
     },
     firstLink: {
       marginLeft: "275px",
