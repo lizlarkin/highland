@@ -9,17 +9,13 @@
 
 #logo-row {
     background-image: url("./pcb3.jpg");
+    background-size: cover;
     padding-top: 3%;
     padding-bottom: 15%;
-    background-size: cover;
 }
 
 #logo-img {
     margin-bottom: 4%;
-}
-
-#logo-text {
-    font-style: italic;
 }
 
 #home-dropdown {
@@ -28,12 +24,12 @@
 }
 
 #product-row {
-    /* background-image: url("./home.png"); */
-    background-color: Whitesmoke;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTREnc87BwBJn6mZrfVeY5ks-ku9OTA8tdm-Q&usqp=CAU");
+    background-size: cover;
     padding-top: 3%;
     padding-bottom: 3%;
     background-repeat: no-repeat;
-    color: #1a3e9f;
+    color: white;
 }
 
 .home-header {
@@ -43,9 +39,12 @@
 
 .product-link {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
+.product-link:hover {
+    color: white;
+}
 
 .home-description {
     margin-bottom: 10%;
