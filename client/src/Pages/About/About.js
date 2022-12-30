@@ -2,21 +2,29 @@ import React from 'react';
 import htifront from "./img/htifront.jpg";
 import vmeCrate from "./img/vmeCrate.png";
 import smtLine2 from "./img/smtLine2.jpg";
+import smtLine3 from "./img/smtLine3.jpg";
+import smtLine from "./img/Line2.png";
+import Highland_Front from "./img/Highland_Front.png"
 
 const About = () => {
 
     const aboutStyles = {
-        imgSpace: {
-            marginBottom: "-3%"
+        aboutHeading: {
+            textAlign: "center"
         },
-        paragraph: {
-            marginTop: "2%"
+        productsTxt: {
+            padding: "3%",
+            textAlign: "center",
+            backgroundColor: "white",
         },
+        aboutText: {
+            marginTop: "4%",
+        }
     }
 
     const aboutData = [
         {
-            img: htifront,
+            img: Highland_Front,
             title: "About Highland Technology",
             text: 
                 [ 
@@ -29,17 +37,17 @@ const About = () => {
             title: "Our Products",
             text: 
                 [
-                    "Highland designs innovative high-precision analog measurement and signal generation, data acquisition and control instrumentation, pulse and picosecond timing delay generation, fiberoptic/photonics, and mixed technology products.",
-                    "Using existing technology and expertise, Highland can rapidly develop custom and embedded electronics to provide solutions to our customers challenges. We emphasize a thorough understanding of customer applications, comprehensive documentation, direct support, and long term product availability."
+                    "Highland provides innovative high-precision analog measurement and signal generation, data acquisition and control instrumentation, pulse and picosecond timing delay generation, fiberoptic/photonics, and mixed technology products",
+                    "Using existing intellectual property and expertise, Highland can rapidly develop custom and embedded electronics to provide solutions to our customer's challenges. We emphasize a thorough understanding of customer applications, comprehensive documentation, direct support, and long term product availability."
                 ]
         },
         {
-            img: smtLine2,
+            img: smtLine,
             title: "Our Operations",
             text: 
                 [
-                    "Highland strives to deliver high quality, reliable products. All Highland products are manufactured and tested in-house or by qualified US domestic partners. Whenever possible, Highland sources American-made materials, components, and services to ensure high quality.",
-                    "Our product lifecycle planning, including component and spares management, component end-of-life handling, and stocking practices ensures long-term availability of products and support."
+                    "All Highland products are manufactured and tested in-house to guarantee quality and reliability. Whenever possible, Highland sources American-made materials, components, and services to ensure high standards of both product and labor.",
+                    "Our lifecycle planning procedure, including component and spares management, component end-of-life handling, and stocking practices ensures long-term availability of products and support."
                 ]
         },
         {
@@ -55,18 +63,59 @@ const About = () => {
 
     return (
         <>
-        
-        {aboutData.map((about, index) => (
-            <div className="row" key={index} style={aboutStyles.imgSpace}>
-                <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 heroContainer img-fluid" style={{backgroundImage: `url(${about.img})`}}>
-                    <h1 className="heroHeading">{about.title}</h1>
+
+            <div className="row">
+                <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 heroContainer img-fluid" style={{backgroundImage: `url(${aboutData[0].img})`}}>
+                    <h1 className="heroHeading">{aboutData[0].title}</h1>
                         <div className="heroBody">
-                            <h4 className="heroText">{about.text[0]}</h4>
-                            {about.text[1]?<h4 className="heroText" style={aboutStyles.paragraph}>{about.text[1]}</h4>:null}
+                            {aboutData[0].text.map((txt, idx) => (
+                            <h4 className="heroText" style={aboutStyles.aboutText} key={idx}>{txt}</h4>
+                            ))}
                         </div>
                 </div>
             </div>
-        ))}
+
+            <div className="row">
+                <div className="col-md-1"></div>
+                <div className="col-md-5" style={aboutStyles.productsTxt}>
+                    <h2 style={aboutStyles.aboutHeading}>{aboutData[1].title}</h2>
+                    {aboutData[1].text.map((txt, idx) => (
+                        <p className="heroText" style={aboutStyles.aboutText} key={idx}>{txt}</p>
+                    ))}
+                </div>
+                <div className="col-md-5">
+                    <img src={aboutData[1].img} className="img-fluid" alt={aboutData[1].title}/>   
+                </div>
+                <div className="col-md-1"></div>
+            </div>
+
+            <div className="row">
+                <div className="col-md-6">
+                <img src={aboutData[2].img} className="img-fluid" alt={aboutData[2].title}/> 
+                </div>
+                    <div className="col-md-5" style={aboutStyles.productsTxt}>
+                        <h2 style={aboutStyles.aboutHeading}>{aboutData[2].title}</h2>
+                        {aboutData[2].text.map((txt, idx) => (
+                        <p className="heroText" style={aboutStyles.aboutText} key={idx}>{txt}</p>
+                        ))}
+                    </div>
+                    <div className="col-md-1">
+                    </div>      
+            </div>
+
+            <div className="row">
+                <div className="col-md-1"></div>
+                <div className="col-md-5" style={aboutStyles.productsTxt}>
+                    <h2 style={aboutStyles.aboutHeading}>{aboutData[3].title}</h2>
+                    {aboutData[3].text.map((txt, idx) => (
+                        <p className="heroText" style={aboutStyles.aboutText} key={idx}>{txt}</p>
+                    ))}
+                </div>
+                <div className="col-md-5">
+                    <img src={aboutData[3].img} className="img-fluid" alt={aboutData[3].title}/>   
+                </div>
+                <div className="col-md-1"></div>
+            </div>
 
         </>
 

@@ -138,7 +138,7 @@ const Home = () => {
 
                 <div className="light-row">
                     <h1 className="home-header">Capabilities</h1>
-                        <div className="row row-cols-2">
+                        <div className="row row-cols-3">
                             {capabilities.map((capability, index) => (
                                 <div className="col" key={index}>
                                     <i className={capability[1]}></i>

@@ -1131,14 +1131,14 @@ let productSeed = [
       model: "T240",
       category: ["PSG", "LDC", "PHO"],
       features: [
-        ["Generates fast complementary pulse outputs"],
+        ["Generation of fast complementary pulse outputs"],
         ["Programmable delay and pulse width in two ranges"],
-        ["Programmable amplitude from 0 to 750 millivolts nominal,0 to 375 millivolts nominal LVDS"],
-        ["Risetime / falltime 75 picoseconds typical, 10 - 90 %"],
+        ["Programmable amplitude from 0 to 750 millivolts nominal, 0 to 375 millivolts nominal LVDS"],
+        ["Risetime / falltime 75 picoseconds typical, 10-90%"],
         ["Pulse width down to 100 picoseconds FWHM"],
         ["Programmable trigger threshold"],
         ["Powered by USB or standard 5-volt micro-USB power supply"],
-        ["Control via USB, RS232, or trimpots; optional SPI"],
+        ["Control via USB, RS-232, or trimpots; optional SPI"],
         ["Compact extruded enclosure with optional mounting flange"],
         ["The T240 is suited to:", 
           [
@@ -1152,7 +1152,7 @@ let productSeed = [
         ]
       ],
       description: "Generates fast complementary pulse outputs with external triggering and programmable amplitude, width, and delay.",
-      imgCaptions: ["T240 single-channel externally-triggered complementary-output pulse generator"],
+      imgCaptions: ["T240 single-channel externally-triggered complementary-output pulse generator", "", "", "T240 Signal Endplate", "T240 Power Endplate"],
       about: [
         "The T240 is an externally-triggered pulse generator with complementary outputs, originally designed for driving electrical/optical modulators through suitable power amplifiers and bias tees.",
         "Rise and fall times under 100 picoseconds and a programmable range of pulse widths make the T240 ideal for driving seed lasers in pumped fiber systems and RF applications including fast-pulse modulation, phase shifting, and harmonic generation.",
@@ -1173,19 +1173,18 @@ let productSeed = [
         ["RISE/FALL TIMES", ["75 ps nominal, measured at 10/90%"]],
         ["PROGRAMMABLE TIMINGS", ["Range 1: delay 0 to 2.5 ns, width 100 ps to 2.5 ns, d+w < 2.5 ns", "Range 2: delay 0 to 25 ns, width 250 ps to 25 ns, d+w < 25 ns",]],
         ["JITTER", ["Range 1: < 5 ps RMS, typical < 3 ps RMS", "Range 2: < 10 ps RMS" ]],
-        ["CONTROL", ["Standard: trimpots, RS232, and USB; optional SPI"]],
+        ["CONTROL", ["Standard: trimpots, RS-232, and USB; optional SPI"]],
         ["POWER", ["+5 volts at 500 mA nom via USB connector", "Highland model J6 power supply furnished"]],
-        ["CONNECTORS", ["TRIG  OUT+  OUT-  SMA jacks", "Micro/AB for power and USB control", "D9 female for optional power/RS232/SPI"]],
+        ["CONNECTORS", ["TRIG  OUT+  OUT-  SMA jacks", "Micro/AB for power and USB control", "D9 female for optional power/RS-232/SPI"]],
         ["LED INDICATORS", ["Green POWER      Blue TRIGGER     Orange COMM"]],
-        ["PACKAGING", ["Extruded anodized aluminum enclosure"]],
+        ["PACKAGING", ["4.75” (L) x 4.0” (W) x 1.25” (H) extruded aluminum enclosure"]],
       ],
-      optionsRequired: [   
-        ["configuration", [
-          ["1", "single-channel AC-coupled externally-triggered complementary-output pulse generator"], 
-          ["3", "single-channel DC-coupled externally-triggered complementary LVDS output pulse generator"], 
-          ["9", "single-channel externally-triggered complementary-output pulse generator evaluation kit (includes T240-1 factory installed on T566-1 mounting flange, J6-1 power supply, and J48-1 SMA terminator)"],
-          ["13", "single-channel DC-coupled externally-triggered complementary LVDS output pulse generator evaluation kit (includes T240-3 factory installed on T566-1 mounting flange, J6-1 power supply, and J48-1 SMA terminator)"],
-        ]],
+      versions: [
+        ["required", "Configuration", 1, 
+          [1, "AC-coupled externally-triggered complementary-output pulse generator"], 
+          [3, "DC-coupled externally-triggered complementary LVDS output pulse generator"], 
+          [9, "AC-coupled externally-triggered complementary-output pulse generator evaluation kit: T240-1 factory installed on T566-1 mounting flange, J6-1 power supply, and J48-1 SMA terminator"], 
+          [13, "DC-coupled externally-triggered complementary LVDS output pulse generator evaluation kit: T240-3 factory installed on T566-1 mounting flange, J6-1 power supply, and J48-1 SMA terminator"] ], 
       ],
       accessories: [
         ["J6-1", "5 volt USB power supply", "(furnished with purchase)"],

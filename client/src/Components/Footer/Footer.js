@@ -12,7 +12,7 @@ const Footer = () => {
         <footer>
             <div className = "row navbar navbar-dark bg-dark hti-footer">
                 <div className="col-md-1"></div>
-                <div className = "col-md-2">
+                <div className = "col-md-2 bg-dark">
                     <a href ="/"><img src={highlandHills} className="img-fluid" alt="Highland Logo"/></a>
                 </div>
                 <div className = "col-md-6">
@@ -37,18 +37,18 @@ const Footer = () => {
                             </ul>
                         </div>    
                     </div>
-                    <div className = "row">
+                    <div className = "row bg-dark">
                         <div className = "col-md-12">
                             &copy; {year} Highland Technology, Inc.
                         </div>    
                     </div>
                 </div>
-                <div className = "col-md-2">
+                <div className = "col-md-2 bg-dark">
                         <a href="https://instagram.com/highlandtechnology?igshid=YmMyMTA2M2Y=" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram fa-2x socialMedia"></i></a>
                         <a href="https://m.facebook.com/Highland-Technology-108301345160326/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-facebook-f fa-2x socialMedia"></i></a>
                         <a href="https://www.linkedin.com/company/highlandtechnology/.com" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin fa-2x socialMedia"></i></a>
                 </div>
-                <div className="col-md-1"></div>
+                <div className="col-md-1 bg-dark"></div>
             </div>
 
         </footer>
