@@ -33,7 +33,8 @@ const Login = () => {
                 })
                 
                 localStorage.setItem("auth-token", data.token);
-                history.push("/Pages/Home");
+                // history.push("/Pages/Home");
+                history.goBack();
             };
 
         } catch (error) {

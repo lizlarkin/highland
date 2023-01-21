@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import UserContext from "../../Context/UserContext";
 import rohsCompliant from "./assets/rohsCompliant.png";
 import madeInUsa from "./assets/madeInUsa.png";
 import ECCNImage from "./assets/ECCN.png";
@@ -17,6 +18,8 @@ import Export from './Export';
 import Mtbf from './Mtbf';
 
 const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
+
+    const { userData } = useContext(UserContext);
 
     const resourcesStyles = {
         accordianBtn: {
@@ -45,10 +48,16 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
                                         {/* <a href={<Datasheet />} target="_blank" rel="noopener noreferrer" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={datasheet} alt="Highland Datasheet"/>Download Datasheet
                                         </a> */}
-                                        
-                                        <Link to="/" className="list-group-item list-group-item-action">
-                                            <img className = "resource-image" src={manual} alt="Highland Datasheet"/>Download Manual
-                                        </Link>
+                                        {userData.user?
+                                            <Link to="/" className="list-group-item list-group-item-action">
+                                                <img className = "resource-image" src={manual} alt="Highland Datasheet"/>Download Manual
+                                            </Link>
+                                        :
+                                            <Link to="/login" className="list-group-item list-group-item-action">
+                                                <img className = "resource-image" src={manual} alt="Highland Datasheet"/>Please login to download manual
+                                            </Link>
+                                        }
+
                                         <Link to="/" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={blockDiagram} alt="Highland Datasheet"/>Download Block Diagram
                                         </Link>
@@ -81,11 +90,16 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
                                 <div className="accordion-body">
                                     <div className="list-group">
                                         {driversSoftware?
-                                        driversSoftware.map((link, index) => (
-                                            <a href={link[1]} target="_blank" rel="noopener noreferrer" className="list-group-item list-group-item-action" key={index}>
-                                                <img className = "resource-image" src={softwareDrivers} alt="Drivers &amp; Software"/> Download {link[0]}
-                                            </a>
-                                        ))
+                                            userData.user?
+                                                driversSoftware.map((link, index) => (
+                                                    <a href={link[1]} target="_blank" rel="noopener noreferrer" className="list-group-item list-group-item-action" key={index}>
+                                                        <img className = "resource-image" src={softwareDrivers} alt="Drivers &amp; Software"/> Download {link[0]}
+                                                    </a>
+                                            ))
+                                            :
+                                            <Link to="/login" className="list-group-item list-group-item-action">
+                                                <img className = "resource-image" src={softwareDrivers} alt="Drivers &amp; Software"/>Please login for access
+                                            </Link>
                                         :null}
                                     </div>
                                 </div>

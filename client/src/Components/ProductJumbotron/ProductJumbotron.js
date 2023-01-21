@@ -17,7 +17,7 @@ const ProductJumbotron = ({ name, model, captions, category, EOLdates }) => {
             marginBottom: "15px",
         },
         photoDiv: {
-            paddingBottom: "5%"
+            paddingBottom: "5%",
         },
         indicators: {
             backgroundColor: "#0039a6",
@@ -26,14 +26,13 @@ const ProductJumbotron = ({ name, model, captions, category, EOLdates }) => {
             bottom: "-50px",
         },
         captionDiv: {
-            position: "absolute",
-            bottom: "-25px",
-            height: "5%"
+            bottom: "-17px",
+            height: "5%",
         },
         caption: {
             color: "#0039a6", 
             fontFamily: "STIXGeneral",
-            fontSize: "110%",
+            fontSize: "80%",
         },
         arrowBtns: {
             height: "10%",

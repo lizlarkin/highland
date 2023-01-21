@@ -53,7 +53,7 @@ const GenJumbo = () => {
             } else if (pageName==="Testimonials") {
                 setBackground(Testimonials) 
                 setTitle("Testimonials") 
-                setText("")
+                setText("Highland prioritizes customer relationships by developing a thorough understanding of client applications, providing direct engineering support, and investing in long term availability of products. See what our customers have to say.")
             } else if (pageName.substring(0,6)==="Search") {
                 setBackground(Search) 
                 setTitle("Search Results") 
