@@ -9,7 +9,7 @@ module.exports = {
 
             const confirmedUser = await User.findById(confirmation.userId);
 
-            confirmedUser.confirmed = true;
+            confirmedUser.confirm = true;
             confirmedUser.save();
             res.send("success");
 

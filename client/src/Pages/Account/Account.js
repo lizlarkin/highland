@@ -24,7 +24,6 @@ const Account = () => {
 
     useEffect(() => {
         if (!userData.user) history.push("/pages/login");
-        // userData.user ? console.log(userData.user.firstName) : console.log("not available");
     }, [userData.user, history]);
 
     // ADD DESCRIPTIONS

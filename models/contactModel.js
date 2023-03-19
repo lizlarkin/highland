@@ -9,15 +9,15 @@ const contactSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    organization: {
+    org: {
         type: String,
         required: true
     },
-    firstName: {
+    first: {
         type: String,
         required: true
     },
-    lastName: {
+    last: {
         type: String,
         required: true
     },
@@ -32,13 +32,13 @@ const contactSchema = new mongoose.Schema({
     comments: {
         type: String
     },
-    serialNum: {
+    sn: {
         type: String
     },
     model: {
         type: String
     },
-    version: {
+    dash: {
         type: String
     },
     userId: {

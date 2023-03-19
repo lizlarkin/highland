@@ -12,11 +12,11 @@ module.exports = {
         try {
             const {
                 email, 
-                password, 
-                passwordCheck, 
-                firstName,
-                lastName,
-                organization,
+                pass, 
+                passCheck, 
+                first,
+                last,
+                org,
                 phone,
                 street,
                 city,
@@ -26,15 +26,15 @@ module.exports = {
                 quoteNum,
             } = req.body;
     
-                if (!email || !password || !passwordCheck || !firstName || !lastName || !organization || !phone || !street || !city || !state || !city || !state || !country) {
+                if (!email || !pass || !passCheck || !first || !last || !org || !phone || !street || !city || !state || !city || !state || !country) {
                     return res.status(400).json({ msg: "Please complete all fields." })
                 }
     
-                if (passwordCheck.length < 8) {
+                if (passCheck.length < 8) {
                     return res.status(400).json({ msg: "Password must be at least 8 characters." })
                 }
     
-                if (password !== passwordCheck) {
+                if (pass !== passCheck) {
                     return res.status(400).json({ msg: "Passwords do not match." })
                 }
     
@@ -45,14 +45,14 @@ module.exports = {
                 }
     
                 const salt = await bcrypt.genSalt();
-                const passwordHash = await bcrypt.hash(password, salt);
+                const passwordHash = await bcrypt.hash(pass, salt);
     
                 const newUser = new User({
                     email,
-                    password: passwordHash,
-                    firstName,
-                    lastName,
-                    organization,
+                    pass: passwordHash,
+                    first,
+                    last,
+                    org,
                     phone,
                     street,
                     city,
@@ -93,9 +93,9 @@ module.exports = {
                     to: "lizlarkin@highlandtechnology.com",
                     subject: "New Website Registration",
                     text: `New registered user: 
-                    Name: ${newUser.firstName + " " + newUser.lastName}
+                    Name: ${newUser.first + " " + newUser.last}
                     Email: ${newUser.email}
-                    Organization: ${newUser.organization}
+                    Organization: ${newUser.org}
                     Phone: ${newUser.phone}
                     City, State: ${newUser.city + ", " + newUser.state}
                     Country: ${newUser.country}
@@ -136,9 +136,9 @@ module.exports = {
 
     login: async (req, res) => {
         try {
-            const { email, password } = req.body;  
+            const { email, pass } = req.body;  
 
-            if (!email || !password) {
+            if (!email || !pass) {
                 return res.status(400).json({ msg: "Required field(s) missing. Please try again or register." })
             }
 
@@ -148,14 +148,14 @@ module.exports = {
                 return res.status(400).json({ msg: "User not found. Please try again." })
             }
 
-            const isMatch = await bcrypt.compare(password, user.password);
+            const isMatch = await bcrypt.compare(pass, user.pass);
 
             if (!isMatch) {
                 return res.status(400).json({ msg: "Password is incorrect. Please try again." })
             }
 
-            if (!user.confirmed)
-            return res.json({ token: null, user: { confirmed: user.confirmed } });
+            if (!user.confirm)
+            return res.json({ token: null, user: { confirm: user.confirm } });
 
             const token = jwt.sign({ id: user._id}, process.env.JWT_SECRET, {
                 expiresIn: "24h", 
@@ -166,16 +166,16 @@ module.exports = {
                 user: { 
                     id: user._id, 
                     email: user.email,
-                    firstName: user.firstName, 
-                    lastName: user.lastName, 
-                    organization: user.organization,
+                    first: user.first, 
+                    last: user.last, 
+                    org: user.org,
                     phone: user.phone,
                     street: user.street,
                     city: user.city,
                     state: user.state,
                     country: user.country,
                     optIn: user.optIn,
-                    confirmed: user.confirmed,
+                    confirm: user.confirm,
                     quoteNum: user.quoteNum,
                 },
             });
@@ -192,16 +192,16 @@ module.exports = {
             res.json({
                 id: user._id, 
                 email: user.email,
-                firstName: user.firstName, 
-                lastName: user.lastName, 
-                organization: user.organization,
+                first: user.first, 
+                last: user.last, 
+                org: user.org,
                 phone: user.phone,
                 street: user.street,
                 city: user.city,
                 state: user.state,
                 country: user.country,
                 optIn: user.optIn,
-                confirmed: user.confirmed,
+                confirm: user.confirm,
                 quoteNum: user.quoteNum,
             });
 
@@ -246,7 +246,7 @@ module.exports = {
         try {
             console.log("hit here")
             // Store existing password from database 
-            const {password} = await User.findById(req.params.id);  
+            const {pass} = await User.findById(req.params.id);  
             
             // Store existing password as input by user
             const oldPass = req.body.pass.oldPass;
@@ -256,13 +256,13 @@ module.exports = {
             const newSalt = await bcrypt.genSalt();
             const newPassHash = await bcrypt.hash(newPass, newSalt);
             
-            // Stpre password check to make sure password inputs are correct
+            // Store password check to make sure password inputs are correct
             const checkPass = req.body.pass.checkPass;
-            console.log("pass", password)
+            console.log("pass", pass)
             console.log(oldPass, newPass, checkPass)
             
             // Check that existing password is correct
-            const compare = await bcrypt.compare(oldPass, password)
+            const compare = await bcrypt.compare(oldPass, pass)
             if (!compare) {
                 return res.status(400).json({msg: "Existing password is incorrect."})
             };
@@ -281,7 +281,7 @@ module.exports = {
             const userToUpdate = await User.updateOne(
                 { _id: req.params.id },
                 {
-                    $set: {password: newPassHash}
+                    $set: {pass: newPassHash}
                 }
             );
             res.json(userToUpdate)

@@ -1,8 +1,6 @@
 import React from 'react';
 import htifront from "./img/htifront.jpg";
 import vmeCrate from "./img/vmeCrate.png";
-import smtLine2 from "./img/smtLine2.jpg";
-import smtLine3 from "./img/smtLine3.jpg";
 import smtLine from "./img/Line2.png";
 import Highland_Front from "./img/Highland_Front.png"
 

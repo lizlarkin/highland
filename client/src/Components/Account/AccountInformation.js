@@ -100,11 +100,11 @@ const AccountInformation = () => {
                 <div className="col-md-1"></div>
                 <div className="col g-4">
                     <label className="form-label">First Name</label>
-                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.firstName} name="firstName"/>
+                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.first} name="first"/>
                 </div>
                 <div className="col g-4">
                     <label className="form-label">Last Name</label>
-                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.lastName} name="lastName"/>
+                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.last} name="last"/>
                 </div>
                 <div className="col-md-1"></div>
             </form>
@@ -113,7 +113,7 @@ const AccountInformation = () => {
                 <div className="col-md-1"></div>
                 <div className="col g-4">
                     <label className="form-label">Organization</label>
-                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.organization} name="organization"/>
+                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.org} name=""/>
                 </div>
                 <div className="col g-4">
                     <label className="form-label">Phone</label>

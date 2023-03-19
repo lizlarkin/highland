@@ -45,23 +45,23 @@ const Register = () => {
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="text (required)" className="form-label" id="org-label">Organization<span className="asterisk">*</span></label>
-                            <input onChange={onChange} type="text" className="form-control" name="organization" id="org-input" required />
+                            <input onChange={onChange} type="text" className="form-control" name="org" id="org-input" required />
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="inputPassword8 (required)" className="form-label">Password<span className="asterisk">*</span></label>
-                            <input onChange={onChange} type="password" className="form-control" id="password-input" placeholder="8 characters minimum" name="password" minLength="8" required />
+                            <input onChange={onChange} type="password" className="form-control" id="password-input" placeholder="8 characters minimum" name="pass" minLength="8" required />
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="inputPassword8 (required)" className="form-label">Re-enter Password<span className="asterisk">*</span></label>
-                            <input onChange={onChange} type="password" className="form-control" id="check-input" name="passwordCheck" minLength="8" required />
+                            <input onChange={onChange} type="password" className="form-control" id="check-input" name="passCheck" minLength="8" required />
                         </div>
                         <div className="col-md-6">
                             <label className="form-label (required)">First Name<span className="asterisk">*</span></label>
-                            <input onChange={onChange} type="text" className="form-control" name="firstName" id="first-input" required />
+                            <input onChange={onChange} type="text" className="form-control" name="first" id="first-input" required />
                         </div>
                         <div className="col-md-6">
                             <label className="form-label (required)">Last Name<span className="asterisk">*</span></label>
-                            <input onChange={onChange} type="text" className="form-control" name="lastName" id="last-input" required />
+                            <input onChange={onChange} type="text" className="form-control" name="last" id="last-input" required />
                         </div>
                         <div className="col-12">
                             <label htmlFor="inputAddress (required)" className="form-label">Address<span className="asterisk">*</span></label>

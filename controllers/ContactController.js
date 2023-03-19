@@ -7,17 +7,30 @@ module.exports = {
             const newContact = new Contact({
                 date: req.body.date,
                 subject: req.body.subject,
-                organization: req.body.organization,
-                firstName: req.body.firstName,
-                lastName: req.body.lastName, 
+                org: req.body.org,
+                first: req.body.first,
+                last: req.body.last, 
                 email: req.body.email,
                 phone: req.body.phone,
                 comments: req.body.comments,
-                serialNum: req.body.serialNum,
+                sn: req.body.sn,
                 model: req.body.model,
-                version: req.body.version,
+                dash: req.body.dash,
                 userId: req.user,
             });
+
+            // Check that all required field are filled in
+            if (!newContact.org || !newContact.first || !newContact.last || !newContact.email || !newContact.phone) {
+                console.log("stop 1")
+                return res.status(400).json({ msg: "Please complete all required fields." });
+            };
+
+            // Check that a topic is selected
+            if (!newContact.subject || newContact.subject==="Choose Topic") {
+                console.log("stop 2")
+                return res.status(400).json({ msg: "Please select a topic." })
+            };
+
             const successSave = await newContact.save();
             res.json(successSave);
 
@@ -38,7 +51,7 @@ module.exports = {
             to: successSave.email,
             subject: `${successSave.subject==="Other"?" Request Received Confirmation":successSave.subject + " Received Confirmation"}`,
             text: `
-            Hi ${successSave.firstName + " " + successSave.lastName},
+            Hi ${successSave.first + " " + successSave.last},
 
             We have received your ${successSave.subject==="Other"?"request":successSave.subject}. A member of our team will respond shortly. 
 
@@ -46,11 +59,10 @@ module.exports = {
             Subject: ${successSave.subject}
             Comments: ${successSave.comments===undefined?"":successSave.comments}
             ${successSave.subject==="RMA Request"?
-            `Serial Number: ${successSave.serialNum===undefined?"":successSave.serialNum}
+            `Serial Number: ${successSave.sn===undefined?"":successSave.sn}
             Model: ${successSave.model===undefined?"":successSave.model}
-            Version: ${successSave.version===undefined?"":successSave.version}`
+            Version: ${successSave.dash===undefined?"":successSave.dash}`
             :" "}
-            
             For immediate assistance, please contact us at (415) 551-1700.
             
             Thank you,
@@ -67,15 +79,15 @@ module.exports = {
             text: 
                 `
                     Subject: ${successSave.subject}
-                    Name: ${successSave.firstName + " " + successSave.lastName}
-                    Organization: ${successSave.organization}
+                    Name: ${successSave.first + " " + successSave.last}
+                    Organization: ${successSave.org}
                     Email: ${successSave.email}
                     Phone: ${successSave.phone}
                     Comments: ${successSave.comments===undefined?"":successSave.comments}
-                    ${successSave.subject==="RMA Request"?
-                    `Serial Number: ${successSave.serialNum===undefined?"":successSave.serialNum}
+                    ${successSave.subject==="RMA Request (Repair/Calibration Services)"?
+                    `Serial Number: ${successSave.sn===undefined?"":successSave.sn}
                     Model: ${successSave.model===undefined?"":successSave.model}
-                    Version: ${successSave.version===undefined?"":successSave.version}`
+                    Version: ${successSave.dash===undefined?"":successSave.dash}`
                     :" "}
                 `
         }
@@ -97,13 +109,11 @@ module.exports = {
             }
         });
         
-
-
-
         } catch (error) {
             res.send(error)
         }
     },
+
     getAllContact: async (req, res) => {
         try {
             const allContacts = await Contact.find({ userId: req.user });

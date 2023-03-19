@@ -9,23 +9,23 @@ const userSchema = new mongoose.Schema({
         match: [/.+\@.+\..+/, 'Please enter a valid email address'], 
         trim: true,
     },
-    password: {
+    pass: {
         type: String,
         required: true,
         minLength: 8,
         trim: true,
     },
-    firstName: {
+    first: {
         type: String,
         required: true,
         trim: true,
     },
-    lastName: {
+    last: {
         type: String,
         required: true,
         trim: true,
     },
-    organization: {
+    org: {
         type: String,
         required: true,
         trim: true,
@@ -58,7 +58,7 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         required: false,
     },
-    confirmed: {
+    confirm: {
         type: Boolean,
         default: false
     },

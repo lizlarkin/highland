@@ -33,7 +33,7 @@ module.exports = {
                 subject: `Quote Request Confirmation from Highland Technology`,
                 text: 
 `
-Hi ${userData.firstName + " " + userData.lastName},
+Hi ${userData.first + " " + userData.last},
                 
 A member of our sales department will respond to your quote request shortly. 
                 
@@ -101,9 +101,9 @@ Highland Technology
             subject: `Quote Request From Website`,
             text: 
                 `
-Name: ${userData.firstName + " " + userData.lastName}
+Name: ${userData.first + " " + userData.last}
 Email: ${userData.email}
-Organization: ${userData.organization}
+Organization: ${userData.org}
 Phone: ${userData.phone}
 City, State: ${userData.city + ", " + userData.state}
 Country: ${userData.country}

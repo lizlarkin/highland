@@ -25,7 +25,7 @@ const GenJumbo = () => {
             if (pageName==="Account") {
                 setBackground(Account) 
                 setTitle("Account") 
-                setText(`Welcome back ${userData.user?.firstName + " " + userData.user?.lastName}`)
+                setText(`Welcome back ${userData.user?.first + " " + userData.user?.last}`)
             } else if (pageName==="Careers") {
                 setBackground(Careers) 
                 setTitle("Careers") 
