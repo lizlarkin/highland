@@ -16,7 +16,7 @@ module.exports = {
                 sn: req.body.sn,
                 model: req.body.model,
                 dash: req.body.dash,
-                userId: req.user,
+                userId: req.body.userId,
             });
 
             // Check that all required field are filled in

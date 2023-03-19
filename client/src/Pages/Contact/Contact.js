@@ -3,11 +3,6 @@ import UserContext from "../../Context/UserContext";
 import axios from "axios";
 import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 
-// TO DO:
-//     (1) better Map
-//     (2) keep contact history in account section
-//     (3) associate quote activity with contact activity
-
 const Contact = () => {
 
     const { userData } = useContext(UserContext);
@@ -46,6 +41,7 @@ const Contact = () => {
         sn: "",
         model: "",
         dash: "",
+        userId: "", 
     })
 
     // Store input fields
@@ -73,12 +69,13 @@ const Contact = () => {
         e.preventDefault() 
         checkFields();
         try {
-            // const authToken = localStorage.getItem("auth-token");
+            const authToken = localStorage.getItem("auth-token");
             await axios.post("/contact", 
-            form, );
+            form, 
+            { headers: { "x-auth-token": authToken },}
+            );
             clearFields();
             setErrMsg();
-            // { headers: { "x-auth-token": authToken },}
         } catch (error) {
             // if missing fields are present, give feedback to user
             setErrMsg(error.response.data.msg);
@@ -115,6 +112,7 @@ const Contact = () => {
             last: userData.token===undefined?"":userData.user.last,
             email: userData.token===undefined?"":userData.user.email,
             phone: userData.token===undefined?"":userData.user.phone,
+            userId: userData.token===undefined?"":userData.user.id,
         })
     }, [userData]) 
 
