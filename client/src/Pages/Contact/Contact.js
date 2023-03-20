@@ -140,7 +140,7 @@ const Contact = () => {
                          (415) 551-5129
                     </h4>
                     <h4 style={contactStyles.marginTop}>
-                        <i class="fa-regular fa-envelope"></i> <br />
+                        <i className="fa-regular fa-envelope"></i> <br />
                             <a href="mailto: sales@highlandtechnology.com" style={contactStyles.contactLink}>Email Sales</a> <br />
                             <a href="mailto: engineering@highlandtechnology.com" style={contactStyles.contactLink}>Email Engineering</a>
                     </h4>
@@ -220,7 +220,7 @@ const Contact = () => {
                             <div className="col-md-12" style={contactStyles.submitRow}>
                                 <button onClick={saveContact} style={contactStyles.submitBtn} type="submit" className="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Submit</button>
                             
-                            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div className="modal-dialog">
                                     <div className="modal-content">
                                     <div className="modal-header">

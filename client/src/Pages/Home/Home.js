@@ -106,7 +106,7 @@ const Home = () => {
                 <div className="row" id="logo-row">
                     <div className="col-md-4"></div>
                     <div className="col-md-4" id="logo-img">
-                        <img src={homeLogo} class="img-fluid" alt="Highland Logo"/>
+                        <img src={homeLogo} className="img-fluid" alt="Highland Logo"/>
                     </div>
                     <div className="col-md-4"></div>
                     <div className="row">
@@ -120,7 +120,7 @@ const Home = () => {
                             <button type="button" className="btn btn-light dropdown-toggle" id="home-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 Select Product Category
                             </button>
-                            <ul class="dropdown-menu">
+                            <ul className="dropdown-menu">
                                 <li onClick={goToCategory} title={"VME"} className="dropdown-item">VME</li> 
                                 <li onClick={goToCategory} title={"DDG"} className="dropdown-item">Digital Delay Generators</li>
                                 <li onClick={goToCategory} title={"PSG"} className="dropdown-item">Pulse Generators</li>

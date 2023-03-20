@@ -87,7 +87,7 @@ const Navigation = (props) => {
                 </li>
               </ul>
               <form className="d-flex">
-                <div className="gcse-searchbox-only" data-resultsUrl="/Search"></div>
+                <div className="gcse-searchbox-only" data-resultsurl="/Search"></div>
               </form>
             </div>
           </div>

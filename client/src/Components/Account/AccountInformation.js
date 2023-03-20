@@ -33,6 +33,7 @@ const AccountInformation = () => {
         try {
             const updatedUser = await axios.put(`/users/updateBasicUser/${userData.user.id}`, form)
             setUserData({...userData, form})
+            console.log("form from Account Info", form)
             alert('Update Successful')
         } catch (error) {
             console.log(error)
@@ -69,16 +70,16 @@ const AccountInformation = () => {
         }
     }
 
-    const deleteUser = async () => {
-        try {
-            await axios.delete("/users", {
-                headers: { "x-auth-token": localStorage.getItem("auth-token") }
-        });
-            history.push("/Home");
-        } catch (error) {
-            console.log("error deleting user", error)
-        }
-    }
+    // const deleteUser = async () => {
+    //     try {
+    //         await axios.delete("/users", {
+    //             headers: { "x-auth-token": localStorage.getItem("auth-token") }
+    //     });
+    //         history.push("/Home");
+    //     } catch (error) {
+    //         console.log("error deleting user", error)
+    //     }
+    // }
     
     useEffect(() => {
         checkLoggedIn();

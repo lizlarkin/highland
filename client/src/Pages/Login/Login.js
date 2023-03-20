@@ -7,18 +7,6 @@ import './formStyles.css';
 
 const Login = () => {
 
-    const loginStyles = {
-        error: {
-            textAlign: "center",
-        },
-        eye: {
-            cursor: "pointer",
-            float: "right",
-            marginTop: "-25px",
-            marginRight: "10px",
-        }
-    }
-
     const [form, setForm] = useState();
     const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
@@ -51,7 +39,7 @@ const Login = () => {
                 
                 localStorage.setItem("auth-token", data.token);
                 // history.push("/Pages/Home");
-                history.goBack();
+                // history.goBack();
             };
 
         } catch (error) {
@@ -70,7 +58,7 @@ const Login = () => {
             <div className="row">
                 <div className="col-md-4"></div>
                     <div className="col-md-4">
-                    <div className="alert alert-danger" role="alert" style={loginStyles.error}>
+                    <div className="alert alert-danger error-alert" role="alert">
                         {errMsg}
                     </div>
                 </div>
@@ -84,19 +72,33 @@ const Login = () => {
                 <div className ="col-md-4 form-box">
                     <form onSubmit={submitLogin}>
                     <div className="form-group">
-                        <label for="exampleInputEmail1">Email</label>
+                        <label htmlFor="exampleInputEmail1">Email</label>
                         <input onChange={onChange} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"/>
                     </div>
                     <div className="form-group form-input">
-                        <label for="exampleInputPassword1">Password</label>
+                        <label htmlFor="exampleInputPassword1">Password</label>
                         <input onChange={onChange} type={showPass?"text":"password"} className="form-control" id="exampleInputPassword1" placeholder="Password" name="pass"/>
-                        <i onClick={toggleShowPass} className="fa-duotone fa-eye-slash" style={loginStyles.eye}></i>
+                        <i onClick={toggleShowPass} className="fa-duotone fa-eye-slash pass-eye"></i>
                     </div>
-                    <button type="submit" className="btn btn-primary form-input">Submit</button>
-                    <Link to ="/pages/register">
-                        <button type="submit" className="btn btn-primary form-input" id="reg-btn">Register</button>
-                    </Link>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <button type="submit" className="btn btn-primary form-input submit-btn">Submit</button>
+                        </div>
+                    </div>
                     </form>
+
+                    <div className="row">
+                        <div className="col-md-6">
+                            <Link to ="/Register">
+                                <button type="submit" className="btn btn-outline-primary form-input submit-btn">Register</button>
+                            </Link>
+                        </div>
+                        <div className="col-md-6">
+                            <Link to ="/ResetPassword">
+                                <button type="submit" className="btn btn-outline-primary form-input submit-btn">Forgot Password</button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
                 <div className="col-md-4"></div>
             </div>

@@ -5,7 +5,7 @@ module.exports = {
     confirmUser: async (req, res) => {
         try {
             const confirmation = await Confirm.findOne({ token: req.body.token });
-            console.log(confirmation.userId);
+            // console.log(confirmation.userId);
 
             const confirmedUser = await User.findById(confirmation.userId);
 

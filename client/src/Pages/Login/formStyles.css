@@ -12,6 +12,10 @@
   margin-top: 25px;
 }
 
+.submit-btn {
+  width: 100%;
+}
+
 #reg-btn {
   float: right;
 }
@@ -27,4 +31,15 @@ input:invalid:required {
 
 input:valid {
   border: 1px solid grey;
+}
+
+.error-alert {
+  text-align: center;
+}
+
+.pass-eye {
+  cursor: pointer;
+  float: right;
+  margin-top: -25px;
+  margin-right: 10px;
 }

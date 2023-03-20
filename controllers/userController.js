@@ -6,7 +6,6 @@ const Confirm = require("../models/confirmModel");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
 
-
 module.exports = {
     register: async (req, res) => {
         try {
@@ -27,7 +26,7 @@ module.exports = {
             } = req.body;
     
                 if (!email || !pass || !passCheck || !first || !last || !org || !phone || !street || !city || !state || !city || !state || !country) {
-                    return res.status(400).json({ msg: "Please complete all fields." })
+                    return res.status(400).json({ msg: "Please complete all required fields." })
                 }
     
                 if (passCheck.length < 8) {
@@ -68,8 +67,6 @@ module.exports = {
                     userId: newUser._id,
                 });
 
-                console.log("confirm token from user controller", confirmationToken);
-
                 // Email From 
                 const transporter = nodemailer.createTransport({
                     service: "Outlook365",
@@ -83,7 +80,7 @@ module.exports = {
                 const mailOptions = {
                     from: "no-reply@highlandtechnology.com",
                     to: newUser.email,
-                    subject: "Thank you for registering with Highland Technology.",
+                    subject: "Thank you for registering with Highland Technology",
                     text: `Please click link to confirm account: http://localhost:3000/confirm_token/${confirmationToken.token}`,
                 }
 
@@ -213,16 +210,24 @@ module.exports = {
     // Update Basic User Data (not for opt-in/out or password)
     updateBasicUser: async (req, res) => {
         try {
+
+            // if (!email || !first || !last || !org || !phone || !street || !city || !state || !city || !state || !country) {
+            //     return res.status(400).json({ msg: "Please complete all required fields." })
+            // }
+
             const userToUpdate = await User.updateOne(
                 { _id: req.params.id },
+
                 {
                     $set: req.body
                 }
             );
-            console.log(req.body)
+            // console.log(req.body)
             res.json(userToUpdate)
         } catch (error) {
             res.send(error.response)
+            // res.status(500).json({ error: error.msg })
+            // console.log("here", error.message)
         }
     },
 
@@ -241,10 +246,60 @@ module.exports = {
         }
     },
 
+    forgotPass: async (req, res) => {
+        try {
+            
+            // Store email
+            const email = req.body.email;
+
+            // Validate that user sent email
+            if (!email) {
+                return res.status(400).json({ msg: "Please fill in email address." })
+            }
+
+            // Validate that email is already in database
+            const user = await User.findOne({ email: email }) 
+            if (!user) {
+                return res.status(400).json({ msg: "Email not found. Please try again." })
+            }
+
+            // Send forgot password email 
+
+                // Create token for 'Forgot Password' email
+                const forgotPassToken = new Confirm({
+                    token: crypto.randomBytes(15).toString("hex"),
+                    // userId: newUser._id,
+                });
+
+                console.log(forgotPassToken);
+
+                // Email From 
+                const transporter = nodemailer.createTransport({
+                    service: "Outlook365",
+                    auth: {
+                        user: "no-reply@highlandtechnology.com",
+                        pass: process.env.EPASS,
+                    },
+                });
+
+                // Email To Client
+                const mailOptions = {
+                    from: "no-reply@highlandtechnology.com",
+                    to: email,
+                    subject: "Password Reset - Highland Technology",
+                    text: `Please click link to reset password: http://localhost:3000/confirm_token/${forgotPassToken.token}`,
+                }
+
+            // Reset Password
+
+        } catch (error) {
+            res.send(error.response)
+        }
+    },
+
     // Update User Password
     updatePass: async (req, res) => {   
         try {
-            console.log("hit here")
             // Store existing password from database 
             const {pass} = await User.findById(req.params.id);  
             
@@ -258,8 +313,6 @@ module.exports = {
             
             // Store password check to make sure password inputs are correct
             const checkPass = req.body.pass.checkPass;
-            console.log("pass", pass)
-            console.log(oldPass, newPass, checkPass)
             
             // Check that existing password is correct
             const compare = await bcrypt.compare(oldPass, pass)
@@ -285,11 +338,8 @@ module.exports = {
                 }
             );
             res.json(userToUpdate)
-            console.log("save new pass ran", userToUpdate)
 
-        } catch (error) {
-            // res.send(error.response)  
-            console.log("error", error) 
+        } catch (error) {  
             res.send(error.response)         
         }
     },
