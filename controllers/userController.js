@@ -266,29 +266,29 @@ module.exports = {
             // Send forgot password email 
 
                 // Create token for 'Forgot Password' email
-                const forgotPassToken = new Confirm({
-                    token: crypto.randomBytes(15).toString("hex"),
-                    // userId: newUser._id,
-                });
+                // const forgotPassToken = new Confirm({
+                //     token: crypto.randomBytes(15).toString("hex"),
+                //     // userId: newUser._id,
+                // });
 
-                console.log(forgotPassToken);
+                // console.log(forgotPassToken);
 
                 // Email From 
-                const transporter = nodemailer.createTransport({
-                    service: "Outlook365",
-                    auth: {
-                        user: "no-reply@highlandtechnology.com",
-                        pass: process.env.EPASS,
-                    },
-                });
+                // const transporter = nodemailer.createTransport({
+                //     service: "Outlook365",
+                //     auth: {
+                //         user: "no-reply@highlandtechnology.com",
+                //         pass: process.env.EPASS,
+                //     },
+                // });
 
                 // Email To Client
-                const mailOptions = {
-                    from: "no-reply@highlandtechnology.com",
-                    to: email,
-                    subject: "Password Reset - Highland Technology",
-                    text: `Please click link to reset password: http://localhost:3000/confirm_token/${forgotPassToken.token}`,
-                }
+                // const mailOptions = {
+                //     from: "no-reply@highlandtechnology.com",
+                //     to: email,
+                //     subject: "Password Reset - Highland Technology",
+                //     text: `Please click link to reset password: http://localhost:3000/confirm_token/${forgotPassToken.token}`,
+                // }
 
             // Reset Password
 

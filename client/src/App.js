@@ -14,6 +14,7 @@ import Footer from './Components/Footer/Footer';
 import UserContext from "./Context/UserContext";
 import NavContext from "./Context/NavContext";
 import Account from './Pages/Account/Account';
+import ForgotPassword from './Pages/ResetPassword/ForgotPassword';
 import ResetPassword from './Pages/ResetPassword/ResetPassword';
 import Cart from './Pages/Cart/Cart';
 import Category from './Pages/Category/Category';
@@ -103,6 +104,7 @@ function App() {
                 <Route path="/Confirm" component={Confirm}/>
                 <Route path="/confirm_token/:token" component={SuccessConfirm}/>  
                 <Route path="/Account" component={Account}/>
+                <Route path="/ForgotPassword" component={ForgotPassword}/>
                 <Route path="/ResetPassword" component={ResetPassword}/>
                 <Route path="/Cart" component={Cart}/>
                 <Route path="/Careers" component={Careers}/>

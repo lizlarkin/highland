@@ -3,6 +3,7 @@ const auth = require("../middleware/auth");
 const { 
     register, 
     login, 
+    forgotPass,
     getUser, 
     deleteUser,
     updateBasicUser,
@@ -13,6 +14,7 @@ const {
 
 router.post("/register", register);
 router.post("/login", login);
+router.post("/forgotPass", forgotPass);
 router.get("/", auth, getUser);
 router.put("/updateQuoteNum", updateQuoteNum);
 router.put("/updateBasicUser/:id", updateBasicUser);

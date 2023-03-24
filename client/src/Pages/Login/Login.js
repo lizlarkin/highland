@@ -94,7 +94,7 @@ const Login = () => {
                             </Link>
                         </div>
                         <div className="col-md-6">
-                            <Link to ="/ResetPassword">
+                            <Link to ="/ForgotPassword">
                                 <button type="submit" className="btn btn-outline-primary form-input submit-btn">Forgot Password</button>
                             </Link>
                         </div>
