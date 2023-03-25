@@ -218,7 +218,7 @@ const Contact = () => {
 
                         <div className="row">
                             <div className="col-md-12" style={contactStyles.submitRow}>
-                                <button onClick={saveContact} style={contactStyles.submitBtn} type="submit" className="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Submit</button>
+                                <button onClick={saveContact} style={contactStyles.submitBtn} type="submit" className="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Submit</button>
                             
                             <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div className="modal-dialog">
