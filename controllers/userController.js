@@ -248,7 +248,6 @@ module.exports = {
 
     forgotPass: async (req, res) => {
         try {
-            
             // Store email
             const email = req.body.email;
 
@@ -263,36 +262,62 @@ module.exports = {
                 return res.status(400).json({ msg: "Email not found. Please try again." })
             }
 
+            // Get UserID
+            const forgotUserId = user._id
+
+            // Delete Existing Confirm Object for User
+            const existingConfirm = await Confirm.findOne({userId: forgotUserId})
+            if (existingConfirm) {
+                await existingConfirm.deleteOne()
+            }
+
+            // Generate new token
+            const forgotToken = crypto.randomBytes(15).toString("hex")
+            console.log("token: ", forgotToken)
+            // Save new token to Confirms
+            const confirmObj = new Confirm({
+                token: forgotToken,
+                userId: forgotUserId,
+                expiration: Date.now(),
+            });
+
             // Send forgot password email 
 
-                // Create token for 'Forgot Password' email
-                // const forgotPassToken = new Confirm({
-                //     token: crypto.randomBytes(15).toString("hex"),
-                //     // userId: newUser._id,
-                // });
-
-                // console.log(forgotPassToken);
-
-                // Email From 
-                // const transporter = nodemailer.createTransport({
-                //     service: "Outlook365",
-                //     auth: {
-                //         user: "no-reply@highlandtechnology.com",
-                //         pass: process.env.EPASS,
-                //     },
-                // });
+                // Email From Highland
+                const transporter = nodemailer.createTransport({
+                    service: "Outlook365",
+                    auth: {
+                        user: "no-reply@highlandtechnology.com",
+                        pass: process.env.EPASS,
+                    },
+                });
 
                 // Email To Client
-                // const mailOptions = {
-                //     from: "no-reply@highlandtechnology.com",
-                //     to: email,
-                //     subject: "Password Reset - Highland Technology",
-                //     text: `Please click link to reset password: http://localhost:3000/confirm_token/${forgotPassToken.token}`,
-                // }
+                const mailOptions = {
+                    from: "no-reply@highlandtechnology.com",
+                    to: user.email,
+                    subject: "Password Reset - Highland Technology",
+                    text: 
+                    `
+                    Please click link to reset password: http://localhost:3000/ResetPassword/${forgotToken}
+                    This link will expire in one hour. 
 
-            // Reset Password
+                    If you did not request this password reset, please contact us at sales@highlandtechnology.com. 
+                    `,
+                }
+
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log(`Email was sent with: http://localhost:3000/ResetPassword/${forgotToken}`);
+                    }
+                });
+
+        await confirmObj.save();
 
         } catch (error) {
+            console.log("error", error.response)
             res.send(error.response)
         }
     },
@@ -312,13 +337,18 @@ module.exports = {
             const newPassHash = await bcrypt.hash(newPass, newSalt);
             
             // Store password check to make sure password inputs are correct
-            const checkPass = req.body.pass.checkPass;
+            const newCheckPass = req.body.pass.checkPass;
             
             // Check that existing password is correct
             const compare = await bcrypt.compare(oldPass, pass)
             if (!compare) {
                 return res.status(400).json({msg: "Existing password is incorrect."})
             };
+
+              // Check that Password and Password Check were filled in
+              if (!newPass || !newCheckPass) {
+                return res.status(400).json({ msg: "Please fill in all fields." })
+            } 
             
             // Check that new password meets length criteria
             if (newPass.length < 8) {
@@ -326,7 +356,7 @@ module.exports = {
             }
            
             // Check that new password is correctly input
-            if (newPass !== checkPass) {
+            if (newPass !== newCheckPass) {
                 return res.status(402).json({ msg: "Passwords do not match." })
             }
 
@@ -341,6 +371,55 @@ module.exports = {
 
         } catch (error) {  
             res.send(error.response)         
+        }
+    },
+
+    // Reset Password: 
+    resetPass: async (req, res) => {
+        try {
+            const resetPass = req.body.pass.pass
+            const resetPassCheck = req.body.pass.passCheck
+
+            // Find token in Confirm
+            const confirmation = await Confirm.findOne({ token: req.body.token });
+            if (!confirmation) {
+                return res.status(400).json({ msg: "Expired or invalid password reset token." })
+              }
+
+            // Find userId associated with token from Confirm
+            const confirmedUser = await User.findById(confirmation.userId);
+            const resetPassUserId = confirmedUser._id
+
+            // Validate new password
+              // Password and Password Check were filled in
+                if (!resetPass || !resetPassCheck) {
+                    return res.status(400).json({ msg: "Please fill in all required fields." })
+                }
+
+              // Password and Password Check length >= 8
+                if (resetPass.length < 8 || resetPassCheck.length < 8) {
+                    return res.status(400).json({ msg: "Password must be at least 8 characters." })
+                }
+                // Password and Password Check match
+                if (resetPass !== resetPassCheck) {
+                    return res.status(400).json({ msg: "Passwords do not match." })
+                }
+            
+            // Hash and salt passwords
+            const resetSalt = await bcrypt.genSalt();
+            const resetPasswordHash = await bcrypt.hash(resetPass, resetSalt);
+
+            // Save new password to database
+            const userToUpdate = await User.updateOne(
+                { _id: resetPassUserId },
+                {
+                    $set: {pass: resetPasswordHash}
+                }
+            );
+            res.json(userToUpdate)
+
+        } catch (error) {
+            res.send(error.response)
         }
     },
 

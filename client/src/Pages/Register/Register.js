@@ -30,7 +30,6 @@ const Register = () => {
         e.preventDefault();
         try {
             const newUser = await axios.post("/users/register", form);
-            console.log(newUser);
             history.push("/Confirm")
         } catch (error) {
             setErrMsg(error.response.data.msg)

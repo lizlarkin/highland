@@ -13,10 +13,12 @@ const ForgotPassword = () => {
 
     const submitEmail = async (e) => {
         e.preventDefault();
-        try {
-            await axios.post("/users/forgotPass", email);
-            setSuccessMsg('Password reset link sent.')
+        try { 
+            setErrMsg(); 
+            setSuccessMsg('Password reset link sent.') 
+            await axios.post("/users/forgotPass", email) 
         } catch (error) {
+            setSuccessMsg();
             setErrMsg(error.response.data.msg)
         }
     };

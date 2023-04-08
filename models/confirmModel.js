@@ -9,6 +9,11 @@ const confirmSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    expiration: {
+        type: Date,
+        default: Date.now,
+        expires: 3600, // 1 hour
+    }
 });
 
 var Confirm = mongoose.model("confirm", confirmSchema);

@@ -10,6 +10,7 @@ const {
     updateQuoteNum,
     updateOpt,
     updatePass,
+    resetPass,
 } = require("../controllers/userController");
 
 router.post("/register", register);
@@ -20,6 +21,7 @@ router.put("/updateQuoteNum", updateQuoteNum);
 router.put("/updateBasicUser/:id", updateBasicUser);
 router.put("/updateOpt/:id", updateOpt);
 router.put("/updatePass/:id", updatePass);
+router.put("/resetPass", resetPass);
 router.delete("/", auth, deleteUser);
 
 module.exports = router;

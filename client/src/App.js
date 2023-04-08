@@ -105,7 +105,7 @@ function App() {
                 <Route path="/confirm_token/:token" component={SuccessConfirm}/>  
                 <Route path="/Account" component={Account}/>
                 <Route path="/ForgotPassword" component={ForgotPassword}/>
-                <Route path="/ResetPassword" component={ResetPassword}/>
+                <Route path="/ResetPassword/:token" component={ResetPassword}/>
                 <Route path="/Cart" component={Cart}/>
                 <Route path="/Careers" component={Careers}/>
                 <Route path="/Customers" component={Customers}/>
