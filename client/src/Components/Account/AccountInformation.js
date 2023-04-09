@@ -50,6 +50,26 @@ const AccountInformation = () => {
         }
     }
 
+    // Show and hide password
+    const [showOldPass, setShowOldPass] = useState(false);
+    const toggleShowOldPass = () => {
+        setShowOldPass(!showOldPass)
+    }
+
+    const [showPass, setShowPass] = useState(false);
+    const toggleShowPass = () => {
+        setShowPass(!showPass)
+    }
+
+    const [showCheckPass, setShowCheckPass] = useState(false);
+    const toggleShowCheckPass = () => {
+        setShowCheckPass(!showCheckPass)
+    }
+
+    // Password Status Management
+    const [passErrMsg, setPassErrMsg] = useState();
+    const [passSuccessMsg, setPassSuccessMsg] = useState();
+
     // Variable for Password Update
     const [pass, setPass] = useState({});
 
@@ -60,15 +80,20 @@ const AccountInformation = () => {
 
     // Function to save new password
     const savePass = async (e) => {
-        console.log(pass)
         e.preventDefault();
         try {
-            const updatedUser = await axios.put(`/users/updatePass/${userData.user.id}`, {pass})
-            alert("Password successfully updated!")
+            setPassErrMsg();
+            const updatedUser = await axios.put(`/users/updatePass/${userData.user.id}`, {pass});
+            setPassSuccessMsg("Password successfully updated!");
         } catch (error) {
-            alert(error.response.data.msg)
+            setPassSuccessMsg();
+            setPassErrMsg(error.response.data.msg);
         }
     }
+
+
+
+
 
     // const deleteUser = async () => {
     //     try {
@@ -196,16 +221,19 @@ const AccountInformation = () => {
             <div className="row">
                 <div className="col-md-1"></div>
                 <div className="col g-3">
-                    <label className="form-label">Existing Password</label>
-                    <input onChange={editPass} type="password" className="form-control" name="oldPass"/>
+                    <label className="form-label">Existing Password<span className="asterisk">*</span></label>
+                    <input onChange={editPass} type={showOldPass?"text":"password"} className="form-control" name="oldPass"/>
+                    <i onClick={toggleShowOldPass} className="fa-duotone fa-eye-slash pass-eye"></i>
                 </div>
                 <div className="col g-3">
-                    <label className="form-label">New Password</label>
-                    <input onChange={editPass} type="password" className="form-control" name="newPass"/>
+                    <label className="form-label">New Password<span className="asterisk">*</span></label>
+                    <input onChange={editPass} type={showPass?"text":"password"} className="form-control" name="newPass" placeholder="8 characters minimum"/>
+                    <i onClick={toggleShowPass} className="fa-duotone fa-eye-slash pass-eye"></i>
                 </div>
                 <div className="col g-3">
-                    <label className="form-label">Confirm New Password</label>
-                    <input onChange={editPass} type="password" className="form-control" name="checkPass"/>
+                    <label className="form-label">Confirm New Password<span className="asterisk">*</span></label>
+                    <input onChange={editPass} type={showCheckPass?"text":"password"} className="form-control" name="checkPass" placeholder="8 characters minimum"/>
+                    <i onClick={toggleShowCheckPass} className="fa-duotone fa-eye-slash pass-eye"></i>
                 </div>
                 <div className="col-md-1"></div>
             </div>
@@ -213,10 +241,37 @@ const AccountInformation = () => {
             <div className="row p-3">
                 <div className="col-md-5"></div>
                 <div className="col-md-2">
-                    <button onClick={savePass} type="button" className="btn btn-outline-danger" style={accountInfoStyles.btn}>Update Password</button>
+                    <button onClick={savePass} type="button" className="btn btn-outline-success" style={accountInfoStyles.btn}>Update Password</button>
                 </div>
                 <div className="col-md-5"></div>
             </div>
+
+            {passSuccessMsg?
+                <div className="row">
+                    <div className="col-md-4"></div>
+                    <div className="col-md-4">
+                        <div className="alert alert-success error-alert" role="alert">
+                            {passSuccessMsg}
+                        </div>
+                    </div>
+                <div className="col-md-4"></div>
+                </div>
+            :
+            null}
+            
+            {passErrMsg?
+                <div className="row">
+                    <div className="col-md-4"></div>
+                    <div className="col-md-4">
+                        <div className="alert alert-danger error-alert" role="alert">
+                            {passErrMsg}
+                        </div>
+                    </div>
+                    <div className="col-md-4"></div>
+                </div>
+            :
+            null}
+
 
         </div>
     )

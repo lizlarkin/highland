@@ -64,7 +64,7 @@ const Register = () => {
                         </div>
                         <div className="col-md-6">
                             <label htmlFor="inputPassword8" className="form-label">Re-enter Password<span className="asterisk">*</span></label>
-                            <input onChange={onChange} type={showCheckPass?"text":"password"} className="form-control" id="check-input" name="passCheck" minLength="8"/>
+                            <input onChange={onChange} type={showCheckPass?"text":"password"} className="form-control" id="check-input" name="passCheck" minLength="8" placeholder="8 characters minimum"/>
                             <i onClick={toggleShowCheckPass} className="fa-duotone fa-eye-slash pass-eye"></i>
                         </div>
                         <div className="col-md-6">
@@ -76,7 +76,7 @@ const Register = () => {
                             <input onChange={onChange} type="text" className="form-control" name="last" id="last-input"/>
                         </div>
                         <div className="col-12">
-                            <label htmlFor="inputAddress" className="form-label">Address<span className="asterisk">*</span></label>
+                            <label htmlFor="inputAddress" className="form-label">Address</label>
                             <input onChange={onChange} type="text" className="form-control" id="address-input" name="street"/>
                         </div>
                         <div className="col-md-6">
@@ -84,7 +84,7 @@ const Register = () => {
                             <input onChange={onChange} type="text" className="form-control" id="city-input" name="city"/>
                         </div>
                         <div className="col-md-3">
-                            <label htmlFor="inputState" className="form-label">State<span className="asterisk">*</span></label>
+                            <label htmlFor="inputState" className="form-label">State</label>
                             <input onChange={onChange} type="text" className="form-control" id="state-input" name="state"/>
                         </div>
                         <div className="col-md-3">

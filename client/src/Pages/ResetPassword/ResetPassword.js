@@ -81,7 +81,7 @@ const ResetPassword = (props) => {
           </div>
           <div className="form-group form-input">
             <label htmlFor="inputPassword8" className="form-label">Re-enter Password<span className="asterisk">*</span></label>
-            <input onChange={onChange} type={showCheckPass?"text":"password"} className="form-control" id="check-input" name="passCheck" minLength="8"/>
+            <input onChange={onChange} type={showCheckPass?"text":"password"} className="form-control" id="check-input" name="passCheck" minLength="8" placeholder="8 characters minimum"/>
             <i onClick={toggleShowCheckPass} className="fa-duotone fa-eye-slash pass-eye"></i>
           </div>
           <div className="row">

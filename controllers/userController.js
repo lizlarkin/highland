@@ -25,7 +25,7 @@ module.exports = {
                 quoteNum,
             } = req.body;
     
-                if (!email || !pass || !passCheck || !first || !last || !org || !phone || !street || !city || !state || !city || !state || !country) {
+                if (!email || !pass || !passCheck || !first || !last || !org || !phone || !city || !country) {
                     return res.status(400).json({ msg: "Please complete all required fields." })
                 }
     
@@ -65,6 +65,7 @@ module.exports = {
                 const confirmationToken = new Confirm({
                     token: crypto.randomBytes(15).toString("hex"),
                     userId: newUser._id,
+                    // expiration: Date.now(),
                 });
 
                 // Email From 
@@ -94,25 +95,26 @@ module.exports = {
                     Email: ${newUser.email}
                     Organization: ${newUser.org}
                     Phone: ${newUser.phone}
-                    City, State: ${newUser.city + ", " + newUser.state}
+                    Address: ${newUser.street?newUser.street:""}
+                    City: ${newUser.city}
+                    State: ${newUser.state?newUser.state:""}
                     Country: ${newUser.country}
-                    Opt In: ${newUser.optIn}
-                    `,
+                    Opt In: ${newUser.optIn}`
                 }
 
                 transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
-                        console.log(error);
+                        res.status(500).json({ msg: error });
                     } else {
-                        console.log(`Email was sent with: http://localhost:3000/confirm_token/${confirmationToken.token}`);
+                        res.status(200).json({ msg: 'email sent to customer' });
                     }
                 });
 
                 transporter.sendMail(emailSales, (error, info) => {
                     if (error) {
-                        console.log(error);
+                        res.status(500).json({ msg: error });
                     } else {
-                        console.log("Registration Email Sent to Highland Sales");
+                        res.status(200).json({ msg: 'email sent to sales' });
                     }
                 });
 
@@ -127,7 +129,7 @@ module.exports = {
                 res.json(savedUser);
             
         } catch (error) {
-            res.status(500).json({ msg: "error here!",  error })
+            res.status(500).json({ msg: error })
         }
     },
 
@@ -222,7 +224,7 @@ module.exports = {
                     $set: req.body
                 }
             );
-            // console.log(req.body)
+            
             res.json(userToUpdate)
         } catch (error) {
             res.send(error.response)
@@ -273,7 +275,7 @@ module.exports = {
 
             // Generate new token
             const forgotToken = crypto.randomBytes(15).toString("hex")
-            console.log("token: ", forgotToken)
+            
             // Save new token to Confirms
             const confirmObj = new Confirm({
                 token: forgotToken,
@@ -317,27 +319,25 @@ module.exports = {
         await confirmObj.save();
 
         } catch (error) {
-            console.log("error", error.response)
             res.send(error.response)
         }
     },
 
     // Update User Password
-    updatePass: async (req, res) => {   
+    updatePass: async (req, res) => {  
         try {
             // Store existing password from database 
             const {pass} = await User.findById(req.params.id);  
             
-            // Store existing password as input by user
+            // Store passwords sent from user
             const oldPass = req.body.pass.oldPass;
-            
-            // Store new password to set
             const newPass = req.body.pass.newPass;
-            const newSalt = await bcrypt.genSalt();
-            const newPassHash = await bcrypt.hash(newPass, newSalt);
-            
-            // Store password check to make sure password inputs are correct
             const newCheckPass = req.body.pass.checkPass;
+            
+            // Check that all password fields were filled in
+            if (!oldPass || !newPass || !newCheckPass) {
+                return res.status(400).json({ msg: "Please fill in all fields." })
+            } 
             
             // Check that existing password is correct
             const compare = await bcrypt.compare(oldPass, pass)
@@ -345,11 +345,6 @@ module.exports = {
                 return res.status(400).json({msg: "Existing password is incorrect."})
             };
 
-              // Check that Password and Password Check were filled in
-              if (!newPass || !newCheckPass) {
-                return res.status(400).json({ msg: "Please fill in all fields." })
-            } 
-            
             // Check that new password meets length criteria
             if (newPass.length < 8) {
                 return res.status(401).json({ msg: "Password must be at least 8 characters." })
@@ -359,6 +354,10 @@ module.exports = {
             if (newPass !== newCheckPass) {
                 return res.status(402).json({ msg: "Passwords do not match." })
             }
+
+            // Salt and Hash new password
+            const newSalt = await bcrypt.genSalt();
+            const newPassHash = await bcrypt.hash(newPass, newSalt);
 
             // Save new password to database
             const userToUpdate = await User.updateOne(
