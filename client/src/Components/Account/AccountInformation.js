@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './Account.css';
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
 
 const AccountInformation = () => {
     
-    const history = useHistory();
+    // const history = useHistory();
     const { userData, setUserData, checkLoggedIn } = useContext(UserContext);
 
     const accountInfoStyles = {
@@ -16,7 +16,6 @@ const AccountInformation = () => {
     }
     // TO DO:
     //     (1): Fix Delete User
-    //     (6): refresh pr confirm when changes are made
 
     // Variable for basic user data
     const [form, setForm] = useState({});
@@ -35,7 +34,7 @@ const AccountInformation = () => {
         setUserSuccessMsg();
         try {
             setUserErrMsg();
-            const updatedUser = await axios.put(`/users/updateBasicUser/${userData.user.id}`, form)
+            await axios.put(`/users/updateBasicUser/${userData.user.id}`, form)
             setUserData({...userData, form})
             setUserSuccessMsg('User Data Successfully Updated')
         } catch (error) {
@@ -48,7 +47,7 @@ const AccountInformation = () => {
     const saveOpt = async (e) => {
         e.preventDefault();
         try {
-            const updatedUser = await axios.put(`/users/updateOpt/${userData.user.id}`, {optIn: !userData.user.optIn})
+            await axios.put(`/users/updateOpt/${userData.user.id}`, {optIn: !userData.user.optIn})
         } catch (error) {
             console.log(error)
         }
@@ -88,7 +87,7 @@ const AccountInformation = () => {
         setPassSuccessMsg();
         try {
             setPassErrMsg();
-            const updatedUser = await axios.put(`/users/updatePass/${userData.user.id}`, {pass});
+            await axios.put(`/users/updatePass/${userData.user.id}`, {pass});
             setPassSuccessMsg("Password successfully updated!");
         } catch (error) {
             setPassErrMsg();

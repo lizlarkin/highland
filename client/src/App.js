@@ -53,7 +53,7 @@ function App() {
       setUserData({ token, user: userRes.data });
       getCartQuantity(); 
       } catch (error) {
-        console.log("User must login.");
+        return // consider better error handling here
       }
     }
   };

@@ -29,7 +29,7 @@ const Register = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            const newUser = await axios.post("/users/register", form);
+            await axios.post("/users/register", form);
             history.push("/Confirm")
         } catch (error) {
             setErrMsg(error.response.data.msg)

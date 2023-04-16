@@ -5,7 +5,7 @@ import madeInUsa from "./assets/madeInUsa.png";
 import ECCNImage from "./assets/ECCN.png";
 import statementOfVolatility from "./assets/statementOfVolatility.png";
 import mtbfAnalysis from "./assets/mtbfAnalysis.png";
-import datasheet from "./assets/datasheet.png";
+// import datasheet from "./assets/datasheet.png";
 import manual from "./assets/manual.png";
 import blockDiagram from "./assets/blockDiagram.png";
 import conformance from "./assets/conformance.png";
@@ -13,7 +13,7 @@ import softwareDrivers from "./assets/softwareDrivers.png";
 import {Link} from 'react-router-dom';
 import {CoCArr} from "./Resources";
 import USAPolicy from "./assets/USA_Commitment.pdf";
-import Datasheet from '../ProductDatasheet/Datasheet';
+// import Datasheet from '../ProductDatasheet/Datasheet';
 import Export from './Export';
 import Mtbf from './Mtbf';
 
