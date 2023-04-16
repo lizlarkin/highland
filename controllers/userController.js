@@ -213,23 +213,44 @@ module.exports = {
     updateBasicUser: async (req, res) => {
         try {
 
-            // if (!email || !first || !last || !org || !phone || !street || !city || !state || !city || !state || !country) {
-            //     return res.status(400).json({ msg: "Please complete all required fields." })
-            // }
+            if (req.body.first !== null && req.body.first == "") {
+                return res.status(400).json({ msg: "First name is missing. Please try again." })
+            }
+
+            if (req.body.last !== null && req.body.last == "") {
+                return res.status(400).json({ msg: "Last name is missing. Please try again." })
+            }
+
+            if (req.body.org !== null && req.body.org == "") {
+                return res.status(400).json({ msg: "Organization is missing. Please try again." })
+            }
+
+            if (req.body.phone !== null && req.body.phone == "") {
+                return res.status(400).json({ msg: "Phone is missing. Please try again." })
+            }
+
+            var phoneForm = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im; 
+            if (req.body.phone !== null && !req.body.phone.match(phoneForm)) {
+                return res.status(400).json({ msg: "Please change phone format." })
+            }
+
+            if (req.body.city !== null && req.body.city == "") {
+                return res.status(400).json({ msg: "City is missing. Please try again." })
+            }
+
+            if (req.body.country !== null && req.body.country == "") {
+                return res.status(400).json({ msg: "Country is missing. Please try again." })
+            }
 
             const userToUpdate = await User.updateOne(
                 { _id: req.params.id },
-
                 {
                     $set: req.body
                 }
             );
-            
             res.json(userToUpdate)
         } catch (error) {
             res.send(error.response)
-            // res.status(500).json({ error: error.msg })
-            // console.log("here", error.message)
         }
     },
 

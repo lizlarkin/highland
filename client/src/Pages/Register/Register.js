@@ -109,7 +109,7 @@ const Register = () => {
                         <div className="col-md-1"></div>
                         <div className="col-md-7">
                             {errMsg?
-                            <div class="alert alert-danger error-alert" role="alert">
+                            <div className="alert alert-danger error-alert" role="alert">
                                 {errMsg}
                             </div>
                             :null}

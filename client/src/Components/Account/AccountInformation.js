@@ -17,11 +17,13 @@ const AccountInformation = () => {
     // TO DO:
     //     (1): Fix Delete User
     //     (6): refresh pr confirm when changes are made
-    //     (2): handle empty fields without making user re-fill all fields
-    //     (3): phone validation
 
     // Variable for basic user data
     const [form, setForm] = useState({});
+
+    // Update User Data Status Management
+    const [userErrMsg, setUserErrMsg] = useState();
+    const [userSuccessMsg, setUserSuccessMsg] = useState();
 
     // Set state with basic user data
     const editBasicUser = (e) => {
@@ -30,13 +32,15 @@ const AccountInformation = () => {
 
     // Function to Save basic user data
     const saveUser = async () => {
+        setUserSuccessMsg();
         try {
+            setUserErrMsg();
             const updatedUser = await axios.put(`/users/updateBasicUser/${userData.user.id}`, form)
             setUserData({...userData, form})
-            console.log("form from Account Info", form)
-            alert('Update Successful')
+            setUserSuccessMsg('User Data Successfully Updated')
         } catch (error) {
-            console.log(error)
+            setUserSuccessMsg();
+            setUserErrMsg(error.response.data.msg);
         }
     }
 
@@ -81,19 +85,17 @@ const AccountInformation = () => {
     // Function to save new password
     const savePass = async (e) => {
         e.preventDefault();
+        setPassSuccessMsg();
         try {
             setPassErrMsg();
             const updatedUser = await axios.put(`/users/updatePass/${userData.user.id}`, {pass});
             setPassSuccessMsg("Password successfully updated!");
         } catch (error) {
+            setPassErrMsg();
             setPassSuccessMsg();
             setPassErrMsg(error.response.data.msg);
         }
     }
-
-
-
-
 
     // const deleteUser = async () => {
     //     try {
@@ -126,11 +128,11 @@ const AccountInformation = () => {
                 <div className="col-md-1"></div>
                 <div className="col g-4">
                     <label className="form-label">First Name</label>
-                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.first} name="first"/>
+                    <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.first} name="first"/>
                 </div>
                 <div className="col g-4">
                     <label className="form-label">Last Name</label>
-                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.last} name="last"/>
+                    <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.last} name="last"/>
                 </div>
                 <div className="col-md-1"></div>
             </form>
@@ -139,37 +141,37 @@ const AccountInformation = () => {
                 <div className="col-md-1"></div>
                 <div className="col g-4">
                     <label className="form-label">Organization</label>
-                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.org} name=""/>
+                    <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.org} name="org"/>
                 </div>
                 <div className="col g-4">
                     <label className="form-label">Phone</label>
-                    <input onChange={editBasicUser} type="tel" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"  className="form-control" placeholder={userData.user.phone} name="phone"/>
+                    <input onChange={editBasicUser} type="tel" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"  className="form-control" defaultValue={userData.user.phone} name="phone"/>
                 </div>
                 <div className="col-md-1"></div>
             </form>
 
             <form className="row">
                 <div className="col-md-1"></div>
-                <div class="col g-4">
+                <div className="col g-4">
                     <label className="form-label">Address</label>
-                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.street} name="street"/>
+                    <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.street} name="street"/>
                 </div>
-                <div class="col g-4">
+                <div className="col g-4">
                     <label className="form-label">City</label>
-                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.city} name="city"/>
+                    <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.city} name="city"/>
                 </div>
                 <div className="col-md-1"></div>
             </form>
 
             <form className="row">
                 <div className="col-md-1"></div>
-                <div class="col g-4">
+                <div className="col g-4">
                     <label className="form-label">State</label>
-                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.state} name="state"/>
+                    <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.state} name="state"/>
                 </div>
-                <div class="col g-4">
+                <div className="col g-4">
                     <label className="form-label">Country</label>
-                    <input onChange={editBasicUser} type="text" className="form-control" placeholder={userData.user.country} name="country"/>
+                    <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.country} name="country"/>
                 </div>
                 <div className="col-md-1"></div>
             </form>
@@ -177,10 +179,36 @@ const AccountInformation = () => {
             <div className="row p-3">
                 <div className="col-md-5"></div>
                 <div className="col-md-2">
-                    <button onClick={saveUser}type="button" className="btn btn-outline-success" style={accountInfoStyles.btn}>Update Profile</button>
+                    <button onClick={saveUser}type="button" className="btn btn-outline-primary" style={accountInfoStyles.btn}>Update Profile</button>
                 </div>
                 <div className="col-md-5"></div>
             </div>
+
+            {userErrMsg?
+                <div className="row">
+                    <div className="col-md-4"></div>
+                    <div className="col-md-4">
+                        <div className="alert alert-danger error-alert" role="alert">
+                            {userErrMsg}
+                        </div>
+                    </div>
+                    <div className="col-md-4"></div>
+                </div>
+            :
+            null}
+
+            {userSuccessMsg?
+                <div className="row">
+                    <div className="col-md-4"></div>
+                    <div className="col-md-4">
+                        <div className="alert alert-success error-alert" role="alert">
+                            {userSuccessMsg}
+                        </div>
+                    </div>
+                    <div className="col-md-4"></div>
+                </div>
+            :
+            null}
 
             {/* OPT-IN SECTION */}
             <div className="row">
@@ -241,7 +269,7 @@ const AccountInformation = () => {
             <div className="row p-3">
                 <div className="col-md-5"></div>
                 <div className="col-md-2">
-                    <button onClick={savePass} type="button" className="btn btn-outline-success" style={accountInfoStyles.btn}>Update Password</button>
+                    <button onClick={savePass} type="button" className="btn btn-outline-primary" style={accountInfoStyles.btn}>Update Password</button>
                 </div>
                 <div className="col-md-5"></div>
             </div>

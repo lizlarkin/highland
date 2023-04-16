@@ -67,11 +67,11 @@ const Testimonials = () => {
                 
                 {/* Row 2: Aerospace & Defense Award */}
                 <div className="row" style={testimonialsStyles.testimonialRow}>
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <img src={aerospaceAward} class="img-fluid rounded-start" alt="Aerospace Defense & Review Award"/>
+                    <div className="col-md-2"></div>
+                    <div className="col-md-8">
+                        <img src={aerospaceAward} className="img-fluid rounded-start" alt="Aerospace Defense & Review Award"/>
                     </div>
-                    <div class="col-md-2"></div>
+                    <div className="col-md-2"></div>
                 </div>
 
                 {/* Row 1: Collins + 2010 LLNL */}
