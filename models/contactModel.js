@@ -5,7 +5,7 @@ const contactSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    subject: {
+    sub: {
         type: String,
         required: true
     },

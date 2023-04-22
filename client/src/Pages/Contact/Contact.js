@@ -31,7 +31,7 @@ const Contact = () => {
     }
  
     const [form, setForm] = useState({
-        subject: "",
+        sub: "",
         org: "",
         first: "",
         last: "",
@@ -52,12 +52,12 @@ const Contact = () => {
     // Store subject field
     const storeInquiry = (e) => {
         const typeOfInquiry = e.target.value;
-        setForm({...form, subject: typeOfInquiry})
+        setForm({...form, sub: typeOfInquiry})
     }
 
     // Front end check for missing fields that are required
     const checkFields = () => {
-        if (!form.org || !form.first || !form.last || !form.email || !form.phone || !form.subject || form.subject==="Choose Topic") {
+        if (!form.org || !form.first || !form.last || !form.email || !form.phone || !form.sub || form.sub==="Choose Topic") {
             setValidate(true);
         } else {
             setValidate(false);
@@ -92,7 +92,7 @@ const Contact = () => {
         document.querySelector('textarea[name="comments"]').value = "";
         document.getElementById("inputState").selectedIndex = 0;
         setForm({
-            subject: "",
+            sub: "",
             org: "",
             first: "",
             last: "",
@@ -192,7 +192,7 @@ const Contact = () => {
                                 <option>Other</option>
                             </select>
                         </div>
-                        {form.subject==="RMA Request (Repair/Calibration Services)"?
+                        {form.sub==="RMA Request (Repair/Calibration Services)"?
                         <div className="row">
                             <p style={contactStyles.marginTop}>Please provide as much information as possible about unit pending return:</p>
                             <div className="col-md-4">
@@ -210,7 +210,7 @@ const Contact = () => {
                         </div>
                         :null}
                         <div className="col-md-12">
-                            <label htmlFor="inputState" className="form-label">{form.subject==="RMA Request (Repair/Calibration Services)"?"Reason for Return":"Comments"}</label>
+                            <label htmlFor="inputState" className="form-label">{form.sub==="RMA Request (Repair/Calibration Services)"?"Reason for Return":"Comments"}</label>
                             <div className="input-group">
                                 <textarea onChange={storeInputs} className="form-control" aria-label="With textarea" name="comments"></textarea>
                             </div>

@@ -6,7 +6,7 @@ module.exports = {
         try {
             const newContact = new Contact({
                 date: req.body.date,
-                subject: req.body.subject,
+                sub: req.body.sub,
                 org: req.body.org,
                 first: req.body.first,
                 last: req.body.last, 
@@ -21,13 +21,11 @@ module.exports = {
 
             // Check that all required field are filled in
             if (!newContact.org || !newContact.first || !newContact.last || !newContact.email || !newContact.phone) {
-                console.log("stop 1")
                 return res.status(400).json({ msg: "Please complete all required fields." });
             };
 
             // Check that a topic is selected
-            if (!newContact.subject || newContact.subject==="Choose Topic") {
-                console.log("stop 2")
+            if (!newContact.sub || newContact.sub==="Choose Topic") {
                 return res.status(400).json({ msg: "Please select a topic." })
             };
 
@@ -49,16 +47,16 @@ module.exports = {
         const mailOptions = {
             from: 'Highland Technology <no-reply@highlandtechnology.com>',
             to: successSave.email,
-            subject: `${successSave.subject==="Other"?" Request Received Confirmation":successSave.subject + " Received Confirmation"}`,
+            subject: `${successSave.sub==="Other"?" Request Received Confirmation":successSave.sub + " Received Confirmation"}`,
             text: `
             Hi ${successSave.first + " " + successSave.last},
 
-            We have received your ${successSave.subject==="Other"?"request":successSave.subject}. A member of our team will respond shortly. 
+            We have received your ${successSave.sub==="Other"?"request":successSave.sub}. A member of our team will respond shortly. 
 
             The following is a copy of your request for your records:
-            Subject: ${successSave.subject}
+            Subject: ${successSave.sub}
             Comments: ${successSave.comments===undefined?"":successSave.comments}
-            ${successSave.subject==="RMA Request"?
+            ${successSave.sub==="RMA Request"?
             `Serial Number: ${successSave.sn===undefined?"":successSave.sn}
             Model: ${successSave.model===undefined?"":successSave.model}
             Version: ${successSave.dash===undefined?"":successSave.dash}`
@@ -75,16 +73,16 @@ module.exports = {
             from: "no-reply@highlandtechnology.com",
             // CHANGE HERE FOR WHO GETS INTERNAL EMAIL
             to: "lizlarkin@highlandtechnology.com",
-            subject: `New ${successSave.subject==="Other"?" Request Received":successSave.subject + " Received"}`,
+            subject: `New ${successSave.sub==="Other"?" Request Received":successSave.sub + " Received"}`,
             text: 
                 `
-                    Subject: ${successSave.subject}
+                    Subject: ${successSave.sub}
                     Name: ${successSave.first + " " + successSave.last}
                     Organization: ${successSave.org}
                     Email: ${successSave.email}
                     Phone: ${successSave.phone}
                     Comments: ${successSave.comments===undefined?"":successSave.comments}
-                    ${successSave.subject==="RMA Request (Repair/Calibration Services)"?
+                    ${successSave.sub==="RMA Request (Repair/Calibration Services)"?
                     `Serial Number: ${successSave.sn===undefined?"":successSave.sn}
                     Model: ${successSave.model===undefined?"":successSave.model}
                     Version: ${successSave.dash===undefined?"":successSave.dash}`

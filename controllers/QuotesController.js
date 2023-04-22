@@ -53,7 +53,7 @@ ${successSave.products.map((productsArr, index) => (
             +"Quantity: "
             +product.qty 
             +"\n"
-            +"Configuration:"    
+            +"Configuration: "    
             +product.config.filter(x=>x).join(", ")
             +"\n"
             +"Accessories:"

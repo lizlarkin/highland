@@ -1622,7 +1622,7 @@ let productSeed = [
             ["OEM packaged or board-only custom versions available"],
         ],
         description: "Accepts an internal or external trigger and generates four precise output pulses, each user programmable in time delay and width.",
-        imgCaptions: ["T560 4-channel benchtop digital delay and pulse generator", "", "", "", "T560 signal endplate", "T560 version -1 power endplate (without Ethernet)", "T560 version -2 power endplate (with Ethernet)"],
+        imgCaptions: ["", "", "", "", "T560 signal endplate", "T560 version -1 power endplate (without Ethernet)", "T560 version -2 power endplate (with Ethernet)"],
         about: [
             "The T560 series is a family of small digital delay generators, intended for use in embedded OEM applications. The T560-1 is the standard, packaged version, usable in many OEM applications and as the evaluation unit for custom versions. It uses the technology developed for the Highland model V851 (VME module) and P400 (benchtop) digital delay generators, with basic TTL/CMOS input and output levels and advanced logic.",
             "The T560 accepts an internal or external trigger and generates four precise output pulses, each user programmable in time delay and width. It is ideal for laser sequencing, radar/lidar simulation, or sequential event triggering. It is easily mounted within systems enclosures, allowing short cable runs and reliable, unattended operation.",
