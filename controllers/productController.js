@@ -19,6 +19,15 @@ module.exports = {
             console.log(error);          
         }
     },
+    getDashNumber: async (req, res) => {
+        console.log('getDashNum')
+        try {
+
+        } catch (error) {
+            res.send(error);
+            console.log(error);  
+        }
+    },
     postProduct: async (req, res) => {
         try {
             const newProduct = new Product({
@@ -33,6 +42,7 @@ module.exports = {
                 specificationsTwo: req.body.specificationsTwo,
                 specificationsMulti: req.body.specificationsMulti,
                 specificationsNotes: req.body.specificationsNotes,
+                config: req.body.config,
                 versions: req.body.versions,
                 accessories: req.body.accessories,
                 EOL: req.body.EOL,

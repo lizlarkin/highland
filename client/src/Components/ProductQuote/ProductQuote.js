@@ -42,92 +42,56 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
     const history = useHistory();
     const [selectedQuantity, setSelectedQuantity] = useState(0);
     const [selectedAccessories, setSelectedAccessories] = useState([]);
-    const [dash, setDash] = useState([]);  // configured on page load and updated based on user selections
-    const [helpLoad, setHelpLoad] = useState(0); // helps configure base dash numbers
-    const [versions, setVersions] = useState([]); // holds backend data about product version options
+    const [configNums, setConfigNums] = useState([]) // Hold array of configuration numbers in state
+    const [configNum, setConfigNum] = useState([]); // Hold one configration option selected by user
+    const [dashNums, setDashNums] = useState([]); // Hold array of dash numbers in state
+    const [dashNum, setDashNum] = useState(); // Hold one Highland dash number selected by user
+    const [config, setConfig] = useState([]); // holds backend data about product version options
     const [configuration, setConfiguration] = useState([]) // holds descriptions of selected options
     let   [checkRequired, setCheckRequired] = useState([]) // array generated when users make required selections to check that all required selections are made
     let   [checkNum, setCheckNum] = useState(0) // stores number of required selections
 
     const cart = {
-        model: model,
-        name: name,
-        version: dash,
-        config: configuration,
+        prod: model+"-"+dashNum,
         qty: selectedQuantity,
         acc: selectedAccessories,
         userId: userData.user, 
     }
 
+
+    
+    let optionsNum = 0 // Hold number of configuration options
+
     const selectQuantity = (e) => {
         setSelectedQuantity(e.target.value);
     }
 
-    let dashArr = [];
-    // Initialize standard/base dash number
-    const configureStandardDash = () => {
-        for (let i = 0; i < versions.length; i++) {
-            dashArr.push(versions[i][2]);
-            cart.configuredDash = dashArr;
-            setDash(dashArr);
-        }
-        // Count number of occurences of "required" selections
-        let count = []
-        for (let j = 0; j < versions.length; j++) {
-            if (versions[j][0]==='required') {
-                count++
-            }
-        }
-        setCheckNum(count)
-    }
+    // Count number of occurences of "required" selections
+    let checkCount = configNum.length
+    // console.log("configNumCheckCount: ", configNum, checkCount)
 
-    // modify dash number based on customer selections of optional featues
-    const handleOptionalVersions = (e) => {
+
+
+    // Set configuration number based on user option selections   
+    const updateConfigNum = (e) => {
         if (e.target.checked) {
-            // when option is checked, update index of standard/base dash number, found at index corresponding to that version position
-            let dashCopy = [...dash];
-            let newDash = [dashCopy[e.target.id]];
-            newDash = e.target.value;
-            dashCopy[e.target.id] = newDash;
-            setDash(dashCopy);
-            let configCopy = [...configuration];
-            let newConfig = [configCopy[e.target.id]];
-            newConfig = e.target.getAttribute('data-config');
-            configCopy[e.target.id] = newConfig;
-            setConfiguration(configCopy)
+            // Make a copy of the array
+            let tempConfigNum = [...configNum]
+            // Update array item selected
+            tempConfigNum[e.target.id] = e.target.value
+            // Set ConfigArr State
+            setConfigNum(tempConfigNum.join(''))
+            // getDashNum();
         } else if (!e.target.checked) {
-            // when option is unchecked, restore standard/base dash number
-            let dashCopy = [...dash];
-            let newDash = [dashCopy[e.target.id]];
-            newDash = e.target.getAttribute('data-defaultdash');
-            dashCopy[e.target.id] = newDash;
-            setDash(dashCopy);
-            let configCopy = [...configuration];
-            configCopy[e.target.id] = null
-            setConfiguration(configCopy)
+            // Make a copy of the array
+            let tempConfigNum = [...configNum]
+            // Update array item selected
+            tempConfigNum[e.target.id] = 0
+            // Set ConfigArr State
+            setConfigNum(tempConfigNum.join(''))
+            // getDashNum();
+            }   
         }
-    }
-
-    const handleRequiredVersions = (e) => {
-        let dashCopy = [...dash];
-        let newDash = [dashCopy[e.target.id]];
-        newDash = e.target.value;
-        dashCopy[e.target.id] = newDash;
-        setDash(dashCopy);
-        let configCopy = [...configuration];
-        let newConfig = [configCopy[e.target.id]];
-        newConfig = e.target.getAttribute('data-config');
-        configCopy[e.target.id] = newConfig;
-        setConfiguration(configCopy)
-        // Check to make sure user has made all required selections
-        if (e.target.checked) {
-            let checkRequiredCopy = [...checkRequired];
-            // let newCheck = [checkRequiredCopy[e.target.id]];
-            // newCheck = e.target.value;
-            checkRequiredCopy[e.target.id] = true;
-            setCheckRequired(checkRequiredCopy);
-        }
-    }
 
     const handleAddAccessories = (e) => {
         if (e.target.value > 0) {
@@ -151,7 +115,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                     // Add items to Cart DB
                     const authToken = localStorage.getItem("auth-token");
                     await axios.post("/cart", 
-                        cart, 
+                        cart,
                         { headers: { "x-auth-token": authToken },
                     });
                     // Update Context
@@ -168,19 +132,43 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
         if (!userData.user) history.push("/login");
         const getProductData = async () => {
             try {
-               const prodData = await axios.get(`/products/${model}`);
-               setVersions(prodData.data[0].versions);
-               setHelpLoad(1);
+                // get all product data from backend based on Model
+                const prodData = await axios.get(`/products/${model}`);
+                // Set configuration data array
+                setConfig(prodData.data[0].config);
+                // optionsNum = prodData.data[0].config.length
+                // Set Array of all configuration numbers
+                let configArr = []; // Hold array of all possible configuration numbers
+                prodData.data[0].versions.map((version) => (
+                    configArr.push(version[0].toString().replaceAll(',', ''))
+                ))
+                setConfigNums(configArr)
+                // Set Array of all dash/version numbers
+                let dashArr = []; // Hold array of all possible dash numbers
+                prodData.data[0].versions.map((version) => (
+                    dashArr.push(version[1].toString().replaceAll(',', ''))
+                ))
+                setDashNums(dashArr)
+                // Set Base Configuration Number to State
+                setConfigNum(configArr[0]);
+                // Set Base Dash Number to State
+                setDashNum(dashArr[0]);
             } catch (error) {
-                console.log(error.response)
+                console.log(error);
             }
         }
         getProductData();
-        if (versions.length>0) configureStandardDash();
-    }, [userData.user, history, helpLoad, model])
+        // if (config.length>0) configureStandardDash();
+    }, [userData.user, history, model])
 
-
-
+    // Get dash number associated with selected product configuration
+    useEffect(() => {
+        // Set index of selected configuration in configuration array
+        let configIndex = configNums.indexOf(configNum) 
+        // Set Dash number based on config index num    
+        setDashNum(dashNums[configIndex])
+    }, [configNum])
+    
     return (
         <div>
 
@@ -199,7 +187,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
 
                         <div className="col-md-8">
                         {model && name?
-                                <h5>{model}-{dash} {name}</h5>
+                                <h5>{model}-{dashNum} {name}</h5>
                             :null}
                         </div>
 
@@ -218,18 +206,18 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                         <div className="col-md-10">
                  
                             {/* <div style={quoteStyles.configContainer}> */}
-
-                                {versions.length>0?
-                                    versions.map((options, index) => (
+                            
+                                {config.length>0?
+                                    config.map((options, index) => (
                                         options[0]==="noOptions"?
                                         null
                                         :
                                         options[0]==="required"?
                                             <div style={quoteStyles.configContainer} key={index}>
                                             <h6 style={quoteStyles.header}>{options[1]}<span className="asterisk">* (required)</span></h6>
-                                            {options.slice(3).map((option, idx) => (
+                                            {options.slice(2).map((option, idx) => (
                                                 <div className="form-check" key={idx}>
-                                                    <input onClick={handleRequiredVersions} className="form-check-input" type="radio" name={"flexRadioDefault"+index} value={option[0]} id={index} data-config={option[1]}/>
+                                                    <input onClick={updateConfigNum} className="form-check-input" type="radio" name={"flexRadioDefault"+index} value={option[0]} id={index} data-config={option[1]}/>
                                                     <label className="form-check-label" htmlFor={index}>
                                                         {option[1]}
                                                     </label>
@@ -242,7 +230,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                                 <h6 style={quoteStyles.header}>{options[1]} (optional)</h6>
                                                 {options.slice(3).map((option, idx) => (
                                                     <div className="form-check" key={idx}>
-                                                        <input onClick={handleOptionalVersions} className="form-check-input" type="checkbox" value={option[0]} data-defaultdash={options[2]} id={index} data-config={option[1]}/>
+                                                        <input onClick={updateConfigNum} className="form-check-input" type="checkbox" value={option[0]} data-defaultdash={options[2]} id={index} data-config={option[1]}/>
                                                         <label className="form-check-label">
                                                             {option[1]}
                                                         </label>

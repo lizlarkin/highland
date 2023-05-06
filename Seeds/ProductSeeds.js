@@ -48,8 +48,13 @@ let productSeed = [
         ["LED INDICATORS", ["Orange PWR   Green OK   Blue TRIG"]],
         ["PACKAGING", ['3.5" x 4.2" printed circuit board', '2" nom height']],
       ],
+      config: [
+        // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
+        ["required", "Packaging", [0, "board-only"], [1, "evaluation kit (D100 installed on mounting flange with 24 volt power supply and SMB to BNC cable)"]]
+      ],
       versions: [
-        ["optional", "recommended bundle", 1, [9, "add evaluation kit: D100 furnished with 24 volt power supply, SMB to BNC cable, and mounting flange"]],
+        [[0], 1, ["picosecond laser diode pulser", "board-only"]],
+        [[1], 9, ["picosecond laser diode pulser", "evaluation kit"]],
       ],
       accessories: [
         ["J25-1", "24 volt 65W power supply", "(1 included with purchase)"],
@@ -105,9 +110,9 @@ let productSeed = [
         ["LED INDICATORS", ["Orange POWER"]],
         ["PACKAGING", ["4” x 4” printed circuit board, installed on 6” x 6” aluminum baseplate"]],
       ],
-      versions: [
-        ["noChoice", null, 9],
-      ],
+      // versions: [
+      //   ["noChoice", null, 9],
+      // ],
       accessories: [
         ["J12-1", "12 volt power supply"],
         ["J53-1", "3' SMB to BNC cable", "(2 included with purchase)"],
@@ -165,9 +170,9 @@ let productSeed = [
         ["INDICATOR", ["LED:  green power"]],
         ["PACKAGING", ['3.3” (L) x 2.1” (W) x 0.9” (H) extruded anodized aluminum enclosure', "J732 mounting flange included"]]
       ],
-      versions: [
-        ["required", "select configuration", 1, [1, "140 ps nominal Gaussian pulse outputs and rising-edge trigger"], [2, "input follower with 75 ps nominal 10:90 rise/fall time"], [3, "input follower with 75 ps nominal 10:90 rise/fall time LVDS"]], 
-      ],
+      // versions: [
+      //   ["required", "select configuration", 1, [1, "140 ps nominal Gaussian pulse outputs and rising-edge trigger"], [2, "input follower with 75 ps nominal 10:90 rise/fall time"], [3, "input follower with 75 ps nominal 10:90 rise/fall time LVDS"]], 
+      // ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 included with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -197,9 +202,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       ECCN: "3A230",
       htsCode: "8517.62.0050",
       MTBF: [],
@@ -250,10 +255,10 @@ let productSeed = [
         ["CONNECTORS", ["BNC electrical input jack", "ST or FC optical fiber output"]],
         ["PACKAGING", ["Aluminum enclosure", '0.75” (19.1 mm) width x 0.62” (15.7 mm) height x 3.35” (85.1 mm) nom']],
       ],
-      versions: [
-        ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
-        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"]],
-      ],
+      // versions: [
+      //   ["required", "Connector Type", 0, [0, "ST"], [1, "FC"]], 
+      //   ["required", "Wavelength", 1, [1, "850nm"], [3, "1310nm"]],
+      // ],
       accessories: [
         ["J43-1", "3' BNC to BNC cable"],
         ["J53-1", "3' SMB to BNC cable"],
@@ -316,9 +321,9 @@ let productSeed = [
         ["INDICATORS", ["LED: Amber power"]],
         ["PACKAGING", ['3.3" (L) x 2.1" (W) x 0.9" (H) extruded anodized aluminum enclosure', "J732 mounting flange included"]],
       ],
-      versions: [
-        ["required", "Connector Type/Wavelength", 1, [1, "ST/850 nm"], [3, "ST/1310nm"], [5, "ST/1550nm"], [11, "FC/850 nm"], [13, "FC/1310nm"], [15, "FC/1550nm"], [25, "Pigtail FC-APC/1550nm"]], 
-      ],
+      // versions: [
+      //   ["required", "Connector Type/Wavelength", 1, [1, "ST/850nm"], [3, "ST/1310nm"], [5, "ST/1550nm"], [11, "FC/850nm"], [13, "FC/1310nm"], [15, "FC/1550nm"], [25, "Pigtail FC-APC/1550nm"]], 
+      // ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 included with purchase)"],
         ["J41-1", "3' SMB to SMB cable"],
@@ -385,9 +390,17 @@ let productSeed = [
         ["INDICATOR", ["LED:  Green power"]],
         ["PACKAGING", ["3.3” (L) x 2.1” (W) x 0.9” (H) extruded anodized aluminum enclosure", "J732 mounting flange included"]],
       ],
+      config: [
+        ["required", "Connector Type", [0, "ST"], [1, "FC"]], 
+        ["required", "Wavelength", [0, "850nm"], [1, "1310nm"], [2, "1550nm"]],    
+      ],
       versions: [
-        ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
-        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
+        [00, 1, ["ST connectorization", "850nm wavelength"]], 
+        [01, 3, ["ST connectorization", "1310nm wavelength"]], 
+        [02, 5, ["ST connectorization", "1550nm wavelength"]], 
+        [10, 11, ["FC connectorization", "850nm wavelength"]], 
+        [11, 13, ["FC connectorization", "1310nm wavelength"]], 
+        [12, 15, ["FC connectorization", "1550nm wavelength"]], 
       ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 included with purchase)"],
@@ -446,9 +459,9 @@ let productSeed = [
           ["INDICATORS", ["Green LED: Power, Blue LED: Rising edge trigger"]],
           ["PACKAGING", ['Aluminum enclosure, 2" x 3" x 1"', "J732 mounting flange included"]],
         ],
-        versions: [
-          ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm/1550nm"],], 
-        ],
+        // versions: [
+        //   ["required", "Wavelength", 1, [1, "850nm"], [3, "1310nm/1550nm"],], 
+        // ],
         accessories: [
           ["J24-1", "24 volt 1.2 amp power supply ", "(furnished with purchase)"],
           ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -500,9 +513,9 @@ let productSeed = [
         ["INDICATOR", ["LED: green power"]],
         ["PACKAGING", ['3.3" (L) x 2.1" (W) x 0.9" (H) extruded anodized aluminum enclosure', "J732 mounting flange included"]],
       ],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 furnished with purchase)"],
         ["J41-1", "3' SMB to SMB cable"],
@@ -559,9 +572,9 @@ let productSeed = [
         ["INDICATORS", ["LEDs indicate power, communications, excitations, USER"]],
         ["BIST", ["Functional self-test provided"]],
       ],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply ", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable "],
@@ -619,9 +632,9 @@ let productSeed = [
         ["CALIBRATION INTERVAL", ["No internal calibrations"]],
         ["POWER", ["24 volts DC, 500mA max", "model J24, 24 VDC, 30 watt external adapter furnished", "2.1 x 5.5 mm barrel connector, center pin positive",]],
       ],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -680,8 +693,11 @@ let productSeed = [
         ["POWER", ["model J350, 15 VDC, 22 watts max, external supply furnished"]],
         ["TEMPERATURE", ["0 to 60°C operating range"]],
       ],
+      config: [
+        ["noChoice", null, [0, null]],
+      ],
       versions: [
-        ["noChoice", null, 1],
+        [0, 1, [null]]
       ],
       accessories: [
         ["J43-1", "3' BNC to BNC cable"],
@@ -707,9 +723,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 2],
-      ],
+      // versions: [
+      //   ["noChoice", null, 2],
+      // ],
       accessories: [
       ],
       FAQs: [
@@ -781,9 +797,9 @@ let productSeed = [
         ["Channel Output Accuracy", ["± 5 µV Offset", "± 50 ppm Gain"], ["± 35 µV Offset", "± 500 ppm Gain"], ["± 70 µV Offset", "± 1200 ppm Gain"]],
         ["RTD Measurement Accuracy", "-", "± 500 ppm of RTD resistance", "± 1000 ppm of RTD resistance",],
       ],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply ", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -865,11 +881,28 @@ let productSeed = [
           ["WARRANTY", ["2 years limited"]],
           ["OPTIONS", ["Rear-panel isolated HV outputs", "Frames: per-trigger delay/width lists", "Trains: multiple channel outputs per trigger", "OCXO timebase", "Rackmount adapter"]],
         ],
+        // versions: [
+        //   // [0] type of selection, [1] description, [2] base dash num, 3 [alt dash num, "alt dash description"]
+        //   ["optional", "OCXO timebase", 1, [2, "add high stability ovenized oscillator"]], // digit 1
+        //   ["optional", "high-voltage outputs", 1, [2, "add 50V isolated high-voltage output"]], // digit 2
+        //   ["optional", "frame and train engine", 1, [2, "add advanced pulse train/frame generation"]], // digit 3
+        // ],
+        config: [
+          // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
+          ["optional", "OCXO timebase", [0, null], [1, "add high stability ovenized oscillator"]],
+          ["optional", "high-voltage outputs", [0, null], [1, "add 50V isolated high-voltage output"]],
+          ["optional", "frame and train engine", [0, null], [1, "add advanced pulse train/frame generation"]]
+        ],
         versions: [
-          // [0] type of selection, [1] description, [2] base dash num, 3 [alt dash num, "alt dash description"]
-          ["optional", "OCXO timebase", 1, [2, "add high stability ovenized oscillator"]], // digit 1
-          ["optional", "high-voltage outputs", 1, [2, "add 50V isolated high-voltage output"]], // digit 2
-          ["optional", "frame and train engine", 1, [2, "add advanced pulse train/frame generation"]], // digit 3
+          // configuration num, Highland dash num, description of configuration/version
+          [[0,0,0], 111, [null]], 
+          [[0,0,1], 112, ["advanced pulse train/frame generation"]],
+          [[0,1,0], 121, ["50V isolated high-voltage output"]],
+          [[0,1,1], 122, ["50V isolated high-voltage output", "advanced pulse train/frame generation"]],
+          [[1,0,0], 211, ["high stability ovenized oscillator"]],
+          [[1,0,1], 212, ["high stability ovenized oscillator", "advanced pulse train/frame generation"]],
+          [[1,1,0], 221, ["high stability ovenized oscillator", "50V isolated high-voltage output"]],
+          [[1,1,1], 222, ["high stability ovenized oscillator", "50V isolated high-voltage output", "advanced pulse train/frame generation"]],
         ],
         accessories: [
           ["J25-1", "24 volt 65W power supply", "(1 included with purchase)"],
@@ -943,9 +976,9 @@ let productSeed = [
         ["FREQUENCY MEASUREMENT", ["0.05%"]],
         ["FREQUENCY GENERATION", ["0.05%"]],
       ],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply ", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -1019,9 +1052,9 @@ let productSeed = [
         ["⁶ ", "100mV minimum test voltage"],
         ["", "For a more in-depth discussion of accuracy, see manual section 6."]
       ],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -1089,9 +1122,9 @@ let productSeed = [
         ["PACKAGING", ['5.0" (L) x 7.0" (W) x 2.25" (H) anodized aluminum enclosure']],
         ["CONFORMANCE", ["Designed to meet UL/FCC/CE requirements"]],
       ],
-      versions: [
-        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
-      ],
+      // versions: [
+      //   ["required", "Wavelength", 1, [1, "850nm"], [3, "1310nm"], [5, "1550nm"]], 
+      // ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply", "(furnished with purchase)"],
         ["J41-1", "3' SMB to SMB cable"],
@@ -1118,9 +1151,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       ECCN: "3A225",
       htsCode: "8543.20.0000",
       MTBF: [],
@@ -1137,9 +1170,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [],
       ECCN: "EAR99",
       htsCode: "8517.62.0050",
@@ -1157,9 +1190,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 9],
-      ],
+      // versions: [
+      //   ["noChoice", null, 9],
+      // ],
       ECCN: "3A320",
       htsCode: "8517.62.0050",
       MTBF: [],
@@ -1229,15 +1262,18 @@ let productSeed = [
         ["LED INDICATORS", ["Orange POWER"]],
         ["PACKAGING", ['2" x 2" printed circuit board']],
       ],
-      optionsRequired: [   
-        ["configuration", [
-          ["2", "picosecond laser diode pulser (board-only)"], 
-          ["9", "picosecond laser diode pulser evaluation kit (furnished on butterfly laser mounting flange with power supply and two 3' SMB to BNC cables)"], 
-          ["12", "picosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds (board-only)"],
-          ["13", "picosecond laser diode pulser with extended pulse width range evaluation kit (furnished on butterfly laser mounting flange with power supply and two 3' SMB to BNC cables)"],
-          ["14", "nanosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds (board-only)"],
-          ["15", "nanosecond laser diode pulser with extended pulse width range evaluation kit (furnished on butterfly laser mounting flange with power supply and two 3' SMB to BNC cables)"],
-        ]],
+      config: [
+          // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
+          ["required", "Laser Driver", [0, "picosecond laser diode pulser"], [1, "picosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds"], [2, "nanosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds"]],
+          ["required", "Packaging", [0, "board-only"], [1, "evaluation kit (driver furnished on butterfly laser mounting flange with power supply and two 3' SMB to BNC cables)"]]
+      ],
+      versions: [
+        [[0,0], 2, ["picosecond laser diode pulser", "board-only"]],
+        [[0,1], 9, ["picosecond laser diode pulser", "evaluation kit"]],
+        [[1,0], 12, ["picosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "board-only"]],
+        [[1,1], 13, ["picosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "evaluation kit"]],
+        [[2,0], 14, ["nanosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "board-only"]],
+        [[2,1], 15, ["nanosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "evaluation kit"]],
       ],
       accessories: [
         ["J6-1", "5 volt USB power supply", "(furnished with evaluation kit purchase)"],
@@ -1314,13 +1350,13 @@ let productSeed = [
         ["LED INDICATORS", ["Green POWER      Blue TRIGGER     Orange COMM"]],
         ["PACKAGING", ["4.75” (L) x 4.0” (W) x 1.25” (H) extruded aluminum enclosure"]],
       ],
-      versions: [
-        ["required", "Configuration", 1, 
-          [1, "AC-coupled externally-triggered complementary-output pulse generator"], 
-          [3, "DC-coupled externally-triggered complementary LVDS output pulse generator"], 
-          [9, "AC-coupled externally-triggered complementary-output pulse generator evaluation kit: T240-1 factory installed on T566-1 mounting flange, J6-1 power supply, and J48-1 SMA terminator"], 
-          [13, "DC-coupled externally-triggered complementary LVDS output pulse generator evaluation kit: T240-3 factory installed on T566-1 mounting flange, J6-1 power supply, and J48-1 SMA terminator"] ], 
-      ],
+      // versions: [
+      //   ["required", "Configuration", 1, 
+      //     [1, "AC-coupled externally-triggered complementary-output pulse generator"], 
+      //     [3, "DC-coupled externally-triggered complementary LVDS output pulse generator"], 
+      //     [9, "AC-coupled externally-triggered complementary-output pulse generator evaluation kit: T240-1 factory installed on T566-1 mounting flange, J6-1 power supply, and J48-1 SMA terminator"], 
+      //     [13, "DC-coupled externally-triggered complementary LVDS output pulse generator evaluation kit: T240-3 factory installed on T566-1 mounting flange, J6-1 power supply, and J48-1 SMA terminator"] ], 
+      // ],
       accessories: [
         ["J6-1", "5 volt USB power supply", "(furnished with purchase)"],
         ["J42-1", "3' SMB to SMA cable"],
@@ -1397,9 +1433,9 @@ let productSeed = [
         ["P10-1", '19" rack mount shelf (four t-boxes per rack)'],
         ["T566-1", "mounting flange"],
       ],
-      versions: [
-        ["optional", "Ethernet", 1, [2, "add ethernet"]],
-      ],
+      // versions: [
+      //   ["optional", "Ethernet", 1, [2, "add ethernet"]],
+      // ],
       ECCN: "3A992",
       htsCode: "8543.20.0000",
       MTBF: [],
@@ -1467,9 +1503,9 @@ let productSeed = [
         ["PACKAGING", ['4.75" (L) x 4.05" (W) x 1.25" (H) extruded aluminum enclosure']],
         ["CONFORMANCE", ["OEM product has no UL/FCC/CE compliance requirements", "Designed to meet UL/FCC/CE requirements", "Power adapter furnished is UL/CE certified"]],
       ],
-      versions: [
-        ["optional", "recommended bundle", 1, [9, "add evaluation kit: T344 factory installed on T566-1 removable mounting flange, one J12-1 power supply, one J57-1 6’ RS-232 cable, and four J53-1 3’ SMB to BNC cables"]],
-      ],
+      // versions: [
+      //   ["optional", "recommended bundle", 1, [9, "add evaluation kit: T344 factory installed on T566-1 removable mounting flange, one J12-1 power supply, one J57-1 6’ RS-232 cable, and four J53-1 3’ SMB to BNC cables"]],
+      // ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 included with purchase)"],
         ["J41-1", "3' SMB to SMB cable"],
@@ -1560,9 +1596,9 @@ let productSeed = [
         ["PACKAGING", ['4.75" (L) x 4.05" (W) x 1.25" (H) extruded aluminum enclosure']],
         ["CONFORMANCE", ["OEM product has no UL/FCC/CE compliance requirements", "Designed to meet UL/FCC/CE requirements", "Power adapter furnished is UL/CE certified"]],
       ],
-      versions: [
-        ["optional", "recommended bundle", 1, [9, "add evaluation kit: T346 factory installed on T566-1 removable mounting flange, one J12-1 power supply, one J57-1 6’ RS-232 cable, and four J53-1 3’ SMB to BNC cables"]],
-      ],
+      // versions: [
+      //   ["optional", "recommended bundle", 1, [9, "add evaluation kit: T346 factory installed on T566-1 removable mounting flange, one J12-1 power supply, one J57-1 6’ RS-232 cable, and four J53-1 3’ SMB to BNC cables"]],
+      // ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 included with purchase)"],
         ["J41-1", "3' SMB to SMB cable"],
@@ -1596,9 +1632,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       ECCN: "3A230",
       htsCode: "8543.20.0000",
       MTBF: [],
@@ -1732,9 +1768,9 @@ let productSeed = [
         ["LED INDICATORS", ["Green POWER Blue TRIGGER Orange COMM"]],
         ["PACKAGING", ["Extruded anodized aluminum enclosure"]],
       ],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 included with purchase)"],
         ["J53-1", "3' SMB to BNC cable"],
@@ -1778,9 +1814,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 2],
-      ],
+      // versions: [
+      //   ["noChoice", null, 2],
+      // ],
       ECCN: "3A230",
       htsCode: "8517.62.0050",
       MTBF: [],
@@ -1797,9 +1833,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["required", "select configuration", 1, [1, "80V maximum pulse amplitude and <1 nanosecond risetime"], [2, "100V maximum pulse amplitude and <2.5 nanosecond risetime"]], 
-      ],
+      // versions: [
+      //   ["required", "select configuration", 1, [1, "80V maximum pulse amplitude and <1 nanosecond risetime"], [2, "100V maximum pulse amplitude and <2.5 nanosecond risetime"]], 
+      // ],
       ECCN: "3A230",
       htsCode: "8517.62.0050",
       MTBF: [],
@@ -1816,9 +1852,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       htsCode: "8517.62.0050",
       MTBF: [],
       },
@@ -1834,9 +1870,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       ECCN: "3A230",
       htsCode: "8517.62.0050",
       MTBF: [],
@@ -1853,9 +1889,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["required", "Connector Type", 1, [1, "SMB"], [2, "SMA"]], 
-      ],
+      // versions: [
+      //   ["required", "Connector Type", 1, [1, "SMB"], [2, "SMA"]], 
+      // ],
       htsCode: "8517.62.0050",
       MTBF: [],
       },
@@ -1920,9 +1956,9 @@ let productSeed = [
         ["W, X, Y, Z INPUT", ["Vʜ	2.2V – 3.6V", "Vʟ	-0.3V – 0.6V"]],
         ["W, X, Y, Z OUTPUT", ["Vʜ	3.3V typ (100 µA)	2.0V min (16 mA)", "Vʟ	0.0V typ (100 µA)	1.1V max (16 mA)", "Output impedance 50Ω typ"]],
       ],
-      versions: [
-        ["optional", "conformal coating", 1, [21, "add conformal coating"]],
-      ],
+      // versions: [
+      //   ["optional", "conformal coating", 1, [21, "add conformal coating"]],
+      // ],
       accessories: [
         ["J4-2", "2-meter 4x PCI express cable"],
         ["J4-3", "3-meter 4x PCI express cable"],
@@ -1995,9 +2031,9 @@ let productSeed = [
         ["CLK INPUT", ["Sine	0.5V RMS min", "Square	1.2V P-P min", "Limits	-3V – 7V", "Impedance", ["50Ω typ when termination enabled", "845Ω AC typ when termination disabled"]]],
         ["CLK OUTPUT", ["Vʜ	3.3V typ (100 µA)	2.0V min (16 mA)", "Vʟ	0.0V typ (100 µA)	1.1V max (16 mA)", "Output impedance 50Ω typ"]],
       ],
-      versions: [
-        ["optional", "conformal coating", 1, [21, "add conformal coating"]],
-      ],
+      // versions: [
+      //   ["optional", "conformal coating", 1, [21, "add conformal coating"]],
+      // ],
       accessories: [
         ["J4-2", "2-meter 4x PCI express cable"],
         ["J4-3", "3-meter 4x PCI express cable"],
@@ -2032,9 +2068,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2083,9 +2119,9 @@ let productSeed = [
         ["PACKAGING", ["6U single-wide VME module"]],
         ["CONFORMANCE", ["ANSI/VITA 1-1994 (R2002) VMEbus spec"]],
       ],
-      versions: [
-        ["optional", "built-in self-test", 1, [11, "add BIST"]],
-      ],
+      // versions: [
+      //   ["optional", "built-in self-test", 1, [11, "add BIST"]],
+      // ],
       accessories: [],
       FAQs: [
         ["Where can I find instructions for controlling the V210?", "Documentation on controlling the V210 can be found in the V210 technical manual. To drive relays, both the appropriate bank control bit in the CSR register and the channel control bit in the CTL0-CTL3 registers must be set."], 
@@ -2109,9 +2145,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["optional", "built-in self-test", 1, [2, "add BIST"]],
-      ],
+      // versions: [
+      //   ["optional", "built-in self-test", 1, [2, "add BIST"]],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2133,9 +2169,19 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
+      // versions: [
+      //   ["optional", "built-in self-test", 1, [2, "add BIST"]],
+      //   ["optional", "conformal coating", "", [1, "add conformal coating"]],
+      // ],
+      config: [
+        ["optional", "built-in self-test", [0, null], [1, "add BIST"]],
+        ["optional", "conformal coating", [0, null], [1, "add conformal coating"]],
+      ],
       versions: [
-        ["optional", "built-in self-test", 1, [2, "add BIST"]],
-        ["optional", "conformal coating", "", [1, "add conformal coating"]],
+        [00, 1, [null]],
+        [01, 2, ["BIST"]],
+        [10, 11, ["Conformal Coating"]],
+        [11, 21, ["BIST", "Conformal Coating"]],
       ],
       accessories: [],
       FAQs: [
@@ -2158,9 +2204,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2182,10 +2228,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["required", "select input voltage", 1, [1, "+5 volts"], [2, "+24 volts"],],
-        ["optional", "conformal coating", "", [1, "add conformal coating"]],
-      ],
+      // versions: [
+      //   ["required", "select input voltage", 1, [1, "+5 volts"], [2, "+24 volts"],],
+      //   ["optional", "conformal coating", "", [1, "add conformal coating"]],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2207,10 +2253,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["required", "select transformer coupling", 1, [1, "no transformer coupling"], [2, "switchable 1:1 transformers"], [3, "switchable 5:1 transformers"]],
-        ["optional", "built-in self-test", 0, [1, "add BIST"]],
-      ],
+      // versions: [
+      //   ["required", "select transformer coupling", 1, [1, "no transformer coupling"], [2, "switchable 1:1 transformers"], [3, "switchable 5:1 transformers"]],
+      //   ["optional", "built-in self-test", 0, [1, "add BIST"]],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2232,9 +2278,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2256,9 +2302,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2280,9 +2326,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2304,9 +2350,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2328,9 +2374,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 2],
-      ],
+      // versions: [
+      //   ["noChoice", null, 2],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2352,9 +2398,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2376,9 +2422,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2400,10 +2446,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["optional", "conformal coating", "", [1, "add conformal coating"]],
-        ["optional", "P2 Connector", 1, [2, "add P2 connector"]],
-      ],
+      // versions: [
+      //   ["optional", "conformal coating", "", [1, "add conformal coating"]],
+      //   ["optional", "P2 Connector", 1, [2, "add P2 connector"]],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2425,9 +2471,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["optional", "built-in self-test", 1, [2, "add BIST"]],
-      ],
+      // versions: [
+      //   ["optional", "built-in self-test", 1, [2, "add BIST"]],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2449,10 +2495,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-          ["optional", "built-in self-test", 1, [2, "add BIST"]],
-          ["required", "select pre-installed analog bessel filter option", null, ["", "no filter option"], [51, "50 Hz 6-pole filter option"], [81, "200 Hz 6-pole filter option"]],
-      ],
+      // versions: [
+      //     ["optional", "built-in self-test", 1, [2, "add BIST"]],
+      //     ["required", "select pre-installed analog bessel filter option", null, ["", "no filter option"], [51, "50 Hz 6-pole filter option"], [81, "200 Hz 6-pole filter option"]],
+      // ],
       accessories: [
         ["J75-1", "D9 female to two (2) dual banana plug cable",],
       ],
@@ -2476,9 +2522,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2550,10 +2596,10 @@ let productSeed = [
         ["Offset", ["±5uV", "±30ppm of range"], ["±20uV", "±175ppm of range"], ["±30uV", "±300ppm of range"], ["±40uV", "±400ppm of range"],],
         ["Gain", "±50ppm of output", "±310ppm of output", "±660ppm of output", "±940ppm of output"],
       ],
-      versions: [
-        ["optional", "conformal coating", "", [1, "add conformal coating"]],
-        ["optional", "built-in self-test", 1, [2, "add BIST"]],
-      ],
+      // versions: [
+      //   ["optional", "conformal coating", "", [1, "add conformal coating"]],
+      //   ["optional", "built-in self-test", 1, [2, "add BIST"]],
+      // ],
       accessories: [
         ["J55-1", "6' shielded D25 male to D25 male cable"],
         ["J56-1", "10' shielded D25 male to D25 male cable"],
@@ -2584,9 +2630,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["optional", "built-in self-test", 1, [2, "add BIST"]],
-      ],
+      // versions: [
+      //   ["optional", "built-in self-test", 1, [2, "add BIST"]],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2608,9 +2654,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["required", "Select Transformers", 1, [1, "small signal 1:1 730MH plugin transformer"], [4, "small signal 3.7:1 750MH plugin transformer"], [6, "small signal 5.3:1 750MH plugin transformer"]],
-      ],
+      // versions: [
+      //   ["required", "Select Transformers", 1, [1, "small signal 1:1 730MH plugin transformer"], [4, "small signal 3.7:1 750MH plugin transformer"], [6, "small signal 5.3:1 750MH plugin transformer"]],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2632,9 +2678,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2656,9 +2702,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["required", "Select Inputs", 1, [1, "differential ECL inputs"], [2, "optical inputs"],],
-      ],
+      // versions: [
+      //   ["required", "Select Inputs", 1, [1, "differential ECL inputs"], [2, "optical inputs"],],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2681,9 +2727,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["required", "Select Connector Type", 1, [1, "SMB connectors"], [2, "LEMO connectors"],],
-      ],
+      // versions: [
+      //   ["required", "Select Connector Type", 1, [1, "SMB connectors"], [2, "LEMO connectors"],],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2706,10 +2752,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
-        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
-      ],
+      // versions: [
+      //   ["required", "Connector Type", 0, [0, "ST"], [1, "FC"]], 
+      //   ["required", "Wavelength", 1, [1, "850nm"], [3, "1310nm"], [5, "1550nm"]], 
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2731,10 +2777,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["required", "Connector Type", null, ["", "ST"], [1, "FC"]], 
-        ["required", "Wavelength", 1, [1, "850 nm"], [3, "1310nm"], [5, "1550nm"]], 
-      ],
+      // versions: [
+      //   ["required", "Connector Type", 0, [0, "ST"], [1, "FC"]], 
+      //   ["required", "Wavelength", 1, [1, "850nm"], [3, "1310nm"], [5, "1550nm"]], 
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2756,9 +2802,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["required", "Select Connector Type", 1, [1, "SMB connectors"], [2, "LEMO connectors"], [3, "SMA connectors"]],
-      ],
+      // versions: [
+      //   ["required", "Select Connector Type", 1, [1, "SMB connectors"], [2, "LEMO connectors"], [3, "SMA connectors"]],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -2780,9 +2826,9 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      versions: [
-        ["noChoice", null, 1],
-      ],
+      // versions: [
+      //   ["noChoice", null, 1],
+      // ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],

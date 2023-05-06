@@ -27,10 +27,19 @@ const Cart = () => {
 
     const getAllCart = async () => {
         try {
+            // Get Data from Cart Collection based on User ID
             const allInCart = await axios.get(`/cart`, {
                 headers: { "x-auth-token": localStorage.getItem("auth-token") }
             });
             setCartList(allInCart.data)
+            // Get Data from Product Collection based on Models in from User Cart
+            let modelArr = []
+            allInCart.data.map((models) => (
+                modelArr.push(models.prod.split("-")[0])
+            ))
+            console.log("modelArr", modelArr)
+            // const prodData = await axios.get(`/products/${model}`);
+            
         } catch (error) {
             console.log(error)   
         }
@@ -118,22 +127,25 @@ const Cart = () => {
                             <div className="card mb-3" key={index}>
                                 <div className="row g-0">
                                     <div className="col-md-4">
-                                        <img src={ProductPhotos[ProductPhotos.findIndex(search => search[0].includes(carts.model))][0]} 
+                                        <img src={ProductPhotos[ProductPhotos.findIndex(search => search[0].includes(carts.prod.split("-")[0]))][0]} 
                                              className="img-fluid rounded-start" 
-                                             alt={carts.name}/>
+                                             alt={carts.prod}/>
                                     </div>
                                     <div className="col-md-8"> 
                                         <div className="card-body">
-                                            <h5 className="card-title">{carts.model}-{carts.version} {carts.name}</h5>
+                                            <h5 className="card-title">
+                                                {carts.prod} 
+                                                {/* {carts.name} */}
+                                            </h5>
                                             <div className="row">
                                                 <div className="col-md-1"></div>
                                                 <div className="col-md-11">
                                                     <div>quantity: {carts.qty}</div>
-                                                    {carts.config.length>0?
+                                                    {/* {carts.config.length>0?
                                                         carts.config.map((option, idx) => (
                                                             <div key={idx}>{option}</div>
                                                         ))
-                                                    :null}
+                                                    :null} */}
                                                     {carts.acc.length>0?
                                                         <div> 
                                                         {carts.acc.map((accessories) => (

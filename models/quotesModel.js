@@ -6,6 +6,7 @@ const quotesSchema = new mongoose.Schema({
         default: Date.now,
     },
     products: [],
+    // prods: [],
     userId: {
         type: String,
         required: true,

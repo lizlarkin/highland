@@ -18,6 +18,7 @@ const productSchema = new mongoose.Schema({
     specificationsTwo: [],
     specificationsMulti: [],
     specificationsNotes: [],
+    config: [],
     versions: [],
     accessories: [],
     EOL: [], // last time buy date, end of support date, remaining stock

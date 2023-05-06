@@ -162,6 +162,7 @@ ${successSave.products.map((productsArr, index) => (
         try {
             const allQuotes = await Quote.find({ userId: req.user }).sort({date:-1}).limit(parseInt(req.params.showNum));
             res.json(allQuotes)
+            console.log(allQuotes)
         } catch (error) {
             console.log(error)
             res.send(error)

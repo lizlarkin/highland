@@ -1,13 +1,11 @@
-const Cart = require("../models/cartModel")
+const Cart = require("../models/cartModel");
+const Product = require("../models/productModel");
 
 module.exports = {
     newCart: async (req, res) => {
         try {
             const newCart = new Cart({ 
-                model: req.body.model,
-                name: req.body.name,
-                version: req.body.version,
-                config: req.body.config,
+                prod: req.body.prod,
                 qty: req.body.qty,             
                 acc: req.body.acc,
                 userId: req.user,
@@ -21,7 +19,36 @@ module.exports = {
     getAllCart: async (req, res) => {
         try {
             const allCart = await Cart.find({ userId: req.user });
+            // console.log("orig", allCart[0])
+
+            // Generate Array of Models in User's Cart
+            let modelArr = []
+            allCart.map((models) => (
+                modelArr.push(models.prod.split("-")[0])
+            ));
+            console.log("modelArr: ", modelArr)
+
+            // Get Product Names from Models and Generate Array of Product Titles
+            let prodArr = []
+            const productTitles = await Product.find({ model:modelArr })
+
+            for (let index = 0; index < modelArr.length; index++) {
+                allCart[index].qty=15
+                console.log(index, allCart[index])
+            }
+
+            // productTitles.map((names, index) => (
+            //     prodArr.push([
+            //         names.model, 
+            //         names.name, 
+            //     ])
+            //     allCart[0].name=names.name,
+            //     console.log("names", names.name)
+            // ));
+            console.log("all cart after name", allCart)
+
             res.json(allCart)
+
         } catch (error) {
             res.send(error)
         }
