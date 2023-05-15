@@ -24,6 +24,20 @@ const Cart = () => {
     }
 
     const [cartList, setCartList] = useState([]);
+    let modelArr = [];
+    const [prodList, setProdList] = useState();
+
+    const getProdData = async () => {
+        try {
+            // Get Product Data based on Models in Cart
+            const prodData = await axios.get(`/products/models/${modelArr}`);
+            console.log("prodData new models route", prodData.data)
+            setProdList(prodData.data)
+            console.log(prodList)
+        } catch (error) {
+            console.log(error)
+        }
+    };
 
     const getAllCart = async () => {
         try {
@@ -32,18 +46,21 @@ const Cart = () => {
                 headers: { "x-auth-token": localStorage.getItem("auth-token") }
             });
             setCartList(allInCart.data)
+            console.log("allinCart", allInCart)
             // Get Data from Product Collection based on Models in from User Cart
-            let modelArr = []
+            
             allInCart.data.map((models) => (
                 modelArr.push(models.prod.split("-")[0])
             ))
             console.log("modelArr", modelArr)
             // const prodData = await axios.get(`/products/${model}`);
-            
+            getProdData();
         } catch (error) {
             console.log(error)   
         }
-    }
+    };
+
+
 
     // Delete All in one cart section
     const deleteCart = async (e) => {
@@ -108,7 +125,8 @@ const Cart = () => {
     }
     
     useEffect(() => {
-        getAllCart();
+        getAllCart()
+        // console.log(prodList.findIndex(search=>search[2][1].includes(222)))
     }, [])
 
     return (
@@ -134,18 +152,24 @@ const Cart = () => {
                                     <div className="col-md-8"> 
                                         <div className="card-body">
                                             <h5 className="card-title">
-                                                {carts.prod} 
-                                                {/* {carts.name} */}
+                                                {carts.prod}
+                                                {" "}
+                                                {prodList?
+                                                prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][1]
+                                                :null}
+                                                
                                             </h5>
                                             <div className="row">
                                                 <div className="col-md-1"></div>
                                                 <div className="col-md-11">
-                                                    <div>quantity: {carts.qty}</div>
-                                                    {/* {carts.config.length>0?
-                                                        carts.config.map((option, idx) => (
-                                                            <div key={idx}>{option}</div>
-                                                        ))
-                                                    :null} */}
+                                                    <div>Quantity: {carts.qty}</div>
+
+                                                    {prodList?
+                                                    prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][2].findIndex(el=>el.includes(parseInt(carts.prod.split("-")[1])))
+                                                    // prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][2].findIndex(el=>el.includes(parseInt(carts.prod.split("-")[1])))
+                                                    // carts.prod.split("-")[1]
+                                                    :null}
+
                                                     {carts.acc.length>0?
                                                         <div> 
                                                         {carts.acc.map((accessories) => (

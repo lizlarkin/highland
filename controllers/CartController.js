@@ -26,15 +26,15 @@ module.exports = {
             allCart.map((models) => (
                 modelArr.push(models.prod.split("-")[0])
             ));
-            console.log("modelArr: ", modelArr)
+            // console.log("modelArr: ", modelArr)
 
             // Get Product Names from Models and Generate Array of Product Titles
             let prodArr = []
             const productTitles = await Product.find({ model:modelArr })
 
             for (let index = 0; index < modelArr.length; index++) {
-                allCart[index].qty=15
-                console.log(index, allCart[index])
+                allCart[index].qty
+                // console.log(index, allCart[index])
             }
 
             // productTitles.map((names, index) => (
@@ -45,7 +45,7 @@ module.exports = {
             //     allCart[0].name=names.name,
             //     console.log("names", names.name)
             // ));
-            console.log("all cart after name", allCart)
+            // console.log("all cart after name", allCart)
 
             res.json(allCart)
 

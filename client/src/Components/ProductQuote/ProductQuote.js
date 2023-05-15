@@ -48,8 +48,8 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
     const [dashNum, setDashNum] = useState(); // Hold one Highland dash number selected by user
     const [config, setConfig] = useState([]); // holds backend data about product version options
     const [configuration, setConfiguration] = useState([]) // holds descriptions of selected options
-    let   [checkRequired, setCheckRequired] = useState([]) // array generated when users make required selections to check that all required selections are made
-    let   [checkNum, setCheckNum] = useState(0) // stores number of required selections
+    let   [reqCount, setReqCount] = useState(0) // total number of required selections
+    let   [checkNum, setCheckNum] = useState([]) // total number of required selections made
 
     const cart = {
         prod: model+"-"+dashNum,
@@ -58,19 +58,9 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
         userId: userData.user, 
     }
 
-
-    
-    let optionsNum = 0 // Hold number of configuration options
-
     const selectQuantity = (e) => {
         setSelectedQuantity(e.target.value);
     }
-
-    // Count number of occurences of "required" selections
-    let checkCount = configNum.length
-    // console.log("configNumCheckCount: ", configNum, checkCount)
-
-
 
     // Set configuration number based on user option selections   
     const updateConfigNum = (e) => {
@@ -81,7 +71,10 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
             tempConfigNum[e.target.id] = e.target.value
             // Set ConfigArr State
             setConfigNum(tempConfigNum.join(''))
-            // getDashNum();
+            // Create Check Number Array the populates true for each option selected once
+            let checkNumCopy = [...checkNum]
+            checkNumCopy[e.target.id] = true
+            setCheckNum(checkNumCopy)
         } else if (!e.target.checked) {
             // Make a copy of the array
             let tempConfigNum = [...configNum]
@@ -89,7 +82,6 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
             tempConfigNum[e.target.id] = 0
             // Set ConfigArr State
             setConfigNum(tempConfigNum.join(''))
-            // getDashNum();
             }   
         }
 
@@ -106,7 +98,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
             try {
                 if (cart.qty < 1) {
                     return alert("Please add quantity.")
-                } else if (checkRequired.filter(value => value === true).length<checkNum) {
+                } else if (checkNum.length<reqCount) {
                     return alert ("Please make all required selections.")
                 } else if (EOLdates[2] && cart.quantity > EOLdates[2]) {
                     return alert ("Maximum quantity is " + EOLdates[2]+".")
@@ -136,7 +128,12 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                 const prodData = await axios.get(`/products/${model}`);
                 // Set configuration data array
                 setConfig(prodData.data[0].config);
-                // optionsNum = prodData.data[0].config.length
+                // Set Number of Required Selections
+                let countReq = 0;
+                prodData.data[0].config.map((type) => (
+                    type[0]==="required"?countReq++:0
+                ))
+                setReqCount(countReq);
                 // Set Array of all configuration numbers
                 let configArr = []; // Hold array of all possible configuration numbers
                 prodData.data[0].versions.map((version) => (
@@ -158,7 +155,6 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
             }
         }
         getProductData();
-        // if (config.length>0) configureStandardDash();
     }, [userData.user, history, model])
 
     // Get dash number associated with selected product configuration
@@ -279,7 +275,6 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                         </form>
                                     ))
                                     :null}
-                            {/* </div> */}
                             
                         </div>
 

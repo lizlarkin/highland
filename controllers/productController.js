@@ -10,6 +10,25 @@ module.exports = {
             console.log(error);
         }
     },
+    getProductsByModelArr: async (req, res) => {
+        let modelsArr = req.params.models.split(",")
+        try {
+            let prodData = []
+            const manyProducts = await Product.find({model: {$in: modelsArr }});
+            for (let index = 0; index < manyProducts.length; index++) { 
+                prodData.push(
+                    [manyProducts[index].model, 
+                    manyProducts[index].name,
+                    manyProducts[index].versions,
+                    manyProducts[index].accessories,
+                ])
+            }
+            res.json(prodData);            
+        } catch (error) {
+            res.send(error);
+            console.log(error);
+        }
+    },
     getAllCategory: async (req, res) => {
         try {
             const allInCategory = await Product.find({ category: req.params.category });
@@ -20,7 +39,7 @@ module.exports = {
         }
     },
     getDashNumber: async (req, res) => {
-        console.log('getDashNum')
+        // console.log('getDashNum')
         try {
 
         } catch (error) {

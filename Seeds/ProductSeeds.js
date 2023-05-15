@@ -53,8 +53,8 @@ let productSeed = [
         ["required", "Packaging", [0, "board-only"], [1, "evaluation kit (D100 installed on mounting flange with 24 volt power supply and SMB to BNC cable)"]]
       ],
       versions: [
-        [[0], 1, ["picosecond laser diode pulser", "board-only"]],
-        [[1], 9, ["picosecond laser diode pulser", "evaluation kit"]],
+        [[0], 1, ["compact 250A laser driver", "board-only"]],
+        [[1], 9, ["compact 250A laser driver", "evaluation kit"]],
       ],
       accessories: [
         ["J25-1", "24 volt 65W power supply", "(1 included with purchase)"],
@@ -110,9 +110,10 @@ let productSeed = [
         ["LED INDICATORS", ["Orange POWER"]],
         ["PACKAGING", ["4” x 4” printed circuit board, installed on 6” x 6” aluminum baseplate"]],
       ],
-      // versions: [
-      //   ["noChoice", null, 9],
-      // ],
+      config: [],
+      versions: [
+        [[0], 9, ["diode laser driver", "evaluation kit"]],
+      ],
       accessories: [
         ["J12-1", "12 volt power supply"],
         ["J53-1", "3' SMB to BNC cable", "(2 included with purchase)"],
@@ -169,6 +170,18 @@ let productSeed = [
         ["CONNECTORS", ["Gold plated SMA input and output jacks", "Trigger Threshold level test point", "2.1 mm X 5.5 mm barrel power connector"]],
         ["INDICATOR", ["LED:  green power"]],
         ["PACKAGING", ['3.3” (L) x 2.1” (W) x 0.9” (H) extruded anodized aluminum enclosure', "J732 mounting flange included"]]
+      ],
+      config: [
+        // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
+        ["required", "Laser Driver", [0, "picosecond laser diode pulser"], [1, "picosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds"], [2, "nanosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds"]],
+      ],
+      versions: [
+        [[0], 1, ["picosecond laser diode pulser", "board-only"]],
+        [[1], 2, ["picosecond laser diode pulser", "evaluation kit"]],
+        [[2], 3, ["picosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "board-only"]],
+        [[1,1], 13, ["picosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "evaluation kit"]],
+        [[2,0], 14, ["nanosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "board-only"]],
+        [[2,1], 15, ["nanosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "evaluation kit"]],
       ],
       // versions: [
       //   ["required", "select configuration", 1, [1, "140 ps nominal Gaussian pulse outputs and rising-edge trigger"], [2, "input follower with 75 ps nominal 10:90 rise/fall time"], [3, "input follower with 75 ps nominal 10:90 rise/fall time LVDS"]], 
