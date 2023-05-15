@@ -165,9 +165,13 @@ const Cart = () => {
                                                     <div>Quantity: {carts.qty}</div>
 
                                                     {prodList?
-                                                    prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][2].findIndex(el=>el.includes(parseInt(carts.prod.split("-")[1])))
-                                                    // prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][2].findIndex(el=>el.includes(parseInt(carts.prod.split("-")[1])))
-                                                    // carts.prod.split("-")[1]
+                                                    prodList
+                                                    [prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))] // index of model
+                                                    [2] // index that holds config info
+                                                    [prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][2].findIndex(el=>el.includes(parseInt(carts.prod.split("-")[1])))]
+                                                    [2].map((conf, i) => (
+                                                        <li>{conf}</li>
+                                                    ))
                                                     :null}
 
                                                     {carts.acc.length>0?
