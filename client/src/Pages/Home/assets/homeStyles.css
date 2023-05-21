@@ -5,6 +5,8 @@
 
 .light-row {
     color: #224281;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 #logo-row {
@@ -24,7 +26,7 @@
 }
 
 #product-row {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTREnc87BwBJn6mZrfVeY5ks-ku9OTA8tdm-Q&usqp=CAU");
+    background-image: url("./Home_Gradient.png");
     background-size: cover;
     padding-top: 3%;
     padding-bottom: 3%;

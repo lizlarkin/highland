@@ -213,7 +213,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                             <h6 style={quoteStyles.header}>{options[1]}<span className="asterisk">* (required)</span></h6>
                                             {options.slice(2).map((option, idx) => (
                                                 <div className="form-check" key={idx}>
-                                                    <input onClick={updateConfigNum} className="form-check-input" type="radio" name={"flexRadioDefault"+index} value={option[0]} id={index} data-config={option[1]}/>
+                                                    <input onClick={updateConfigNum} className="form-check-input" type="radio" name={"flexRadioDefault"+index} value={option[0]} id={index}/>
                                                     <label className="form-check-label" htmlFor={index}>
                                                         {option[1]}
                                                     </label>
@@ -226,7 +226,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                                 <h6 style={quoteStyles.header}>{options[1]} (optional)</h6>
                                                 {options.slice(3).map((option, idx) => (
                                                     <div className="form-check" key={idx}>
-                                                        <input onClick={updateConfigNum} className="form-check-input" type="checkbox" value={option[0]} data-defaultdash={options[2]} id={index} data-config={option[1]}/>
+                                                        <input onClick={updateConfigNum} className="form-check-input" type="checkbox" value={option[0]} id={index}/>
                                                         <label className="form-check-label">
                                                             {option[1]}
                                                         </label>

@@ -7,7 +7,7 @@ import DDG from '../Product/Images/P500_Digital_Delay_Generator_1.png';
 import PulseGen from '../Product/Images/J270_Pulse_Generator_1.png';
 import WaveformGen from '../Product/Images/P350_Waveform_Playback_ARB_1.png';
 import LaserControl from '../Product/Images/D100_Laser_Driver_1.png';
-import Photonics from '../Product/Images/J724_Electrical_Fiberoptic_Converter_6.png';
+import Photonics from '../Product/Images/J724_Electrical_Fiberoptic_Converter_2.png';
 import MeasureSim from '../Product/Images/P545_Synchro_LVDT_Acquisition_Simulator_2.png';
 // import Legacy from '../Product/Images/P730_Optical_Electrialc_Fanout_Buffer_1.png';
 
@@ -76,7 +76,6 @@ const Home = () => {
             setProductIndex(idx => idx - 1)
             updateArrayW();
         }
-        console.log("product index: ", productIndex)
       }
 
       let [productArray, setProductArray] = useState([0,1,2,3,4,5,6])
@@ -97,6 +96,7 @@ const Home = () => {
         } else {
             setProductArray([0,1,2,3,4,5,6])
         }
+        console.log("prod index", productIndex)
       }
 
     return (

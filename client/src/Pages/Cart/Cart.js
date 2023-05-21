@@ -20,6 +20,9 @@ const Cart = () => {
         cartBtnLg: {
             width: "100%",
             marginBottom: "3%"
+        },
+        cartHeadings: {
+            fontWeight: "500",
         }
     }
 
@@ -162,9 +165,15 @@ const Cart = () => {
                                             <div className="row">
                                                 <div className="col-md-1"></div>
                                                 <div className="col-md-11">
-                                                    <div>Quantity: {carts.qty}</div>
+                                                    <p style={cartStyles.cartHeadings}>Quantity: {carts.qty}</p>
 
                                                     {prodList?
+                                                    prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][2][2]?
+                                                    <div style={cartStyles.cartHeadings}>Configuration:</div>
+                                                    :null:null}
+
+                                                    {prodList?
+                                                    prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][2][2]?
                                                     prodList
                                                     [prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))] // index of model
                                                     [2] // index that holds config info
@@ -172,7 +181,7 @@ const Cart = () => {
                                                     [2].map((conf, i) => (
                                                         <li>{conf}</li>
                                                     ))
-                                                    :null}
+                                                    :null:null}
 
                                                     {carts.acc.length>0?
                                                         <div> 

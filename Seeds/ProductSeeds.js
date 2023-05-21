@@ -110,9 +110,9 @@ let productSeed = [
         ["LED INDICATORS", ["Orange POWER"]],
         ["PACKAGING", ["4” x 4” printed circuit board, installed on 6” x 6” aluminum baseplate"]],
       ],
-      config: [],
+      config: ["noOptions"],
       versions: [
-        [[0], 9, ["diode laser driver", "evaluation kit"]],
+        [[0], 9, ["evaluation kit"]],
       ],
       accessories: [
         ["J12-1", "12 volt power supply"],
@@ -173,15 +173,12 @@ let productSeed = [
       ],
       config: [
         // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
-        ["required", "Laser Driver", [0, "picosecond laser diode pulser"], [1, "picosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds"], [2, "nanosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds"]],
+        ["required", "Configuration", [0, "130 ps nominal Gaussian pulse outputs and rising-edge trigger"], [1, "input follower with 60 ps nominal 20:80 rise/fall time"], [2, "input follower with 60 ps nominal 20:80 rise/fall time LVDS"]]
       ],
       versions: [
-        [[0], 1, ["picosecond laser diode pulser", "board-only"]],
-        [[1], 2, ["picosecond laser diode pulser", "evaluation kit"]],
-        [[2], 3, ["picosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "board-only"]],
-        [[1,1], 13, ["picosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "evaluation kit"]],
-        [[2,0], 14, ["nanosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "board-only"]],
-        [[2,1], 15, ["nanosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "evaluation kit"]],
+        [[0], 1, ["130 ps nominal Gaussian pulse outputs and rising-edge trigger"]],
+        [[1], 2, ["input follower with 60 ps nominal 20:80 rise/fall time"]],
+        [[2], 3, ["input follower with 60 ps nominal 20:80 rise/fall time LVDS"]],
       ],
       // versions: [
       //   ["required", "select configuration", 1, [1, "140 ps nominal Gaussian pulse outputs and rising-edge trigger"], [2, "input follower with 75 ps nominal 10:90 rise/fall time"], [3, "input follower with 75 ps nominal 10:90 rise/fall time LVDS"]], 
@@ -215,9 +212,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      // versions: [
-      //   ["noChoice", null, 1],
-      // ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 1, [null]],
+      ],
       ECCN: "3A230",
       htsCode: "8517.62.0050",
       MTBF: [],
@@ -268,10 +266,16 @@ let productSeed = [
         ["CONNECTORS", ["BNC electrical input jack", "ST or FC optical fiber output"]],
         ["PACKAGING", ["Aluminum enclosure", '0.75” (19.1 mm) width x 0.62” (15.7 mm) height x 3.35” (85.1 mm) nom']],
       ],
-      // versions: [
-      //   ["required", "Connector Type", 0, [0, "ST"], [1, "FC"]], 
-      //   ["required", "Wavelength", 1, [1, "850nm"], [3, "1310nm"]],
-      // ],
+      config: [
+        ["required", "Connector Type", [0, "ST"], [1, "FC"]], 
+        ["required", "Wavelength", [0, "850nm"], [1, "1310nm"]],    
+      ],
+      versions: [
+        [[0,0], 1, ["ST connectorization", "850nm wavelength"]], 
+        [[0,1], 3, ["ST connectorization", "1310nm wavelength"]], 
+        [[1,0], 11, ["FC connectorization", "850nm wavelength"]], 
+        [[1,1], 13, ["FC connectorization", "1310nm wavelength"]], 
+      ],
       accessories: [
         ["J43-1", "3' BNC to BNC cable"],
         ["J53-1", "3' SMB to BNC cable"],
@@ -334,9 +338,26 @@ let productSeed = [
         ["INDICATORS", ["LED: Amber power"]],
         ["PACKAGING", ['3.3" (L) x 2.1" (W) x 0.9" (H) extruded anodized aluminum enclosure', "J732 mounting flange included"]],
       ],
-      // versions: [
-      //   ["required", "Connector Type/Wavelength", 1, [1, "ST/850nm"], [3, "ST/1310nm"], [5, "ST/1550nm"], [11, "FC/850nm"], [13, "FC/1310nm"], [15, "FC/1550nm"], [25, "Pigtail FC-APC/1550nm"]], 
-      // ],
+      config: [
+        ["required", "Configuration", 
+        [0, "ST connectorization, 850nm wavelength"], 
+        [1, "ST connectorization, 1310nm wavelength"],
+        [2, "ST connectorization, 1550nm wavelength"],
+        [3, "FC connectorization, 850nm wavelength"],
+        [4, "FC connectorization, 1310nm wavelength"],
+        [5, "FC connectorization, 1550nm wavelength"],
+        [6, "Pigtail FC-APC connectorization, 1550nm wavelength"],
+        ],    
+      ],
+      versions: [
+        [[0], 1, ["ST connectorization", "850nm wavelength"]], 
+        [[1], 3, ["ST connectorization", "1310nm wavelength"]], 
+        [[2], 5, ["ST connectorization", "1550nm wavelength"]],
+        [[3], 11, ["FC connectorization", "850nm wavelength"]], 
+        [[4], 13, ["FC connectorization", "1310nm wavelength"]], 
+        [[5], 15, ["FC connectorization", "1550nm wavelength"]],
+        [[6], 25, ["Pigtail FC-APC connectorization", "1550nm wavelength"]],
+      ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 included with purchase)"],
         ["J41-1", "3' SMB to SMB cable"],
@@ -408,12 +429,12 @@ let productSeed = [
         ["required", "Wavelength", [0, "850nm"], [1, "1310nm"], [2, "1550nm"]],    
       ],
       versions: [
-        [00, 1, ["ST connectorization", "850nm wavelength"]], 
-        [01, 3, ["ST connectorization", "1310nm wavelength"]], 
-        [02, 5, ["ST connectorization", "1550nm wavelength"]], 
-        [10, 11, ["FC connectorization", "850nm wavelength"]], 
-        [11, 13, ["FC connectorization", "1310nm wavelength"]], 
-        [12, 15, ["FC connectorization", "1550nm wavelength"]], 
+        [[0,0], 1, ["ST connectorization", "850nm wavelength"]], 
+        [[0,1], 3, ["ST connectorization", "1310nm wavelength"]], 
+        [[0,2], 5, ["ST connectorization", "1550nm wavelength"]], 
+        [[1,0], 11, ["FC connectorization", "850nm wavelength"]], 
+        [[1,1], 13, ["FC connectorization", "1310nm wavelength"]], 
+        [[1,2], 15, ["FC connectorization", "1550nm wavelength"]], 
       ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 included with purchase)"],
@@ -472,9 +493,13 @@ let productSeed = [
           ["INDICATORS", ["Green LED: Power, Blue LED: Rising edge trigger"]],
           ["PACKAGING", ['Aluminum enclosure, 2" x 3" x 1"', "J732 mounting flange included"]],
         ],
-        // versions: [
-        //   ["required", "Wavelength", 1, [1, "850nm"], [3, "1310nm/1550nm"],], 
-        // ],
+        config: [
+          ["required", "Wavelength", [0, "850nm"], [1, "1310/1550nm"]],    
+        ],
+        versions: [
+          [[0], 1, ["850nm wavelength"]], 
+          [[1], 3, ["1310/1550nm wavelength"]],  
+        ],
         accessories: [
           ["J24-1", "24 volt 1.2 amp power supply ", "(furnished with purchase)"],
           ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -526,9 +551,10 @@ let productSeed = [
         ["INDICATOR", ["LED: green power"]],
         ["PACKAGING", ['3.3" (L) x 2.1" (W) x 0.9" (H) extruded anodized aluminum enclosure', "J732 mounting flange included"]],
       ],
-      // versions: [
-      //   ["noChoice", null, 1],
-      // ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 1, [null]],
+      ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 furnished with purchase)"],
         ["J41-1", "3' SMB to SMB cable"],
@@ -585,9 +611,10 @@ let productSeed = [
         ["INDICATORS", ["LEDs indicate power, communications, excitations, USER"]],
         ["BIST", ["Functional self-test provided"]],
       ],
-      // versions: [
-      //   ["noChoice", null, 1],
-      // ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 1, [null]],
+      ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply ", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable "],
@@ -645,9 +672,10 @@ let productSeed = [
         ["CALIBRATION INTERVAL", ["No internal calibrations"]],
         ["POWER", ["24 volts DC, 500mA max", "model J24, 24 VDC, 30 watt external adapter furnished", "2.1 x 5.5 mm barrel connector, center pin positive",]],
       ],
-      // versions: [
-      //   ["noChoice", null, 1],
-      // ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 1, [null]],
+      ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -706,11 +734,9 @@ let productSeed = [
         ["POWER", ["model J350, 15 VDC, 22 watts max, external supply furnished"]],
         ["TEMPERATURE", ["0 to 60°C operating range"]],
       ],
-      config: [
-        ["noChoice", null, [0, null]],
-      ],
+      config: ["noOptions"],
       versions: [
-        [0, 1, [null]]
+        [[0], 1, [null]],
       ],
       accessories: [
         ["J43-1", "3' BNC to BNC cable"],
@@ -736,9 +762,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      // versions: [
-      //   ["noChoice", null, 2],
-      // ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 1, [null]],
+      ],
       accessories: [
       ],
       FAQs: [
@@ -810,9 +837,10 @@ let productSeed = [
         ["Channel Output Accuracy", ["± 5 µV Offset", "± 50 ppm Gain"], ["± 35 µV Offset", "± 500 ppm Gain"], ["± 70 µV Offset", "± 1200 ppm Gain"]],
         ["RTD Measurement Accuracy", "-", "± 500 ppm of RTD resistance", "± 1000 ppm of RTD resistance",],
       ],
-      // versions: [
-      //   ["noChoice", null, 1],
-      // ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 1, [null]],
+      ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply ", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -894,12 +922,6 @@ let productSeed = [
           ["WARRANTY", ["2 years limited"]],
           ["OPTIONS", ["Rear-panel isolated HV outputs", "Frames: per-trigger delay/width lists", "Trains: multiple channel outputs per trigger", "OCXO timebase", "Rackmount adapter"]],
         ],
-        // versions: [
-        //   // [0] type of selection, [1] description, [2] base dash num, 3 [alt dash num, "alt dash description"]
-        //   ["optional", "OCXO timebase", 1, [2, "add high stability ovenized oscillator"]], // digit 1
-        //   ["optional", "high-voltage outputs", 1, [2, "add 50V isolated high-voltage output"]], // digit 2
-        //   ["optional", "frame and train engine", 1, [2, "add advanced pulse train/frame generation"]], // digit 3
-        // ],
         config: [
           // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
           ["optional", "OCXO timebase", [0, null], [1, "add high stability ovenized oscillator"]],
@@ -989,9 +1011,10 @@ let productSeed = [
         ["FREQUENCY MEASUREMENT", ["0.05%"]],
         ["FREQUENCY GENERATION", ["0.05%"]],
       ],
-      // versions: [
-      //   ["noChoice", null, 1],
-      // ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 1, [null]],
+      ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply ", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -1065,9 +1088,10 @@ let productSeed = [
         ["⁶ ", "100mV minimum test voltage"],
         ["", "For a more in-depth discussion of accuracy, see manual section 6."]
       ],
-      // versions: [
-      //   ["noChoice", null, 1],
-      // ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 1, [null]],
+      ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply", "(furnished with purchase)"],
         ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
@@ -1135,9 +1159,14 @@ let productSeed = [
         ["PACKAGING", ['5.0" (L) x 7.0" (W) x 2.25" (H) anodized aluminum enclosure']],
         ["CONFORMANCE", ["Designed to meet UL/FCC/CE requirements"]],
       ],
-      // versions: [
-      //   ["required", "Wavelength", 1, [1, "850nm"], [3, "1310nm"], [5, "1550nm"]], 
-      // ],
+      config: [
+        ["required", "Wavelength", [0, "850nm"], [1, "1310nm"], [2, "1550nm"]],    
+      ],
+      versions: [
+        [[0], 1, ["850nm wavelength"]], 
+        [[1], 3, ["1310nm wavelength"]],  
+        [[2], 5, ["1550nm wavelength"]],
+      ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply", "(furnished with purchase)"],
         ["J41-1", "3' SMB to SMB cable"],
@@ -1164,9 +1193,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      // versions: [
-      //   ["noChoice", null, 1],
-      // ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 1, [null]],
+      ],
       ECCN: "3A225",
       htsCode: "8543.20.0000",
       MTBF: [],
