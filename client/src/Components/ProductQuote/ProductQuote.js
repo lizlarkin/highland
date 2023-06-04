@@ -41,7 +41,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
     const { getCartQuantity } = useContext(NavContext);
     const history = useHistory();
     const [selectedQuantity, setSelectedQuantity] = useState(0);
-    const [selectedAccessories, setSelectedAccessories] = useState([]);
+    const [selectedAccessories, setSelectedAccessories] = useState();
     const [configNums, setConfigNums] = useState([]) // Hold array of configuration numbers in state
     const [configNum, setConfigNum] = useState([]); // Hold one configration option selected by user
     const [dashNums, setDashNums] = useState([]); // Hold array of dash numbers in state
@@ -87,7 +87,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
 
     const handleAddAccessories = (e) => {
         if (e.target.value > 0) {
-        setSelectedAccessories({...selectedAccessories, [e.target.id]: [e.target.name, e.target.value]})
+            setSelectedAccessories({...selectedAccessories, [e.target.id]: parseInt(e.target.value)})
         } else { // for cases in which user adds and then removes accessories (sets the accessory quantity >1 and then =0)
             setSelectedAccessories({...selectedAccessories, [e.target.id]: undefined})
         }
@@ -252,7 +252,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                                     </button>
                                                 </div>
                                                 <div className="col-md-3">
-                                                    <input onChange={handleAddAccessories} id={accessory[0]} name={accessory[1]} type="number" min="0" className="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
+                                                    <input onChange={handleAddAccessories} id={accessory[0]} type="number" min="0" className="form-control" placeholder="Quantity" style={quoteStyles.qtyInput}/>
                                                 </div>
                                             </div>
 

@@ -1,4 +1,5 @@
 const Quote = require("../models/quotesModel");
+const Product = require("../models/productModel");
 const nodemailer = require("nodemailer");
 
 module.exports = {
@@ -11,9 +12,35 @@ module.exports = {
             });
             const successSave = await newQuote.save();
             res.json(successSave);
-
+            // successSave.products.map((productArr)=> (
+            //     productArr.map((product)=>(
+            //         product.acc.map((prod)=> (
+            //             Object.entries(prod).map((pro) => (
+            //                 console.log(pro[0] + " (Quantity: " + pro[1] + ")")
+            //             ))
+            //         ))
+            //     ))
+            // ))
+            
     // GET AND STORE USER DATA
     const userData = await User.findById(req.user);
+
+    // GET AND STORE PRODUCT DATA
+        // Create array of products 
+        const modelArr = []
+        newQuote.products.map((productArr) => (
+            productArr.map((products) => (
+                modelArr.push(products.prod.split("-")[0])
+            ))
+        ))
+
+        // Get Product Name, Configuration, and Accessory Data
+        const productNames = await Product.find({ model:modelArr }, { model: 1, name: 1, _id:0})
+        const productConfig = await Product.find({ model:modelArr }, { model: 1, versions: 1, _id:0})
+        const productAccessories = await Product.find({ model:modelArr }, { model: 1, accessories: 1, _id:0})
+        console.log("productAccessories: ", productAccessories[0])
+
+
 
     // SEND EMAILS
 
@@ -37,56 +64,38 @@ Hi ${userData.first + " " + userData.last},
                 
 A member of our sales department will respond to your quote request shortly. 
                 
-The following is a copy of your request for your records:
+The following is a copy of your request:
 
-${successSave.products.map((productsArr, index) => (
-    productsArr.map((product, idx) => (
-            product.config.length>0?
-            product.model
-            +"-"
-            +product.version.map((vers, id) => (
-                vers
-            )).join("")
-            +" "
-            +product.name
-            +"\n"
-            +"Quantity: "
-            +product.qty 
-            +"\n"
-            +"Configuration: "    
-            +product.config.filter(x=>x).join(", ")
-            +"\n"
-            +"Accessories:"
-            +"\n"
-            +product.acc.map((acOb, iac) => (
-                Object.entries(acOb).map((accessory, i) => (
-                    " "+ accessory[0]+": "+accessory[1][0]+" (Quantity "+accessory[1][1]+")"+"\n"
-                )).join("")
-            ))
-            +"\n"
-            +"\n"
-            :
-            product.model
-            +"-"
-            +product.version.map((vers, id) => (
-                vers
-            ))
-            +" "
-            +product.name
-            +"\n"
-            +"Quantity: "
-            +product.qty 
-            +"\n"
-            +"Accessories:"
-            +product.acc.map((acOb, iac) => (
-                Object.entries(acOb).map((accessory, i) => (
-                    " "+ accessory[0]+": "+accessory[1][0]+" (Quantity "+accessory[1][1]+")"+"\n"
-                ))
-            ))
-            +"\n"
-        )).join("")
+${successSave.products.map((productArr) => (
+    productArr.map((product) => (
+    "Product: "
+    +product.prod
+    +" "
+    +productNames.find(n => n.model === product.prod.split("-")[0]).name
+    +"\n"
+    +"Quantity: "
+    +product.qty
+    +"\n"
+    +(productConfig.find(n => n.model === product.prod.split("-")[0]).versions[productConfig.find(n => n.model === product.prod.split("-")[0]).versions.findIndex(search => search.includes(parseInt(product.prod.split("-")[1])))][2].join(", ")?
+    "Configuration: "+productConfig.find(n => n.model === product.prod.split("-")[0]).versions[productConfig.find(n => n.model === product.prod.split("-")[0]).versions.findIndex(search => search.includes(parseInt(product.prod.split("-")[1])))][2].join(", ")
+    +"\n"
+    :"")
+    +(product.acc.length>0?
+    "Accessories: "
+    +product.acc.map((accessories) => (
+        Object.entries(accessories).map((accessory) => (
+            accessory[0] 
+            + ": "
+            + productAccessories.find(n => n.model === product.prod.split("-")[0]).accessories[productAccessories.find(n => n.model === product.prod.split("-")[0]).accessories.findIndex(a => a.includes(accessory[0]))][1]
+            + " (Quantity: " 
+            + accessory[1] 
+            + ")"
+        )).join(", ")
     ))
-}
+    +"\n"
+    :"")
+    +"\n"
+    )).join("")))}
 For additional or immediate help, feel free to contact our sales department directly at 415-551-1700.
                 
 Thank you,
@@ -110,32 +119,43 @@ Country: ${userData.country}
 
 Requested Products: 
 
-${successSave.products.map((productsArr, index) => (
-    productsArr.map((product, idx) => (
-            "Line "+(idx+1)+":"
-            +"\n"
-            +"Product: "
-            +product.model
-            +"-"
-            +product.version.map((vers, id) => (
-                vers
-            )).join("")
-            +"\n"
-            +"Quantity: "
-            +product.qty 
-            +"\n"
-            +"Accessories:"
-            +"\n"
-            +product.acc.map((acOb, iac) => (
-                Object.entries(acOb).map((accessory, i) => (
-                    accessory[0] + " (Quantity "+accessory[1][1]+")"+"\n"
-                )).join("")
-            ))
-            +"\n"
-            +"\n"
-        )).join("")
-    ))}
-`}
+${successSave.products.map((productArr, index) => (
+    productArr.map((product, idx) => (
+    product.acc.length>0?
+    "Line "
+    +parseInt(index)+parseInt(idx)+1
+    +":"
+    +"\n"
+    +"Product: "
+    +product.prod
+    +"\n"
+    +"Quantity: "
+    +product.qty
+    +"\n"
+    +"Accessories: "
+    +product.acc.map((accessories) => (
+        Object.entries(accessories).map((accessory) => (
+            accessory[0] + " (Quantity: " + accessory[1] + ")"
+        )).join(", ")
+    ))
+    +"\n"
+    +"\n"
+    :
+    "Line "
+    +parseInt(index)+parseInt(idx)+1
+    +":"
+    +"\n"
+    +"Product: "
+    +product.prod
+    +"\n"
+    +"Quantity: "
+    +product.qty
+    +"\n"
+    +"\n"
+    )).join("")))}
+
+`
+}
 
         // Transporters
             transporter.sendMail(mailOptions, (error, info) => {
@@ -162,9 +182,9 @@ ${successSave.products.map((productsArr, index) => (
         try {
             const allQuotes = await Quote.find({ userId: req.user }).sort({date:-1}).limit(parseInt(req.params.showNum));
             res.json(allQuotes)
-            console.log(allQuotes)
+            // console.log(allQuotes)
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             res.send(error)
         }
     },

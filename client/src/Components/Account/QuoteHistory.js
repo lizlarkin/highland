@@ -84,6 +84,7 @@ const QuoteHistory = () => {
                     headers: { "x-auth-token": localStorage.getItem("auth-token") },
                 });
                 setAllQuoteRequests(allQuotes.data)
+                console.log("here all quote requests:", allQuoteRequests)
                 setUserNum(userData.user.quoteNum)
             } catch (error) {
                 console.log("error getting quote history", error)   
@@ -111,7 +112,7 @@ const QuoteHistory = () => {
             <div className="row">
                 <div className="col-md-1"></div>
                 <div className="col-md-10">
-                    {allQuoteRequests.length>0?
+                    {/* {allQuoteRequests.length>0?
                       allQuoteRequests.map((quote, idx) => (
                             <div key={idx} className="card" style={quoteHistStyles.mainCard}>
                                 <div className="card-header">
@@ -173,7 +174,7 @@ const QuoteHistory = () => {
                                                         className="btn btn-outline-primary">
                                                             Quote Again
                                                 </button>
-                                                {/* <!-- Modal --> */}
+                                          
                                                 <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div className="modal-dialog">
                                                     <div className="modal-content">
@@ -196,7 +197,7 @@ const QuoteHistory = () => {
                                 ))}
                             </div>
                        ))
-                    :null}
+                    :null} */}
                 </div>
                 <div className="col-md-1"></div>
             </div>

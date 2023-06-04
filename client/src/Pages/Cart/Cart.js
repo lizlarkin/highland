@@ -23,6 +23,7 @@ const Cart = () => {
         },
         cartHeadings: {
             fontWeight: "500",
+            marginTop: "2%"
         }
     }
 
@@ -34,9 +35,7 @@ const Cart = () => {
         try {
             // Get Product Data based on Models in Cart
             const prodData = await axios.get(`/products/models/${modelArr}`);
-            console.log("prodData new models route", prodData.data)
             setProdList(prodData.data)
-            console.log(prodList)
         } catch (error) {
             console.log(error)
         }
@@ -49,13 +48,12 @@ const Cart = () => {
                 headers: { "x-auth-token": localStorage.getItem("auth-token") }
             });
             setCartList(allInCart.data)
-            console.log("allinCart", allInCart)
+
             // Get Data from Product Collection based on Models in from User Cart
-            
             allInCart.data.map((models) => (
                 modelArr.push(models.prod.split("-")[0])
             ))
-            console.log("modelArr", modelArr)
+
             // const prodData = await axios.get(`/products/${model}`);
             getProdData();
         } catch (error) {
@@ -129,7 +127,6 @@ const Cart = () => {
     
     useEffect(() => {
         getAllCart()
-        // console.log(prodList.findIndex(search=>search[2][1].includes(222)))
     }, [])
 
     return (
@@ -165,15 +162,24 @@ const Cart = () => {
                                             <div className="row">
                                                 <div className="col-md-1"></div>
                                                 <div className="col-md-11">
-                                                    <p style={cartStyles.cartHeadings}>Quantity: {carts.qty}</p>
+                                                    <div style={cartStyles.cartHeadings}>Quantity: {carts.qty}</div>
 
                                                     {prodList?
-                                                    prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][2][2]?
-                                                    <div style={cartStyles.cartHeadings}>Configuration:</div>
-                                                    :null:null}
+                                                    prodList
+                                                    [prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))] // index of model
+                                                    [2] // index that holds config info
+                                                    [prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][2].findIndex(el=>el.includes(parseInt(carts.prod.split("-")[1])))]
+                                                    [2][0]?
+                                                    <div style={cartStyles.cartHeadings}>Configuration: </div>
+                                                    :null
+                                                    :null}
 
                                                     {prodList?
-                                                    prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][2][2]?
+                                                    prodList
+                                                    [prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))] // index of model
+                                                    [2] // index that holds config info
+                                                    [prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][2].findIndex(el=>el.includes(parseInt(carts.prod.split("-")[1])))]
+                                                    [2][0]?
                                                     prodList
                                                     [prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))] // index of model
                                                     [2] // index that holds config info
@@ -181,15 +187,28 @@ const Cart = () => {
                                                     [2].map((conf, i) => (
                                                         <li>{conf}</li>
                                                     ))
-                                                    :null:null}
+                                                    :null
+                                                    :null}
 
-                                                    {carts.acc.length>0?
+                                                    {prodList?
+                                                    carts.acc.length>0?
+                                                        Object.keys(carts.acc[0]).length>0?
+                                                            <div style={cartStyles.cartHeadings}>Accessories:</div>
+                                                    :null:null:null}
+
+                                                    {prodList?
                                                         <div> 
                                                         {carts.acc.map((accessories) => (
                                                             Object.entries(accessories).map((accessory, ix) => (
                                                                 <div key={ix}>
-                                                                    include {accessory[0]+": "+accessory[1][0]}
-                                                                    <span className="badge bg-light text-dark">Quantity: {accessory[1][1]}</span>
+                                                                    <li>{accessory[0]+": "
+                                                                    +
+                                                                    prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))] // index of model
+                                                                    [3] // index that holds accessory info
+                                                                    [prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][3].findIndex(el=>el.includes(accessory[0]))][1]
+                                                                    }
+                                                                    <span className="badge bg-light text-dark">Quantity: {accessory[1]}</span>
+                                                                    </li>
                                                                 </div>
                                                             ))
                                                         ))}
