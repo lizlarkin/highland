@@ -121,39 +121,26 @@ Requested Products:
 
 ${successSave.products.map((productArr, index) => (
     productArr.map((product, idx) => (
-    product.acc.length>0?
-    "Line "
-    +parseInt(index)+parseInt(idx)+1
-    +":"
-    +"\n"
-    +"Product: "
+    "Product: "
     +product.prod
     +"\n"
     +"Quantity: "
     +product.qty
     +"\n"
-    +"Accessories: "
-    +product.acc.map((accessories) => (
-        Object.entries(accessories).map((accessory) => (
-            accessory[0] + " (Quantity: " + accessory[1] + ")"
-        )).join(", ")
-    ))
-    +"\n"
-    +"\n"
-    :
-    "Line "
-    +parseInt(index)+parseInt(idx)+1
-    +":"
-    +"\n"
-    +"Product: "
-    +product.prod
-    +"\n"
-    +"Quantity: "
-    +product.qty
-    +"\n"
+    +(product.acc.length>0?
+        "Accessories: "
+        +product.acc.map((accessories) => (
+            Object.entries(accessories).map((accessory) => (
+                accessory[0] 
+                + " (Quantity: " 
+                + accessory[1] 
+                + ")"
+            )).join(", ")
+        ))
+        +"\n"
+        :"")
     +"\n"
     )).join("")))}
-
 `
 }
 
