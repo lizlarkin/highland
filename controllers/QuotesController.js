@@ -38,9 +38,6 @@ module.exports = {
         const productNames = await Product.find({ model:modelArr }, { model: 1, name: 1, _id:0})
         const productConfig = await Product.find({ model:modelArr }, { model: 1, versions: 1, _id:0})
         const productAccessories = await Product.find({ model:modelArr }, { model: 1, accessories: 1, _id:0})
-        console.log("productAccessories: ", productAccessories[0])
-
-
 
     // SEND EMAILS
 
@@ -169,7 +166,6 @@ ${successSave.products.map((productArr, index) => (
         try {
             const allQuotes = await Quote.find({ userId: req.user }).sort({date:-1}).limit(parseInt(req.params.showNum));
             res.json(allQuotes)
-            // console.log(allQuotes)
         } catch (error) {
             // console.log(error)
             res.send(error)

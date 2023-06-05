@@ -53,9 +53,8 @@ const Cart = () => {
             allInCart.data.map((models) => (
                 modelArr.push(models.prod.split("-")[0])
             ))
-
-            // const prodData = await axios.get(`/products/${model}`);
             getProdData();
+            
         } catch (error) {
             console.log(error)   
         }
