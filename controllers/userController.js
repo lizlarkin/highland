@@ -455,7 +455,7 @@ module.exports = {
     updateQuoteNum: async (req,res) => {
         try {
             const incrementQuote = await User.updateOne(
-                req.user,
+                { _id: req.params.id },
                 { "$inc" : { "quoteNum": 1} 
             })
             res.json(incrementQuote);

@@ -9,7 +9,7 @@ import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
 const Cart = () => {
 
     const history = useHistory();
-    const { incrementQuoteNum } = useContext(UserContext); 
+    const { userData, incrementQuoteNum } = useContext(UserContext); 
     const { getCartQuantity } = useContext(NavContext);
 
     const cartStyles = {
@@ -112,9 +112,9 @@ const Cart = () => {
             { headers: { "x-auth-token": authToken },
             });
             // Update Users Quote Activity
-            await axios.put("/users/updateQuoteNum");
+            await axios.put(`/users/updateQuoteNum/${userData.user.id}`);
             // Update Context
-            incrementQuoteNum()
+            incrementQuoteNum();
             // Take user to account page
             history.push("/Account");
             // Delete Items from Cart List

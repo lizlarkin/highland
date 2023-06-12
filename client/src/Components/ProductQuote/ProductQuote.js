@@ -47,7 +47,6 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
     const [dashNums, setDashNums] = useState([]); // Hold array of dash numbers in state
     const [dashNum, setDashNum] = useState(); // Hold one Highland dash number selected by user
     const [config, setConfig] = useState([]); // holds backend data about product version options
-    const [configuration, setConfiguration] = useState([]) // holds descriptions of selected options
     let   [reqCount, setReqCount] = useState(0) // total number of required selections
     let   [checkNum, setCheckNum] = useState([]) // total number of required selections made
 
@@ -175,6 +174,9 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                 {/* Manage EOL quoting: If no stock remains or is undefined, hide quote functionality and replace with contact factory text. */}
                 {(category[0]==="LEG"&&EOLdates[2]<1)||(category[0]==="LEG"&&!EOLdates[2])?
                     "End of life procedures have been initiated for this product. Please contact factory."
+                    :
+                (category[0]==="OEM")?
+                    "Custom product. Please contact factory."
                     :
                 <>
                     <div className="row" style={quoteStyles.title}>

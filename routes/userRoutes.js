@@ -17,7 +17,7 @@ router.post("/register", register);
 router.post("/login", login);
 router.post("/forgotPass", forgotPass);
 router.get("/", auth, getUser);
-router.put("/updateQuoteNum", updateQuoteNum);
+router.put("/updateQuoteNum/:id", updateQuoteNum);
 router.put("/updateBasicUser/:id", updateBasicUser);
 router.put("/updateOpt/:id", updateOpt);
 router.put("/updatePass/:id", updatePass);
