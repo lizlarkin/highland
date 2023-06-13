@@ -205,15 +205,52 @@ let productSeed = [
       name: "compact single-channel adjustable delay and width electrical pulse generator",
       model: "J270",
       category: ["PSG"],
-      features: [],
+      features: [
+        ["User-triggered 50 ohm pulse output"],
+        ["Manual adjustment of delay, width, and output pulse voltage"],
+        ["Three timing ranges from 25 nanoseconds to 2.5 microseconds, up to 20 MHz trigger rate"],
+        ["1 nanosecond typical rise/fall, < 2.5 nanoseconds typical minimum width, < 15 picoseconds RMS typical jitter (Range 1)"],
+        ["Clean, fast pulse outputs adjustable from 0.8 volts to 20 volts"],
+        ["Optional analog time modulation inputs"],
+        ["Excellent laser, laser stack, optical modulator, PIN diode, microchannel plate, or SiC gate driver"],
+        ['Compact 2" x 3" enclosure'],
+      ],
       description: "Very compact GaN-based nanosecond high-voltage pulse generator includes adjustable time delay and pulse width.",
-      imgCaptions: ["", "", ""],
-      about: [],
-      related: [],
-      specifications: [],
+      imgCaptions: ["", "", "", "J270 power panel", "J270 signal panel"],
+      about: [
+        "The Highland J270 is a very compact GaN-based nanosecond high-voltage pulse generator with adjustable analog control of time delay and pulse width. It includes an SMA trigger input and loop-through/termination connectors, and SMA output and pulse monitor connectors.",
+        "The J270 can make 0.8 to 20 volt fast and flat pulses. OEM versions are available for use as embedded bar laser, optical modulator, intensifier gate, PIN diode, or cable drivers.",
+      ],
+      // related: [],
+      specifications: [
+        ["FUNCTION", ["Single-channel delay-and-width pulse generator"]],
+        ["INPUT TRIGGER", ["Positive pulse, SMA input and loop-through connectors", "+0.5 volt trigger threshold", "+5 volt max safe input", "Furnished with J48 removable SMA 50 ohm termination"]],
+        ["JITTER", ["Less than 500 ppm of Range delay, typ"]],
+        ["OUTPUT", ["DC coupled, SMA connector", "50 ohm source impedance, zero volt baseline", "Pulse adjustable from +0.8 to +20 volts", "(0.4 to 10 volts into 50 ohm load)", "Rise/fall 1 ns typ", "Switch selectable output polarity"]],
+        ["MONITOR OUT", ["DC coupled, SMA connector", "50:1 attenuated output pulse monitor, 50 ohm impedance", "100:1 into external 50 ohm load"]],
+        ["POWER IN", ["+24 VDC, 100 mA + average load current", "2.1 mm x 5.5 mm threaded barrel receptacle, center positive", "J24 wall-plug universal-input power supply furnished"]],
+        ["PACKAGING", ['Aluminum enclosure, 2" x 3" x 1"', "J732 mounting flange included"]],
+      ],
+      specificationsMulti: [
+        ["TIME RANGES"],
+        ["Range", "Min delay", "Min width", "Max frequency"],
+        ["25 ns", "15 ns", "2 ns", "1 / (D+W+40ns)   20 MHz max"],
+        ["250 ns", "30 ns", "12 ns", "1 / (D+W+65ns)   10 MHz max"],
+        ["2.5 µs", "220 ns", "120 ns", "1 / (D+W+350ns)   1 MHz max"],
+      ],
+      specificationsNotes: [
+        ["Other ranges available for embedded applications"],
+      ],
       config: ["noOptions"],
       versions: [
         [[0], 1, [null]],
+      ],
+      accessories: [
+        ["J24-1", "24 volt 1.2 amp power supply ", "(furnished with purchase)"],
+        ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable"],
+        ["J44-1", "3' SMA to SMA cable"],
+        ["J48-1", "50 ohm SMA terminator"],
+        ["J732-1", "mounting flange", "(furnished with purchase)"],
       ],
       ECCN: "3A230",
       htsCode: "8517.62.0050",
@@ -1265,10 +1302,10 @@ let productSeed = [
         ["Compact 2” x 2” PCB for embedded application"],
       ],
       description: "Accepts LVDS or TTL logic inputs, and laser drive pulse width follows the input waveform.",
-      imgCaptions: [""],
+      imgCaptions: ["", "evaluation version T160 (installed on mounting flange)", "integration version T160 (board-only)"],
       about: [
         'The T160 Laser Driver features laser drive pulse widths down to 300 picoseconds FWHM and ensures sharp turnoff and minimal optical tails. The signal path is essentially DC coupled, but duty cycle is limited to 60% and laser ON time is limited to 50 microseconds. It is suited to applications in pumped-fiber lasers, fluorescent decay analysis, LIDAR, and laser-based materials processing. The 2" by 2" design connects directly to standard 0.1" pin-pitch butterfly laser packages, making it ideal for OEM use in laser systems.',
-        "The T160 offers easily adjustable current and bias settings. It is compatible with several Highland Technology digital delay and pulse generators",
+        "The T160 offers easily adjustable current and bias settings. It is compatible with Highland Technology digital delay and pulse generators.",
         "For a laser driver with a built-in pulse generator, see the T165 Laser Pulser.",
       ],
       related: [
@@ -1294,7 +1331,7 @@ let productSeed = [
       config: [
         // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
         ["required", "Laser Driver", [0, "picosecond laser diode driver"], [1, "nanosecond laser diode driver"],],
-        ["required", "Packaging", [0, "board-only"], [1, "evaluation kit (driver furnished on butterfly laser mounting flange with power supply and two 3' SMB to BNC cables)"]]
+        ["required", "Packaging", [0, "board-only"], [1, "evaluation kit (T160 installed on T163 butterfly laser mounting flange with J6-1 USB power supply and two J53-1 3' SMB to BNC cables)"]]
       ],
       versions: [
         [[0,0], 2, ["picosecond laser diode driver", "board-only"]],
@@ -1303,11 +1340,11 @@ let productSeed = [
         [[1,1], 15, ["nanosecond laser diode driver", "evaluation kit"]],
       ],
       accessories: [
-        ["J6-1", "5 volt USB power supply", "(furnished with evaluation kit purchase)"],
+        ["J6-1", "5 volt USB power supply", "(1 included with evaluation kit purchase)"],
         ["J42-1", "3' SMB to SMA cable"],
-        ["J53-1", "3' SMB to BNC cable"],
+        ["J53-1", "3' SMB to BNC cable", "(2 included with evaluation kit purchase)"],
         ["J53-2", '6" SMB to BNC cable'],
-        ["T163-1", "butterfly laser driver mounting flange", "(furnished with evaluation kit purchase)"],
+        ["T163-1", "butterfly laser driver mounting flange, must be installed at factory", "(1 included with evaluation kit purchase)"],
       ],
       FAQs: [
         ["Is the 4-pin micro USB on the T160 the control and power?", "The micro USB jack is only utilized for +5V power in."],
@@ -1364,7 +1401,7 @@ let productSeed = [
       config: [
           // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
           ["required", "Laser Driver", [0, "picosecond laser diode pulser"], [1, "picosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds"], [2, "nanosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds"]],
-          ["required", "Packaging", [0, "board-only"], [1, "evaluation kit (driver furnished on butterfly laser mounting flange with power supply and two 3' SMB to BNC cables)"]]
+          ["required", "Packaging", [0, "board-only"], [1, "evaluation kit evaluation kit (T165 installed on T163 butterfly laser mounting flange with J6-1 USB power supply and two J53-1 3' SMB to BNC cables)"]]
       ],
       versions: [
         [[0,0], 2, ["picosecond laser diode pulser", "board-only"]],
@@ -1375,9 +1412,11 @@ let productSeed = [
         [[2,1], 15, ["nanosecond laser diode pulser with LVTTL trigger and output pulse widths extended to 850 nanoseconds", "evaluation kit"]],
       ],
       accessories: [
-        ["J6-1", "5 volt USB power supply", "(furnished with evaluation kit purchase)"],
-        ["J53-1", "3′ SMB to BNC cable", "(two furnished with evaluation kit purchase)"],
-        ["T163-1", "Butterfly laser driver mounting flange ", "(furnished with evaluation kit purchase/must be installed at factory)"],
+        ["J6-1", "5 volt USB power supply", "(1 included with evaluation kit purchase)"],
+        ["J42-1", "3' SMB to SMA cable"],
+        ["J53-1", "3' SMB to BNC cable", "(2 included with evaluation kit purchase)"],
+        ["J53-2", '6" SMB to BNC cable'],
+        ["T163-1", "butterfly laser driver mounting flange, must be installed at factory", "(1 included with evaluation kit purchase)"],
       ],
       FAQs: [
         ["What type of laser is best to use with the T165?", "The T165 pinout is designed to interface with 14-pin butterfly lasers that have the anode on pin-10 and the cathode on pin-9 and/or pin-11, sometimes referred to as Type-1."],
