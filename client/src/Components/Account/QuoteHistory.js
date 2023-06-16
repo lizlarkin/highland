@@ -30,25 +30,23 @@ const QuoteHistory = () => {
     const [allQuoteRequests, setAllQuoteRequests] = useState([]);
     let modelArr = [];
     const [prodList, setProdList] = useState();
-    
-    const [userNum, setUserNum] = useState(); 
 
     const getProdData = async () => {
         try {
             // Get Product Data based on Models in Quote History
             const prodData = await axios.get(`/products/models/${modelArr}`);
             setProdList(prodData.data)
-            console.log("prodData", prodData)
         } catch (error) {
             console.log(error)
         }
     };
 
-    // Show next 5 items of quote history
-    let histNum = 5;
+    // Number of Quotes to Display
+    let [histNum, setHistNum] = useState(5)
+    let [clicks, setClicks] = useState(1)
     const showNextHistory = () => {
-        histNum = histNum + 5
-        console.log("histNum", histNum)
+        setClicks(clicks++)
+        alert(clicks + "here")
     }
 
     const copyCart = {
@@ -86,15 +84,25 @@ const QuoteHistory = () => {
         const source = cancelToken.source();
 
         (async () => {
-            console.log('run')
             try {
+                if (clicks===1) {
+                    setHistNum(Math.min(userData.user.quoteNum,5))
+                    alert("a")
+                } else if (clicks>1 && userData.user.quoteNum<(5*clicks)) {
+                    setHistNum(userData.user.quoteNum)
+                    alert("b")
+                } else if (clicks>1 && userData.user.quoteNum>(5*clicks)) {
+                    setHistNum(userData.user.quoteNum*5)
+                    alert("c")
+                } else {
+                    alert('sum ting wong')
+                }
+
                 const allQuotes = await axios.get(`/quotes/${histNum}`, {
                     cancelToken: source.token,
                     headers: { "x-auth-token": localStorage.getItem("auth-token") },
                 });
                 setAllQuoteRequests(allQuotes.data)
-                console.log("after set all quote requests: ", allQuoteRequests)
-                setUserNum(userData.user.quoteNum)
 
             // Get Data from Product Collection based on Models in Quote History
             allQuotes.data.map((quoteSet) => (
@@ -102,10 +110,8 @@ const QuoteHistory = () => {
                     modelArr.push(models.prod.split("-")[0])
                 ))
             ))
-            getProdData();
 
-            console.log("model Arr:", modelArr)
-            console.log("allQuoteRequests", allQuoteRequests)
+            getProdData();
 
             } catch (error) {
                 console.log("error getting quote history", error)   
@@ -115,8 +121,8 @@ const QuoteHistory = () => {
         return () => {
             source.cancel();
         }
-    }, [histNum])
-
+    }, [clicks])
+    
     return (
         <div>
             <div className="row">
@@ -151,17 +157,17 @@ const QuoteHistory = () => {
                                             <div className="col-md-8">
                                                 <div className="card-body">
                                                     <h5 className="card-title">
-                                                        {prodList?prodList.length>=histNum?item.prod+": ":null:null} 
-                                                        {prodList?prodList.length>=histNum?
+                                                        {histNum?prodList?prodList.length>=histNum?item.prod+": ":null:null:null} 
+                                                        {histNum?prodList?prodList.length>=histNum?
                                                         prodList[prodList.findIndex(search=>search[0].includes(item.prod.split("-")[0]))][1]
-                                                        :null:null}
+                                                        :null:null:null}
                                                     </h5>
-                                                    {prodList?prodList.length>=histNum?item.qty>0?
+                                                    {histNum?prodList?prodList.length>=histNum?item.qty>0?
                                                         <li key={idx} className="list-group-item list-group-item-light">
                                                             <span style={quoteHistStyles.historyKey}>Quantity:</span>
                                                             {item.qty}
                                                             </li>
-                                                    :null:null:null}
+                                                    :null:null:null:null}
 
                                                     {prodList?prodList.length>=histNum?
                                                     prodList
@@ -181,7 +187,7 @@ const QuoteHistory = () => {
                                                     </li>
                                                     :null:null:null}
 
-                                                    {prodList?prodList.length>=histNum?
+                                                    {histNum?prodList?prodList.length>=histNum?
                                                     item.acc.length>0?
                                                         Object.keys(item.acc[0]).length>0?
                                                             <li className="list-group-item list-group-item-light">
@@ -199,7 +205,7 @@ const QuoteHistory = () => {
                                                                         ))
                                                                     ))}
                                                             </li>
-                                                    :null:null:null:null}
+                                                    :null:null:null:null:null}
 
                                                 </div>
 
@@ -241,8 +247,8 @@ const QuoteHistory = () => {
                 </div>
                 <div className="col-md-1"></div>
             </div>
-            {userNum>histNum?
-                histNum<=userNum?
+            {userData.user.quoteNum>histNum?
+                histNum<=userData.user.quoteNum?
                 <div className="row">
                     <div className="col-md-9"></div>
                     <div className="col-md-3">

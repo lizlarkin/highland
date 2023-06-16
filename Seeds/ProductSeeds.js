@@ -229,6 +229,7 @@ let productSeed = [
         ["OUTPUT", ["DC coupled, SMA connector", "50 ohm source impedance, zero volt baseline", "Pulse adjustable from +0.8 to +20 volts", "(0.4 to 10 volts into 50 ohm load)", "Rise/fall 1 ns typ", "Switch selectable output polarity"]],
         ["MONITOR OUT", ["DC coupled, SMA connector", "50:1 attenuated output pulse monitor, 50 ohm impedance", "100:1 into external 50 ohm load"]],
         ["POWER IN", ["+24 VDC, 100 mA + average load current", "2.1 mm x 5.5 mm threaded barrel receptacle, center positive", "J24 wall-plug universal-input power supply furnished"]],
+        ["CALIBRATION INTERVAL", ["One year"]],
         ["PACKAGING", ['Aluminum enclosure, 2" x 3" x 1"', "J732 mounting flange included"]],
       ],
       specificationsMulti: [
@@ -518,7 +519,7 @@ let productSeed = [
         specifications: [
           ["FUNCTION", ["Single-channel high-voltage optical-to-electrical converter"]],
           ["OPTICAL INPUT", ["850 nm nom wavelength, ST fiber connector, J736-1 version", "1310nm nom wavelength, ST fiber connector, J736-3 version", "1mW nom optical power in", "Threshold adjustable 100 µW to 2 mW, factory set to 300 µW"]],
-          ["PROPAGATION DELAY", ["Light in to HV electrical out < 10 ns"]],
+          ["PROPAGATION DELAY", ["Light in to HV electrical out < 10 ns, typ"]],
           ["PULSE RATE", ["DC to 15 MHz, absolute max"]],
           ["DIGITAL OUTPUT", ["DC coupled, SMA connector", "50 ohm source impedance, zero volt baseline", "Pulse adjustable from +0.8 to +20 volts for standard J736-1 and J736-3 versions (0.4 to 10 volts into 50 ohm load)", "Optional faster rise/fall versions available"]],
           ["RISE / FALL TIME", ["Analog O-E monitor: 2 ns typ", "HV output: 1 ns typ"]],
@@ -526,6 +527,7 @@ let productSeed = [
           ["MONITOR OUTPUTS", ["DC coupled, SMA connector", "Analog:", ["50 ohm source impedance", "100 mV per mW optical power into Hi-Z load", "50 mV per mW into external 50 ohm load"], "HV:", ["50:1 attenuated output pulse monitor, 50 ohm source impedance", "100:1 into external 50 ohm load"]]],
           ["POWER IN", ["+24 VDC, 100 mA + average load current", "2.1 mm x 5.5 mm barrel receptacle, center positive", "J24 24 volt wall-plug universal-input power supply furnished"]],
           ["OPERATING TEMPERATURE", ["0°C to 60°C, non-condensing", "Built-in thermal shut-down"]],
+          ["CALIBRATION INTERVAL", ["One year"]],
           ["INDICATORS", ["Green LED: Power, Blue LED: Rising edge trigger"]],
           ["PACKAGING", ['Aluminum enclosure, 2" x 3" x 1"', "J732 mounting flange included"]],
         ],
@@ -545,6 +547,67 @@ let productSeed = [
           ["J732-1", "mounting flange", "(furnished with purchase)"],
         ],
         ECCN: "3A230",
+        htsCode: "8517.62.0050",
+        MTBF: [],
+        },
+
+      // ****************************** J744 Data ******************************
+      {
+        name: "single-channel compact analog optical-to-electrical converter",
+        model: "J744",
+        category: ["PHO"],
+        features: [
+          ["ST or FC fiberoptic input"], 
+          ["DC coupled, 1 GHz analog bandwidth"],
+          ["Nominal 1 V / mW gain"],
+          ["Two available wavelength ranges"],
+          ['Compact 2.5" x 3.3" enclosure'],
+        ],
+        description: "Provides linear response at optical input power levels up to 2 milliwatts (+3dBm)",
+        imgCaptions: ["", "", "", "J744 Power/Input Panel", "J744 Output Panel"],
+        about: [
+          "The J744 is a compact, wideband DC to 1GHz analog optical to electrical fiber optic converter. Typical OE conversion gain is 500mV/mW into 50 ohms, or 1V/mW into Hi-Z loads. GaAs and InGaAs versions are available, covering 700nm-875nm multimode and 1100nm-1650nm singlemode optical signals, respectively. A choice of ST or FC fiberoptic connector is also available."
+        ],
+        related: [
+          "J720 single-channel compact electrical-to-fiberoptic converter",
+          "J724 single-channel compact buffered electrical-to-fiberoptic converter",
+          "J730 single-channel compact fiberoptic-to-electrical converter",
+        ],
+        specifications: [
+          ["FUNCTION", ["DC-coupled analog optical-electrical converter"]],
+          ["INPUT", ["850 nm versions accept 62.5/125 µm multimode fiber", "1310/1550nm versions accept 9/125 µm singlemode fiber", "Optional ST or FC connectors", "Linear from 0 to 2 mW optical input"]],
+          ["OPTICAL WAVELENGTH", ["GaAs version:  700- 875 nm", "InGaAs version: 1100 - 1650 nm"]],
+          ["PROPAGATION DELAY", ["Light in to electrical out < 850 ps"]],
+          ["OUTPUT", ["DC coupled, SMA connector", "50 ohm source impedance", "1 V/mW nominal sensitivity at peak wavelength, Hi-Z load", "0.5 V/mW nom into 50 ohms"]],
+          ["BANDWIDTH", ["DC to > 1GHz"]],
+          ["RISETIME", ["< 350 ps"]],
+          ["JITTER", ["< 12 ps RMS, J720 + J744"]],
+          ["OPERATING TEMPERATURE", ["0 to 60°C"]],
+          ["CALIBRATION INTERVAL", ["1 year"]],
+          ["POWER IN", ["+12 VDC, 135mA nominal", "J12 wall-plug universal-input power supply included"]],
+          ["CONNECTORS", ["ST or FC optical input receptacles", "Gold plated SMA analog output jack", "2.1mm X 5.5mm barrel power connector"]],
+          ["INDICATOR", ["LED:  Green power"]],
+          ["PACKAGING", ['Aluminum enclosure, 3.3" (L) x 2.5" (W) x 1.0" (H)', "J732 mounting flange included"]],
+        ],
+        config: [
+          ["required", "Connector Type", [0, "ST"], [1, "FC"]],  
+          ["required", "Wavelength & Photodiode", [0, "850nm & GaAs"], [1, "1310/1550nm & InGaAs"]],  
+        ],
+        versions: [
+          [[0,0], 1, ["ST connectorization", "850nm wavelength & GaAs Photodiode"]], 
+          [[0,1], 3, ["ST connectorization", "1310nm wavelength & InGaAs Photodiode"]], 
+          [[1,0], 11, ["FC connectorization", "850nm wavelength & GaAs Photodiode"]], 
+          [[1,1], 13, ["FC connectorization", "1310nm wavelength & InGaAs Photodiode"]], 
+        ],
+        accessories: [
+          ["J12-1", "12 volt power supply", "(1 included with purchase)"],
+          ["J44-1", "3' SMA to SMA cable"],
+          ["J59-1", "3' ST to ST fiberoptic cable (multi mode simplex)"],
+          ["J60-1", "3' FC to FC fiberoptic cable (single mode simplex)"],
+          ["J61-1", "3' ST to ST fiberoptic cable (single mode simplex)"],
+          ["J732-1", "mounting flange", "(furnished with purchase)"],
+        ],
+        ECCN: "EAR99",
         htsCode: "8517.62.0050",
         MTBF: [],
         },
@@ -606,6 +669,59 @@ let productSeed = [
       htsCode: "8517.62.0050",
       MTBF: [],
       },
+
+      // ****************************** K420 Data ******************************
+      {
+        name: "duplex optical to electrical converter",
+        model: "K420",
+        category: ["PHO"],
+        features: [
+          ["Bi-directional, electrical-optical / optical-electrical data link"], 
+          ["Differential logic input and output"],
+          ["Uses standard SFP optical module"],
+          ["2.05 GHz (4.1 Gbps) bandwidth"],
+          ["Input accepts single-ended or differential PECL, ECL, CML, LVDS"],
+          ["Output is AC coupled LVDS, CML compatible"],
+          ["LED power and data activity indicators"],
+          ["Compact extruded enclosure"],
+        ],
+        description: "Transports single or bi-directional digital data at speeds up to 2 GHz (4 GBS).",
+        imgCaptions: ["", "", "", "", "K420 Electrical Panel", "K420 Optical Panel"],
+        about: [
+          ""
+        ],
+        specifications: [
+          ["FUNCTION", ["AC-coupled bidirectional digital optical-electrical converter"]],
+          ["ELECTRICAL INPUT", ["Dual SMA connectors", "Single-ended or differential logic input, AC coupled square wave", "PECL, ECL, LVDS or CML levels"]],
+          ["ELECTRICAL OUTPUT", ["Dual SMA connectors", "Single-ended or differential, AC coupled square wave", "LVDS, or CML compatible"]],
+          ["OPTICAL", ["SFP plugin module, duplex LC compatible", "Standard Cisco SFP-10G-SR included", "850 nm compatible with 50 or 62.5 micron multimode fiber"]],
+          ["BANDWIDTH", ["5 MHz to 2 GHz, 4 Gbps equivalent"]],
+          ["OPERATING TEMPERATURE", ["0 to 60°C, non-condensing"]],
+          ["STORAGE TEMPERATURE", ["-20 to 80°C"]],
+          ["POWER IN", ["+24 VDC at 80 mA, negative ground", "2.1mm x 5.5mm locking barrel connector, pigtail power cable furnished", "J24 24 volt wall-plug universal-input power supply furnished"]],
+          ["CONNECTORS", ["TX+   TX-    RX+    RX-    SMA jacks", "TX     RX    Duplex LC fiberoptic receptacles", "Fiber receptacles are integral to removable SFP module"]],
+          ["CALIBRATION INTERVAL", ["One year"]],
+          ["LED INDICATORS", ["green Power, blue TX Data, orange RX optical input"]],
+          ["PACKAGING", ["4.75 (L) x 4.0 (W) x 1.25 (H) inches extruded aluminum enclosure"]],
+          ["CONFORMANCE", ["OEM product has no UL/FCC/CE compliance requirements", "Designed to meet UL/FCC/CE requirements"]],
+        ],
+        config: ["noOptions"],
+        versions: [
+          [[0], 1, [null]],
+        ],
+        accessories: [
+          ["J24-1", "24 volt 1.2 amp power supply ", "(included with purchase)"],
+          ["J27-1", "2.1 x 5.5 mm barrel to pigtail power cable", "(included with purchase)"],
+          ["J44-1", "3' SMA to SMA cable"],
+          ["J48-1", "50 ohm SMA terminator"],
+          ["P10-1", '19" rack mount shelf (four k-boxes per rack)'],
+          ["T566-1", "mounting flange"],
+
+        ],
+        ECCN: "EAR99",
+        htsCode: "8517.62.0050",
+        MTBF: [],
+        },
 
       // ****************************** P330 Data ******************************
       {

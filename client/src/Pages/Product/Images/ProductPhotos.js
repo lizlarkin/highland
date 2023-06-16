@@ -46,11 +46,22 @@ import J730_7 from "./J730_Optic_Electric_Converter_7.png";
 import J736_1 from "./J736_Optical_Electrical_Converter_1.png";
 import J736_2 from "./J736_Optical_Electrical_Converter_2.png";
 import J736_3 from "./J736_Optical_Electrical_Converter_3.png";
+import J744_1 from "./J744_Analog_Optical_Electrical_Converter_1.png";
+import J744_2 from "./J744_Analog_Optical_Electrical_Converter_2.png";
+import J744_3 from "./J744_Analog_Optical_Electrical_Converter_3.png";
+import J744_4 from "./J744_Analog_Optical_Electrical_Converter_4.png";
+import J744_5 from "./J744_Analog_Optical_Electrical_Converter_5.png";
 import J750_1 from "./J750_Wideband_Amplifier_1.png"; 
 import J750_2 from "./J750_Wideband_Amplifier_2.png"; 
 import J750_3 from "./J750_Wideband_Amplifier_3.png"; 
 import J750_4 from "./J750_Wideband_Amplifier_4.png"; 
 import J750_5 from "./J750_Wideband_Amplifier_5.png"; 
+import K420_1 from "./K420_Duplex_Optical_Electrical_Converter_1.png";
+import K420_2 from "./K420_Duplex_Optical_Electrical_Converter_2.png";
+import K420_3 from "./K420_Duplex_Optical_Electrical_Converter_3.png";
+import K420_4 from "./K420_Duplex_Optical_Electrical_Converter_4.png";
+import K420_5 from "./K420_Duplex_Optical_Electrical_Converter_5.png";
+import K420_6 from "./K420_Duplex_Optical_Electrical_Converter_6.png";
 import P330_1 from "./P330_Capacitive_Level_Sensor_Simulator_1.png";  
 import P330_2 from "./P330_Capacitive_Level_Sensor_Simulator_2.png"; 
 import P330_3 from "./P330_Capacitive_Level_Sensor_Simulator_3.png"; 
@@ -360,12 +371,29 @@ const J736PhotoArr = [
     J736_3,
 ]
 
+const J744PhotoArr = [
+    J744_1,
+    J744_2,
+    J744_3,
+    J744_4,
+    J744_5,
+]
+
 const J750PhotoArr = [
     J750_1,
     J750_2,
     J750_3,
     J750_4,
     J750_5,
+]
+
+const K420PhotoArr = [
+    K420_1,
+    K420_2,
+    K420_3,
+    K420_4,
+    K420_5,
+    K420_6,
 ]
 
 const P330PhotoArr = [
@@ -789,7 +817,9 @@ export const ProductPhotos = [
     J724PhotoArr,
     J730PhotoArr,
     J736PhotoArr,
+    J744PhotoArr,
     J750PhotoArr,
+    K420PhotoArr,
     P330PhotoArr,
     P348PhotoArr,
     P350PhotoArr,
