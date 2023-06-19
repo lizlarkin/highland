@@ -1,15 +1,6 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
 
 const ProductRelated = ({ related }) => {
-
-    const history = useHistory();
-
-    const goToPage = (e) => {
-        let productSelected = e.target.id;
-        history.push(`/Product/${productSelected}`)
-    }
-
 
     return (
         <div >
@@ -20,13 +11,12 @@ const ProductRelated = ({ related }) => {
                 <div className="list-group">
                             {related?
                             related.map((relative, idx) => (
-                            <button 
-                                onClick={goToPage}
-                                key={idx} 
-                                id={relative.split(" ")[0]}  
+                            <a 
+                                href = {`/Product/${relative.split(" ")[0]}`}
+                                key={idx}  
                                 type="button" className="list-group-item list-group-item-action">
                                 {relative}
-                            </button>
+                            </a>
                             )):null
                             }    
                 </div>

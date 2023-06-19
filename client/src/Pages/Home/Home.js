@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import "./assets/homeStyles.css";
-import homeLogo from '../../Components/Footer/Images/Highland_logo_white.png';
+import homeLogo from './assets/Highland_logo_white_on_black.png';
 import VME from '../Product/Images/V120_VME_PCIE_Crate_Controller_1.png';
 import DDG from '../Product/Images/P500_Digital_Delay_Generator_1.png';
 import PulseGen from '../Product/Images/J270_Pulse_Generator_1.png';
@@ -114,7 +114,7 @@ const Home = () => {
                             <h1>Get the easy stuff somewhere else.</h1>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row home-cat-btn">
                         <div className="col-md-12">
                         <div className="btn-group dropend">
                             <button type="button" className="btn btn-light dropdown-toggle" id="home-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -138,7 +138,7 @@ const Home = () => {
 
                 <div className="light-row">
                     <h1 className="home-header">Capabilities</h1>
-                        <div className="row row-cols-3">
+                        <div className="row row-cols-3 gy-5">
                             {capabilities.map((capability, index) => (
                                 <div className="col" key={index}>
                                     <i className={capability[1]}></i>

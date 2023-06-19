@@ -26,7 +26,7 @@
 }
 
 #product-row {
-    background-image: url("./Home_Gradient.png");
+    background-image: url("./Home_Gradient_5.png");
     background-size: cover;
     padding-top: 3%;
     padding-bottom: 3%;
@@ -39,6 +39,10 @@
     margin-bottom: 3%;
 }
 
+.home-cat-btn {
+    margin-top: 5%;
+}
+
 .product-link {
     text-decoration: none;
     color: white;
@@ -49,7 +53,7 @@
 }
 
 .home-description {
-    margin-bottom: 10%;
+    margin-top: 3%;
 }
 
 .bgOpacity {

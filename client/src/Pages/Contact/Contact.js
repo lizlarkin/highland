@@ -93,11 +93,12 @@ const Contact = () => {
         document.getElementById("inputState").selectedIndex = 0;
         setForm({
             sub: "",
-            org: "",
-            first: "",
-            last: "",
-            email: "",
-            phone: "",
+            org: userData.token===undefined?"":userData.user.org,
+            first: userData.token===undefined?"":userData.user.first,
+            last: userData.token===undefined?"":userData.user.last,
+            email: userData.token===undefined?"":userData.user.email,
+            phone: userData.token===undefined?"":userData.user.phone,
+            userId: userData.token===undefined?"":userData.user.id,
             comments: "",
             sn: "",
             model: "",

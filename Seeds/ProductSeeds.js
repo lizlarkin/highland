@@ -688,7 +688,7 @@ let productSeed = [
         description: "Transports single or bi-directional digital data at speeds up to 2 GHz (4 GBS).",
         imgCaptions: ["", "", "", "", "K420 Electrical Panel", "K420 Optical Panel"],
         about: [
-          ""
+          "The K420 is a single or bi-directional electrical-optical / optical-electrical fiberoptic data link. AC-coupled logic inputs and outputs are compatible with LVDS, CML, PECL, NECL and single-ended TTL logic families. The K420 supports data toggle rates spanning 5 MHz to 2.05 GHz (4.1 Gpbs), ideal for multiple kilometer inter-facility links, fiberoptic clock distribution, and applications requiring galvanic signal isolation. Power and data activity LED indicators are included for quickly verifying link status. The K420 is housed in a compact extruded aluminum enclosure and uses commonly available SFP optical modules to facilitate future upgradeability."
         ],
         specifications: [
           ["FUNCTION", ["AC-coupled bidirectional digital optical-electrical converter"]],
