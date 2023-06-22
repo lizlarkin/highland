@@ -68,6 +68,32 @@ import V730_CoC from './assets/V730_CoC.pdf'
 import V860_CoC from './assets/V860_CoC.pdf'
 import V880_CoC from './assets/V880_CoC.pdf'
 
+import J724_SOV from './assets/J724_SOV.pdf'
+import J730_SOV from './assets/J730_SOV.pdf'
+import P344_SOV from './assets/P344_SOV.pdf'
+import P348_SOV from './assets/P348_SOV.pdf'
+import P350_SOV from './assets/P350_SOV.pdf'
+import P900_SOV from './assets/P900_SOV.pdf'
+import T165_SOV from './assets/T165_SOV.pdf'
+import T344_SOV from './assets/T344_SOV.pdf'
+import T346_SOV from './assets/T346_SOV.pdf'
+import T680_SOV from './assets/T680_SOV.pdf'
+import T735_SOV from './assets/T735_SOV.pdf'
+import V120_SOV from './assets/V120_SOV.pdf'
+import V124_SOV from './assets/V124_SOV.pdf'
+import V210_SOV from './assets/V210_SOV.pdf'
+import V220_SOV from './assets/V220_SOV.pdf'
+import V230_SOV from './assets/V230_SOV.pdf'
+import V340_SOV from './assets/V340_SOV.pdf'
+import V360_SOV from './assets/V360_SOV.pdf'
+import V375_SOV from './assets/V375_SOV.pdf'
+import V410_SOV from './assets/V410_SOV.pdf'
+import V420_SOV from './assets/V420_SOV.pdf'
+import V450_SOV from './assets/V450_SOV.pdf'
+import V470_SOV from './assets/V470_SOV.pdf'
+import V490_SOV from './assets/V490_SOV.pdf'
+import V545_SOV from './assets/V545_SOV.pdf'
+
 export const CoCArr = [
     D100_CoC,
     D200_CoC,
@@ -138,4 +164,32 @@ export const CoCArr = [
     V730_CoC,
     V860_CoC,
     V880_CoC,
+]
+
+export const SoVArr = [
+    J724_SOV,
+    J730_SOV,
+    P344_SOV,
+    P348_SOV,
+    P350_SOV,
+    P900_SOV,
+    T165_SOV,
+    T344_SOV,
+    T346_SOV,
+    T680_SOV,
+    T735_SOV,
+    V120_SOV,
+    V124_SOV,
+    V210_SOV,
+    V220_SOV,
+    V230_SOV,
+    V340_SOV,
+    V360_SOV,
+    V375_SOV,
+    V410_SOV,
+    V420_SOV,
+    V450_SOV,
+    V470_SOV,
+    V490_SOV,
+    V545_SOV,
 ]

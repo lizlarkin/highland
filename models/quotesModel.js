@@ -6,12 +6,11 @@ const quotesSchema = new mongoose.Schema({
         default: Date.now,
     },
     products: [],
-    // prods: [],
     userId: {
         type: String,
         required: true,
     },
-    showNum: {}
+    // showNum: {}
 });
 
 var Quote = mongoose.model("Quote", quotesSchema);

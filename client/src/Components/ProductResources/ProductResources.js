@@ -12,6 +12,7 @@ import conformance from "./assets/conformance.png";
 import softwareDrivers from "./assets/softwareDrivers.png";
 import {Link} from 'react-router-dom';
 import {CoCArr} from "./Resources";
+import {SoVArr} from "./Resources";
 import USAPolicy from "./assets/USA_Commitment.pdf";
 // import Datasheet from '../ProductDatasheet/Datasheet';
 import Export from './Export';
@@ -28,6 +29,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
     }
 
    const CoCIndex = CoCArr.findIndex(search => search.includes(model + "_CoC"));
+   const SoVIndex = SoVArr.findIndex(search => search.includes(model + "_SOV"));
 
     return (
         <div >
@@ -61,9 +63,12 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
                                         <Link to="/" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={blockDiagram} alt="Highland Datasheet"/>Download Block Diagram
                                         </Link>
-                                        <Link to="/" className="list-group-item list-group-item-action">
+                                        {SoVIndex===-1?
+                                        null:
+                                        <Link to={SoVArr[SoVIndex]} target = "_blank" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={statementOfVolatility} alt="DRAM Symbol"/>Download Statement of Volatility 
                                         </Link>
+                                        }
                                         {MTBF.length>0?
                                         <>
                                             <button type="button" className="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#mtbfModal">

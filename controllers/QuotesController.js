@@ -163,9 +163,10 @@ ${successSave.products.map((productArr, index) => (
         }
     },
     getAllQuotes: async (req, res) => {
-        console.log('hit getAllQuotes first', req.params.showNum)
+        // console.log('hit getAllQuotes first', req.params.showNum)
         try {
-            const allQuotes = await Quote.find({ userId: req.user }).sort({date:-1}).limit(parseInt(req.params.showNum));
+            const allQuotes = await Quote.find({ userId: req.user }).sort({date:-1});
+            // .limit(parseInt(req.params.showNum));
             res.json(allQuotes)
         } catch (error) {
             res.send(error)

@@ -32,33 +32,22 @@ const QuoteHistory = () => {
     const [prodList, setProdList] = useState();
 
     // Number of Quotes to Display
-    let [histNum, setHistNum] = useState(Math.min(userData.user.quoteNum,5))
-    let [clicks, setClicks] = useState(1)
-
+    let [histNum, setHistNum] = useState(Math.min(5,userData.user.quoteNum))
     const showNextHistory = () => {
-        setClicks(clicks=clicks+1)
-        if (clicks===1) {
-            setHistNum(Math.min(userData.user.quoteNum,5))
-        } else if (clicks>1 && userData.user.quoteNum>(5*clicks)) {
-            setHistNum(5*clicks)
-        } else if (clicks>1 && userData.user.quoteNum<=(5*clicks)) {
-            setHistNum(userData.user.quoteNum)
-        }  else {
-            setHistNum(userData.user.quoteNum)
-        }
+        setHistNum(Math.min(histNum+5, userData.user.quoteNum))
     }
 
+    // Get Product Data based on Models in Quote History
     const getProdData = async () => {
         try {
-            // Get Product Data based on Models in Quote History
             const prodData = await axios.get(`/products/models/${modelArr}`);
             setProdList(prodData.data)
-            console.log('last', prodData)
         } catch (error) {
             console.log(error)
         }
     };
 
+    // Re-Quote
     const copyCart = {
         prod: "",
         qty: "",
@@ -95,13 +84,11 @@ const QuoteHistory = () => {
 
         (async () => {
             try {
-                console.log('histNum should be first', histNum)
-                const allQuotes = await axios.get(`/quotes/${histNum}`, {
+                const allQuotes = await axios.get(`/quotes`, {
                     cancelToken: source.token,
                     headers: { "x-auth-token": localStorage.getItem("auth-token") },
                 });
                 setAllQuoteRequests(allQuotes.data)
-                console.log('this should be second', allQuotes)
             // Get Data from Product Collection based on Models in Quote History
             allQuotes.data.map((quoteSet) => (
                 quoteSet.products[0].map((models) => (
@@ -110,7 +97,6 @@ const QuoteHistory = () => {
             ))
 
             getProdData();
-            console.log('this should be third')
 
             } catch (error) {
                 console.log("error getting quote history", error)   
@@ -120,7 +106,7 @@ const QuoteHistory = () => {
         return () => {
             source.cancel();
         }
-    }, [histNum])
+    }, [userData])
     
     return ( 
         <div>
@@ -139,36 +125,36 @@ const QuoteHistory = () => {
                 <div className="col-md-1"></div>
                 <div className="col-md-10">
                     {allQuoteRequests.length>0?
-                      allQuoteRequests.map((quote, idx) => (
+                      allQuoteRequests.slice(0,histNum).map((quote, idx) => (
                             <div key={idx} className="card" style={quoteHistStyles.mainCard}>
-                                <div className="card-header">
-                                    <h5>{((new Date(quote.date)).toString()).slice(0,21)}</h5>
+                                <div key={idx} className="card-header">
+                                    <h5 key={idx}>{((new Date(quote.date)).toString()).slice(0,21)}</h5>
                                 </div>
                                 {quote.products[0].map((item, idx) => (
-                                <div className="card-body">
+                                <div key={idx} className="card-body">
                                     <div key={idx} className="card mb-3">
-                                        <div className="row g-0">
-                                            <div className="col-md-4 my-auto">
-                                                <img src={ProductPhotos[ProductPhotos.findIndex(search => search[0].includes(item.prod.split("-")[0]))][0]} 
+                                        <div key={idx} className="row g-0">
+                                            <div key={idx} className="col-md-4 my-auto">
+                                                <img key={idx} src={ProductPhotos[ProductPhotos.findIndex(search => search[0].includes(item.prod.split("-")[0]))][0]} 
                                                 className="img-fluid rounded-start" 
                                                 alt={item.prod}/>
                                             </div>
-                                            <div className="col-md-8">
-                                                <div className="card-body">
-                                                    <h5 className="card-title">
-                                                        {allQuoteRequests&&histNum&&prodList&&prodList.length>=histNum?item.prod+": ":null} 
-                                                        {allQuoteRequests&&histNum&&prodList&&prodList.length>=histNum?
+                                            <div key={idx} className="col-md-8">
+                                                <div key={idx} className="card-body">
+                                                    <h5 key={idx} className="card-title">
+                                                        {allQuoteRequests&&histNum&&prodList&&allQuoteRequests.length>=histNum?item.prod+": ":null} 
+                                                        {allQuoteRequests&&histNum&&prodList&&allQuoteRequests.length>=histNum?
                                                         prodList[prodList.findIndex(search=>search[0].includes(item.prod.split("-")[0]))][1]
                                                         :null}
                                                     </h5>
-                                                    {allQuoteRequests?histNum?prodList?prodList.length>=histNum?item.qty>0?
+                                                    {allQuoteRequests?histNum?prodList?allQuoteRequests.length>=histNum?item.qty>0?
                                                         <li key={idx} className="list-group-item list-group-item-light">
                                                             <span style={quoteHistStyles.historyKey}>Quantity:</span>
                                                             {item.qty}
                                                         </li>
                                                     :null:null:null:null:null}
 
-                                                    {allQuoteRequests?prodList?prodList.length>=histNum?
+                                                    {allQuoteRequests?prodList?allQuoteRequests.length>=histNum?
                                                     prodList
                                                     [prodList.findIndex(search=>search[0].includes(item.prod.split("-")[0]))] // index of model
                                                     [2] // index that holds config info
@@ -186,7 +172,7 @@ const QuoteHistory = () => {
                                                     </div>
                                                     :null:null:null:null}
 
-                                                    {allQuoteRequests?histNum?prodList?prodList.length>=histNum?
+                                                    {allQuoteRequests?histNum?prodList?allQuoteRequests.length>=histNum?
                                                     item.acc.length>0?
                                                         Object.keys(item.acc[0]).length>0?
                                                             <div className="list-group-item list-group-item-light">
@@ -199,7 +185,7 @@ const QuoteHistory = () => {
                                                                         [3] // index that holds accessory info
                                                                         [prodList[prodList.findIndex(search=>search[0].includes(item.prod.split("-")[0]))][3].findIndex(el=>el.includes(accessory[0]))][1]
                                                                         }
-                                                                        <span className="badge bg-light text-dark">Quantity: {accessory[1]}</span>
+                                                                        <span key={ix} className="badge bg-light text-dark">Quantity: {accessory[1]}</span>
                                                                         </li>
                                                                         ))
                                                                     ))}
@@ -246,14 +232,15 @@ const QuoteHistory = () => {
                 </div>
                 <div className="col-md-1"></div>
             </div>
-            {userData?userData.user.quoteNum>histNum?
-                histNum<=userData.user.quoteNum?
-                <div className="row">
-                    <div className="col-md-9"></div>
-                    <div className="col-md-3">
-                        <button onClick={showNextHistory} type="button" className="btn btn-outline-secondary btn-sm">Show Additional History</button>
-                    </div>
-                </div>
+            {userData?
+                histNum<userData.user.quoteNum?
+                    userData.user.quoteNum>0?
+                        <div className="row">
+                            <div className="col-md-9"></div>
+                            <div className="col-md-3">
+                                <button onClick={showNextHistory} type="button" className="btn btn-outline-secondary btn-sm">Show Additional History</button>
+                            </div>
+                        </div>
             :null:null:null}
         </div>
     )

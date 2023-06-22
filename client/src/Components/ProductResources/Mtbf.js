@@ -3,7 +3,7 @@ import "./assets/modalStyle.css"
 
 const Mtbf = ({model, MTBF}) => {
   return (
-    <div className="modal fade" id="mtbfModal" tabindex="-1" aria-labelledby="mtbfModalLabel" aria-hidden="true">
+    <div className="modal fade" id="mtbfModal" tabIndex="-1" aria-labelledby="mtbfModalLabel" aria-hidden="true">
         <div className="modal-dialog">
             <div className="modal-content">
                 <div className="modal-header">
