@@ -1,3 +1,4 @@
+// Certificates of Conformance Import Files
 import D100_CoC from './assets/D100_CoC.pdf'
 import D200_CoC from './assets/D200_CoC.pdf'
 import J240_CoC from './assets/J240_CoC.pdf'
@@ -8,6 +9,7 @@ import J730_CoC from './assets/J730_CoC.pdf'
 import J736_CoC from './assets/J736_CoC.pdf'
 import J744_CoC from './assets/J744_CoC.pdf'
 import J750_CoC from './assets/J750_CoC.pdf'
+import K420_CoC from './assets/K420_CoC.pdf'
 import P330_CoC from './assets/P330_CoC.pdf'
 import P344_CoC from './assets/P344_CoC.pdf'
 import P348_CoC from './assets/P348_CoC.pdf'
@@ -27,6 +29,7 @@ import T240_CoC from './assets/T240_CoC.pdf'
 import T340_CoC from './assets/T340_CoC.pdf'
 import T344_CoC from './assets/T344_CoC.pdf'
 import T346_CoC from './assets/T346_CoC.pdf'
+import T400_CoC from './assets/T400_CoC.pdf'
 import T500_CoC from './assets/T500_CoC.pdf'
 import T560_CoC from './assets/T560_CoC.pdf'
 import T564_CoC from './assets/T564_CoC.pdf'
@@ -68,6 +71,7 @@ import V730_CoC from './assets/V730_CoC.pdf'
 import V860_CoC from './assets/V860_CoC.pdf'
 import V880_CoC from './assets/V880_CoC.pdf'
 
+// Statements of Volatility Import Files
 import J724_SOV from './assets/J724_SOV.pdf'
 import J730_SOV from './assets/J730_SOV.pdf'
 import P344_SOV from './assets/P344_SOV.pdf'
@@ -94,6 +98,21 @@ import V470_SOV from './assets/V470_SOV.pdf'
 import V490_SOV from './assets/V490_SOV.pdf'
 import V545_SOV from './assets/V545_SOV.pdf'
 
+// STEP Import Files
+import D100_STEP from './assets/D100_17A100C.STEP'
+import J240_J730_J750_STEP from './assets/J240_J730_J750_21AXXXA_GENERIC_SILVER.STEP'
+import J270_STEP from './assets/J270_21a270a.STEP'
+import J724_STEP from './assets/J724_21A724D.STEP'
+import K420_STEP from './assets/K420_24A420A.STEP'
+import P344_P348_P350_P730_STEP from './assets/P344_P348_P350_P730_23MXXXA_GENERIC_SMALL_.STEP'
+import T124_T240_T340_T344_T346_T750_T760_T860_STEP from './assets/T124_T240_T340_T344_T346_T750_T760_T860_28AXXXA_GENERIC_SILVER.STEP'
+import T500_STEP from './assets/T500_28A500A.STEP'
+import T560_T564_STEP from './assets/T560_T564_28A560C.STEP'
+import T735_STEP from './assets/T735_28A735B.STEP'
+import V344_V346_STEP from './assets/V344_V346_22A346C.STEP'
+import V375_STEP from './assets/V375_22A375A.STEP'
+
+// Certificates of Conformance Export Array
 export const CoCArr = [
     D100_CoC,
     D200_CoC,
@@ -105,6 +124,7 @@ export const CoCArr = [
     J736_CoC,
     J744_CoC,
     J750_CoC,
+    K420_CoC,
     P330_CoC,
     P344_CoC,
     P348_CoC,
@@ -124,6 +144,7 @@ export const CoCArr = [
     T340_CoC,
     T344_CoC,
     T346_CoC,
+    T400_CoC,
     T500_CoC,
     T560_CoC,
     T564_CoC,
@@ -166,6 +187,7 @@ export const CoCArr = [
     V880_CoC,
 ]
 
+// Statements of Volatility Export Array
 export const SoVArr = [
     J724_SOV,
     J730_SOV,
@@ -192,4 +214,20 @@ export const SoVArr = [
     V470_SOV,
     V490_SOV,
     V545_SOV,
+]
+
+// STEP Export Array
+export const StepArr = [
+    D100_STEP,
+    J240_J730_J750_STEP, 
+    J270_STEP, 
+    J724_STEP, 
+    K420_STEP, 
+    P344_P348_P350_P730_STEP, 
+    T124_T240_T340_T344_T346_T750_T760_T860_STEP, 
+    T500_STEP, 
+    T560_T564_STEP, 
+    T735_STEP, 
+    V344_V346_STEP, 
+    V375_STEP, 
 ]

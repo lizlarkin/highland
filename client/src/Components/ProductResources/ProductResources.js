@@ -3,6 +3,7 @@ import UserContext from "../../Context/UserContext";
 import rohsCompliant from "./assets/rohsCompliant.png";
 import madeInUsa from "./assets/madeInUsa.png";
 import ECCNImage from "./assets/ECCN.png";
+import STEPImage from "./assets/STEP.png";
 import statementOfVolatility from "./assets/statementOfVolatility.png";
 import mtbfAnalysis from "./assets/mtbfAnalysis.png";
 // import datasheet from "./assets/datasheet.png";
@@ -13,6 +14,7 @@ import softwareDrivers from "./assets/softwareDrivers.png";
 import {Link} from 'react-router-dom';
 import {CoCArr} from "./Resources";
 import {SoVArr} from "./Resources";
+import {StepArr} from "./Resources";
 import USAPolicy from "./assets/USA_Commitment.pdf";
 // import Datasheet from '../ProductDatasheet/Datasheet';
 import Export from './Export';
@@ -30,6 +32,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
 
    const CoCIndex = CoCArr.findIndex(search => search.includes(model + "_CoC"));
    const SoVIndex = SoVArr.findIndex(search => search.includes(model + "_SOV"));
+   const StepIndex = StepArr.findIndex(search => search.includes(model));
 
     return (
         <div >
@@ -69,6 +72,12 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
                                             <img className = "resource-image" src={statementOfVolatility} alt="DRAM Symbol"/>Download Statement of Volatility 
                                         </Link>
                                         }
+                                        {StepIndex===-1?
+                                        null:
+                                        <Link to={StepArr[StepIndex]} target = "_blank" download className="list-group-item list-group-item-action">
+                                            <img className = "resource-image" src={STEPImage} alt="3D Model"/>Download STEP File 
+                                        </Link>
+                                        }
                                         {MTBF.length>0?
                                         <>
                                             <button type="button" className="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#mtbfModal">
@@ -78,7 +87,6 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
                                         </>
                                         :
                                         null}
-
                                 </div>
                             </div>
                             </div>
@@ -127,9 +135,12 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
                                         <Link to={USAPolicy} target = "_blank" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={madeInUsa} alt="Made In USA"/>Made in USA Commitment
                                         </Link>
+                                        {CoCIndex===-1?
+                                        null:
                                         <Link to={CoCArr[CoCIndex]} target = "_blank" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={conformance} alt="Certificate of Conformnce"/>Download Certificate of Conformance
                                         </Link>
+                                        }
                                         <button type="button" className="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#exportModal">
                                             <img className = "resource-image" src={ECCNImage} alt="International Commerce"/>Export &amp; Classification Information
                                         </button>
