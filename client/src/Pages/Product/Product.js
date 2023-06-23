@@ -44,6 +44,7 @@ const Product = () => {
     const [productDriversSoftware, setProductDriversSoftware] = useState();
     const [ECCN, setECCN] = useState();
     const [htsCode, setHtsCode] = useState();
+    const [noExport, setNoExport] = useState();
     const [MTBF, setMTBF] = useState();
 
     useEffect(() => {
@@ -68,6 +69,7 @@ const Product = () => {
                setProductDriversSoftware(prodData.data[0].driversSoftware);
                setECCN(prodData.data[0].ECCN);
                setHtsCode(prodData.data[0].htsCode);
+               setNoExport(prodData.data[0].noExport);
                setMTBF(prodData.data[0].MTBF)
             } catch (error) {
                 console.log(error.response)
@@ -162,7 +164,7 @@ const Product = () => {
                 <div>
                     {content.showOverview && <ProductOverview features={productFeatures} description={productDescription}/>}
                     {content.showSpecifications && <ProductSpecs specs={productSpecs} specsTwo={productSpecsTwo} specsMulti={productSpecsMulti} specsNotes={productSpecsNotes}/>}
-                    {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware} ECCN={ECCN} htsCode={htsCode} MTBF={MTBF}/>}
+                    {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware} ECCN={ECCN} htsCode={htsCode} MTBF={MTBF} noExport={noExport}/>}
                     {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
                     {content.showRelated && <ProductRelated related={productRelatives}/>}
                     {content.showQuote && <ProductQuote name={productName} model={productModel} accessories={productAccessories} category={productCategory} EOLdates={productEOL}/>}  

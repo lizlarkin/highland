@@ -67,6 +67,7 @@ module.exports = {
                 EOL: req.body.EOL,
                 ECCN: req.body.ECCN,
                 htsCode: req.body.htsCode,
+                noExport: req.body.noExport,
                 MTBF: req.body.MTBF,
             });
             const successSave = await newProduct.save();

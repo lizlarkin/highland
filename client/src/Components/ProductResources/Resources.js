@@ -112,6 +112,10 @@ import T735_STEP from './assets/T735_28A735B.STEP'
 import V344_V346_STEP from './assets/V344_V346_22A346C.STEP'
 import V375_STEP from './assets/V375_22A375A.STEP'
 
+// CE Certificate Import Files
+import P500_CE from './assets/P500_CE.pdf'
+import P545_CE from './assets/P545_CE.pdf'
+
 // Certificates of Conformance Export Array
 export const CoCArr = [
     D100_CoC,
@@ -230,4 +234,10 @@ export const StepArr = [
     T735_STEP, 
     V344_V346_STEP, 
     V375_STEP, 
+]
+
+// CE Certificates Export Array
+export const CEArr = [
+    P500_CE,
+    P545_CE,
 ]

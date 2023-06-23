@@ -4,6 +4,7 @@ import rohsCompliant from "./assets/rohsCompliant.png";
 import madeInUsa from "./assets/madeInUsa.png";
 import ECCNImage from "./assets/ECCN.png";
 import STEPImage from "./assets/STEP.png";
+import CEImage from "./assets/CE.png";
 import statementOfVolatility from "./assets/statementOfVolatility.png";
 import mtbfAnalysis from "./assets/mtbfAnalysis.png";
 // import datasheet from "./assets/datasheet.png";
@@ -15,12 +16,13 @@ import {Link} from 'react-router-dom';
 import {CoCArr} from "./Resources";
 import {SoVArr} from "./Resources";
 import {StepArr} from "./Resources";
+import {CEArr} from "./Resources";
 import USAPolicy from "./assets/USA_Commitment.pdf";
 // import Datasheet from '../ProductDatasheet/Datasheet';
 import Export from './Export';
 import Mtbf from './Mtbf';
 
-const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
+const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExport }) => {
 
     const { userData } = useContext(UserContext);
 
@@ -33,6 +35,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
    const CoCIndex = CoCArr.findIndex(search => search.includes(model + "_CoC"));
    const SoVIndex = SoVArr.findIndex(search => search.includes(model + "_SOV"));
    const StepIndex = StepArr.findIndex(search => search.includes(model));
+   const CEIndex = CEArr.findIndex(search => search.includes(model));
 
     return (
         <div >
@@ -141,10 +144,16 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF }) => {
                                             <img className = "resource-image" src={conformance} alt="Certificate of Conformnce"/>Download Certificate of Conformance
                                         </Link>
                                         }
+                                        {CEIndex===-1?
+                                        null:
+                                        <Link to={CEArr[CEIndex]} target = "_blank" className="list-group-item list-group-item-action">
+                                            <img className = "resource-image" src={CEImage} alt="Conformité Européenne"/>Download CE Certificate 
+                                        </Link>
+                                        }
                                         <button type="button" className="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#exportModal">
                                             <img className = "resource-image" src={ECCNImage} alt="International Commerce"/>Export &amp; Classification Information
                                         </button>
-                                        <Export model={model} ECCN={ECCN} htsCode={htsCode} />
+                                        <Export model={model} ECCN={ECCN} htsCode={htsCode} noExport={noExport} />
                                 </div>
                             </div>
                             </div>

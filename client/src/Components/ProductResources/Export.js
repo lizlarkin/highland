@@ -1,7 +1,7 @@
 import React from 'react';
 import EUS from '../../Pages/FAQ/End User Statement.pdf';
 
-const Export = ({model, ECCN, htsCode}) => {
+const Export = ({model, ECCN, htsCode, noExport}) => {
   return (
         <div className="modal fade" id="exportModal" tabIndex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
             <div className="modal-dialog">
@@ -20,6 +20,7 @@ const Export = ({model, ECCN, htsCode}) => {
                             <li className="list-group-item list-group-item-action list-group-item-light">Primary NAICS Code: 334418</li>
                             <li className="list-group-item list-group-item-action list-group-item-light">Secondary NAICS Code: 334515</li>
                             <li className="list-group-item list-group-item-action list-group-item-light">Country of Origin: United States</li>
+                            <li className="list-group-item list-group-item-action list-group-item-light">Export Disallowed: {noExport?noExport+',':null} Russia, Iran, Lebanon, North Korea, Cuba, Libya, Sudan, Somalia, and Syria</li>
                         </ul>                                         
                     </div>
                     <div className="modal-footer">

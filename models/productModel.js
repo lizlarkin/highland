@@ -28,6 +28,9 @@ const productSchema = new mongoose.Schema({
     htsCode: {
         type: String,
     },
+    noExport: {
+        type: String,
+    },
     MTBF: [],
     // move the below to data model
     // manDownloads: [],

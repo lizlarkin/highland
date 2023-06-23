@@ -255,6 +255,7 @@ let productSeed = [
       ],
       ECCN: "3A230",
       htsCode: "8517.62.0050",
+      noExport: "China",
       MTBF: [],
       },
 
@@ -548,6 +549,7 @@ let productSeed = [
         ],
         ECCN: "3A230",
         htsCode: "8517.62.0050",
+        noExport: "China",
         MTBF: [],
         },
 
@@ -1385,6 +1387,7 @@ let productSeed = [
       ],
       ECCN: "3A225",
       htsCode: "8543.20.0000",
+      noExport: "China",
       MTBF: [],
       },
 
@@ -1425,6 +1428,7 @@ let productSeed = [
       ],
       ECCN: "3A320",
       htsCode: "8517.62.0050",
+      noExport: "China",
       MTBF: [],
       },
 
@@ -1937,9 +1941,30 @@ let productSeed = [
       ],
       ECCN: "3A230",
       htsCode: "8543.20.0000",
+      noExport: "China",
       MTBF: [],
       },
 
+      // ****************************** T500 Data ******************************
+      {
+        name: "precision laser modulator system",
+        model: "T500",
+        category: ["OEM"],
+        features: [],
+        description: "Integrated beam-profile modulator for large-scale fusion and other high-energy laser installations.",
+        imgCaptions: [""],
+        about: [],
+        related: [],
+        specifications: [],
+        config: ["noOptions"],
+        versions: [
+          [[0], 1, [null]],
+        ],
+        ECCN: "3A230",
+        htsCode: "8543.20.0000",
+        noExport: "China",
+        MTBF: [],
+        },
 
       // ****************************** T560 Data ******************************
       {
@@ -2271,6 +2296,7 @@ let productSeed = [
       ],
       ECCN: "3A230",
       htsCode: "8517.62.0050",
+      noExport: "China",
       MTBF: [],
       },
 
@@ -2294,6 +2320,7 @@ let productSeed = [
       ],
       ECCN: "3A230",
       htsCode: "8517.62.0050",
+      noExport: "China",
       MTBF: [],
       },
 
@@ -2333,6 +2360,7 @@ let productSeed = [
       ],
       ECCN: "3A230",
       htsCode: "8517.62.0050",
+      noExport: "China",
       MTBF: [],
       },
 
