@@ -37,6 +37,7 @@ const AccountInformation = () => {
             await axios.put(`/users/updateBasicUser/${userData.user.id}`, form)
             setUserData({...userData, form})
             setUserSuccessMsg('User Data Successfully Updated')
+            console.log('hit from accountinfo', form)
         } catch (error) {
             setUserSuccessMsg();
             setUserErrMsg(error.response.data.msg);
@@ -126,11 +127,11 @@ const AccountInformation = () => {
             <form className="row">
                 <div className="col-md-1"></div>
                 <div className="col g-4">
-                    <label className="form-label">First Name</label>
+                    <label className="form-label">First Name<span className="asterisk">*</span></label>
                     <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.first} name="first"/>
                 </div>
                 <div className="col g-4">
-                    <label className="form-label">Last Name</label>
+                    <label className="form-label">Last Name<span className="asterisk">*</span></label>
                     <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.last} name="last"/>
                 </div>
                 <div className="col-md-1"></div>
@@ -139,12 +140,12 @@ const AccountInformation = () => {
             <form className="row">
                 <div className="col-md-1"></div>
                 <div className="col g-4">
-                    <label className="form-label">Organization</label>
+                    <label className="form-label">Organization<span className="asterisk">*</span></label>
                     <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.org} name="org"/>
                 </div>
                 <div className="col g-4">
-                    <label className="form-label">Phone</label>
-                    <input onChange={editBasicUser} type="tel" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"  className="form-control" defaultValue={userData.user.phone} name="phone"/>
+                    <label className="form-label">Phone<span className="asterisk">*</span></label>
+                    <input onChange={editBasicUser} type="tel"  className="form-control" defaultValue={userData.user.phone} name="phone"/>
                 </div>
                 <div className="col-md-1"></div>
             </form>
@@ -156,7 +157,7 @@ const AccountInformation = () => {
                     <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.street} name="street"/>
                 </div>
                 <div className="col g-4">
-                    <label className="form-label">City</label>
+                    <label className="form-label">City<span className="asterisk">*</span></label>
                     <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.city} name="city"/>
                 </div>
                 <div className="col-md-1"></div>
@@ -169,7 +170,7 @@ const AccountInformation = () => {
                     <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.state} name="state"/>
                 </div>
                 <div className="col g-4">
-                    <label className="form-label">Country</label>
+                    <label className="form-label">Country<span className="asterisk">*</span></label>
                     <input onChange={editBasicUser} type="text" className="form-control" defaultValue={userData.user.country} name="country"/>
                 </div>
                 <div className="col-md-1"></div>

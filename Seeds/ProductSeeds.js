@@ -820,7 +820,7 @@ let productSeed = [
         ["INPUT MONITOR", ["Provides attenuated (140:1) signal for monitoring of input, 50 Ω"]],
         ["OUTPUT MONITOR", ["Provides attenuated (2:1) signal for monitoring of output, 50 Ω"]],
         ["CONNECTORS", ["Isolated Triaxial with optional grounding for IN and OUT carrier wave", "SMB for monitors, I, Q and SUM",]],
-        ["PACKAGING", ['7.0" (L) x 8.5" (W) x 2.25" (H) Aluminum enclosure']],
+        ["PACKAGING", ['7.0" (L) x 5.0" (W) x 2.25" (H) Aluminum enclosure']],
         ["INDICATORS", ["Green power, two orange signal indicators"]],
         ["OPERATING TEMPERATURE", ["0 to 70°C"]],
         ["CALIBRATION INTERVAL", ["No internal calibrations"]],

@@ -61,7 +61,7 @@ const GenJumbo = () => {
             }  
         };
         assignJumbotronData();
-    }, [pageName])
+    }, [pageName, userData])
 
     return (
         <div className="row">

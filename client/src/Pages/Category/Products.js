@@ -125,7 +125,7 @@ const Products = () => {
                     <h3 className="card-title alert alert-primary">OEM, Embedded, and Custom Electronics</h3>
                     <img src="..." className="card-img-top" alt="..."/>
                     <div className="card-body d-flex flex-column">
-                        <p className="card-text">For 25 years Highland has provided custom electronics for challenging customer applications. Areas of expertise include: <br/>
+                        <p className="card-text">For almost 40 years Highland has provided custom electronics for challenging customer applications. Areas of expertise include: <br/>
                         Picosecond timing<br/>
                         Precision analog and mixed signal processing<br/>
                         Digital delay and pulse generation<br/>

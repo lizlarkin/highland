@@ -31,8 +31,13 @@ const QuoteHistory = () => {
     let modelArr = [];
     const [prodList, setProdList] = useState();
 
+    let [histNum, setHistNum] = useState();
     // Number of Quotes to Display
-    let [histNum, setHistNum] = useState(Math.min(5,userData.user.quoteNum))
+    const initializeHistNum = () => {
+        setHistNum(Math.min(5, userData.user.quoteNum))
+        console.log("here this", userData.user.quoteNum)
+    }
+    
     const showNextHistory = () => {
         setHistNum(Math.min(histNum+5, userData.user.quoteNum))
     }
@@ -79,9 +84,15 @@ const QuoteHistory = () => {
     }
 
     useEffect(() => {
+        if (userData.user) {
+            console.log("from init", userData.user)
+            initializeHistNum();
+          }
+    }, [userData]);
+    
+    useEffect(() => {
         const cancelToken = axios.CancelToken;
         const source = cancelToken.source();
-
         (async () => {
             try {
                 const allQuotes = await axios.get(`/quotes`, {
@@ -95,13 +106,13 @@ const QuoteHistory = () => {
                     modelArr.push(models.prod.split("-")[0])
                 ))
             ))
-
             getProdData();
-
+        
             } catch (error) {
                 console.log("error getting quote history", error)   
             }
-        }) ();
+        }) 
+        ();
         
         return () => {
             source.cancel();
@@ -124,31 +135,32 @@ const QuoteHistory = () => {
             <div className="row">
                 <div className="col-md-1"></div>
                 <div className="col-md-10">
-                    {allQuoteRequests.length>0?
+                    {userData?
+                    allQuoteRequests.length>0?
                       allQuoteRequests.slice(0,histNum).map((quote, idx) => (
                             <div key={idx} className="card" style={quoteHistStyles.mainCard}>
-                                <div key={idx} className="card-header">
-                                    <h5 key={idx}>{((new Date(quote.date)).toString()).slice(0,21)}</h5>
+                                <div className="card-header">
+                                    <h5>{((new Date(quote.date)).toString()).slice(0,21)}</h5>
                                 </div>
-                                {quote.products[0].map((item, idx) => (
-                                <div key={idx} className="card-body">
-                                    <div key={idx} className="card mb-3">
-                                        <div key={idx} className="row g-0">
-                                            <div key={idx} className="col-md-4 my-auto">
-                                                <img key={idx} src={ProductPhotos[ProductPhotos.findIndex(search => search[0].includes(item.prod.split("-")[0]))][0]} 
+                                {quote.products[0].map((item, index) => (
+                                <div key={index} className="card-body">
+                                    <div className="card mb-3">
+                                        <div className="row g-0">
+                                            <div className="col-md-4 my-auto">
+                                                <img src={ProductPhotos[ProductPhotos.findIndex(search => search[0].includes(item.prod.split("-")[0]))][0]} 
                                                 className="img-fluid rounded-start" 
                                                 alt={item.prod}/>
                                             </div>
-                                            <div key={idx} className="col-md-8">
-                                                <div key={idx} className="card-body">
-                                                    <h5 key={idx} className="card-title">
+                                            <div className="col-md-8">
+                                                <div className="card-body">
+                                                    <h5 className="card-title">
                                                         {allQuoteRequests&&histNum&&prodList&&allQuoteRequests.length>=histNum?item.prod+": ":null} 
                                                         {allQuoteRequests&&histNum&&prodList&&allQuoteRequests.length>=histNum?
                                                         prodList[prodList.findIndex(search=>search[0].includes(item.prod.split("-")[0]))][1]
                                                         :null}
                                                     </h5>
                                                     {allQuoteRequests?histNum?prodList?allQuoteRequests.length>=histNum?item.qty>0?
-                                                        <li key={idx} className="list-group-item list-group-item-light">
+                                                        <li className="list-group-item list-group-item-light">
                                                             <span style={quoteHistStyles.historyKey}>Quantity:</span>
                                                             {item.qty}
                                                         </li>
@@ -228,11 +240,12 @@ const QuoteHistory = () => {
                                 ))}
                             </div>
                        ))
-                    :null}
+                    :null:null}
                 </div>
                 <div className="col-md-1"></div>
             </div>
             {userData?
+                histNum?
                 histNum<userData.user.quoteNum?
                     userData.user.quoteNum>0?
                         <div className="row">
@@ -241,7 +254,7 @@ const QuoteHistory = () => {
                                 <button onClick={showNextHistory} type="button" className="btn btn-outline-secondary btn-sm">Show Additional History</button>
                             </div>
                         </div>
-            :null:null:null}
+            :null:null:null:null}
         </div>
     )
 }

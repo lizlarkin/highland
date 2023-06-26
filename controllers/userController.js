@@ -211,34 +211,35 @@ module.exports = {
 
     // Update Basic User Data (not for opt-in/out or password)
     updateBasicUser: async (req, res) => {
+
         try {
 
-            if (req.body.first !== null && req.body.first == "") {
+            if (req.body.first == "") {
                 return res.status(400).json({ msg: "First name is missing. Please try again." })
             }
 
-            if (req.body.last !== null && req.body.last == "") {
+            if (req.body.last == "") {
                 return res.status(400).json({ msg: "Last name is missing. Please try again." })
             }
 
-            if (req.body.org !== null && req.body.org == "") {
+            if (req.body.org == "") {
                 return res.status(400).json({ msg: "Organization is missing. Please try again." })
             }
 
-            if (req.body.phone !== null && req.body.phone == "") {
+            if (req.body.phone == "") {
                 return res.status(400).json({ msg: "Phone is missing. Please try again." })
             }
 
             var phoneForm = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im; 
-            if (req.body.phone !== null && !req.body.phone.match(phoneForm)) {
-                return res.status(400).json({ msg: "Please change phone format." })
+            if (!req.body.phone.match(phoneForm)) {
+                return res.status(400).json({ msg: "Please correct phone input." })
             }
 
-            if (req.body.city !== null && req.body.city == "") {
+            if (req.body.city == "") {
                 return res.status(400).json({ msg: "City is missing. Please try again." })
             }
 
-            if (req.body.country !== null && req.body.country == "") {
+            if (req.body.country == "") {
                 return res.status(400).json({ msg: "Country is missing. Please try again." })
             }
 
@@ -248,7 +249,9 @@ module.exports = {
                     $set: req.body
                 }
             );
+            
             res.json(userToUpdate)
+
         } catch (error) {
             res.send(error.response)
         }
