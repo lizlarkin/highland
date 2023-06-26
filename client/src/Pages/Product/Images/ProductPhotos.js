@@ -145,6 +145,10 @@ import T346_3 from "./T346_Arbitrary_Waveform_Generator_3.png";
 import T346_4 from "./T346_Arbitrary_Waveform_Generator_4.png";
 import T346_5 from "./T346_Arbitrary_Waveform_Generator_5.png";
 import T400_1 from "./T400_Laser_Modulator_System_1.png";
+import T500_1 from "./T500_Amplitude_Modulator_Chassis_1.png";
+import T500_2 from "./T500_Amplitude_Modulator_Chassis_2.png";
+import T500_3 from "./T500_Amplitude_Modulator_Chassis_3.png";
+import T500_4 from "./T500_Amplitude_Modulator_Chassis_4.png";
 import T560_1 from "./T560_Digital_Delay_Generator_1.png";
 import T560_2 from "./T560_Digital_Delay_Generator_2.png";
 import T560_3 from "./T560_Digital_Delay_Generator_3.png";
@@ -535,6 +539,13 @@ const T400PhotoArr = [
     T400_1,
 ]
 
+const T500PhotoArr = [
+    T500_1,
+    T500_2,
+    T500_3,
+    T500_4,
+]
+
 const T560PhotoArr = [
     T560_1,
     T560_2,
@@ -839,6 +850,7 @@ export const ProductPhotos = [
     T344PhotoArr,
     T346PhotoArr,
     T400PhotoArr,
+    T500PhotoArr,
     T560PhotoArr,
     T564PhotoArr,
     T680PhotoArr,

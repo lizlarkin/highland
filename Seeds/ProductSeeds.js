@@ -1949,7 +1949,7 @@ let productSeed = [
       {
         name: "precision laser modulator system",
         model: "T500",
-        category: ["OEM"],
+        category: ["MAS"],
         features: [],
         description: "Integrated beam-profile modulator for large-scale fusion and other high-energy laser installations.",
         imgCaptions: [""],

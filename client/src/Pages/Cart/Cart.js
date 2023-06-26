@@ -65,7 +65,6 @@ const Cart = () => {
     // Delete All in one cart section
     const deleteCart = async (e) => {
         const cartIdToDelete = e.target.id;
-        console.log("id of whole cart", cartIdToDelete)
         try {
             await axios.delete(`/cart/${cartIdToDelete}`);
             getAllCart();
