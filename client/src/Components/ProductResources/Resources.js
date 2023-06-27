@@ -117,55 +117,46 @@ import P500_CE from './assets/P500_CE.pdf'
 import P545_CE from './assets/P545_CE.pdf'
 
 // Block Diagram Import Files
-// import P330_BD from './assets/P330_A_BD.pdf'
-// import P348_BD from './assets/P348_B_BD.pdf'
-// import P350_BD from './assets/P350_B_BD.pdf'
-// import P400_BD from './assets/P400_F_BD.pdf'
-// import P470_BD from './assets/P470_C_BD.pdf'
-// import P500_BD from './assets/P500_E_BD.pdf'
-// import P545_BD from './assets/P545_B_BD.pdf'
-// import P620_BD from './assets/P620_C_BD.pdf'
-// import P730_BD from './assets/P730_D_BD.pdf'
-// import P900_BD from './assets/P900_A_BD.pdf'
-// import T124_BD from './assets/T124_A_BD.pdf'
-// import T130_BD from './assets/T130_C_BD.pdf'
-// import T340_BD from './assets/T340_B_BD.pdf'
-// import T344_T346_BD from './assets/T344_T346_D_BD.pdf'
-// import T500_BD from './assets/T500_C_BD.pdf'
-// import T560_T564_BD from './assets/T560_T564_L_BD.pdf'
-// import T680_BD from './assets/T680_C_BD.pdf'
-// import T840_BD from './assets/T840_A_BD.pdf'
-
-// import V120_BD from './assets/V120_BD.pdf'
-// import V124_BD from './assets/V124_BD.pdf'
-// import V180_BD from './assets/V180_BD.pdf'
-// import V210_BD from './assets/V210_BD.pdf'
-// import V220_BD from './assets/V220_BD.pdf'
-// import V230_BD from './assets/V230_BD.pdf'
-// import V250_BD from './assets/V250_BD.pdf'
-// import V280_BD from './assets/V280_BD.pdf'
-// import V340_BD from './assets/V340_BD.pdf'
-// import V344_BD from './assets/V344_BD.pdf'
-// import V346_BD from './assets/V346_BD.pdf'
-// import V360_BD from './assets/V360_BD.pdf'
-// import V365_BD from './assets/V365_BD.pdf'
-// import V375_BD from './assets/V375_BD.pdf'
-// import V380_BD from './assets/V380_BD.pdf'
-// import V385_BD from './assets/V385_BD.pdf'
-// import V410_BD from './assets/V410_BD.pdf'
-// import V420_BD from './assets/V420_BD.pdf'
-// import V450_BD from './assets/V450_BD.pdf'
-// import V460_BD from './assets/V460_BD.pdf'
-// import V470_BD from './assets/V470_BD.pdf'
-// import V490_BD from './assets/V490_BD.pdf'
-// import V545_BD from './assets/V545_BD.pdf'
-// import V550_BD from './assets/V550_BD.pdf'
-// import V660_BD from './assets/V660_BD.pdf'
-// import V680_BD from './assets/V680_BD.pdf'
-// import V720_BD from './assets/V720_BD.pdf'
-// import V730_BD from './assets/V730_BD.pdf'
-// import V860_BD from './assets/V860_BD.pdf'
-// import V880_BD from './assets/V880_BD.pdf'
+import P330_BD from './assets/P330_A_BD.pdf'
+import P348_BD from './assets/P348_B_BD.pdf'
+import P350_BD from './assets/P350_B_BD.pdf'
+import P400_BD from './assets/P400_F_BD.pdf'
+import P470_BD from './assets/P470_C_BD.pdf'
+import P500_BD from './assets/P500_E_BD.pdf'
+import P545_BD from './assets/P545_B_BD.pdf'
+import P620_BD from './assets/P620_C_BD.pdf'
+import P730_BD from './assets/P730_D_BD.pdf'
+import P900_BD from './assets/P900_A_BD.pdf'
+import T124_BD from './assets/T124_A_BD.pdf'
+import T130_BD from './assets/T130_C_BD.pdf'
+import T340_BD from './assets/T340_B_BD.pdf'
+import T344_T346_BD from './assets/T344_T346_D_BD.pdf'
+import T500_BD from './assets/T500_C_BD.pdf'
+import T560_T564_BD from './assets/T560_T564_L_BD.pdf'
+import T680_BD from './assets/T680_C_BD.pdf'
+import T840_BD from './assets/T840_A_BD.pdf'
+import V120_BD from './assets/V120_C_BD.pdf'
+import V124_BD from './assets/V124_B_BD.pdf'
+import V210_BD from './assets/V210_D_BD.pdf'
+import V220_BD from './assets/V220_E_BD.pdf'
+import V230_BD from './assets/V230_D_BD.pdf'
+import V250_BD from './assets/V250_B_BD.pdf'
+import V280_BD from './assets/V280_B_BD.pdf'
+import V340_BD from './assets/V340_D_BD.pdf'
+import V344_BD from './assets/V344_V346_C_BD.pdf'
+import V360_BD from './assets/V360_C_BD.pdf'
+import V365_BD from './assets/V365_B_BD.pdf'
+import V375_BD from './assets/V375_E_BD.pdf'
+import V410_BD from './assets/V410_B_BD.pdf'
+import V420_BD from './assets/V420_E_BD.pdf'
+import V450_BD from './assets/V450_G_BD.pdf'
+import V470_BD from './assets/V470_G_BD.pdf'
+import V490_BD from './assets/V490_E_BD.pdf'
+import V545_BD from './assets/V545_E_BD.pdf'
+import V660_BD from './assets/V660_B_BD.pdf'
+import V680_BD from './assets/V680_C_BD.pdf'
+import V720_BD from './assets/V720_D_BD.pdf'
+import V880_BD from './assets/V880_D_BD.pdf'
 
 // Certificates of Conformance Export Array
 export const CoCArr = [
@@ -291,4 +282,48 @@ export const StepArr = [
 export const CEArr = [
     P500_CE,
     P545_CE,
+]
+
+// Block Diagram Export Array
+export const BDArr = [
+    P330_BD,
+    P348_BD,
+    P350_BD,
+    P400_BD,
+    P470_BD,
+    P500_BD,
+    P545_BD,
+    P620_BD,
+    P730_BD,
+    P900_BD,
+    T124_BD,
+    T130_BD,
+    T340_BD,
+    T344_T346_BD,
+    T500_BD,
+    T560_T564_BD,
+    T680_BD,
+    T840_BD,
+    V120_BD,
+    V124_BD,
+    V210_BD,
+    V220_BD,
+    V230_BD,
+    V250_BD,
+    V280_BD,
+    V340_BD,
+    V344_BD,
+    V360_BD,
+    V365_BD,
+    V375_BD,
+    V410_BD,
+    V420_BD,
+    V450_BD,
+    V470_BD,
+    V490_BD,
+    V545_BD,
+    V660_BD,
+    V680_BD,
+    V720_BD,
+    V880_BD,
 ]

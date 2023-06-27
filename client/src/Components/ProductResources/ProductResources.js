@@ -17,6 +17,7 @@ import {CoCArr} from "./Resources";
 import {SoVArr} from "./Resources";
 import {StepArr} from "./Resources";
 import {CEArr} from "./Resources";
+import {BDArr} from "./Resources";
 import USAPolicy from "./assets/USA_Commitment.pdf";
 // import Datasheet from '../ProductDatasheet/Datasheet';
 import Export from './Export';
@@ -36,6 +37,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExpor
    const SoVIndex = SoVArr.findIndex(search => search.includes(model + "_SOV"));
    const StepIndex = StepArr.findIndex(search => search.includes(model));
    const CEIndex = CEArr.findIndex(search => search.includes(model));
+   const BDIndex = BDArr.findIndex(search => search.includes(model));
 
     return (
         <div >
@@ -65,10 +67,12 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExpor
                                                 <img className = "resource-image" src={manual} alt="Highland Datasheet"/>Please login to download manual
                                             </Link>
                                         }
-
-                                        <Link to="/" className="list-group-item list-group-item-action">
+                                        {BDIndex===-1?
+                                        null:
+                                        <Link to={BDArr[BDIndex]} target = "_blank" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={blockDiagram} alt="Highland Datasheet"/>Download Block Diagram
                                         </Link>
+                                        }
                                         {SoVIndex===-1?
                                         null:
                                         <Link to={SoVArr[SoVIndex]} target = "_blank" className="list-group-item list-group-item-action">
