@@ -110,7 +110,7 @@ const AccountInformation = () => {
     
     useEffect(() => {
         checkLoggedIn();
-    }, [userData])
+    }, [userData, checkLoggedIn])
     
 
     return (

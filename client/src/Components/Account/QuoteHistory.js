@@ -28,29 +28,13 @@ const QuoteHistory = () => {
     }
 
     const [allQuoteRequests, setAllQuoteRequests] = useState([]);
-    let modelArr = [];
     const [prodList, setProdList] = useState();
 
     let [histNum, setHistNum] = useState();
-    // Number of Quotes to Display
-    const initializeHistNum = () => {
-        setHistNum(Math.min(5, userData.user.quoteNum))
-        console.log("here this", userData.user.quoteNum)
-    }
     
     const showNextHistory = () => {
         setHistNum(Math.min(histNum+5, userData.user.quoteNum))
     }
-
-    // Get Product Data based on Models in Quote History
-    const getProdData = async () => {
-        try {
-            const prodData = await axios.get(`/products/models/${modelArr}`);
-            setProdList(prodData.data)
-        } catch (error) {
-            console.log(error)
-        }
-    };
 
     // Re-Quote
     const copyCart = {
@@ -85,7 +69,10 @@ const QuoteHistory = () => {
 
     useEffect(() => {
         if (userData.user) {
-            console.log("from init", userData.user)
+            // Number of Quotes to Display
+            const initializeHistNum = () => {
+                setHistNum(Math.min(5, userData.user.quoteNum))
+            }
             initializeHistNum();
           }
     }, [userData]);
@@ -101,11 +88,22 @@ const QuoteHistory = () => {
                 });
                 setAllQuoteRequests(allQuotes.data)
             // Get Data from Product Collection based on Models in Quote History
+            let modelArr = [];
             allQuotes.data.map((quoteSet) => (
                 quoteSet.products[0].map((models) => (
                     modelArr.push(models.prod.split("-")[0])
                 ))
             ))
+
+            // Get Product Data based on Models in Quote History
+            const getProdData = async () => {
+                try {
+                    const prodData = await axios.get(`/products/models/${modelArr}`);
+                    setProdList(prodData.data)
+                } catch (error) {
+                    console.log(error)
+                }
+            };
             getProdData();
         
             } catch (error) {

@@ -231,7 +231,7 @@ module.exports = {
             }
 
             var phoneForm = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im; 
-            if (!req.body.phone.match(phoneForm)) {
+            if (req.body.phone && !req.body.phone.match(phoneForm)) {
                 return res.status(400).json({ msg: "Please correct phone input." })
             }
 
@@ -249,7 +249,7 @@ module.exports = {
                     $set: req.body
                 }
             );
-            
+
             res.json(userToUpdate)
 
         } catch (error) {

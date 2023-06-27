@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import highlandLogo from './logo.png';
 import UserContext from "../../Context/UserContext";
@@ -13,15 +13,12 @@ const Navigation = (props) => {
 
   const navigationStyles = {
     navBar: {
-      // paddingTop: "2%",
-      // paddingBottom: "2%",
       height: "100px"
     },
     logo: {
         marginLeft: "25px",
         position: "absolute",
         top: "0px",
-        // display: "block",
     },
     firstLink: {
       marginLeft: "275px",
@@ -36,6 +33,10 @@ const Navigation = (props) => {
       const categorySelected = e.target.title;
       history.push(`/Category/${categorySelected}`)
     }
+
+    useEffect(() => {
+    }, [props])
+    
     
     return (
       <nav>

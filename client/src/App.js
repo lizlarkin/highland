@@ -82,8 +82,11 @@ function App() {
 
   useEffect(() => {
     checkLoggedIn();
+  }, []);
+
+  useEffect(() => {
     getCartQuantity();
-  }, [])
+  }, [userData]);
 
   return (
     <div className="App">

@@ -162,7 +162,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
         let configIndex = configNums.indexOf(configNum) 
         // Set Dash number based on config index num    
         setDashNum(dashNums[configIndex])
-    }, [configNum])
+    }, [configNum, configNums, dashNums])
     
     return (
         <div>

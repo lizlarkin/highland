@@ -14,7 +14,7 @@ import Search from "./Images/Search.png";
 const GenJumbo = () => {
 
     const { userData } = useContext(UserContext);
-    const pageName = window.location.href.split("/")[3]
+    const pageName = window.location.href.split("/")[3];
 
     const [background, setBackground] = useState();
     const [title, setTitle] = useState();
