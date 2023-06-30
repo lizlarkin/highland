@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProductSpecs = ({ specs, specsTwo, specsMulti, specsNotes }) => {
+const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsMulti, specsNotes }) => {
 
     const specStyles = {
         specSpan: {
@@ -38,7 +38,8 @@ const ProductSpecs = ({ specs, specsTwo, specsMulti, specsNotes }) => {
                     </tbody>
                 </table>
 
-                {specsTwo.length>0?
+                {specsTwo?
+                    specsTwo.length>0?
                 <>
                 <h5>{specsTwo[0]}</h5>
                 <table className="table table-striped table-hover">
@@ -62,7 +63,34 @@ const ProductSpecs = ({ specs, specsTwo, specsMulti, specsNotes }) => {
                     </tbody>
                 </table>
                 </>
-                :null}
+                :null:null}
+
+                {specsTwoB?
+                    specsTwoB.length>0?
+                <>
+                <h5>{specsTwoB[0]}</h5>
+                <table className="table table-striped table-hover">
+                    <tbody>
+                        {specsTwoB?
+                        specsTwoB.slice(1).map((specification, idx) => (
+                            <tr key={idx}>
+                                <td>{specification[0]}</td>
+                                <td>{specification[1].map((specLine, idx) => (
+                                    <div key={idx}>
+                                        {typeof(specLine) === "string" ? 
+                                        <td>{specLine}</td> : 
+                                        specLine.map((specSpan, idx) => (
+                                            <div key={idx} style={specStyles.specSpan}>{specSpan}</div>
+                                        ))}
+                                    </div>
+                                ))}</td>
+                            </tr>
+                        ))
+                        :null}
+                    </tbody>
+                </table>
+                </>
+                :null:null}
 
                 {specsMulti.length>0?
                 <>

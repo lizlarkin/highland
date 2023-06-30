@@ -36,6 +36,7 @@ const Product = () => {
     const [productDescription, setProductDescription] = useState();
     const [productSpecs, setProductSpecs] = useState();
     const [productSpecsTwo, setProductSpecsTwo] = useState();
+    const [productSpecsTwoB, setProductSpecsTwoB] = useState();
     const [productSpecsMulti, setProductSpecsMulti] = useState();
     const [productSpecsNotes, setProductSpecsNotes] = useState();
     const [productRelatives, setProductRelatives] = useState();
@@ -61,6 +62,7 @@ const Product = () => {
                setProductDescription(prodData.data[0].about);
                setProductSpecs(prodData.data[0].specifications);
                setProductSpecsTwo(prodData.data[0].specificationsTwo);
+               setProductSpecsTwoB(prodData.data[0].specificationsTwoB);
                setProductSpecsMulti(prodData.data[0].specificationsMulti);
                setProductSpecsNotes(prodData.data[0].specificationsNotes);
                setProductRelatives(prodData.data[0].related);
@@ -163,7 +165,7 @@ const Product = () => {
             <div className = "col-md-7">
                 <div>
                     {content.showOverview && <ProductOverview features={productFeatures} description={productDescription}/>}
-                    {content.showSpecifications && <ProductSpecs specs={productSpecs} specsTwo={productSpecsTwo} specsMulti={productSpecsMulti} specsNotes={productSpecsNotes}/>}
+                    {content.showSpecifications && <ProductSpecs specs={productSpecs} specsTwo={productSpecsTwo} specsTwoB={productSpecsTwoB} specsMulti={productSpecsMulti} specsNotes={productSpecsNotes}/>}
                     {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware} ECCN={ECCN} htsCode={htsCode} MTBF={MTBF} noExport={noExport}/>}
                     {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
                     {content.showRelated && <ProductRelated related={productRelatives}/>}

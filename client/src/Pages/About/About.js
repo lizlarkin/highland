@@ -1,8 +1,8 @@
 import React from 'react';
 import htifront from "./img/htifront.jpg";
 import vmeCrate from "./img/vmeCrate.png";
-import smtLine from "./img/Line2.png";
-import Highland_Front from "./img/Highland_Front.png"
+import smtLine from "./img/SMT_Line.png";
+import Highland_Front from "./img/Highland_Front2.png"
 
 const About = () => {
 

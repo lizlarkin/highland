@@ -143,7 +143,7 @@ import V230_BD from './assets/V230_D_BD.pdf'
 import V250_BD from './assets/V250_B_BD.pdf'
 import V280_BD from './assets/V280_B_BD.pdf'
 import V340_BD from './assets/V340_D_BD.pdf'
-import V344_BD from './assets/V344_V346_C_BD.pdf'
+import V344_V346_BD from './assets/V344_V346_C_BD.pdf'
 import V360_BD from './assets/V360_C_BD.pdf'
 import V365_BD from './assets/V365_B_BD.pdf'
 import V375_BD from './assets/V375_E_BD.pdf'
@@ -157,6 +157,76 @@ import V660_BD from './assets/V660_B_BD.pdf'
 import V680_BD from './assets/V680_C_BD.pdf'
 import V720_BD from './assets/V720_D_BD.pdf'
 import V880_BD from './assets/V880_D_BD.pdf'
+
+// RoHS Certificate Import Files
+import D100_RoHS from './assets/D100_RoHS.pdf'
+import D200_RoHS from './assets/D200_RoHS.pdf'
+import J240_RoHS from './assets/J240_RoHS.pdf'
+import J270_RoHS from './assets/J270_RoHS.pdf'
+import J720_RoHS from './assets/J720_RoHS.pdf'
+import J724_RoHS from './assets/J724_RoHS.pdf'
+import J730_RoHS from './assets/J730_RoHS.pdf'
+import J736_RoHS from './assets/J736_RoHS.pdf'
+import J744_RoHS from './assets/J744_RoHS.pdf'
+import J750_RoHS from './assets/J750_RoHS.pdf'
+import K420_RoHS from './assets/K420_RoHS.pdf'
+import P330_RoHS from './assets/P330_RoHS.pdf'
+import P344_RoHS from './assets/P344_RoHS.pdf'
+import P348_RoHS from './assets/P348_RoHS.pdf'
+import P350_RoHS from './assets/P350_RoHS.pdf'
+import P400_RoHS from './assets/P400_RoHS.pdf'
+import P470_RoHS from './assets/P470_RoHS.pdf'
+import P500_RoHS from './assets/P500_RoHS.pdf'
+import P545_RoHS from './assets/P545_RoHS.pdf'
+import P620_RoHS from './assets/P620_RoHS.pdf'
+import P730_RoHS from './assets/P730_RoHS.pdf'
+import P900_RoHS from './assets/P900_RoHS.pdf'
+import T124_RoHS from './assets/T124_RoHS.pdf'
+import T130_RoHS from './assets/T130_RoHS.pdf'
+import T160_RoHS from './assets/T160_RoHS.pdf'
+import T165_RoHS from './assets/T165_RoHS.pdf'
+import T240_RoHS from './assets/T240_RoHS.pdf'
+import T340_RoHS from './assets/T340_RoHS.pdf'
+import T344_RoHS from './assets/T344_RoHS.pdf'
+import T346_RoHS from './assets/T346_RoHS.pdf'
+import T500_RoHS from './assets/T500_RoHS.pdf'
+import T560_RoHS from './assets/T560_RoHS.pdf'
+import T564_RoHS from './assets/T564_RoHS.pdf'
+import T680_RoHS from './assets/T680_RoHS.pdf'
+import T735_RoHS from './assets/T735_RoHS.pdf'
+import T750_RoHS from './assets/T750_RoHS.pdf'
+import T760_RoHS from './assets/T760_RoHS.pdf'
+import T840_RoHS from './assets/T840_RoHS.pdf'
+import T850_RoHS from './assets/T850_RoHS.pdf'
+import T860_RoHS from './assets/T860_RoHS.pdf'
+import V120_RoHS from './assets/V120_RoHS.pdf'
+import V124_RoHS from './assets/V124_RoHS.pdf'
+import V210_RoHS from './assets/V210_RoHS.pdf'
+import V220_RoHS from './assets/V220_RoHS.pdf'
+import V230_RoHS from './assets/V230_RoHS.pdf'
+import V250_RoHS from './assets/V250_RoHS.pdf'
+import V280_RoHS from './assets/V280_RoHS.pdf'
+import V340_RoHS from './assets/V340_RoHS.pdf'
+import V344_RoHS from './assets/V344_RoHS.pdf'
+import V346_RoHS from './assets/V346_RoHS.pdf'
+import V360_RoHS from './assets/V360_RoHS.pdf'
+import V365_RoHS from './assets/V365_RoHS.pdf'
+import V375_RoHS from './assets/V375_RoHS.pdf'
+import V380_RoHS from './assets/V380_RoHS.pdf'
+import V385_RoHS from './assets/V385_RoHS.pdf'
+import V410_RoHS from './assets/V410_RoHS.pdf'
+import V420_RoHS from './assets/V420_RoHS.pdf'
+import V450_RoHS from './assets/V450_RoHS.pdf'
+import V460_RoHS from './assets/V460_RoHS.pdf'
+import V470_RoHS from './assets/V470_RoHS.pdf'
+import V490_RoHS from './assets/V490_RoHS.pdf'
+import V545_RoHS from './assets/V545_RoHS.pdf'
+import V550_RoHS from './assets/V550_RoHS.pdf'
+import V660_RoHS from './assets/V660_RoHS.pdf'
+import V680_RoHS from './assets/V680_RoHS.pdf'
+import V720_RoHS from './assets/V720_RoHS.pdf'
+import V730_RoHS from './assets/V730_RoHS.pdf'
+import V860_RoHS from './assets/V860_RoHS.pdf'
 
 // Certificates of Conformance Export Array
 export const CoCArr = [
@@ -312,7 +382,7 @@ export const BDArr = [
     V250_BD,
     V280_BD,
     V340_BD,
-    V344_BD,
+    V344_V346_BD,
     V360_BD,
     V365_BD,
     V375_BD,
@@ -326,4 +396,76 @@ export const BDArr = [
     V680_BD,
     V720_BD,
     V880_BD,
+]
+
+// RoHS Certificates Export Array 
+export const rohsArr = [
+    D100_RoHS,
+    D200_RoHS,
+    J240_RoHS,
+    J270_RoHS,
+    J720_RoHS,
+    J724_RoHS,
+    J730_RoHS,
+    J736_RoHS,
+    J744_RoHS,
+    J750_RoHS,
+    K420_RoHS,
+    P330_RoHS,
+    P344_RoHS,
+    P348_RoHS,
+    P350_RoHS,
+    P400_RoHS,
+    P470_RoHS,
+    P500_RoHS,
+    P545_RoHS,
+    P620_RoHS,
+    P730_RoHS,
+    P900_RoHS,
+    T124_RoHS,
+    T130_RoHS,
+    T160_RoHS,
+    T165_RoHS,
+    T240_RoHS,
+    T340_RoHS,
+    T344_RoHS,
+    T346_RoHS,
+    T500_RoHS,
+    T560_RoHS,
+    T564_RoHS,
+    T680_RoHS,
+    T735_RoHS,
+    T750_RoHS,
+    T760_RoHS,
+    T840_RoHS,
+    T850_RoHS,
+    T860_RoHS,
+    V120_RoHS,
+    V124_RoHS,
+    V210_RoHS,
+    V220_RoHS,
+    V230_RoHS,
+    V250_RoHS,
+    V280_RoHS,
+    V340_RoHS,
+    V344_RoHS,
+    V346_RoHS,
+    V360_RoHS,
+    V365_RoHS,
+    V375_RoHS,
+    V380_RoHS,
+    V385_RoHS,
+    V410_RoHS,
+    V420_RoHS,
+    V450_RoHS,
+    V460_RoHS,
+    V470_RoHS,
+    V490_RoHS,
+    V545_RoHS,
+    V550_RoHS,
+    V660_RoHS,
+    V680_RoHS,
+    V720_RoHS,
+    V730_RoHS,
+    V860_RoHS
 ]

@@ -173,6 +173,9 @@ import T735_3 from "./T735_Electrical_LVDS_Converter_3.png";
 import T735_4 from "./T735_Electrical_LVDS_Converter_4.png";
 import T735_5 from "./T735_Electrical_LVDS_Converter_5.png";
 import T750_1 from "./T750_High_Voltage_Driver_1.png";
+import T750_2 from "./T750_High_Voltage_Driver_2.png";
+import T750_3 from "./T750_High_Voltage_Driver_3.png";
+import T750_4 from "./T750_High_Voltage_Driver_4.png";
 import T760_1 from "./T760_High_Voltage_Optical_Electrical_Converter_1.png";
 import T760_2 from "./T760_High_Voltage_Optical_Electrical_Converter_2.png";
 import T760_3 from "./T760_High_Voltage_Optical_Electrical_Converter_3.png";
@@ -291,6 +294,9 @@ import V680_2 from "./V680_VME_Time_To_Digital_Converter_2.png";
 import V680_3 from "./V680_VME_Time_To_Digital_Converter_3.png";
 import V680_4 from "./V680_VME_Time_To_Digital_Converter_4.png";
 import V720_1 from "./V720_VME_Electrical_Optical_Converter_1.png";
+import V720_2 from "./V720_VME_Electrical_Optical_Converter_2.png";
+import V720_3 from "./V720_VME_Electrical_Optical_Converter_3.png";
+import V720_4 from "./V720_VME_Electrical_Optical_Converter_4.png";
 import V730_1 from "./V730_VME_Optical_Electrical_Converter_1.png";
 import V730_2 from "./V730_VME_Optical_Electrical_Converter_2.png";
 import V730_3 from "./V730_VME_Optical_Electrical_Converter_3.png";
@@ -583,6 +589,9 @@ const T735PhotoArr = [
 
 const T750PhotoArr = [
     T750_1,
+    T750_2,
+    T750_3,
+    T750_4,
 ]
 
 const T760PhotoArr = [
@@ -797,6 +806,9 @@ const V680PhotoArr = [
 
 const V720PhotoArr = [
     V720_1,
+    V720_2,
+    V720_3,
+    V720_4,
 ]
 
 const V730PhotoArr = [

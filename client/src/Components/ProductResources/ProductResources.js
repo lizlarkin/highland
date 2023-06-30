@@ -18,6 +18,7 @@ import {SoVArr} from "./Resources";
 import {StepArr} from "./Resources";
 import {CEArr} from "./Resources";
 import {BDArr} from "./Resources";
+import {rohsArr} from "./Resources";
 import USAPolicy from "./assets/USA_Commitment.pdf";
 // import Datasheet from '../ProductDatasheet/Datasheet';
 import Export from './Export';
@@ -38,6 +39,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExpor
    const StepIndex = StepArr.findIndex(search => search.includes(model));
    const CEIndex = CEArr.findIndex(search => search.includes(model));
    const BDIndex = BDArr.findIndex(search => search.includes(model));
+   const rohsIndex = rohsArr.findIndex(search => search.includes(model));
 
     return (
         <div >
@@ -136,9 +138,12 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExpor
                             <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div className="accordion-body">
                                 <div className="list-group">
-                                        <Link to="/" className="list-group-item list-group-item-action">
+                                        {rohsIndex===-1?
+                                        null:
+                                        <Link to={rohsArr[rohsIndex]} target = "_blank" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={rohsCompliant} alt="RoHS Compliant"/>Download RoHS Certificate
                                         </Link>
+                                        }
                                         <Link to={USAPolicy} target = "_blank" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={madeInUsa} alt="Made In USA"/>Made in USA Commitment
                                         </Link>
@@ -154,10 +159,16 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExpor
                                             <img className = "resource-image" src={CEImage} alt="Conformité Européenne"/>Download CE Certificate 
                                         </Link>
                                         }
+                                        {ECCN?
+                                            htsCode?
+                                        <>
                                         <button type="button" className="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#exportModal">
                                             <img className = "resource-image" src={ECCNImage} alt="International Commerce"/>Export &amp; Classification Information
                                         </button>
                                         <Export model={model} ECCN={ECCN} htsCode={htsCode} noExport={noExport} />
+                                        </>
+                                        :null:null}
+                                        
                                 </div>
                             </div>
                             </div>
