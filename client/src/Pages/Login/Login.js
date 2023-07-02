@@ -2,15 +2,20 @@ import React, { useState, useContext, useEffect } from 'react';
 import UserContext from "../../Context/UserContext";
 import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
+// import queryString from 'query-string';
 import axios from 'axios';
 import './formStyles.css';
 
-const Login = () => {
+const Login = ( returnPath ) => {
 
     const [form, setForm] = useState();
     const { userData, setUserData } = useContext(UserContext);
     const history = useHistory();
     const [errMsg, setErrMsg] = useState();
+
+    // Hold previous page to redirect to after login
+    let returnTo = returnPath.location.search.split("=")[1]
+    console.log('returnTo', returnTo)
 
     // Show and hide password
     const [showPass, setShowPass] = useState(false);
@@ -38,8 +43,6 @@ const Login = () => {
                 })
                 
                 localStorage.setItem("auth-token", data.token);
-                // history.push("/Pages/Home");
-                // history.goBack();
             };
 
         } catch (error) {
@@ -48,7 +51,7 @@ const Login = () => {
     };
 
     useEffect(() => {
-        if (userData.user) history.push("/Pages/Account");
+        if (userData.user) history.push(returnTo===undefined?`/Account`:returnTo);
     }, [userData, history])
 
     return (

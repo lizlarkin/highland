@@ -930,6 +930,7 @@ let productSeed = [
         "Timebase - The standard P400 timebase is a precision TCXO temperature-compensated crystal oscillator. An optional ovenized oscillator is available for applications requiring extreme accuracy and lowest jitter. Multiple P400s may be synchronized to each other, or locked to an external 10 MHz source.",
         "Onboard Help - An extensive help system explains each pushbutton, input, output, and setting on the 4-line front-panel display.",
         "Menus - Each function of the P400 has a dedicated single-level control menu invoked by an associated pushbutton. Data entry may be via numeric keys or by the spinner knob.",
+        "Remote Control - All P400 parameters may be programmed remotely using standard RS-232 or optional Ethernet interfaces.",
       ],
       related: [
         "J720 single-channel compact electrical-to-fiberoptic converter",

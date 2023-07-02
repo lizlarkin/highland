@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom"; 
+import { useHistory, useLocation } from "react-router-dom"; 
 import UserContext from "../../Context/UserContext";
 import NavContext from "../../Context/NavContext";
 import axios from "axios";
@@ -40,6 +40,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
     const { userData } = useContext(UserContext);
     const { getCartQuantity } = useContext(NavContext);
     const history = useHistory();
+    const returnLocation = useLocation(); // If not logged in, hold page to return to after login
     const [selectedQuantity, setSelectedQuantity] = useState(0);
     const [selectedAccessories, setSelectedAccessories] = useState();
     const [configNums, setConfigNums] = useState([]) // Hold array of configuration numbers in state
@@ -120,7 +121,10 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
     }
  
     useEffect(() => {
-        if (!userData.user) history.push("/login");
+        // Store current page for redirect after login
+        let returnPath = returnLocation.pathname
+        if (!userData.user) history.push(`/login?return=${returnPath}`);
+
         const getProductData = async () => {
             try {
                 // get all product data from backend based on Model
