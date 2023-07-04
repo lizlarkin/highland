@@ -44,7 +44,7 @@ const About = () => {
             title: "Our Operations",
             text: 
                 [
-                    "All Highland products are manufactured and tested in-house to guarantee quality and reliability. Whenever possible, Highland sources American-made materials, components, and services to ensure high standards of both product and labor.",
+                    "All Highland products are manufactured and tested in-house to guarantee quality and reliability. Whenever possible, Highland sources American-made materials, components, and services to ensure high standards of labor and manufacturing.",
                     "Our lifecycle planning procedure, including component and spares management, component end-of-life handling, and stocking practices ensures long-term availability of products and support."
                 ]
         },
@@ -53,7 +53,7 @@ const About = () => {
             title: "Our Business",
             text: 
                 [
-                    "Highland's leadership insists on providing a safe, harmonious, and ethical workplace that prioritizes corporate social responsibility, including environmental awareness, community outreach, and employee driven ...",
+                    "Highland's leadership insists on providing a safe, harmonious, and ethical workplace that prioritizes corporate social responsibility, including environmental awareness, community outreach, and employee welfare and advancement.",
                     // "Highland is committed to providing a safe, harmonious, and ethical workplace. In conjunction with policies and procedures, management works to ensure ethical and responsible corporate social responsibility and compliance with all local, state, and federal laws and guidelines.",
                     "We believe that our most important resources are our employee and customer relationships. Emphasizing technical excellence and the highest quality in manufacturing, we can expand our base of intellectual propery and maintain an enjoyable, rewarding, conscientious, and reliable business.",
                 ]

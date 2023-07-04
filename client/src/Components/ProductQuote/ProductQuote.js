@@ -158,7 +158,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
             }
         }
         getProductData();
-    }, [userData.user, history, model])
+    }, [userData.user, history, model, returnLocation.pathname])
 
     // Get dash number associated with selected product configuration
     useEffect(() => {

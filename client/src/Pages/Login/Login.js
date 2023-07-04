@@ -15,7 +15,6 @@ const Login = ( returnPath ) => {
 
     // Hold previous page to redirect to after login
     let returnTo = returnPath.location.search.split("=")[1]
-    console.log('returnTo', returnTo)
 
     // Show and hide password
     const [showPass, setShowPass] = useState(false);
