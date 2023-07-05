@@ -60,7 +60,7 @@ const Products = () => {
         {
             Name: "OEM/Embedded",
             Img: Embedded,
-            Text: "For almost 40 years Highland has provided custom electronics for challenging customer applications. Areas of expertise include: picosecond timing, precision analog and mixed signal processing, digital delay and pulse generation, high speed photonics and fiberoptic timing distribution, and aerospace instrumentation and simulation",
+            Text: "Since 1984 Highland has provided custom electronics for challenging customer applications. Areas of expertise include: picosecond timing, precision analog and mixed signal processing, digital delay and pulse generation, high speed photonics and fiberoptic timing distribution, and aerospace instrumentation and simulation",
             Link: "OEM",
         },
     ]
