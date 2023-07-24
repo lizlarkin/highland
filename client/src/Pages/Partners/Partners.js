@@ -51,18 +51,16 @@ const Partners = () => {
             
             <div className="row row-cols-1 row-cols-md-2 g-4">
                 {partners.map((partner, index) => (
-                    <>
-                        <div className="col">
-                            <div className="card" key={index} style={partnerStyles.partnerCard}>
-                                <img src={partner.logo} className="card-img-top" alt={partner.name}/>
-                                <div className="card-body d-flex flex-column">
-                                    <h5 className="card-title">{partner.name}</h5>
-                                    <p className="card-text">{partner.desc}</p>
-                                    <a href={partner.link} className="btn btn-outline-primary mt-auto">Visit {partner.name}</a>
-                                </div>
+                    <div className="col" key={index}>
+                        <div className="card" style={partnerStyles.partnerCard}>
+                            <img src={partner.logo} className="card-img-top" alt={partner.name}/>
+                            <div className="card-body d-flex flex-column">
+                                <h5 className="card-title">{partner.name}</h5>
+                                <p className="card-text">{partner.desc}</p>
+                                <a href={partner.link} className="btn btn-outline-primary mt-auto">Visit {partner.name}</a>
                             </div>
                         </div>
-                    </>
+                    </div>
                 ))}
             </div>
         </div>

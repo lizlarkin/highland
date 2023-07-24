@@ -125,8 +125,8 @@ const Customers = () => {
                 <div className="row" key={index}>
                     <div className="col-md-1"></div>
                     {customers.length===3?
-                    customers.map((customer,idx) => (
-                        <>
+                    customers.map((customer, idx) => (
+                        <React.Fragment key={idx}>
                             <button className="col-md-2" 
                                 onClick={storeCustNum}
                                 style={customerStyles.custDiv}>
@@ -139,24 +139,24 @@ const Customers = () => {
                                     }
                             </button>
                             <div className="col-md-2"></div>
-                        </>
+                        </React.Fragment>
                     ))
                     :customers.length===2?
-                    customers.map((customer,idx) => (
-                        <>
+                    customers.map((cust, ix) => (
+                        <React.Fragment key={ix}>
                             <div className="col-md-2"></div>
-                            <button className="col-md-2" 
+                            <button className="col-md-2"  
                                 onClick={storeCustNum}
                                 style={customerStyles.custDiv}>
-                                    {custNum===index.toString()+idx.toString()?
+                                    {custNum===index.toString()+ix.toString()?
                                     <div className="card card-body">
-                                        {customer[2]}
+                                        {cust[2]}
                                     </div>
                                     :
-                                    <img src={customer[0]} className="img-fluid" alt={customer[1]} id={index.toString()+idx.toString()}/>
+                                    <img src={cust[0]} className="img-fluid" alt={cust[1]} id={index.toString()+ix.toString()}/>
                                     }
                             </button>
-                        </>
+                        </React.Fragment>
                     ))
                     :null}   
                 </div>

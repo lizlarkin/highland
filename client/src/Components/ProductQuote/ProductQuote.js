@@ -216,23 +216,23 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                         :
                                         options[0]==="required"?
                                             <div style={quoteStyles.configContainer} key={index}>
-                                            <h6 style={quoteStyles.header}>{options[1]}<span className="asterisk">* (required)</span></h6>
-                                            {options.slice(2).map((option, idx) => (
-                                                <div className="form-check" key={idx}>
-                                                    <input onClick={updateConfigNum} className="form-check-input" type="radio" name={"flexRadioDefault"+index} value={option[0]} id={index}/>
-                                                    <label className="form-check-label" htmlFor={index}>
-                                                        {option[1]}
-                                                    </label>
-                                                </div>
-                                            ))}
+                                                <h6 style={quoteStyles.header}>{options[1]}<span className="asterisk">* (required)</span></h6>
+                                                {options.slice(2).map((option, idx) => (
+                                                    <div className="form-check" key={idx}>
+                                                        <input key={index} onClick={updateConfigNum} className="form-check-input" type="radio" name={"flexRadioDefault"+index} value={option[0]} id={index}/>
+                                                        <label className="form-check-label" htmlFor={index}>
+                                                            {option[1]}
+                                                        </label>
+                                                    </div>
+                                                ))}
                                             </div>
                                         :
                                         options[0]==="optional"?
-                                            <div style={quoteStyles.configContainer}>
+                                            <div style={quoteStyles.configContainer} key={index}>
                                                 <h6 style={quoteStyles.header}>{options[1]} (optional)</h6>
                                                 {options.slice(3).map((option, idx) => (
                                                     <div className="form-check" key={idx}>
-                                                        <input onClick={updateConfigNum} className="form-check-input" type="checkbox" value={option[0]} id={index}/>
+                                                        <input key={index} onClick={updateConfigNum} className="form-check-input" type="checkbox" value={option[0]} id={index}/>
                                                         <label className="form-check-label">
                                                             {option[1]}
                                                         </label>
@@ -250,7 +250,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
                                     :null}
                                 {accessories.length>0?
                                     accessories.map((accessory, idx) => (
-                                        <form>
+                                        <form key={idx}>
                                             <div className="row" style={{marginBottom: "1%"}}>
                                                 <div className="col-md-9">
                                                     <button key={idx} type="button" className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target={"#exampleModal"+idx} style={quoteStyles.accessoryBtn}>

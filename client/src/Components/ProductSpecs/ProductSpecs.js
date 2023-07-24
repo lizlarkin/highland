@@ -12,7 +12,7 @@ const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsMulti, specsNotes }) =>
     }
 
     return (
-        <div >
+        <div>
             <h3 className="prod-header">Specifications</h3>
             
                 <div className="content-container">
@@ -26,7 +26,7 @@ const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsMulti, specsNotes }) =>
                                 <td>{specification[1].map((specLine, idx) => (
                                     <div key={idx}>
                                         {typeof(specLine) === "string" ? 
-                                        <td>{specLine}</td> : 
+                                        <div>{specLine}</div> : 
                                         specLine.map((specSpan, idx) => (
                                             <div key={idx} style={specStyles.specSpan}>{specSpan}</div>
                                          ))}
@@ -51,7 +51,7 @@ const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsMulti, specsNotes }) =>
                                 <td>{specification[1].map((specLine, idx) => (
                                     <div key={idx}>
                                         {typeof(specLine) === "string" ? 
-                                        <td>{specLine}</td> : 
+                                        <div>{specLine}</div> : 
                                         specLine.map((specSpan, idx) => (
                                             <div key={idx} style={specStyles.specSpan}>{specSpan}</div>
                                         ))}
@@ -78,7 +78,7 @@ const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsMulti, specsNotes }) =>
                                 <td>{specification[1].map((specLine, idx) => (
                                     <div key={idx}>
                                         {typeof(specLine) === "string" ? 
-                                        <td>{specLine}</td> : 
+                                        <div>{specLine}</div> : 
                                         specLine.map((specSpan, idx) => (
                                             <div key={idx} style={specStyles.specSpan}>{specSpan}</div>
                                         ))}
@@ -96,10 +96,12 @@ const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsMulti, specsNotes }) =>
                 <>
                 <h5>{specsMulti[0]}</h5>
                 <table className="table table-striped table-hover">
-                    {specsMulti?
-                    specsMulti[1].map((specTitle, idx) => (
-                        <th key={idx}>{specTitle}</th>
-                    )):null}
+                    <tr>
+                        {specsMulti?
+                        specsMulti[1].map((specTitle, idx) => (
+                            <th key={idx}>{specTitle}</th>
+                        )):null}
+                    </tr>
                     <tbody>
                         {specsMulti?
                         specsMulti.slice(2).map((specification, idx) => (

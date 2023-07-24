@@ -182,7 +182,7 @@ const Cart = () => {
                                                     [2] // index that holds config info
                                                     [prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][2].findIndex(el=>el.includes(parseInt(carts.prod.split("-")[1])))]
                                                     [2].map((conf, i) => (
-                                                        <li>{conf}</li>
+                                                        <li key={i}>{conf}</li>
                                                     ))
                                                     :null
                                                     :null}
@@ -260,7 +260,13 @@ const Cart = () => {
                             </div>
                         </div>                    
                     </div>
-                    :null}
+                    :
+                    <div className="row">
+                        <div className="col-md-3"></div>
+                        <div className="col-md-6" style={{textAlign: "center"}}>No products selected for quote.</div>
+                        <div className="col-md-3"></div>
+                    </div>
+                    }
 
                 </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import htifront from "./img/htifront.jpg";
+import highlandStaff from "./img/Highland_Staff.png";
 import vmeCrate from "./img/vmeCrate.png";
 import smtLine from "./img/SMT_Line.png";
 import Highland_Front from "./img/Highland_Front2.png"
@@ -44,18 +44,19 @@ const About = () => {
             title: "Our Operations",
             text: 
                 [
-                    "All Highland products are manufactured and tested in-house to guarantee quality and reliability. Whenever possible, Highland sources American-made materials, components, and services to ensure high standards of labor and manufacturing.",
-                    "Our lifecycle planning procedure, including component and spares management, component end-of-life handling, and stocking practices ensures long-term availability of products and support."
+                    "All Highland products are manufactured and tested in-house to guarantee quality and reliability. Our internal Quality Management System is based on ISO and IPC standards.",
+                    "Whenever possible, Highland sources American-made materials, components, and services to ensure high standards of labor and manufacturing.",
+                    "Retaining full control over our sourcing and manufacturing processes, including lifecycle planning and component end-of-life management, we can secure both the quality and the long-term availability of our products and support services."
                 ]
         },
         {
-            img: htifront,
+            img: highlandStaff,
             title: "Our Business",
             text: 
                 [
-                    "Highland's leadership insists on providing a safe, harmonious, and ethical workplace that prioritizes corporate social responsibility, including environmental awareness, community outreach, and employee welfare and advancement.",
-                    // "Highland is committed to providing a safe, harmonious, and ethical workplace. In conjunction with policies and procedures, management works to ensure ethical and responsible corporate social responsibility and compliance with all local, state, and federal laws and guidelines.",
-                    "We believe that our most important resources are our employee and customer relationships. Emphasizing technical excellence and the highest quality in manufacturing, we can expand our base of intellectual propery and maintain an enjoyable, rewarding, conscientious, and reliable business.",
+                    "Highland provides a safe, harmonious, and ethical workplace that prioritizes environmental awareness, philanthropy, and employee welfare and advancement.",
+                    "We believe that our most important resources are our employee, customer, and community relationships." 
+                    // Emphasizing technical excellence and the highest quality in manufacturing, we can expand our base of intellectual propery and maintain an enjoyable, rewarding, conscientious, and reliable business.",
                 ]
         },
     ]
