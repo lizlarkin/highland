@@ -228,6 +228,77 @@ import V720_RoHS from './assets/V720_RoHS.pdf'
 import V730_RoHS from './assets/V730_RoHS.pdf'
 import V860_RoHS from './assets/V860_RoHS.pdf'
 
+// Manual Import Files
+import D100_MAN from './assets/D100MANC4.pdf'
+import D200_MAN from './assets/D200MAND4.pdf'
+import J240_MAN from './assets/J240MANB4.pdf'
+import J270_MAN from './assets/J270MANB2.pdf'
+import J720_MAN from './assets/J720MANB4.pdf'
+import J724_MAN from './assets/J724MAND6.pdf'
+import J730_MAN from './assets/J730MANC4.pdf'
+import J736_MAN from './assets/J736MANB2.pdf'
+import J744_MAN from './assets/J744MANA1.pdf'
+import J750_MAN from './assets/J750MANA3.pdf'
+import K420_MAN from './assets/K420MANB1.pdf'
+import P330_MAN from './assets/P330MANA5.pdf'
+// import P344_MAN from './assets/P344MAN.pdf'
+import P348_MAN from './assets/P348MANB6.pdf'
+import P350_MAN from './assets/P350MANB2.pdf'
+import P400_MAN from './assets/P400MANC5.pdf'
+import P470_MAN from './assets/P470MANC1.pdf'
+import P500_MAN from './assets/P500MANE4.pdf'
+import P545_MAN from './assets/P545MANB2.pdf'
+import P620_MAN from './assets/P620MANC2.pdf'
+import P730_MAN from './assets/P730MAND2.pdf'
+import P900_MAN from './assets/P900MANA3.pdf'
+import T124_MAN from './assets/T124MANA2.pdf'
+import T130_MAN from './assets/T130MANC1.pdf'
+import T160_MAN from './assets/T160MAND1.pdf'
+import T165_MAN from './assets/T165MANE5.pdf'
+import T240_MAN from './assets/T240MANB9.pdf'
+import T340_MAN from './assets/T340MANB3.pdf'
+import T344_T346_MAN from './assets/T344_T346MAND4.pdf'
+// import T400_MAN from './assets/T400MAN.pdf'
+// import T500_MAN from './assets/T500MAN.pdf'
+import T560_MAN from './assets/T560MANL2.pdf'
+import T564_MAN from './assets/T564MANL2.pdf'
+import T680_MAN from './assets/T680MANC7.pdf'
+import T735_MAN from './assets/T735MANB3.pdf'
+import T750_MAN from './assets/T750MANC6.pdf'
+import T760_MAN from './assets/T760MAND5.pdf'
+import T840_MAN from './assets/T840MANA2.pdf'
+import T850_MAN from './assets/T850MANC2.pdf'
+import T860_MAN from './assets/T860MANB1.pdf'
+import V120_V124_MAN from './assets/V120_V124MANC4.pdf'
+import V180_MAN from './assets/V180MANA3.pdf'
+import V210_MAN from './assets/V210MAND2.pdf'
+import V220_MAN from './assets/V220MANE2.pdf'
+import V230_MAN from './assets/V230MAND3.pdf'
+import V250_MAN from './assets/V250MANB2.pdf'
+import V280_MAN from './assets/V280MANB2.pdf'
+import V340_MAN from './assets/V340MAND6.pdf'
+// import V344_MAN from './assets/V344MAN.pdf'
+// import V346_MAN from './assets/V346MAN.pdf'
+// import V360_MAN from './assets/V360MAN.pdf'
+// import V365_MAN from './assets/V365MAN.pdf'
+// import V375_MAN from './assets/V375MAN.pdf'
+// import V380_MAN from './assets/V380MAN.pdf'
+// import V385_MAN from './assets/V385MAN.pdf'
+// import V410_MAN from './assets/V410MAN.pdf'
+// import V420_MAN from './assets/V420MAN.pdf'
+// import V450_MAN from './assets/V450MAN.pdf'
+// import V460_MAN from './assets/V460MAN.pdf'
+// import V470_MAN from './assets/V470MAN.pdf'
+// import V490_MAN from './assets/V490MAN.pdf'
+// import V545_MAN from './assets/V545MAN.pdf'
+// import V550_MAN from './assets/V550MAN.pdf'
+// import V660_MAN from './assets/V660MAN.pdf'
+// import V680_MAN from './assets/V680MAN.pdf'
+// import V720_MAN from './assets/V720MAN.pdf'
+// import V730_MAN from './assets/V730MAN.pdf'
+// import V860_MAN from './assets/V860MAN.pdf'
+// import V880_MAN from './assets/V880MAN.pdf'
+
 // Certificates of Conformance Export Array
 export const CoCArr = [
     D100_CoC,
@@ -468,4 +539,77 @@ export const rohsArr = [
     V720_RoHS,
     V730_RoHS,
     V860_RoHS
+]
+
+// Manuals Export Array
+export const ManArr = [
+    D100_MAN,
+    D200_MAN,
+    J240_MAN,
+    J270_MAN,
+    J720_MAN,
+    J724_MAN,
+    J730_MAN,
+    J736_MAN,
+    J744_MAN,
+    J750_MAN,
+    K420_MAN,
+    P330_MAN,
+    // P344_MAN,
+    P348_MAN,
+    P350_MAN,
+    P400_MAN,
+    P470_MAN,
+    P500_MAN,
+    P545_MAN,
+    P620_MAN,
+    P730_MAN,
+    P900_MAN,
+    T124_MAN,
+    T130_MAN,
+    T160_MAN,
+    T165_MAN,
+    T240_MAN,
+    T340_MAN,
+    T344_T346_MAN,
+    // T400_MAN,
+    // T500_MAN,
+    T560_MAN,
+    T564_MAN,
+    T680_MAN,
+    T735_MAN,
+    T750_MAN,
+    T760_MAN,
+    T840_MAN,
+    T850_MAN,
+    T860_MAN,
+    V120_V124_MAN,
+    V180_MAN,
+    V210_MAN,
+    V220_MAN,
+    V230_MAN,
+    V250_MAN,
+    V280_MAN,
+    V340_MAN,
+    // V344_MAN,
+    // V346_MAN,
+    // V360_MAN,
+    // V365_MAN,
+    // V375_MAN,
+    // V380_MAN,
+    // V385_MAN,
+    // V410_MAN,
+    // V420_MAN,
+    // V450_MAN,
+    // V460_MAN,
+    // V470_MAN,
+    // V490_MAN,
+    // V545_MAN,
+    // V550_MAN,
+    // V660_MAN,
+    // V680_MAN,
+    // V720_MAN,
+    // V730_MAN,
+    // V860_MAN,
+    // V880_MAN,
 ]

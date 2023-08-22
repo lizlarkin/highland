@@ -3364,7 +3364,9 @@ let productSeed = [
       name: "8-channel VME 32 MHz arbitrary waveform generator",
       model: "V344",
       category: ["VME", "WFG"],
-      features: [],
+      features: [
+        [""]
+      ],
       description: "Generates eight independently programmable waveforms with standard functions, noise, and user-loaded arbitrary waveforms.",
       imgCaptions: [""],
       about: [],

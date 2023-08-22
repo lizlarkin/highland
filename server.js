@@ -8,7 +8,7 @@ const path = require("path");
 
 require("./models/connection")
 
-// Middleware: Data in url that need to be able to parse through
+// Middleware: Data in url needed to be able to parse through
 app.use(express.urlencoded({extended: true}));
 // Middleware: Parse JSON data
 app.use(express.json());

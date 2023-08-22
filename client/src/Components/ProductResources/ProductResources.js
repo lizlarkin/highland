@@ -19,6 +19,7 @@ import {StepArr} from "./Resources";
 import {CEArr} from "./Resources";
 import {BDArr} from "./Resources";
 import {rohsArr} from "./Resources";
+import {ManArr} from "./Resources";
 import USAPolicy from "./assets/USA_Commitment.pdf";
 // import Datasheet from '../ProductDatasheet/Datasheet';
 import Export from './Export';
@@ -40,6 +41,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExpor
    const CEIndex = CEArr.findIndex(search => search.includes(model));
    const BDIndex = BDArr.findIndex(search => search.includes(model));
    const rohsIndex = rohsArr.findIndex(search => search.includes(model));
+   const manIndex = ManArr.findIndex(search => search.includes(model));
 
     return (
         <div >
@@ -60,8 +62,10 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExpor
                                         {/* <a href={<Datasheet />} target="_blank" rel="noopener noreferrer" className="list-group-item list-group-item-action">
                                             <img className = "resource-image" src={datasheet} alt="Highland Datasheet"/>Download Datasheet
                                         </a> */}
-                                        {userData.user?
-                                            <Link to="/" className="list-group-item list-group-item-action">
+                                        {manIndex===-1?
+                                        null:
+                                            userData.user?    
+                                            <Link to={ManArr[manIndex]} target = "_blank" className="list-group-item list-group-item-action">
                                                 <img className = "resource-image" src={manual} alt="Highland Datasheet"/>Download Manual
                                             </Link>
                                         :
