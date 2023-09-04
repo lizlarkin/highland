@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsMulti, specsNotes }) => {
+const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsTwoC, specsTwoD, specsTwoE, specsMulti, specsNotes }) => {
 
     const specStyles = {
         specSpan: {
@@ -91,6 +91,87 @@ const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsMulti, specsNotes }) =>
                 </table>
                 </>
                 :null:null}
+
+                {specsTwoC?
+                    specsTwoC.length>0?
+                <>
+                <h5>{specsTwoC[0]}</h5>
+                <table className="table table-striped table-hover">
+                    <tbody>
+                        {specsTwoC?
+                        specsTwoC.slice(1).map((specification, idx) => (
+                            <tr key={idx}>
+                                <td>{specification[0]}</td>
+                                <td>{specification[1].map((specLine, idx) => (
+                                    <div key={idx}>
+                                        {typeof(specLine) === "string" ? 
+                                        <div>{specLine}</div> : 
+                                        specLine.map((specSpan, idx) => (
+                                            <div key={idx} style={specStyles.specSpan}>{specSpan}</div>
+                                        ))}
+                                    </div>
+                                ))}</td>
+                            </tr>
+                        ))
+                        :null}
+                    </tbody>
+                </table>
+                </>
+                :null:null}
+
+            {specsTwoD?
+                    specsTwoD.length>0?
+                <>
+                <h5>{specsTwoD[0]}</h5>
+                <table className="table table-striped table-hover">
+                    <tbody>
+                        {specsTwoD?
+                        specsTwoD.slice(1).map((specification, idx) => (
+                            <tr key={idx}>
+                                <td>{specification[0]}</td>
+                                <td>{specification[1].map((specLine, idx) => (
+                                    <div key={idx}>
+                                        {typeof(specLine) === "string" ? 
+                                        <div>{specLine}</div> : 
+                                        specLine.map((specSpan, idx) => (
+                                            <div key={idx} style={specStyles.specSpan}>{specSpan}</div>
+                                        ))}
+                                    </div>
+                                ))}</td>
+                            </tr>
+                        ))
+                        :null}
+                    </tbody>
+                </table>
+                </>
+                :null:null} 
+
+            {specsTwoE?
+                    specsTwoE.length>0?
+                <>
+                <h5>{specsTwoE[0]}</h5>
+                <table className="table table-striped table-hover">
+                    <tbody>
+                        {specsTwoE?
+                        specsTwoE.slice(1).map((specification, idx) => (
+                            <tr key={idx}>
+                                <td>{specification[0]}</td>
+                                <td>{specification[1].map((specLine, idx) => (
+                                    <div key={idx}>
+                                        {typeof(specLine) === "string" ? 
+                                        <div>{specLine}</div> : 
+                                        specLine.map((specSpan, idx) => (
+                                            <div key={idx} style={specStyles.specSpan}>{specSpan}</div>
+                                        ))}
+                                    </div>
+                                ))}</td>
+                            </tr>
+                        ))
+                        :null}
+                    </tbody>
+                </table>
+                </>
+                :null:null}    
 
                 {specsMulti.length>0?
                 <>
