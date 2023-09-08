@@ -277,8 +277,7 @@ import V230_MAN from './assets/V230MAND3.pdf'
 import V250_MAN from './assets/V250MANB2.pdf'
 import V280_MAN from './assets/V280MANB2.pdf'
 import V340_MAN from './assets/V340MAND6.pdf'
-// import V344_MAN from './assets/V344MAN.pdf'
-// import V346_MAN from './assets/V346MAN.pdf'
+import V344_V346_MAN from './assets/V344_V346MANC3.pdf'
 // import V360_MAN from './assets/V360MAN.pdf'
 // import V365_MAN from './assets/V365MAN.pdf'
 // import V375_MAN from './assets/V375MAN.pdf'
@@ -591,8 +590,7 @@ export const ManArr = [
     V250_MAN,
     V280_MAN,
     V340_MAN,
-    // V344_MAN,
-    // V346_MAN,
+    V344_V346_MAN,
     // V360_MAN,
     // V365_MAN,
     // V375_MAN,

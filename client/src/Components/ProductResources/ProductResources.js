@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useHistory, useLocation } from "react-router-dom"; 
 import UserContext from "../../Context/UserContext";
 import rohsCompliant from "./assets/rohsCompliant.png";
 import madeInUsa from "./assets/madeInUsa.png";
@@ -42,7 +43,12 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExpor
    const BDIndex = BDArr.findIndex(search => search.includes(model));
    const rohsIndex = rohsArr.findIndex(search => search.includes(model));
    const manIndex = ManArr.findIndex(search => search.includes(model));
-
+    
+   // If not logged in, return to page location after login
+   const history = useHistory();
+   const returnLocation = useLocation(); //hold page to return to after login
+   let returnPath = returnLocation.pathname
+   
     return (
         <div >
             <h3 className="prod-header">Resources</h3>
@@ -69,8 +75,8 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExpor
                                                 <img className = "resource-image" src={manual} alt="Highland Datasheet"/>Download Manual
                                             </Link>
                                         :
-                                            <Link to="/login" className="list-group-item list-group-item-action">
-                                                <img className = "resource-image" src={manual} alt="Highland Datasheet"/>Please login to download manual
+                                            <Link to={`/login?return=${returnPath}`} className="list-group-item list-group-item-action">
+                                                <img className = "resource-image" src={manual} alt="Highland Datasheet"/>Download Manual (Please login for access)
                                             </Link>
                                         }
                                         {BDIndex===-1?
