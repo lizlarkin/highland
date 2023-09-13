@@ -2923,7 +2923,7 @@ let productSeed = [
       {
       name: "16-channel VME AC power analysis module",
       model: "V180",
-      category: ["LEG"],
+      category: ["LEG", "VME"],
       features: [
         ["Measures up to sixteen AC power circuits"],
         ["Measures true RMS amps, volts, watts, KVAs, kilowatt-hours, and power factor"],
@@ -3620,6 +3620,9 @@ let productSeed = [
       accessories: [
         ["J43-1", "3' BNC to BNC cable"],
       ],
+      driversSoftware: [
+        ["V360 DOS-based test/display program", "https://www.dropbox.com/scl/fi/mc700a5qieveb1d6wraq1/V360.zip?rlkey=9gv21iamn3ecjn6gad73boc8e&dl=0"],
+      ],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
@@ -3679,6 +3682,9 @@ let productSeed = [
         ["J53-2", '6" SMB to BNC cable'],
         ["J65-1", "Set of mating connectors for V365", "(1 set included with purchase)"],
         ["T565-1", "RS-232 cable"],
+      ],
+      driversSoftware: [
+        ["V365 DOS-based test/configuration program", "https://www.dropbox.com/scl/fi/tofdvcuacuge8k8x0wv67/V365.zip?rlkey=rh7yq4c892wegjw5xjphhymbe&dl=0"],
       ],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -3765,17 +3771,49 @@ let productSeed = [
       {
       name: "8-channel VME strain gauge/weighing module",
       model: "V380",
-      category: ["VME", "MAS"],
-      features: [],
+      category: ["LEG", "VME", "MAS"],
+      features: [
+        ["Excites and measures up to eight strain gauge load cells"],
+        ["Includes smart tare, calibration, and weigh functions"],
+        ["24-bit ADC per channel Onboard 32-bit processor supports digital filtering, triggered weighing, and custom computations "],
+        ["Onboard 32-bit processor supports digital filtering, triggered weighing, and custom computations"],
+        ["16-bit (65536 count) resolution after tare compensation"],
+        ["Clean, logical VME bus interface is well suited to PLC-based weighing applications"],
+      ],
       description: "Excites and measures up to eight strain gauge load cells, and includes tare (zero reference), DSP-based high-order filtering, averaging, and triggered weighing.",
-      imgCaptions: [""],
-      about: [],
-      related: [],
-      specifications: [],
-      // versions: [
-      //   ["noChoice", null, 1],
-      // ],
-      accessories: [],
+      imgCaptions: ["", "", "", ""],
+      about: [
+        "The V380 is a VME/VXI compatible eight-channel strain-gauge signal conditioner which is optimized for load-cell weighing applications. The module includes tare (zero reference), DSP-based high-order filtering, averaging, triggered weighing, and other functions not commonly available in conventional strain-gauge signal conditioners. Filtering and averaging are programmable with fine granularity to allow precise optimization of high-speed weighing applications.",
+        "All module functions are programmable; except for the VME-bus address switch, the module has no jumpers, switches, or trimpots. All parameters, tare values, and calibration factors are retained in nonvolatile memory."
+      ],
+      related: [
+        "V385 8-channel VME strain gauge/load cell module"
+      ],
+      specifications: [
+        ["FUNCTION", ["8-channel load cell module"]],
+        ["DEVICE TYPE", ["Register-based slave: A16:D16:D08(EO)", "512-byte data block in bus A16 address range (VME short I/O space)", "Bus address is set by onboard dipswitch"]],
+        ["CHANNELS", ["8 load cells"]],
+        ["EXCITATION", ["Onboard remote-sensed bridge excitation source, 10-volt standard; 40mA max per-channel load"]],
+        ["INPUTS", ["Eight differential inputs", "CMRR better than 100 dB", "Input impedance is 60 MΩ typical", "Maximum input ±50 mV (equivalent to 5 mV/V excitation)"]],
+        ["RESOLUTION", ["16 bits (65536 counts) MAX after tare and calibration", "One 24-bit ADC per channel, 32-bit after filtering, 92.132 pV per LSB"]],
+        ["TARE", ["On-demand, per-channel subtraction of reference weight up to full-scale signal range"]],
+        ["FILTERING", ["Programmable digital filtering (Bessel in 0.1 sec, 0.2 sec, and 0.4 sec risetime) and averaging (last N samples)"]],
+        ["OPERATING TEMPERATURE", ["0 to 60°C; extended MIL/COTS ranges available"]],
+        ["CALIBRATION INTERVAL", ["No factory calibration required"]],
+        ["POWER", ["Standard VME supplies:", ["+5 V: 1.5 A max", "+12 V: 0.6 A", "-12 V: 0.2 A"]]],
+        ["CONNECTORS", ["One front-panel 25-pin D-sub female"]],
+        ["INDICATORS", ["Three LEDs indicate microprocessor heartbeat, VME access, and pass/fail status"]],
+        ["PACKAGING", ["6U single-wide VME module"]],
+        ["CONFORMANCE", ["ANSI/VITA 1-1994 (R2002) VMEbus spec"]],
+      ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 1, [null]],
+      ],
+      accessories: [
+        ["V780-1", "Field wiring termination panel w/ 6' cable"],
+      ],
+      EOL: ["December 31, 2022", "December 31, 2023", 6],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
@@ -3789,17 +3827,47 @@ let productSeed = [
       {
       name: "8-channel VME strain gauge/load cell module",
       model: "V385",
-      category: ["VME", "MAS"],
-      features: [],
+      category: ["LEG", "VME", "MAS"],
+      features: [
+        ["Excites and measures up to eight strain gauge load cells"],
+        ["Separate, remotely sensed excitation supply for each channel"],
+        ["24-bit ADC per channel "],
+        ["100 dB CMRR"],
+        ["Clean, logical VME bus interface is well suited to PLC-based weighing applications"],
+      ],
       description: "Excites and measures up to eight strain gauge load cells, with separate, remotely sensed excitation supply for each channel.",
-      imgCaptions: [""],
-      about: [],
-      related: [],
-      specifications: [],
-      // versions: [
-      //   ["noChoice", null, 1],
-      // ],
+      imgCaptions: ["", "", "", ""],
+      about: [
+        "The V385 is a VME/VXI compatible eight-channel strain-gauge signal conditioner applicable to generic bridge-type transducer applications. The V385 adds individual remote-sensed excitation supplies to each channel, increasing its precision over the V380's single excitation supply.",
+        "Key to the V385's increased precision is a separate remotely-sensed excitation voltage for each channel. Now users can measure up to eight different sensors with different interface cables without the uncertainty of a single sense point for the excitation supply.",
+        "The V385's updated firmware accommodates customer requests for faster access to raw sensor data. A firmware version with weighing-specific functions is also available."
+      ],
+      related: [
+        "V380 8-channel VME strain gauge/weighing module"
+      ],
+      specifications: [
+        ["FUNCTION", ["8-channel load cell module"]],
+        ["DEVICE TYPE", ["16-bit VME register-based slave: A16:D16:D08(EO)", "Implements 128 words (256 bytes) registers at switch selectable addresses in the VME 16 addressing space"]],
+        ["CHANNELS", ["8, 6-wire full-bridge-type load cells"]],
+        ["EXCITATION", ["Per-channel onboard remote-sensed bridge excitation source, 5- or 10-volt switchable; 40mA max per-channel load"]],
+        ["INPUTS", ["Eight differential inputs", "CMRR better than 100 dB", "Input impedance is 60 MΩ typical", "Maximum input ±50 mV (equivalent to 5 mV/V excitation)"]],
+        ["RESOLUTION", ["One 24 bit ADC per channel"]],
+        ["ADC", ["One Analog Devices AD7710 24 bit ADC per channel", "Default setup is G=1, 24 bit data, 59.91 Hz sample rate", "ADCs may be user reprogrammed via VME commands"]],
+        ["SYNCHRONIZE", ["A mechanism is included to synchronize the sample times of all eight ADCs"]],
+        ["OPERATING TEMPERATURE", ["0 to 60°C; extended MIL/COTS ranges available"]],
+        ["CALIBRATION INTERVAL", ["No factory calibration required"]],
+        ["POWER", ["Standard VME supplies:", ["+5 V: 1.5 A max", "+12 V: 0.2 A", "-12 V: 0.2 A"]]],
+        ["CONNECTORS", ["Two D25 front-panel females"]],
+        ["INDICATORS", ["Three LEDs indicate microprocessor heartbeat, VME access, and pass/fail status"]],
+        ["PACKAGING", ["6U single-wide VME module"]],
+        ["CONFORMANCE", ["ANSI/VITA 1-1994 (R2002) VMEbus spec"]],
+      ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 1, [null]],
+      ],
       accessories: [],
+      EOL: ["July 1, 2023", "July 1, 2027", 16],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
