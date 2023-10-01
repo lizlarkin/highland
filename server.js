@@ -21,6 +21,9 @@ app.use("/cart", require("./routes/cartRoutes"));
 app.use("/products", require("./routes/productRoutes"));
 app.use("/register", require("./routes/confirmRoutes"));
 
+// app.get('/', (req, res) => {
+//     res.send('this works from server');
+// });
 
 app.listen(PORT, () => {
     console.log(`Listening at: http://localhost:${PORT}`);

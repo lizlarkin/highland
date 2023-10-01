@@ -12,21 +12,19 @@ const Navigation = (props) => {
   const history = useHistory();
 
   const navigationStyles = {
-    navBar: {
-      height: "100px"
-    },
     logo: {
-        marginLeft: "25px",
-        position: "absolute",
-        top: "0px",
-    },
-    firstLink: {
-      marginLeft: "275px",
+        marginBottom: "-10%",
+        marginLeft: "5%",
     },
     links: {
         fontWeight: "bold",
         marginLeft: "40px",
+        color: "white",
+        marginTop: "5%",
     },
+    hamBtn: {
+      border: "none",
+    }
   }
 
     const goToCategory = (e) => {
@@ -40,18 +38,18 @@ const Navigation = (props) => {
     
     return (
       <nav>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" style={navigationStyles.navBar}>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
           <div className="container-fluid" >
                     <Link to="/Home" className="navbar-brand">
                         <img src={highlandLogo} style={navigationStyles.logo} alt="Highland Logo"/>
                     </Link>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button style={navigationStyles.hamBtn} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent" style={navigationStyles.firstLink}>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item dropdown">
-                  <div className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={navigationStyles.links}>All Products</div>
+                  <div className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={navigationStyles.links}>Products</div>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li onClick={goToCategory} title={"VME"} className="dropdown-item">VME</li> 
                     <li onClick={goToCategory} title={"DDG"} className="dropdown-item">Digital Delay Generators</li>
