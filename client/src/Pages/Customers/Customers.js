@@ -38,7 +38,7 @@ import GenJumbo from "../../Components/GeneralJumbotron/GenJumbo";
 
 const Customers = () => {
 
-    // TO DO: Needs to be in correct multiple. 
+    // TO DO: Needs to be in correct multiple.
 
     const customerStyles = {
         custDiv: {
@@ -49,7 +49,8 @@ const Customers = () => {
         },
         text: {
             textAlign: "center",
-            display: "none"
+            // display: "none",
+            minHeight: "10px"
         }
     }
 
@@ -61,33 +62,33 @@ const Customers = () => {
         [CERN, "CERN", "Picosecond delay generation for particle accelerators"],
         [EADS, "EADS Group", "Frequency measurement and arbitrary waveform generation for aerospace systems"],
         [GeneralAtomics, "General Atomics", "Pulse generation for nuclear fusion diagnostics and measurements"],
-        [GeneralDynamics, "General Dynamics", ""],
+        [GeneralDynamics, "General Dynamics", "Need text"],
         [GeneralElectric, "General Electric", "Instrumentation for testing of locomotive turbine engines"],
         [Hamamatsu, "Hamamatsu Photonics", "Compact delay generators for photonic systems"],
         [HamiltonSundstrand, "Hamilton Sundstrand", "Measurement and simulation instrumentation for aircraft power systems"],
-        [Honeywell, "Honeywell", ""],
-        [IBM, "IBM Corporation", ""],
+        [Honeywell, "Honeywell", "Need text"],
+        [IBM, "IBM Corporation", "Need text"],
         [JeffersonLab, "Thomas Jefferson National Accelerator Facility", "Instrumentation for superconductive magnet and cavity controllers and cryogenic temperature control"],
         [JohnsHopkins, "Johns Hopkins University Applied Physics Laboratory", ""],
-        [L3Harris, "L3Harris Technologies", ""],
+        [L3Harris, "L3Harris Technologies", "Need text"],
         [LLNL, "Lawrence Livermore National Laboratory", "Custom timing systems, beam modulators, and diagnostics for National Ignition Facility"],
         [LockheedMartin, "Lockheed Martin Corporation", "Waveform generators for flight simulator training"],
         [LANL, "Los Alamos National Laboratory", "Electrical and fiber optic converters for diagnostic timing systems"],
-        [MIT, "MIT Lincoln Laboratory", ""],
-        [NASA, "NASA-JPL", ""],
+        [MIT, "MIT Lincoln Laboratory", "Need text"],
+        [NASA, "NASA-JPL", "Need text"],
         [NIST, "National Institute of Standards and Technology", ""],
         [NorthropGrumman, "Northrop Grumman Corporation", "Digital delay and pulse generation for DOD applications"],
         [Panasonic, "Panasonic Corporation", "Delay generators for research and development of cameras"],
         [PNNLBattelle, "Pacific Northwest National Laboratory", ""],
         [PrattWhitney, "Pratt & Whitney", "Aircraft engine test and simulation instrumentation"],
         [Raytheon, "Raytheon Technologies Corporation", "Fiber optical and electrical converters for submarine communication systems"],
-        [RollsRoyce, "Rolls Royce", ""],
-        [Saab, "Saab AB", ""],
+        [RollsRoyce, "Rolls Royce", "Need text"],
+        [Saab, "Saab AB", "Need text"],
         [SAIC, "Science Applications International Corporation", "Specialized function generators for aircraft heads-up display controllers"],
-        [Sandia, "Sandia National Laboratories", ""],
-        [Thales, "Thales Group", ""],
-        [Thorlabs, "Thorlabs", ""],
-        [Trumpf, "Trumpf Group", ""],
+        [Sandia, "Sandia National Laboratories", "Need text"],
+        [Thales, "Thales Group", "Need text"],
+        [Thorlabs, "Thorlabs", "Need text"],
+        [Trumpf, "Trumpf Group", "Need text"],
         [United, "United Airlines", "APU airplane test cell instrumentation"],
     ]
 
@@ -120,6 +121,13 @@ const Customers = () => {
                 <GenJumbo />
             </div>
 
+            <div>
+                
+            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
+  Tooltip on bottom
+</button>
+            </div>
+
             {rows?
             rows.map((customers, index) => (
                 <div className="row" key={index}>
@@ -127,14 +135,16 @@ const Customers = () => {
                     {customers.length===3?
                     customers.map((customer, idx) => (
                         <React.Fragment key={idx}>
-                            <button className="col-md-2" 
-                                onClick={storeCustNum}
+                            <button 
+                                className="col-md-2" 
+                                // onClick={storeCustNum}
                                 style={customerStyles.custDiv}>
-                                    {custNum===index.toString()+idx.toString()?
-                                    <div className="card card-body">
-                                        {customer[2]}
-                                    </div>
-                                    :
+                                    {
+                                    // custNum===index.toString()+idx.toString()?
+                                    // <div className="card card-body" style={customerStyles.text}>
+                                    //     {customer[2]}
+                                    // </div>
+                                    // :
                                     <img src={customer[0]} className="img-fluid" alt={customer[1]} id={index.toString()+idx.toString()}/>
                                     }
                             </button>
@@ -149,7 +159,7 @@ const Customers = () => {
                                 onClick={storeCustNum}
                                 style={customerStyles.custDiv}>
                                     {custNum===index.toString()+ix.toString()?
-                                    <div className="card card-body">
+                                    <div className="card card-body" style={customerStyles.text}>
                                         {cust[2]}
                                     </div>
                                     :

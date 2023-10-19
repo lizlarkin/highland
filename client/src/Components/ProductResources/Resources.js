@@ -250,9 +250,9 @@ import P500_MAN from './assets/P500MANE4.pdf'
 import P545_MAN from './assets/P545MANB2.pdf'
 import P620_MAN from './assets/P620MANC2.pdf'
 import P730_MAN from './assets/P730MAND2.pdf'
-import P900_MAN from './assets/P900MANA3.pdf'
+import P900_MAN from './assets/P900MANA4.pdf'
 import T124_MAN from './assets/T124MANA2.pdf'
-import T130_MAN from './assets/T130MANC1.pdf'
+import T130_MAN from './assets/T130MANC2.pdf'
 import T160_MAN from './assets/T160MAND1.pdf'
 import T165_MAN from './assets/T165MANE5.pdf'
 import T240_MAN from './assets/T240MANB9.pdf'
@@ -281,20 +281,20 @@ import V344_V346_MAN from './assets/V344_V346MANC3.pdf'
 import V360_MAN from './assets/V360MANC1.pdf'
 import V365_MAN from './assets/V365MANB2.pdf'
 import V375_MAN from './assets/V375MANE1.pdf'
-// import V380_MAN from './assets/V380MAN.pdf'
-// import V385_MAN from './assets/V385MAN.pdf'
-// import V410_MAN from './assets/V410MAN.pdf'
-// import V420_MAN from './assets/V420MAN.pdf'
-// import V450_MAN from './assets/V450MAN.pdf'
-// import V460_MAN from './assets/V460MAN.pdf'
+import V380_MAN from './assets/V380MANB5.pdf'
+import V385_MAN from './assets/V385MANC6.pdf'
+import V410_MAN from './assets/V410MANB5.pdf'
+import V420_MAN from './assets/V420MANE1.pdf'
+import V450_MAN from './assets/V450MANG2.pdf'
+import V460_MAN from './assets/V460MANC3.pdf'
 // import V470_MAN from './assets/V470MAN.pdf'
 // import V490_MAN from './assets/V490MAN.pdf'
 // import V545_MAN from './assets/V545MAN.pdf'
 // import V550_MAN from './assets/V550MAN.pdf'
 // import V660_MAN from './assets/V660MAN.pdf'
 // import V680_MAN from './assets/V680MAN.pdf'
-// import V720_MAN from './assets/V720MAN.pdf'
-// import V730_MAN from './assets/V730MAN.pdf'
+import V720_MAN from './assets/V720MAND2.pdf'
+import V730_MAN from './assets/V730MANB4.pdf'
 // import V860_MAN from './assets/V860MAN.pdf'
 // import V880_MAN from './assets/V880MAN.pdf'
 
@@ -594,20 +594,20 @@ export const ManArr = [
     V360_MAN,
     V365_MAN,
     V375_MAN,
-    // V380_MAN,
-    // V385_MAN,
-    // V410_MAN,
-    // V420_MAN,
-    // V450_MAN,
-    // V460_MAN,
+    V380_MAN,
+    V385_MAN,
+    V410_MAN,
+    V420_MAN,
+    V450_MAN,
+    V460_MAN,
     // V470_MAN,
     // V490_MAN,
     // V545_MAN,
     // V550_MAN,
     // V660_MAN,
     // V680_MAN,
-    // V720_MAN,
-    // V730_MAN,
+    V720_MAN,
+    V730_MAN,
     // V860_MAN,
     // V880_MAN,
 ]

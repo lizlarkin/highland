@@ -63,7 +63,7 @@ const Testimonials = () => {
     return (
         <div>
             <GenJumbo />
-            <div className="container">
+            <div className="container-fluid">
                 
                 {/* Row 2: Aerospace & Defense Award */}
                 <div className="row" style={testimonialsStyles.testimonialRow}>

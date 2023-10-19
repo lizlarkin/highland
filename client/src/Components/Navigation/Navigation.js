@@ -24,7 +24,7 @@ const Navigation = (props) => {
     },
     hamBtn: {
       border: "none",
-    }
+    },
   }
 
     const goToCategory = (e) => {
@@ -39,7 +39,7 @@ const Navigation = (props) => {
     return (
       <nav>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-          <div className="container-fluid" >
+          <div className="container-fluid">
                     <Link to="/Home" className="navbar-brand">
                         <img src={highlandLogo} style={navigationStyles.logo} alt="Highland Logo"/>
                     </Link>
@@ -78,7 +78,7 @@ const Navigation = (props) => {
                 </li>
                 <li className="nav-item">
                   {userData.user ? <Link to="/Cart" className="nav-link active" style={navigationStyles.links}>
-                    <i className="fas fa-shopping-cart"></i><span className="badge bg-light text-dark">
+                    <i className="fas fa-shopping-cart"></i><span className="badge bg-dark text-light">
                       {cartQuantity>0?" ("+cartQuantity+")":null}
                       </span>
                   </Link> 

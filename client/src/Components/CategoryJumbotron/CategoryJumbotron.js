@@ -33,7 +33,7 @@ const CategoryJumbotron = ({title, text}) => {
 
     return (
         <div className="row">
-            <div className="col-md-12 heroContainer" style={{backgroundImage: `url(${background})`}}>
+            <div className="heroContainer" style={{backgroundImage: `url(${background})`}}>
                 <h1 className="heroHeading">{title}</h1>
                 <div className="heroBody">
                     <h5 className="heroText">{text}</h5>

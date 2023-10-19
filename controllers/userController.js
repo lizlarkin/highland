@@ -82,14 +82,14 @@ module.exports = {
                     from: "no-reply@highlandtechnology.com",
                     to: newUser.email,
                     subject: "Thank you for registering with Highland Technology",
-                    text: `Please click link to confirm account: http://localhost:3000/confirm_token/${confirmationToken.token}`,
+                    text: `Please click link to confirm account: http://dev.highlandtechnology.com:3000/confirm_token/${confirmationToken.token}`,
                 }
 
                 // Email To Sales
                 const emailSales = {
                     from: "no-reply@highlandtechnology.com",
-                    to: "lizlarkin@highlandtechnology.com",
-                    subject: "New Website Registration",
+                    to: "sales@highlandtechnology.com",
+                    subject: "TEST!!! New Website Registration",
                     text: `New registered user: 
                     Name: ${newUser.first + " " + newUser.last}
                     Email: ${newUser.email}
@@ -325,7 +325,7 @@ module.exports = {
                     subject: "Password Reset - Highland Technology",
                     text: 
                     `
-                    Please click link to reset password: http://localhost:3000/ResetPassword/${forgotToken}
+                    Please click link to reset password: http://dev.highlandtechnology.com:3000/ResetPassword/${forgotToken}
                     This link will expire in one hour. 
 
                     If you did not request this password reset, please contact us at sales@highlandtechnology.com. 
@@ -336,7 +336,7 @@ module.exports = {
                     if (error) {
                         console.log(error);
                     } else {
-                        console.log(`Email was sent with: http://localhost:3000/ResetPassword/${forgotToken}`);
+                        console.log(`Email was sent with: http://dev.highlandtechnology.com:3000/ResetPassword/${forgotToken}`);
                     }
                 });
 

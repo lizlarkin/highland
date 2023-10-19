@@ -103,8 +103,8 @@ Highland Technology
     // Email To Sales
         const emailSales = {
             from: "no-reply@highlandtechnology.com",
-            to: "lizlarkin@highlandtechnology.com",
-            subject: `Quote Request From Website`,
+            to: "sales@highlandtechnology.com",
+            subject: `TEST!!! Quote Request From Website`,
             text: 
                 `
 Name: ${userData.first + " " + userData.last}

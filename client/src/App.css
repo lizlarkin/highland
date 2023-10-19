@@ -51,3 +51,19 @@ body {
   line-height: 150%;
   font-weight: 400;
 }
+
+/* XS styling */
+@media (max-width: @screen-xs-max) {
+  .container {
+    width: inherit;
+  }
+}
+
+/* SM styling */
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+  .container {
+    width: inherit;
+  }
+}
+
+

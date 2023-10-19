@@ -72,8 +72,8 @@ module.exports = {
         const emailSales = {
             from: "no-reply@highlandtechnology.com",
             // CHANGE HERE FOR WHO GETS INTERNAL EMAIL
-            to: "lizlarkin@highlandtechnology.com",
-            subject: `New ${successSave.sub==="Other"?" Request Received":successSave.sub + " Received"}`,
+            to: "sales@highlandtechnology.com",
+            subject: `TEST!!! New ${successSave.sub==="Other"?" Request Received":successSave.sub + " Received"}`,
             text: 
                 `
                     Subject: ${successSave.sub}
