@@ -25,7 +25,7 @@ const productSchema = new mongoose.Schema({
     config: [],
     versions: [],
     accessories: [],
-    EOL: [], // last time buy date, end of support date, remaining stock
+    EOL: [], // last time buy date, end of support date, remaining stock, replacement(s)
     ECCN: {
         type: String,
     },

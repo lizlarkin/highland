@@ -97,6 +97,7 @@ import V450_SOV from './assets/V450_SOV.pdf'
 import V470_SOV from './assets/V470_SOV.pdf'
 import V490_SOV from './assets/V490_SOV.pdf'
 import V545_SOV from './assets/V545_SOV.pdf'
+import V550_SOV from './assets/V550_SOV.pdf'
 
 // STEP Import Files
 import D100_STEP from './assets/D100_17A100C.STEP'
@@ -290,9 +291,9 @@ import V460_MAN from './assets/V460MANC3.pdf'
 // import V470_MAN from './assets/V470MAN.pdf'
 // import V490_MAN from './assets/V490MAN.pdf'
 // import V545_MAN from './assets/V545MAN.pdf'
-// import V550_MAN from './assets/V550MAN.pdf'
+import V550_MAN from './assets/V550MANB4.pdf'
 // import V660_MAN from './assets/V660MAN.pdf'
-// import V680_MAN from './assets/V680MAN.pdf'
+import V680_MAN from './assets/V680MANC3.pdf'
 import V720_MAN from './assets/V720MAND2.pdf'
 import V730_MAN from './assets/V730MANB4.pdf'
 // import V860_MAN from './assets/V860MAN.pdf'
@@ -400,6 +401,7 @@ export const SoVArr = [
     V470_SOV,
     V490_SOV,
     V545_SOV,
+    V550_SOV,
 ]
 
 // STEP Export Array
@@ -603,9 +605,9 @@ export const ManArr = [
     // V470_MAN,
     // V490_MAN,
     // V545_MAN,
-    // V550_MAN,
+    V550_MAN,
     // V660_MAN,
-    // V680_MAN,
+    V680_MAN,
     V720_MAN,
     V730_MAN,
     // V860_MAN,

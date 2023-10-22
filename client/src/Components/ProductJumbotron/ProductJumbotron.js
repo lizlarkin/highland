@@ -62,10 +62,21 @@ const ProductJumbotron = ({ name, model, captions, category, EOLdates }) => {
                             <div>Last Time Buy: {EOLdates?EOLdates[0]:null}</div>
                             <div>End of Support: {EOLdates?EOLdates[1]:null}</div>
                             {EOLdates?
-                            EOLdates[2]?
+                            EOLdates[2]>0?
                             <div>Remaining Stock: {EOLdates[2]}</div>
                             :null
                             :null}  
+                            {EOLdates?
+                            EOLdates[3]? 
+                            EOLdates[3].map((sub) => (
+                                <div>
+                                    <a href = {`/Product/${sub.split(" ")[0]}`}  className="alert-link">
+                                        Replacement: {sub}
+                                    </a>
+                                </div>
+                            ))
+                            :"No replacements planned. Contact factory to discuss options."
+                            :null} 
                     </div>
                     :null:null}
 
