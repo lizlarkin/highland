@@ -121,13 +121,6 @@ const Customers = () => {
                 <GenJumbo />
             </div>
 
-            <div>
-                
-            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
-  Tooltip on bottom
-</button>
-            </div>
-
             {rows?
             rows.map((customers, index) => (
                 <div className="row" key={index}>
@@ -137,14 +130,14 @@ const Customers = () => {
                         <React.Fragment key={idx}>
                             <button 
                                 className="col-md-2" 
-                                // onClick={storeCustNum}
+                                onClick={storeCustNum}
                                 style={customerStyles.custDiv}>
                                     {
-                                    // custNum===index.toString()+idx.toString()?
-                                    // <div className="card card-body" style={customerStyles.text}>
-                                    //     {customer[2]}
-                                    // </div>
-                                    // :
+                                    custNum===index.toString()+idx.toString()?
+                                    <div className="card card-body" style={customerStyles.text}>
+                                        {customer[2]}
+                                    </div>
+                                    :
                                     <img src={customer[0]} className="img-fluid" alt={customer[1]} id={index.toString()+idx.toString()}/>
                                     }
                             </button>

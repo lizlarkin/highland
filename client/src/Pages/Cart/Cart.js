@@ -159,8 +159,12 @@ const Cart = () => {
                                             <div className="row">
                                                 <div className="col-md-1"></div>
                                                 <div className="col-md-11">
+                                                    {carts.qty<1?
+                                                    <div className="alert alert-primary">Quantity: {carts.qty + " (accessory quote only)"} </div>
+                                                    :
                                                     <div style={cartStyles.cartHeadings}>Quantity: {carts.qty}</div>
-
+                                                    }
+                                        
                                                     {prodList?
                                                     prodList
                                                     [prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))] // index of model

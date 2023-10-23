@@ -163,6 +163,12 @@ const QuoteHistory = () => {
                                                             {item.qty}
                                                         </li>
                                                     :null:null:null:null:null}
+                                                    {allQuoteRequests?histNum?prodList?allQuoteRequests.length>=histNum?item.qty<1?
+                                                        <li className="list-group-item list-group-item-light">
+                                                            <span style={quoteHistStyles.historyKey}>Quantity:</span>
+                                                            {item.qty + " (Accessory Quote Only)"}
+                                                        </li>
+                                                    :null:null:null:null:null}
 
                                                     {allQuoteRequests?prodList?allQuoteRequests.length>=histNum?
                                                     prodList

@@ -93,27 +93,19 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
         }
     }
 
-    // Warnings
-    const [warningMsg, setWarningMsg] = useState();
-
-    // Check Quantity 
-    const checkQuantity = (e) => {
-        e.preventDefault();
-        if (cart.qty < 1) {
-            setWarningMsg("")
-        }
-    }
-
     const addToCart = async (e) => {
         e.preventDefault();
             try {
-                if (cart.qty < 1) {
-                    return alert("Please add quantity.")
+                if (cart.qty < 1 && !cart.acc) {
+                    return alert("Please add items to quote.")
                 } else if (checkNum.length<reqCount) {
                     return alert ("Please make all required selections.")
                 } else if (EOLdates[2] && cart.qty > EOLdates[2]) {
                     return alert ("Maximum quantity is " + EOLdates[2]+".")
-                } 
+                }
+                // } else if (cart.qty < 1) {
+                //     window.confirm("Continue with product quantity of 0 (accessory quote only)?")
+                // }
                 else {
                     // Add items to Cart DB
                     const authToken = localStorage.getItem("auth-token");
@@ -299,39 +291,12 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates }) => {
 
                     </div>
 
-                    {/* <div className = "row" style={quoteStyles.title}>
+                    <div className = "row" style={quoteStyles.title}>
                         <div className="col-md-9"></div>
                         <div className="col-md-2" style={quoteStyles.titleBtn}>
                             <button onClick={addToCart} type="submit" className="btn btn-danger" style={quoteStyles.cartBtn}>Add to Cart</button>
                         </div>
                         <div className="col-md-1"></div>
-                    </div> */}
-                    <div className = "row" style={quoteStyles.title}>
-                        <div className="col-md-9"></div>
-                        <div className="col-md-2" style={quoteStyles.titleBtn}>
-                            <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style={quoteStyles.cartBtn}>
-                            Add to Cart 2
-                            </button>
-                        </div>
-                        <div className="col-md-1"></div>
-                    </div>
-
-                    <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="staticBackdropLabel">Confirm Request</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div className="modal-body">
-                                Please confirm quantity 0 requested (accessory quote only)
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Confirm</button>
-                                <button type="button" className="btn btn-primary">Return to add product quantity</button>
-                            </div>
-                            </div>
-                        </div>
                     </div>
 
                 </>
