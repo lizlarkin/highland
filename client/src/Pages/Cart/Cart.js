@@ -5,6 +5,7 @@ import UserContext from "../../Context/UserContext";
 import NavContext from "../../Context/NavContext";
 import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 import {ProductPhotos} from '../../Pages/Product/Images/ProductPhotos';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
@@ -233,6 +234,17 @@ const Cart = () => {
                     :null
                     }
 
+                    {cartList.length>0?
+                        <div className = "row">
+                            <div className="col-md-9"></div>
+                            <div className="col-md-3">
+                            <Link to ="/Products">
+                                <button className="btn btn-outline-primary" type="button" style={cartStyles.cartBtnLg}><i className="fa-light fa-cart-plus"></i> Add More to Cart</button>
+                            </Link>
+                            </div>
+                        </div>
+                    :null}
+
                     {cartList.length>1?
                         <div className = "row">
                             <div className="col-md-9"></div>
@@ -246,7 +258,7 @@ const Cart = () => {
                     <div className = "row">
                         <div className="col-md-9"></div>
                         <div className="col-md-3" >
-                            <button onClick={() => finalizeItems()} type="submit" className="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style={cartStyles.cartBtnLg}>Request Quote</button>
+                            <button onClick={() => finalizeItems()} type="submit" className="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style={cartStyles.cartBtnLg}><i className="fa-light fa-right"></i> Request Quote</button>
                             <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div className="modal-dialog">
                                 <div className="modal-content">
