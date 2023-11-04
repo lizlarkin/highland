@@ -175,7 +175,7 @@ const Product = () => {
                     {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware} ECCN={ECCN} htsCode={htsCode} MTBF={MTBF} noExport={noExport}/>}
                     {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
                     {content.showRelated && <ProductRelated related={productRelatives}/>}
-                    {content.showQuote && <ProductQuote name={productName} model={productModel} accessories={productAccessories} category={productCategory} EOLdates={productEOL}/>}  
+                    {content.showQuote && <ProductQuote name={productName} model={productModel} accessories={productAccessories} category={productCategory} EOLdates={productEOL} noExport={noExport}/>}  
                 </div>
             </div>
             
