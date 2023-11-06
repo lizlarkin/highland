@@ -51,18 +51,6 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates, noExport }
     let   [reqCount, setReqCount] = useState(0) // total number of required selections
     let   [checkNum, setCheckNum] = useState([]) // total number of required selections made
 
-    // if (noExport) {
-    //     console.log('here prod noEx', noExport)
-    // }
-
-    if (userData.user.country != "Russia" || "Iran" || "Lebanon" || "North Korea" || "Cuba" || "Libya" || "Sudan" || "Somalia" || "Syria") {
-        console.log('not')
-    } else if (userData.user.country === "Russia" || "Iran" || "Lebanon" || "North Korea" || "Cuba" || "Libya" || "Sudan" || "Somalia" || "Syria") {
-        console.log('is') 
-    } else {
-        console.log('else')
-    }
-
     const cart = {
         prod: model+"-"+dashNum,
         qty: selectedQuantity,
@@ -108,22 +96,34 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates, noExport }
     const addToCart = async (e) => {
         e.preventDefault();
             try {
-                if (cart.qty < 1 && !cart.acc) {
+                if (cart.qty < 1 && Object.values(cart.acc || {}).reduce(function (s, v) { return s + (v || 0); }, 0) <1) {
                     return alert("Please add items to quote.")
                 } else if (checkNum.length<reqCount) {
                     return alert ("Please make all required selections.")
                 } else if (EOLdates[2] && cart.qty > EOLdates[2]) {
                     return alert ("Maximum quantity is " + EOLdates[2]+".")
                 } else if (userData.user.country === "Russia" || userData.user.country === "Iran" || userData.user.country === "Lebanon" || userData.user.country === "North Korea" || userData.user.country === "Cuba" || userData.user.country === "Libya" || userData.user.country === "Sudan" || userData.user.country === "Somalia" || userData.user.country === "Syria") {
-                // (userData.user.country = "Russia" || "Iran" || "Lebanon" || "North Korea" || "Cuba" || "Libya" || "Sudan" || "Somalia" || "Syria") {
                     return alert ("Product cannot be exported to " + userData.user.country)
                 } else if (userData.user.country === noExport) {
                     return alert ("Product cannot be exported to " + userData.user.country)
-                } 
-                // } else if (cart.qty < 1) {
-                //     window.confirm("Continue with product quantity of 0 (accessory quote only)?")
-                // }
-                else {
+                } else {
+                    // Have customer confirm that the request is for only accessories
+                    if (cart.qty < 1) {
+                        if (window.confirm("Proceed with product quantity of 0 (accessory quote only)?")==false) {
+                            return
+                    } else {
+                        // Add items to Cart DB
+                        const authToken = localStorage.getItem("auth-token");
+                        await axios.post("/cart", 
+                            cart,
+                            { headers: { "x-auth-token": authToken },
+                        });
+                        // Update Context
+                        getCartQuantity()
+                        // Redirect to cart page
+                        history.push("/Cart")     
+                    }
+                } else {
                     // Add items to Cart DB
                     const authToken = localStorage.getItem("auth-token");
                     await axios.post("/cart", 
@@ -134,7 +134,7 @@ const ProductQuote = ({ name, model, accessories, category, EOLdates, noExport }
                     getCartQuantity()
                     // Redirect to cart page
                     history.push("/Cart")     
-                }
+                }}
             } catch (error) {
                 console.log(error)
             } 

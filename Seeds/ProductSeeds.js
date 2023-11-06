@@ -322,6 +322,8 @@ let productSeed = [
       ],
       FAQs: [
         ["Does the J720 require a power supply?", "A power supply is not needed. Any low impedance 5V TTL source will power the J720. "], 
+        ["What does it mean that the J720 requires a 50-ohm source?", "The J720 is directly powered by the signal, it does not require a separate power supply. The J720 is factory calibrated to launch 1mW (0dBm) into fiber when driven by a +5 volt, 50-ohm source. Note that a 5 volt, 50-ohm source produces 2.5 volts into a 50-ohm load. The 50-ohm source impedance sets operating current, and absorbs signal reflections between the source, cable and J720."], 
+        ["Can the J720 operate with a +3.3V instead of +5V, 50-ohm source?", "The J720 is factory calibrated to couple 1mW (0dBm) into fiber when powered by a +5V, 50-ohm source. The J720 can operate with a +3.3V, 50-ohm source provided that the J720's sensitivity trimpot is adjusted to compensate for the lower signal level. Access the trimpot by removing the round silver sticker on the top of the enclosure. Use a small flat head screwdriver to carefully rotate the trimpot clockwise while observing optical power level with the calibrated monitor port of a Highland optical-to-electrical converter, or separate power meter. Rotate trimpot fully clockwise if adjusting a 1310nm version."], 
       ],
       ECCN: "EAR99",
       htsCode: "8517.62.0050",
@@ -4475,9 +4477,10 @@ let productSeed = [
       about: [],
       related: [],
       specifications: [],
-      // versions: [
-      //   ["required", "Select Inputs", 1, [1, "differential ECL inputs"], [2, "optical inputs"],],
-      // ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 1, [null]],
+      ],
       accessories: [],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],

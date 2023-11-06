@@ -112,8 +112,8 @@ const Customers = () => {
 
     const storeCustNum = (e) => {
         setCustNum(e.target.id)
-        // console.log(custNum)
     } 
+
 
     return (
         <div>

@@ -37,7 +37,6 @@ const AccountInformation = () => {
             await axios.put(`/users/updateBasicUser/${userData.user.id}`, form)
             setUserData({...userData, form})
             setUserSuccessMsg('User Data Successfully Updated')
-            console.log('hit from accountinfo', form)
         } catch (error) {
             setUserSuccessMsg();
             setUserErrMsg(error.response.data.msg);

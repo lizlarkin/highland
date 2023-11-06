@@ -61,7 +61,7 @@ const Cart = () => {
         }
     };
 
-    // Delete All in one cart section
+    // Delete one cart item
     const deleteCart = async (e) => {
         const cartIdToDelete = e.target.id;
         console.log("cartIdToDelete", cartIdToDelete)
