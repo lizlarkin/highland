@@ -302,6 +302,8 @@ import V730_2 from "./V730_VME_Optical_Electrical_Converter_2.png";
 import V730_3 from "./V730_VME_Optical_Electrical_Converter_3.png";
 import V730_4 from "./V730_VME_Optical_Electrical_Converter_4.png";
 import V860_1 from "./V860_VME_Pulse_Amplifier_1.png";
+import V860_2 from "./V860_VME_Pulse_Amplifier_2.png";
+import V860_3 from "./V860_VME_Pulse_Amplifier_3.png";
 import V880_1 from "./V880_VME_Facility_Timing_Delay_Generator_1.png";
 import V880_2 from "./V880_VME_Facility_Timing_Delay_Generator_2.png";
 import V880_3 from "./V880_VME_Facility_Timing_Delay_Generator_3.png";
@@ -820,6 +822,8 @@ const V730PhotoArr = [
 
 const V860PhotoArr = [
     V860_1,
+    V860_2,
+    V860_3,
 ]
 
 const V880PhotoArr = [

@@ -50,7 +50,7 @@ let productSeed = [
       ],
       config: [
         // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
-        ["required", "Packaging", [0, "board-only"], [1, "evaluation kit (D100 installed on mounting flange with 24 volt power supply and SMB to BNC cable)"]]
+        ["required", "Packaging", [0, "board-only"], [1, "evaluation kit (D100 installed on mounting flange with 24 volt power supply and two SMB to BNC cables)"]]
       ],
       versions: [
         [[0], 1, ["compact 250A laser driver", "board-only"]],
@@ -338,10 +338,14 @@ let productSeed = [
       category: ["PHO"],
       features: [
         ["Compact DC-coupled logic-level to fiberoptic converter"],
+        ["Small, rugged anodized extruded aluminum package allows the e/o transition to be located wherever most convenient"],
         ["Available with 850 nanometer laser for multimode fiber, and 1310 nanometer or 1550 nanometer laser for single or multimode fiber"],
+        ["Uses commonly available ST or FC connectorized fiberoptic cables"],
+        ["Adjustable logic-level inputs are compatible with TTL, LVTTL, ECL, NIM, and most other common logic levels"],
         ["High noise immunity ensures error-free logic transmission in severe EMI environments"],
         ["User-selectable input logic threshold and termination"],
-        ["Compatible with Highland's J730 standalone and V730 six-channel VME O/E converters"],
+        ["Timing link jitter typically below 12 picoseconds RMS when used with compatible J730 or V730 optical/electrical converters"],
+        ["Ideal accessory for model P500 benchtop digital delay/pulse generator"],
       ],
       description: "Accepts an adjustable digital logic level input and functions as a fast fiber-coupled laser source.",
       imgCaptions: ["", "", "J724 w/ ST connectorization", "J724 w/ FC connectorization", "", "J724 w/ Pigtail FC-APC connectorization"],
@@ -373,7 +377,7 @@ let productSeed = [
         ["JITTER", ["< 12 ps RMS, typical"]],
         ["OPERATING TEMPERATURE	", ["0 to 60°C; extended MIL/COTS ranges available"]],
         ["CALIBRATION INTERVAL", ["One year"]],
-        ["POWER", ["+12 volts at 300 mA, nominal", "J12 12 volt power supply adapter furnished"]],
+        ["POWER", ["12 volts to 24 volts at 300 mA, nominal (28 volts max)", "Positive or negative polarity, power is isolated from chassis and connector signals", "J12 12 volt power supply adapter furnished"]],
         ["CONNECTORS", ["Gold plated SMB electrical logic input", "ST, FC or FC-APC Pigtail optical output receptacle", "Front panel test jack for threshold measurement", "2.1 mm X 5.5 mm barrel power connector"]],
         ["INDICATORS", ["LED: Amber power"]],
         ["PACKAGING", ['3.3" (L) x 2.1" (W) x 0.9" (H) extruded anodized aluminum enclosure', "J732 mounting flange included"]],
@@ -4707,16 +4711,44 @@ let productSeed = [
       name: "6-channel VME pulse amplifier",
       model: "V860",
       category: ["VME", "PSG"],
-      features: [],
+      features: [
+        ["Outputs up to 10 volts into 50 ohms"],
+        ["Sub-nanosecond risetime: 400 picoseconds typical at 10 volts"],
+        ["Low added jitter: 3 picoseconds RMS typical"],
+        ["Adjustable input threshold and polarity allow input from ECL, TTL, NIM, and other logic levels"],
+        ["Channel cascade feature allows multiple pulse fanout configurations"],
+      ],
       description: "Accepts user adjustable logic-level inputs and generates high-level, very fast positive output pulses.",
-      imgCaptions: [""],
-      about: [],
+      imgCaptions: ["", "", ""],
+      about: [
+        "The V860 is a multichannel pulse amplifier packaged as a standard VME module. It accepts logic-level inputs and generates high-level, very fast positive output pulses."
+      ],
       related: [],
-      specifications: [],
-      // versions: [
-      //   ["required", "Select Connector Type", 1, [1, "SMB connectors"], [2, "LEMO connectors"], [3, "SMA connectors"]],
-      // ],
-      accessories: [],
+      specifications: [
+        ["FUNCTION", ["Multichannel digital pulse amplifier"]],
+        ["INPUTS", ["Six logic inputs, threshold from -2.5 to +2.5 volts, common trimpot adjustment, factory set to +1.25 volts", "Maximum safe input is ± 4 volts", "Per-channel switches are provided to select input polarity and input termination, 50Ω to ground or high impedance", "Factory setting is positive, terminated", "Channel inputs may be cascaded such as to drive multiple outputs from one input", "One common TTL-level GATE input disables all outputs when pulled low"]],
+        ["OUTPUTS", ["Six positive pulses, active pullup, passive pulldown; customer termination to ground is required", "Pulse amplitude is adjustable from +4 to +10 volts into a 50Ω load, with common adjustment for all channels", "Factory set to +5 volts", "Pullup output impedance is 2Ω nominal; pulldown is 500Ω nominal", "Output current limit is 300 ma peak, 80 ma average", "Risetime 500 ps max; falltime 5 ns max"]],
+        ["PROPAGATION DELAY", ["Rising edge, 3.5 ns typical; falling edge, 10 ns typical"]],
+        ["JITTER", ["Rising edge, less than 5 ps RMS added jitter", "Falling edge, less than 25 ps RMS added jitter"]],
+        ["OPERATING TEMPERATURE", ["0 to 60° C; extended MIL/COTS ranges available"]],
+        ["CALIBRATION INTERVAL", ["One year"]],
+        ["POWER", ["Standard VME supplies:", ["+5 volts, 200 mA max", "+12 volts, 360 mA max (plus load current)", "-12 volts, 150 mA max"]]],
+        ["CONNECTORS", ["V860-1  SMB", "V860-2  LEMO", "V860-3  SMA"]],
+        ["PACKAGING", ["Single-wide 6U VME module"]],
+        ["CONFORMANCE", ["VMEbus per ANSI/VITA 1-1994 (R2002)", "The module does not interface to the VME data bus, and passes all VME grant lines"]],
+      ],
+      config: [
+        ["required", "Connector Type", [0, "SMB connectors"], [1, "LEMO connectors"], [2, "SMA connectors"]],    
+      ],
+      versions: [
+        [[0], 1, ["SMB connectors"]], 
+        [[1], 2, ["LEMO connectors"]], 
+        [[2], 3, ["SMA connectors"]],
+      ],
+      accessories: [
+        ["J53-1", "3' SMB to BNC cable"],
+        ["J53-2", '6" SMB to BNC cable'],
+      ],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
