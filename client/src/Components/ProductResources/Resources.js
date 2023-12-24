@@ -74,6 +74,7 @@ import V880_CoC from './assets/V880_CoC.pdf'
 // Statements of Volatility Import Files
 import J724_SOV from './assets/J724_SOV.pdf'
 import J730_SOV from './assets/J730_SOV.pdf'
+import P330_SOV from './assets/P330_SOV.pdf'
 import P344_SOV from './assets/P344_SOV.pdf'
 import P348_SOV from './assets/P348_SOV.pdf'
 import P350_SOV from './assets/P350_SOV.pdf'
@@ -288,15 +289,15 @@ import V410_MAN from './assets/V410MANB5.pdf'
 import V420_MAN from './assets/V420MANE1.pdf'
 import V450_MAN from './assets/V450MANG2.pdf'
 import V460_MAN from './assets/V460MANC3.pdf'
-// import V470_MAN from './assets/V470MAN.pdf'
-// import V490_MAN from './assets/V490MAN.pdf'
+import V470_MAN from './assets/V470MANG3.pdf'
+import V490_MAN from './assets/V490MANE1.pdf'
 // import V545_MAN from './assets/V545MAN.pdf'
 import V550_MAN from './assets/V550MANB4.pdf'
-// import V660_MAN from './assets/V660MAN.pdf'
+import V660_MAN from './assets/V660MANB5.pdf'
 import V680_MAN from './assets/V680MANC3.pdf'
 import V720_MAN from './assets/V720MAND2.pdf'
 import V730_MAN from './assets/V730MANB4.pdf'
-// import V860_MAN from './assets/V860MAN.pdf'
+import V860_MAN from './assets/V860MAND1.pdf'
 // import V880_MAN from './assets/V880MAN.pdf'
 
 // Certificates of Conformance Export Array
@@ -378,6 +379,7 @@ export const CoCArr = [
 export const SoVArr = [
     J724_SOV,
     J730_SOV,
+    P330_SOV,
     P344_SOV,
     P348_SOV,
     P350_SOV,
@@ -602,14 +604,14 @@ export const ManArr = [
     V420_MAN,
     V450_MAN,
     V460_MAN,
-    // V470_MAN,
-    // V490_MAN,
+    V470_MAN,
+    V490_MAN,
     // V545_MAN,
     V550_MAN,
-    // V660_MAN,
+    V660_MAN,
     V680_MAN,
     V720_MAN,
     V730_MAN,
-    // V860_MAN,
+    V860_MAN,
     // V880_MAN,
 ]

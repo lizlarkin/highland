@@ -28,6 +28,10 @@ import SuccessConfirm from './Pages/Confirm/SuccessConfirm';
 import Search from './Pages/Search/Search';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 
+// Google Analytics 4
+import ReactGA from "react-ga4";
+ReactGA.initialize("G-DV2ZHT0V08");
+
 function App() {
 
   const [userData, setUserData] = useState({
@@ -94,6 +98,7 @@ function App() {
         <ScrollToTop />
 
         <UserContext.Provider value = {{ userData, setUserData, incrementQuoteNum, checkLoggedIn }}>
+          <Route path="/Home" component={Home}/>
           <NavContext.Provider value = {{cartQuantity, getCartQuantity}}>
             <Navigation logout={logout}/>
             <Switch>
@@ -116,7 +121,7 @@ function App() {
                 <Route path="/Partners" component={Partners}/>
                 <Route path="/Testimonials" component={Testimonials}/>
                 <Route path="/Search" component={Search}/>
-                <Route path="/Home" component={Home}/>
+                {/* <Route path="/Home" component={Home}/> */}
                 <Route path="/" component={Home}/>
             </Switch>
             </NavContext.Provider>

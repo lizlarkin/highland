@@ -289,6 +289,9 @@ import V550_2 from "./V550_VME_LVDT_RVDT_Scanner_2.png";
 import V550_3 from "./V550_VME_LVDT_RVDT_Scanner_3.png";
 import V550_4 from "./V550_VME_LVDT_RVDT_Scanner_4.png";
 import V660_1 from "./V660_VME_Time_Interval_Measurement_1.png";
+import V660_2 from "./V660_VME_Time_Interval_Measurement_2.png";
+import V660_3 from "./V660_VME_Time_Interval_Measurement_3.png";
+import V660_4 from "./V660_VME_Time_Interval_Measurement_4.png";
 import V680_1 from "./V680_VME_Time_To_Digital_Converter_1.png";
 import V680_2 from "./V680_VME_Time_To_Digital_Converter_2.png";
 import V680_3 from "./V680_VME_Time_To_Digital_Converter_3.png";
@@ -797,6 +800,9 @@ const V550PhotoArr = [
 
 const V660PhotoArr = [
     V660_1,
+    V660_2,
+    V660_3,
+    V660_4,
 ]
 
 const V680PhotoArr = [

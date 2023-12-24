@@ -1,16 +1,78 @@
-.content {
-    text-align: center;
+.home-background {
+    background-image: url("./background4.png");
+    background-size: cover;
+    padding-top: 15%;
+    padding-bottom: 10%;
+}
+
+.slogan-row {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    text-align: "right";
+    margin-top: 4%;
+    border: "1px solid white";
+}
+
+.sub-slogan-row {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 19px;
+    margin-top: 5%;
+    margin-bottom: 8%;
+    border-top: 2px solid white;
+}
+
+.capabilities-row {
+    margin-top: -20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: -80px;
+}
+
+#product-row {
     color: white;
 }
 
-.light-row {
+.product-link {
+    text-decoration: none;
+    color: white;
+}
+
+.product-link:hover {
+    color: white;
+}
+
+.bgOpacity {
+    background: rgba(0, 0, 0, 0.0);
+    opacity: 1;
+    filter: grayscale(85%);
+    border: none;
+} 
+
+.bgOpacity:hover {
+    filter: grayscale(0%);
+}
+
+.carousel-button {
+    width: 75%;
+    margin-top: 10%;
+}
+
+#highlightedProduct {
+    background: rgba(0, 0, 0, 0.0);
+    opacity: 1;
+    border: none;
+}
+
+/* .light-row {
     color: #224281;
     padding-top: 5%;
     padding-bottom: 5%;
 }
 
 #logo-row {
-    background-image: url("./pcb3.jpg");
+    background-image: url("./Home_Gradient_1.png");
     background-size: cover;
     padding-top: 3%;
     padding-bottom: 15%;
@@ -25,14 +87,7 @@
     width: 100%;
 }
 
-#product-row {
-    background-image: url("./Home_Gradient_5.png");
-    background-size: cover;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    background-repeat: no-repeat;
-    color: white;
-}
+
 
 .home-header {
     margin-top: 1%;
@@ -80,5 +135,5 @@
 
 #background-product-row {
     margin-bottom: 2%;
-}
+} */
 

@@ -53,8 +53,8 @@ let productSeed = [
         ["required", "Packaging", [0, "board-only"], [1, "evaluation kit (D100 installed on mounting flange with 24 volt power supply and two SMB to BNC cables)"]]
       ],
       versions: [
-        [[0], 1, ["compact 250A laser driver", "board-only"]],
-        [[1], 9, ["compact 250A laser driver", "evaluation kit"]],
+        [[0], 1, ["board-only"]],
+        [[1], 9, ["evaluation kit"]],
       ],
       accessories: [
         ["J25-1", "24 volt 65W power supply", "(1 included with purchase)"],
@@ -172,12 +172,12 @@ let productSeed = [
       ],
       config: [
         // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
-        ["required", "Configuration", [0, "130 ps nominal Gaussian pulse outputs and rising-edge trigger"], [1, "input follower with 60 ps nominal 20:80 rise/fall time"], [2, "input follower with 60 ps nominal 20:80 rise/fall time LVDS"]]
+        ["required", "Configuration", [0, "140 ps nominal Gaussian pulse outputs and rising-edge trigger"], [1, "input follower with 75 ps nominal 10:90 rise/fall time"], [2, "input follower with 75 ps nominal 10:90 rise/fall time LVDS"]]
       ],
       versions: [
-        [[0], 1, ["130 ps nominal Gaussian pulse outputs and rising-edge trigger"]],
-        [[1], 2, ["input follower with 60 ps nominal 20:80 rise/fall time"]],
-        [[2], 3, ["input follower with 60 ps nominal 20:80 rise/fall time LVDS"]],
+        [[0], 1, ["140 ps nominal Gaussian pulse outputs and rising-edge trigger"]],
+        [[1], 2, ["input follower with 75 ps nominal 10:90 rise/fall time"]],
+        [[2], 3, ["input follower with 75 ps nominal 10:90 rise/fall time LVDS"]],
       ],
       // versions: [
       //   ["required", "select configuration", 1, [1, "140 ps nominal Gaussian pulse outputs and rising-edge trigger"], [2, "input follower with 75 ps nominal 10:90 rise/fall time"], [3, "input follower with 75 ps nominal 10:90 rise/fall time LVDS"]], 
@@ -2138,7 +2138,7 @@ let productSeed = [
       {
         name: "4-channel compact digital delay and pulse generator",
         model: "T560",
-        category: ["DDG", "LDC"],
+        category: ["LEG", "DDG", "LDC"],
         features: [
             ["Four TTL-level delay outputs, individually programmable for delay and pulse width"], 
             ["10 picosecond delay and width resolution, 10 second range"],
@@ -2244,6 +2244,7 @@ let productSeed = [
           ["Should I use the demo software to communicate with the T560?", "In general, Highland no longer recommends the use of the T560 demo software. We are not able to provide support for it and it seems to have problems communicating on newer versions of Windows. It's easier to use a serial port program such as TeraTerm or PuTTY. Extensive instructions on communicating with the T560 can be found in the technical manual."],
           ["Is it possible to drive the T560 using LabView?", "While we don't provide any LabView support, you can use LabView to communicate with the T560 and create your own driver."],
         ],
+        EOL: ["November 15, 2023", "December 31, 2030", 10, ["T660 4-channel compact digital delay and pulse generator"]],
         ECCN: "3A999",
         htsCode: "8543.20.0000",
         MTBF: ["562,863", "1,776"],
@@ -2253,7 +2254,7 @@ let productSeed = [
       {
         name: "4-channel compact advanced digital delay and pulse train generator",
         model: "T564",
-        category: ["DDG", "LDC"],
+        category: ["LEG", "DDG", "LDC"],
         features: [
           ["Four TTL-level delay outputs, individually programmable for delay and pulse width"], 
           ["10 picosecond delay and width resolution, 10 second range"],
@@ -2352,6 +2353,7 @@ let productSeed = [
           ["T565-1", "RS-232 cable", "(1 included with purchase)"],
           ["T566-1", "mounting flange", "(1 included with evaluation kit purchase)"],
         ],
+        EOL: ["November 15, 2023", "December 31, 2030", 5, ["T660 4-channel compact digital delay and pulse generator"]],
         ECCN: "3A999",
         htsCode: "8543.20.0000",
         MTBF: [],
@@ -4245,7 +4247,7 @@ let productSeed = [
         ["Field-wiring termination and module I/O cabling is included in the design architecture. Standard termination panels, thermocouple termination boxes, and cables are available."],
         ["Support for one or two optional 8-channel J470 isothermal junction boxes, each with integral RTD reference junction sensor, or one or two J475 field-wiring interface boards."],
         ["A version is available with an internal full-function BIST subsystem."],
-        ["True floating outputs: up to three channels may be connected in series for higher output voltages."],
+        ["True floating outputs: channels may be connected in series for higher output voltages."],
         ["Clearly labeled DIP switches set VME address: no jumpers, headers, or trimpots."],
       ],
       description: "Simulates most common thermocouples with sixteen independent, isolated analog outputs that may be user-programmed to operate as voltage outputs or thermocouple simulators.",
@@ -4290,10 +4292,16 @@ let productSeed = [
         ["Offset", ["±5uV", "±30ppm of range"], ["±20uV", "±175ppm of range"], ["±30uV", "±300ppm of range"], ["±40uV", "±400ppm of range"],],
         ["Gain", "±50ppm of output", "±310ppm of output", "±660ppm of output", "±940ppm of output"],
       ],
-      // versions: [
-      //   ["optional", "conformal coating", "", [1, "add conformal coating"]],
-      //   ["optional", "built-in self-test", 1, [2, "add BIST"]],
-      // ],
+      config: [
+        ["optional", "Built-in Self-test", [0, null], [1, "add built-in self-test"]],
+        ["optional", "Conformal Coating", [0, null], [1, "add conformal coating"]],
+      ],
+      versions: [
+        [[0,0], 1, [null]], 
+        [[1,0], 2, ["add built-in self-test"]],
+        [[0,1], 11, ["add conformal coating"]],
+        [[1,1], 12, ["add built-in self-test", "add conformal coating"]],
+      ],
       accessories: [
         ["J55-1", "6' shielded D25 male to D25 male cable"],
         ["J56-1", "10' shielded D25 male to D25 male cable"],
@@ -4475,17 +4483,47 @@ let productSeed = [
       name: "12-channel VME picosecond resolution time-interval measurement module",
       model: "V660",
       category: ["LEG", "VME"],
-      features: [],
-      description: "Records the time of occurrence of twelve independent electrical pulse inputs, in time-interval or timestamp modes.",
-      imgCaptions: [""],
-      about: [],
-      related: [],
-      specifications: [],
-      config: ["noOptions"],
-      versions: [
-        [[0], 1, [null]],
+      features: [
+        ["12-channel, 32-bit resolution timestamper"],
+        ["Measures time intervals up to 6.71 seconds"],
+        ["Each of 12 channels is an independent timestamper"],
+        ["256-sample FIFO memory for each channel"],
+        ["Jitter typically below 75 picoseconds RMS"],
+        ["Includes option of up to 8 M RAM for event buffering"],
+        ["32-bit VME module"],
+        ["Available with electrical or optical inputs"],
       ],
-      accessories: [],
+      description: "Records the time of occurrence of twelve independent electrical pulse inputs, in time-interval or timestamp modes.",
+      imgCaptions: ["", "", "", "version V660-2 with optical mezzanine"],
+      about: [
+        "The V660 is a 12-channel time-to-digital converter used to record the time of occurrence of twelve independent electrical pulse inputs, each independently timestamped and buffered in FIFO memory.",
+        "The V660 may be used in streaming timestamp or single-shot event modes. Each channel will timestamp events separated by 150 nanoseconds or more."
+      ],
+      related: [],
+      specifications: [
+        ["FUNCTION", ["12 channel VME TDC/timestamp module"]],
+        ["PACKAGING", ["Single-wide, 6U VME module"]],
+        ["VME MODES", ["A24:A16:D32:D16:D08(EO)", "Address mode and bus address are dipswitch selectable", "Responds to hex address modifiers 29 and 2D in 16-bit mode, or 39 and 3D in 24-bit mode", "VME cycle response time (DS* to DTACK*) averages 150 ns"]],
+        ["INPUTS", ["V660-1 version:", ["12 logic-level front-panel inputs; channels are named T0 through T11", "Accepts differential ECL positive-edge triggers, and terminates 100 ohms differentially", "One differential ECL Gate input", "One TTL Gate input", "One general-purpose TTL logic I/O"], "V660-2 version:", ["Eight ST-connectorized 850 nm optical inputs, timestamp channels 1-5 and 7-9", "Two TTL/CMOS timestamp inputs, channels 10 and 11", "One TTL gate input"]]],
+        ["TIMING", ["Measures time-of-edge of each of the 12 timing inputs", "User-selectable LSB values are:", ["24.4140625 ps	(40.96 GHz clock equivalent)", "97.65625 ps	(10.24 GHz)", "390.625 ps	(2.56 GHz)", "1562.5 ps	(0.64 GHz)"], "with 32-bit range (effective clock speeds of 40.96, 10.24, 2.56, and 0.640 GHz)", "Times are reported as absolute timestamps relative to the MCH:MCL master counter", "The master timestamp counter may be read and reset from the VME bus", "The V660 will timestamp all edges on any given channel if separated by at least 160 ns", "Average event rate is limited by VMEbus unload of event FIFO memory", "Alternate mezzanine modules provide for other signal levels, multihit and pingpong modes, fast gating, and other features", "Jitter is defined as the statistical variation of times measured as the difference between two timestamps on a single channel or across channels", "Jitter is below (0.75 LSB + 65 ps + timebase jitter) RMS, where timebase jitter is a function of the measured time interval", "Channel-channel skew is below 200 ps", "Statistical linearity is better than 0.25 LSB"]],
+        ["MEMORY", ["Each channel includes a 256-sample FIFO memory", "An associated control/status register indicates number of samples in each FIFO, overrun status, and allows FIFO management", "Per-channel FIFO data may be read from a single address or from a block of 256 longwords/channel, allowing sequential-read block transfers"]],
+        ["CLOCK", ["Internal TCXO timebase, ±1 PPM accuracy", "Timebase jitter is below (2e-9 x measured delay RMS", "The module includes provision for phase-locking to another V660 or to an external 10 MHz reference"]],
+        ["LOGIC", ["Internal logic is implemented with a reprogrammable FPGA, allowing field-upgradeable customization of functions and interface", "The V660 may also be used to trigger external events and generate associated time-acquisition gates"]],
+      ],
+      specificationsNotes: [
+        ["Unless noted, the specifications refer to the V660-1 version."],
+      ],
+      config: [
+        ["required", "Inputs", [0, "differential ECL inputs"], [1, "optical inputs"]],    
+      ],
+      versions: [
+        [[0], 1, ["differential ECL inputs"]], 
+        [[1], 2, ["optical inputs"]], 
+      ],
+      accessories: [
+        ["J53-1", "3' SMB to BNC cable"],
+        ["J53-2", '6" SMB to BNC cable'],
+      ],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],

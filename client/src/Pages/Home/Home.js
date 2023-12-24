@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import "./assets/homeStyles.css";
-import homeLogo from './assets/Highland_logo_white_on_black.png';
+import T680_Home from './assets/T680_Home.png';
 import VME from '../Product/Images/V120_VME_PCIE_Crate_Controller_1.png';
 import DDG from '../Product/Images/P500_Digital_Delay_Generator_1.png';
 import PulseGen from '../Product/Images/J270_Pulse_Generator_1.png';
@@ -9,6 +9,7 @@ import WaveformGen from '../Product/Images/P350_Waveform_Playback_ARB_1.png';
 import LaserControl from '../Product/Images/D100_Laser_Driver_1.png';
 import Photonics from '../Product/Images/J724_Electrical_Fiberoptic_Converter_2.png';
 import MeasureSim from '../Product/Images/P545_Synchro_LVDT_Acquisition_Simulator_2.png';
+import HomeNav from '../../Components/Navigation/HomeNav';
 // import Legacy from '../Product/Images/P730_Optical_Electrialc_Fanout_Buffer_1.png';
 
 const Home = () => {
@@ -103,7 +104,132 @@ const Home = () => {
         <div>
             <div className="content">
 
-                <div className="row" id="logo-row">
+            <HomeNav/>
+
+            {/* <nav class="navbar navbar-expand-sm fixed-top navbar-light">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar1">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+        <div class="collapse navbar-collapse" id="navbar1">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+            </nav> */}
+
+            <div className="home-background">
+                <div className="row">
+                    <div className="col-md-1"></div>
+                    <div className="col-md-5">
+                        <div className="slogan-row">
+                            <div>GET THE EASY STUFF</div> 
+                            <div>SOMEWHERE ELSE.</div>
+                        </div>
+                        <div className="sub-slogan-row">
+                            <div>Electronics for demanding aerospace and defense, scientific, laser and fiberoptic systems, and industrial applications</div> 
+                        </div>
+                        <div>
+                        <div className="btn-group dropend">
+                            <button type="button" className="btn btn-light dropdown-toggle" id="home-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Select Product Category
+                            </button>
+                            <ul className="dropdown-menu">
+                                <li onClick={goToCategory} title={"VME"} className="dropdown-item">VME</li> 
+                                <li onClick={goToCategory} title={"DDG"} className="dropdown-item">Digital Delay Generators</li>
+                                <li onClick={goToCategory} title={"PSG"} className="dropdown-item">Pulse Generators</li>
+                                <li onClick={goToCategory} title={"WFG"} className="dropdown-item">Waveform Generators</li> 
+                                <li onClick={goToCategory} title={"LDC"} className="dropdown-item">Laser Drivers/Controllers</li>
+                                <li onClick={goToCategory} title={"PHO"} className="dropdown-item">Photonics</li>
+                                <li onClick={goToCategory} title={"MAS"} className="dropdown-item">Measurement/Simulation</li>
+                                <li onClick={goToCategory} title={"OEM"} className="dropdown-item">OEM/Embedded</li>
+                                <li onClick={goToCategory} title={"LEG"} className="dropdown-item">Legacy</li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                        <img src={T680_Home} className="img-fluid" alt="..."/>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div className="row capabilities-row">
+                {capabilities.map((capability, index) => (
+                    <div className="col-md-4">
+                        <div className="card shadow p-3 mb-5 bg-white rounded h-75 text-center" key={index}>
+                            <i className={capability[1]}></i>
+                            <div class="card-body">
+                                <h5 class="card-title">{capability[0]}</h5>
+                                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className="home-background">
+            <div id="product-row">
+                    <div className="row" id="background-product-row">
+                        <div className="col-md-3"></div>
+                        <div className="col-md-2">
+                            <a className="product-link" href ={"/Category/"+products[productArray[2]][2]}>
+                                <img src={products[productArray[2]][1]} className="img-thumbnail bgOpacity" alt={products[productArray[2]][0]}></img>
+                                <h5>{products[productArray[2]][0]}</h5>
+                            </a>
+                        </div>
+                        <div className="col-md-2"></div>
+                        <div className="col-md-2">
+                            <a className="product-link" href ={"/Category/"+products[productArray[3]][2]}>
+                                <img src={products[productArray[3]][1]} className="img-thumbnail bgOpacity" alt={products[productArray[3]][0]}></img>
+                                <h5>{products[productArray[3]][0]}</h5>
+                            </a>
+                        </div>
+                        <div className="col-md-3"></div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-1"></div>
+                        <div className="col-md-3">
+                            <a className="product-link" href ={"/Category/"+products[productArray[1]][2]}>
+                                <img src={products[productArray[1]][1]} className="img-thumbnail bgOpacity" alt={products[productArray[1]][0]}></img>
+                                <h5>{products[productArray[1]][0]}</h5>
+                            </a>
+                        </div>
+                        <div className="col-md-4">
+                            <a className="product-link" href ={"/Category/"+products[productArray[0]][2]}>
+                                <img src={products[productArray[0]][1]} className="img-thumbnail" id="highlightedProduct" alt={products[productArray[0]][0]}></img>
+                                <h5>{products[productArray[0]][0]}</h5>
+                            </a>
+                        </div>
+                        <div className="col-md-3">
+                            <a className="product-link" href ={"/Category/"+products[productArray[4]][2]}>
+                                <img src={products[productArray[4]][1]} className="img-thumbnail bgOpacity" alt={products[productArray[4]][0]}></img>
+                                <h5>{products[productArray[4]][0]}</h5>
+                            </a>
+                        </div>
+                        <div className="col-md-1"></div>
+                    </div>
+                    <div className = "row">
+                        <div className="col-md-4"></div>
+                        <div className="col-md-2">
+                            <button onClick={decrementProdIndex} type="button" className="btn btn-outline-light carousel-button"><i className="fa-solid fa-chevrons-left"></i></button>
+                        </div>
+                        <div className="col-md-2">
+                            <button onClick={incrementProdIndex} type="button" className="btn btn-outline-light carousel-button"><i className="fa-solid fa-chevrons-right"></i></button>
+                        </div>
+                        <div className="col-md-4"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+                {/* <div className="row" id="logo-row">
                     <div className="col-md-4"></div>
                     <div className="col-md-4" id="logo-img">
                         <img src={homeLogo} className="img-fluid" alt="Highland Logo"/>
@@ -219,7 +345,7 @@ const Home = () => {
                             ))}
                         </ul>
                     </div>
-                </div>
+                </div> */}
 
             </div>
 
