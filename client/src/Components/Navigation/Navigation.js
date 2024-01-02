@@ -35,10 +35,10 @@ const Navigation = (props) => {
     useEffect(() => {
     }, [props])
     
-    
     return (
       <nav>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        {/* <nav className={thisPathname==="Home"?"navbar navbar-expand-sm fixed-top navbar-light":"navbar navbar-expand-lg navbar-dark bg-dark sticky-top"}> */}
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
           <div className="container-fluid">
                     <Link to="/Home" className="navbar-brand">
                         <img src={highlandLogo} style={navigationStyles.logo} alt="Highland Logo"/>

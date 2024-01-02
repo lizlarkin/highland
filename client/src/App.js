@@ -98,32 +98,31 @@ function App() {
         <ScrollToTop />
 
         <UserContext.Provider value = {{ userData, setUserData, incrementQuoteNum, checkLoggedIn }}>
-          <Route path="/Home" component={Home}/>
-          <NavContext.Provider value = {{cartQuantity, getCartQuantity}}>
-            <Navigation logout={logout}/>
-            <Switch>
-                <Route path="/Category" component={Category}/>
-                <Route path="/Products" component={Products}/>
-                <Route path="/Product" component={Product}/>
-                <Route path="/About" component={About}/>
-                <Route path="/Contact" component={Contact}/>
-                <Route path="/Login" component={Login}/>
-                <Route path="/Register" component={Register}/>
-                <Route path="/Confirm" component={Confirm}/>
-                <Route path="/confirm_token/:token" component={SuccessConfirm}/>  
-                <Route path="/Account" component={Account}/>
-                <Route path="/ForgotPassword" component={ForgotPassword}/>
-                <Route path="/ResetPassword/:token" component={ResetPassword}/>
-                <Route path="/Cart" component={Cart}/>
-                <Route path="/Careers" component={Careers}/>
-                <Route path="/Customers" component={Customers}/>
-                <Route path="/FAQ" component={FAQ}/>
-                <Route path="/Partners" component={Partners}/>
-                <Route path="/Testimonials" component={Testimonials}/>
-                <Route path="/Search" component={Search}/>
-                {/* <Route path="/Home" component={Home}/> */}
-                <Route path="/" component={Home}/>
-            </Switch>
+            <NavContext.Provider value = {{cartQuantity, getCartQuantity}}>
+              <Navigation logout={logout}/>
+              <Switch>
+                  <Route path="/Category" component={Category}/>
+                  <Route path="/Products" component={Products}/>
+                  <Route path="/Product" component={Product}/>
+                  <Route path="/About" component={About}/>
+                  <Route path="/Contact" component={Contact}/>
+                  <Route path="/Login" component={Login}/>
+                  <Route path="/Register" component={Register}/>
+                  <Route path="/Confirm" component={Confirm}/>
+                  <Route path="/confirm_token/:token" component={SuccessConfirm}/>  
+                  <Route path="/Account" component={Account}/>
+                  <Route path="/ForgotPassword" component={ForgotPassword}/>
+                  <Route path="/ResetPassword/:token" component={ResetPassword}/>
+                  <Route path="/Cart" component={Cart}/>
+                  <Route path="/Careers" component={Careers}/>
+                  <Route path="/Customers" component={Customers}/>
+                  <Route path="/FAQ" component={FAQ}/>
+                  <Route path="/Partners" component={Partners}/>
+                  <Route path="/Testimonials" component={Testimonials}/>
+                  <Route path="/Search" component={Search}/>
+                  <Route path="/Home" component={Home}/>
+                  <Route path="/" component={Home}/>
+              </Switch>
             </NavContext.Provider>
         </UserContext.Provider>
 

@@ -55,7 +55,6 @@ const Product = () => {
         const getProductData = async () => {
             try {
                const prodData = await axios.get(`/products/${model}`);
-            //    console.log(prodData, "HERE")
                setProductName(prodData.data[0].name);
                setProductModel(prodData.data[0].model);
                setProductCategory(prodData.data[0].category);

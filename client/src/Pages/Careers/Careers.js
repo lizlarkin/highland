@@ -13,6 +13,39 @@ const Careers = () => {
 
     const openPositions = [
         {
+            title: "Senior Electronics Design Engineer",
+            intro: "Highland Technology is looking for a Senior Electronics Design Engineer with a strong background in electronic embedded systems, interested in working with projects that are mentally challenging and advancing into a technical leadership position in a small and collaborative environment. You will be expected to architect and guide the development of high-performance scientific and aerospace instrumentation electronics. In addition to developing and supporting complex electronic products, you will work with the Chief Engineer, Senior Engineer, and Engineering Manager to help oversee the department and progressively assume senior technical supervisory roles. In addition to strong technical skills in electronics design, the ideal candidate will have experience in managing engineering personnel, generating new product concepts, overseeing and developing budgets, liaising with other departments, and working with suppliers and customers.",
+            responsibilities: [
+                "Design digital and analog circuits",
+                "Establish requirement specifications",
+                "Brainstorm and define architectures",
+                "Participate in and supervise projects that involve microprocessor and FPGA code development",
+                "Oversee and mentor Junior Engineers and Technicians",
+                "Write thorough product and design documentation",
+                "Draft and oversee standard operating procedures",
+                "Participate in design reviews and provide input to identify potential issues and drive design choices",
+                "Propose innovative solutions to enhance product performance and features and assist with business development",
+                "Create and design production test plans and programs",
+            ],
+            requirements: [
+                "B.S in Electrical Engineering or equivalent and a sound understanding of engineering principles",
+                "8+ years of work experience",
+                "Proven knowledge of analog circuit design and analysis, with specific experience in power supply and instrumentation systems",
+                "Experience with digital circuit design and analysis",
+                "Experience with schematic and board design using PADS or equivalent",
+                "Strong interpersonal and communications skill and proficient use of the English language",
+                "US Citizenship",    
+            ],
+            preferred: [
+                "Knowledge of digital signal processing and control theory: classical, linear, and non-linear",
+                "Experience with FPGAs and VHDL",
+                "Experience with microcontrollers and C/C++",
+                "Experience with embedded Linux",
+                "Experience with Python",
+                "Experience with leading or supervising teams and mentoring Junior Engineers",
+            ]
+        },
+        {
             title: "Electronics Design Engineer",
             intro: "Highland Technology is looking for a Design Engineer with a strong background in electronic embedded systems, interested in working with projects that are mentally challenging, in a mission-driven, collaborative environment and prepared to tackle a broad selection of challenges. You will be expected to construct and guide high-performance electronic development.",
             responsibilities: [
@@ -128,6 +161,16 @@ const Careers = () => {
                                             <ul>
                                                 {position.requirements.map((reqs, idx) => (
                                                     <li key={idx}>{reqs}</li>
+                                                ))}
+                                            </ul>
+                                            </>
+                                        :null}
+                                        {position.preferred?
+                                            <>
+                                            <h6>Preferred:</h6>
+                                            <ul>
+                                                {position.preferred.map((pref, idx) => (
+                                                    <li key={idx}>{pref}</li>
                                                 ))}
                                             </ul>
                                             </>

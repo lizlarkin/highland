@@ -92,7 +92,7 @@ let productSeed = [
       related: [
         "D100 compact 250A laser driver",
         "P500 4-channel benchtop digital delay and pulse generator",
-        "T660 4-channel benchtop digital delay and pulse generator",
+        "T660 4-channel compact digital delay and pulse generator",
       ],
       specifications: [
         ["FUNCTION", ["Diode laser driver with internal pulse width generator "]],
@@ -150,8 +150,7 @@ let productSeed = [
       related: [
         "P500 4-channel benchtop digital delay and pulse generator",
         "T240 single-channel externally-triggered complementary-output pulse generator",
-        "T560 4-channel compact digital delay and pulse generator",
-        "T564 4-channel compact advanced digital delay and pulse train generator",
+        "T660 4-channel compact digital delay and pulse generator",
       ],
       specifications: [
         ["FUNCTION", ["Externally-triggered complementary-output pulse generator"]],
@@ -286,7 +285,7 @@ let productSeed = [
         "J724 single-channel compact buffered electrical-to-fiberoptic converter",
         "J730 single-channel compact fiberoptic-to-electrical converter",
         "P500 4-channel benchtop digital delay and pulse generator",
-        "T560 4-channel compact digital delay and pulse generator",
+        "T660 4-channel compact digital delay and pulse generator",
         "T760 dual-channel compact high voltage optical-to-electrical converter",
         "V720 6-channel VME buffered electrical-to-optical converter",
         "V730 6-channel VME optical-to-electrical converter",
@@ -943,8 +942,7 @@ let productSeed = [
         "J724 single-channel compact buffered electrical-to-fiberoptic converter",
         "J730 single-channel compact fiberoptic-to-electrical converter",
         "P500 4-channel benchtop digital delay and pulse generator",
-        "T560 4-channel compact digital delay and pulse generator",
-        "T564 4-channel compact advanced digital delay and pulse train generator",
+        "T660 4-channel compact digital delay and pulse generator",
         "T760 dual-channel compact high voltage optical-to-electrical converter",
         "T860 single-channel compact logic buffer and driver",
       ],
@@ -1114,6 +1112,7 @@ let productSeed = [
           "P400 4-channel benchtop digital delay and pulse generator",
           "T560 4-channel compact digital delay and pulse generator",
           "T564 4-channel compact advanced digital delay and pulse train generator",
+          "T660 4-channel compact digital delay and pulse generator"
         ],
         specifications: [
           ["FUNCTION", ["Four channel digital delay/pulse generator"]],
@@ -1627,7 +1626,7 @@ let productSeed = [
         "P500 4-channel benchtop digital delay and pulse generator",
         "T165 picosecond to nanosecond laser diode pulser",
         "T240 single-channel externally-triggered complementary-output pulse generator",
-        "T560 4-channel compact digital delay and pulse generator"
+        "T660 4-channel compact digital delay and pulse generator"
       ],
       specifications: [
         ["FUNCTION", ["Embedded laser diode driver"]],
@@ -1697,7 +1696,7 @@ let productSeed = [
         "D200 diode laser driver",
         "P500 4-channel benchtop digital delay and pulse generator",
         "T160 picosecond to nanosecond laser diode driver",
-        "T560 4-channel compact digital delay and pulse generator"
+        "T660 4-channel compact digital delay and pulse generator"
       ],
       specifications: [
         ["FUNCTION", ["Embedded pulse generator and laser diode driver"]],
@@ -1784,8 +1783,7 @@ let productSeed = [
       related: [
         "J240 single-channel compact pulse generator",
         "P500 4-channel benchtop digital delay and pulse generator",
-        "T560 4-channel compact digital delay and pulse generator",
-        "T564 4-channel compact advanced digital delay and pulse train generator",
+        "T660 4-channel compact digital delay and pulse generator",
       ],
       specifications: [
         ["FUNCTION", ["Externally-triggered complementary-output pulse generator"]],
@@ -2176,6 +2174,7 @@ let productSeed = [
           "P500 4-channel benchtop digital delay and pulse generator",
           "P730 dual 1:4 benchtop optical-to-electrical fanout buffer",
           "T564 4-channel compact advanced digital delay and pulse train generator",
+          "T660 4-channel compact digital delay and pulse generator",
           "T750 4-channel compact high-voltage driver",
           "T760 dual-channel compact high voltage optical-to-electrical converter",
           "T860 single-channel compact logic buffer and driver",
@@ -2254,7 +2253,7 @@ let productSeed = [
       {
         name: "4-channel compact advanced digital delay and pulse train generator",
         model: "T564",
-        category: ["LEG", "DDG", "LDC"],
+        category: ["LEG", "DDG", "LDC", "OEM"],
         features: [
           ["Four TTL-level delay outputs, individually programmable for delay and pulse width"], 
           ["10 picosecond delay and width resolution, 10 second range"],
@@ -2292,7 +2291,8 @@ let productSeed = [
           "J730 single-channel compact fiberoptic-to-electrical converter",
           "P500 4-channel benchtop digital delay and pulse generator",
           "P730 dual 1:4 benchtop optical-to-electrical fanout buffer",
-          "T564 4-channel compact advanced digital delay and pulse train generator",
+          "T560 4-channel compact digital delay and pulse generator",
+          "T660 4-channel compact digital delay and pulse generator",
           "T750 4-channel compact high-voltage driver",
           "T760 dual-channel compact high voltage optical-to-electrical converter",
           "T860 single-channel compact logic buffer and driver",
@@ -2357,6 +2357,93 @@ let productSeed = [
         ECCN: "3A999",
         htsCode: "8543.20.0000",
         MTBF: [],
+      },
+
+      // ****************************** T660 Data ******************************
+      {
+        name: "4-channel compact digital delay and pulse generator",
+        model: "T660",
+        category: ["DDG", "LDC"],
+        features: [
+            ["Four TTL-level delay outputs, individually programmable for delay and pulse width"], 
+            ["10 picosecond delay and width resolution, 10 second range"], 
+            ["22 nanosecond insertion delay, 16 MHz max trigger rate"], 
+            ["<35 picoseconds typical jitter"], 
+            ["Highly accurate DSP phase lock system provides crystal-clock delay accuracy with zero indeterminacy from asynchronous external trigger"], 
+            ["Internal 10 MHz crystal oscillator time base with external lock capability"], 
+            ["0-16 MHz DDS synthesizer for internal trigger rates"], 
+            ["Programmable-level trigger input with divide and burst features and trigger enable GATE input"], 
+            ["Needs +12-volt power from external universal power supply and can be operated all the way +24 volts"], 
+            ["RS-232 serial interface standard; 10/100 mbps Ethernet interface"], 
+            ["Extruded enclosure with removable mounting flange"], 
+            ["Output impedance switch allowing for 50 Ω source termination or low impedance"], 
+            ["Trains/Frames option includes timing lists and multiple pulses per trigger"], 
+            ["Web page controls from any browser"], 
+        ],
+        description: "Accepts an internal or external trigger and generates four precise output pulses, each user programmable in time delay and width.",
+        imgCaptions: ["", "", "", "T660 signal endplate", "T660 power endplate"],
+        about: [
+            "The T660 is a small, enclosed digital delay/pulse generator which is intended for use in embedded OEM applications. Given an internal or external trigger, it outputs four precisely timed pulses. It is a drop-in, backward compatible replacement for the T560 and T564 digital delay and pulse generators.",
+        ],
+        related: [
+          "J720 single-channel compact electrical-to-fiberoptic converter",
+          "J724 single-channel compact buffered electrical-to-fiberoptic converter",
+          "J730 single-channel compact fiberoptic-to-electrical converter",
+          "P400 4-channel benchtop digital delay and pulse generator",
+          "P500 4-channel benchtop digital delay and pulse generator",
+          "P730 dual 1:4 benchtop optical-to-electrical fanout buffer",
+          "T560 4-channel compact digital delay and pulse generator",
+          "T564 4-channel compact advanced digital delay and pulse train generator",
+          "T750 4-channel compact high-voltage driver",
+          "T760 dual-channel compact high voltage optical-to-electrical converter",
+          "T860 single-channel compact logic buffer and driver",
+          "V850 4-channel VME digital delay/pulse generator",
+          "V851 6-channel VME digital delay/pulse generator",
+        ],
+        specifications: [
+          ["FUNCTION", ["Four channel digital delay/pulse generator"]],
+          ["CHANNELS", ["A B C D"]],
+          ["OUTPUT VOLTAGE", ["+5V", "Zout selectable 50 Ω (+2.5V into 50 Ω loads)", ["low z (+5V into 50 Ω loads)"], "Rise/Fall < 750 ps typ"]],
+          ["DELAY RANGE", ["0 to 10 seconds"]],
+          ["WIDTH RANGE", ["0 to 10 seconds"]],
+          ["INSERTION DELAY", ["Normal Mode: Trigger to any output 55 ns ± 400 ps", "Fast Mode: Trigger to any output 21 ns ± 400 ps"]],
+          ["REP RATE", ["0 to 16 MHz, limited to 1/ (max d + w + 70 ns)"]],
+          ["ACCURACY", ["Trigger to rising or falling edges ± 400 ps ± 7.5 ps/℃ ± clock accuracy"]],
+          ["RESOLUTION", ["Edge times, 1 ps", "Trigger level, 10 mV"]],
+          ["JITTER", ["Typical 35 ps RMS + timebase jitter", "Max 50 ps RMS + timebase jitter", "Add clock jitter for delays > 500 µs"]],
+          ["TRIGGER", ["External, internal, software (remote command)", "Burst, divide-by-N, N-of-M pulse picking", "External trigger range ± 5 volts", ["rising/falling edge", "impedance selectable 2K + 15 pF or 50 Ω", "minimum recommended amplitude 0.25 volts p-p", "125 MHz maximum repetition rate input"], "Internal DDS, 0 to 16 MHz, 0.02 Hz resolution", "Internal clock: 80 MHz source, use Trigger Divisor for Max 16 MHz rep rate"]],
+          ["VCXO TIMEBASE", ["Initial accuracy: ±1 PPM", "Aging: < ±5 ppm/1000 hours", "Jitter: 10ns/s RMS max", "Jitter: 10ns/s RMS max", "Lockable to external 10MHz ± 10 PPM"]],
+          ["CLOCK INPUT", ["10 MHz, sine or square 0.5 to 5 volts p-p", "1kΩ nominal input impedance"]],
+          ["CLOCK OUTPUT", ["10 MHz, square wave, 3 bolts p-p AC coupled", "50 Ω nominal output impedance"]],
+          ["COUNTDOWN", ["Provides trigger divide-by-N or N-of-M burst/pulse picker mode, up to 125 MHz external trigger"]],
+          ["POWER", ["External +12 +/-0.25 volts DC from universal adapter supplied", "0.5 amps max", "+24 +/-0.25 Volts absolute max voltage input; no guarantee of accuracy performance", "Includes standard IEC60320 C13 line cord"]],
+          ["COMMUNICATIONS", ["RS-232 standard, 38.4 Kilobaud (configurable up to 115.2 Kilobaud)", "10/100 Ethernet standard (configurable with serial commands)"]],
+          ["PACKAGING", ["4.84” (L) x 4.06” (W) x 1.20” (H) blue extruded aluminum enclosure"]],
+          ["TEMPERATURE", ["Specifications apply over 10-40 ˚C ambient", "Operating range 0 to 50 ˚C", "Storage range -20 to 80 ˚C"]],
+          ["CONFORMANCE", ["RoHS"]],
+          ["WARRANTY", ["One year limited"]],
+          ["CALIBRATION INTERVAL", ["One year"]],
+          ["OPTIONS", ["Frame and train engine"]],
+        ],
+        config: [
+          // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
+          ["optional", "frame and train engine", [0, null], [1, "add advanced pulse train/frame generation"]]
+        ],
+        versions: [
+          // configuration num, Highland dash num, description of configuration/version
+          [[0], 1, [null]], 
+          [[1], 2, ["advanced pulse train/frame generation"]],
+        ],
+        accessories: [
+          ["J12-1", "12 volt power supply", "(1 included with purchase)"],
+          ["J53-1", "3' SMB to BNC cable", "(2 included with purchase)"],
+          ["J53-2", '6" SMB to BNC cable'],
+          ["P10-1", '19" rack mount shelf (four t-boxes per rack)'],
+          ["T565-1", "RS-232 cable", "(1 included with purchase)"],
+          ["T566-1", "mounting flange", "(1 included with purchase)"],
+        ],
+        ECCN: "3A999",
+        htsCode: "8543.20.0000",
       },
 
       // ****************************** T680 Data ******************************
@@ -2521,10 +2608,8 @@ let productSeed = [
         "Highland Technology also offers the T760, a dual-channel compact high-voltage driver with fiberoptic inputs."
       ],
       related: [
-        "P400 4-channel benchtop digital delay and pulse generator",
         "P500 4-channel benchtop digital delay and pulse generator",
-        "T560 4-channel compact digital delay and pulse generator",
-        "T564 4-channel compact advanced digital delay and pulse train generator",
+        "T660 4-channel compact digital delay and pulse generator",
         "T760 dual-channel compact high voltage optical-to-electrical converter",
       ],
       specifications: [
@@ -2579,10 +2664,8 @@ let productSeed = [
         "Highland also offers the T750, a 4-channel high-voltage transformer-isolated pulse driver.",
       ],
       related: [
-        "P400 4-channel benchtop digital delay and pulse generator",
         "P500 4-channel benchtop digital delay and pulse generator",
-        "T560 4-channel compact digital delay and pulse generator",
-        "T564 4-channel compact advanced digital delay and pulse train generator",
+        "T660 4-channel compact digital delay and pulse generator",
         "T750 4-channel compact high-voltage driver",
       ],
       specifications: [
@@ -2646,10 +2729,8 @@ let productSeed = [
       related: [
         "J720 single-channel compact electrical-to-fiberoptic converter",
         "J724 single-channel compact buffered electrical-to-fiberoptic converter",
-        "P400 4-channel benchtop digital delay and pulse generator",
         "P500 4-channel benchtop digital delay and pulse generator",
-        "T560 4-channel compact digital delay and pulse generator",
-        "T564 4-channel compact advanced digital delay and pulse train generator",
+        "T660 4-channel compact digital delay and pulse generator",
         "T760 dual-channel compact high voltage optical-to-electrical converter",
         "T850 compact pockels cell driver"
       ],
@@ -2706,7 +2787,7 @@ let productSeed = [
       ],
       related: [
         "P500 4-channel benchtop digital delay and pulse generator",
-        "T560 4-channel compact digital delay and pulse generator",
+        "T660 4-channel compact digital delay and pulse generator",
         "T840 2-channel high voltage driver",
       ],
       specifications: [
@@ -2808,19 +2889,19 @@ let productSeed = [
       },
 
       // ****************************** T900 Data ******************************
-      {
-      name: "laser timing unit",
-      model: "T900",
-      category: ["OEM"],
-      features: [],
-      description: "Manages high-rate laser timing on a shot-by-shot basis, with picosecond resolution of both laser system drive and photodiode diagnostics.",
-      imgCaptions: [""],
-      about: [],
-      related: [],
-      specifications: [],
-      htsCode: "8543.70.9655",
-      MTBF: [],
-      },
+      // {
+      // name: "laser timing unit",
+      // model: "T900",
+      // category: ["OEM"],
+      // features: [],
+      // description: "Manages high-rate laser timing on a shot-by-shot basis, with picosecond resolution of both laser system drive and photodiode diagnostics.",
+      // imgCaptions: [""],
+      // about: [],
+      // related: [],
+      // specifications: [],
+      // htsCode: "8543.70.9655",
+      // MTBF: [],
+      // },
 
       // ****************************** V120 Data ******************************
       {
@@ -4404,16 +4485,69 @@ let productSeed = [
       name: "24-channel VME synchro/LVDT simulation/acquisition module",
       model: "V545",
       category: ["VME", "WFG", "MAS"],
-      features: [],
+      features: [
+        ["24 transformer-isolated AC sinewave generator/acquisition channels"],
+        ["Generalized ADC-DAC-DSP architecture"],
+        ["Programmable functions include:", 
+          [
+            "LVDT/RVDT acquisition, with internal or external excitation",
+            "LVDT/RVDT simulation, with internal or external excitation",
+            "Synchro/resolver acquisition, with internal or external excitation",
+            "Synchro/resolver simulation, with internal or external excitation",
+            "Poly-phase sine wave generation from 250 Hz to 20 KHz",
+            "True RMS voltage measurement",
+            "Synchronous detection",
+            "Frequency measurement",
+          ]
+        ],
+        ["Realtime voltage and frequency measurement, all signals in all modes"],
+        ["16 bit ADC and DAC resolution"],
+        ["Internal ARM9 CPU performs macro functions"],
+        ["Generalized function block capability"],
+        ["Clearly labeled dipswitches set VME address; no jumpers, headers, or trimpots"],
+      ],
       description: "Performs LVDT and synchro/resolver simulation and acquisition using internal or external excitation.",
-      imgCaptions: [""],
-      about: [],
-      related: [],
-      specifications: [],
-      // versions: [
-      //   ["required", "Select Transformers", 1, [1, "small signal 1:1 730MH plugin transformer"], [4, "small signal 3.7:1 750MH plugin transformer"], [6, "small signal 5.3:1 750MH plugin transformer"]],
-      // ],
-      accessories: [],
+      imgCaptions: ["", "", "", ""],
+      about: [
+        "The V545 is a generalized- DSP-based sinewave processor intended for both simulation and acquisition of LVDTs, RVDTs, synchros, and resolvers. 24 generalized, isolated channels are provided. Each channel can be a signal source or a measurement input. Users can program any desired relationship between input and output channels, allowing simulation and measurement of a wide range of inductive transducers, using internal or external excitation.",
+        "Per-channel features include true RMS AC measurement, frequency measurement, programmable phase shift, and a versatile phase-sensitive detector.",
+        "Plugin transformers allow optional voltage input/output ranges. Software transformer ID is provided.",
+      ],
+      related: [
+        "P545 12-channel synchro / LVDT simulation / acquisition module",
+        "V346 8-channel VME 32 MHz arbitrary waveform generator w/ complex modulation",
+        "V375 4-channel VME arbitrary waveform generator",
+        "V550 8-channel VME LVDT/RVDT scanner",
+      ],
+      specifications: [
+        ["FUNCTION", ["24-channel LVDT/synchro simulator"]],
+        ["DEVICE TYPE", ["16-bit VME register-based slave: A24:A16:D16;", "Implements 1024 16-bit registers at switch selectable addresses in the VME 16 or 24 bit addressing spaces"]],
+        ["I/O CHANNELS ", ["24, transformer isolated, programmable input/output", "Nominal 100 ohm output impedance with 1:1 transformers"]],
+        ["RANGES", ["± 10.24 volts peak using 1:1 transformers", "± 54.27 volts peak using 5.3:1 transformers"]],
+        ["RESOLUTION", ["16 bits"]],
+        ["SAMPLE RATE", ["250 ksps/channel"]],
+        ["FREQUENCY RANGE", ["250 Hz to 20 KHz"]],
+        ["OPERATING TEMPERATURE", ["0 to 60°C; extended MIL/COTS ranges available"]],
+        ["CALIBRATION INTERVAL", ["Two years"]],
+        ["POWER", ["Standard VME supplies:", ["+ 5 volts,  500 mA max", "+12 volts, 2 A max", "-12 volts,  2 A max"]]],
+        ["CONNECTORS", ["Two female D25 connectors, one female D9 connector"]],
+        ["INDICATORS", ["LEDs indicate VME access, CPU activity, error conditions", "Additional LED is user programmable"]],
+        ["PACKAGING", ["6U single-wide VME module"]],
+        ["CONFORMANCE", ["ANSI/VITA 1-1994 (R2002) VMEbus spec; does not support byte writes "]],
+      ],
+      config: [
+        ["required", "Transformer Type", [0, "small signal 1:1 730MH plugin transformers"], [1, "small signal 3.7:1 750MH plugin transformers"], [2, "small signal 5.3:1 750MH plugin transformers"]],    
+      ],
+      versions: [
+        [[0], 1, ["small signal 1:1 730MH plugin transformers"]], 
+        [[1], 4, ["small signal 3.7:1 750MH plugin transformers"]], 
+        [[2], 6, ["small signal 5.3:1 750MH plugin transformers"]],
+      ],
+      accessories: [
+        ["V548-1", "small signal 1:1 730MH plugin transformer", "(factory recalibration is recommended if transformers are replaced)"],
+        ["V548-4", "small signal 3.7:1 750MH plugin transformer", "(factory recalibration is recommended if transformers are replaced)"],
+        ["V548-6", "small signal 5.3:1 750MH plugin transformer", "(factory recalibration is recommended if transformers are replaced)"],
+      ],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],

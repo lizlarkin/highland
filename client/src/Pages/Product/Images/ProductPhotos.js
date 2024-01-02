@@ -160,6 +160,11 @@ import T564_1 from "./T564_Digital_Delay_Generator_1.png";
 import T564_2 from "./T564_Digital_Delay_Generator_2.png";
 import T564_3 from "./T564_Digital_Delay_Generator_3.png";
 import T564_4 from "./T564_Digital_Delay_Generator_4.png";
+import T660_1 from "./T660_Digital_Delay_Generator_1.png";
+import T660_2 from "./T660_Digital_Delay_Generator_2.png";
+import T660_3 from "./T660_Digital_Delay_Generator_3.png";
+import T660_4 from "./T660_Digital_Delay_Generator_4.png";
+import T660_5 from "./T660_Digital_Delay_Generator_5.png";
 import T680_1 from "./T680_Time_Interval_Counter_1.png";
 import T680_2 from "./T680_Time_Interval_Counter_2.png";
 import T680_3 from "./T680_Time_Interval_Counter_3.png";
@@ -574,6 +579,14 @@ const T564PhotoArr = [
     T564_4,
 ]
 
+const T660PhotoArr = [
+    T660_1,
+    T660_2,
+    T660_3,
+    T660_4,
+    T660_5,
+]
+
 const T680PhotoArr = [
     T680_1,
     T680_2,
@@ -875,6 +888,7 @@ export const ProductPhotos = [
     T500PhotoArr,
     T560PhotoArr,
     T564PhotoArr,
+    T660PhotoArr,
     T680PhotoArr,
     T735PhotoArr,
     T750PhotoArr,
