@@ -30,7 +30,8 @@ import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 
 // Google Analytics 4
 import ReactGA from "react-ga4";
-ReactGA.initialize("G-DV2ZHT0V08");
+ReactGA.initialize("G-DV2ZHT0V08"); // THIS IS DEV SITE
+// ReactGA.initialize("G-9CZEQHL1V1"); USE THIS ONE FOR LIVE SITE
 
 function App() {
 

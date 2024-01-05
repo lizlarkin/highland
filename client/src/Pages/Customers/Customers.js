@@ -114,7 +114,6 @@ const Customers = () => {
         setCustNum(e.target.id)
     } 
 
-
     return (
         <div>
             <div>

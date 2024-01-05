@@ -1384,12 +1384,11 @@ let productSeed = [
         ["CONFORMANCE", ["Designed to meet UL/FCC/CE requirements"]],
       ],
       config: [
-        ["required", "Wavelength", [0, "850nm"], [1, "1310nm"], [2, "1550nm"]],    
+        ["required", "Wavelength", [0, "850nm"], [1, "1550nm"]],    
       ],
       versions: [
-        [[0], 1, ["850nm wavelength"]], 
-        [[1], 3, ["1310nm wavelength"]],  
-        [[2], 5, ["1550nm wavelength"]],
+        [[0], 1, ["850nm wavelength"]],  
+        [[1], 5, ["1550nm wavelength"]],
       ],
       accessories: [
         ["J24-1", "24 volt 1.2 amp power supply", "(furnished with purchase)"],
@@ -1400,7 +1399,7 @@ let productSeed = [
         ["J53-2", '6" SMB to BNC cable'],
         ["P10-1", '19" rack mount shelf (two p-boxes per rack)'],
       ],
-      EOL: ["April 1, 2023", "April 1, 2027", 24, null],
+      EOL: ["April 1, 2023", "April 1, 2027", 11, null],
       ECCN: "EAR99",
       htsCode: "8517.62.0050",
       MTBF: [],
@@ -2105,6 +2104,7 @@ let productSeed = [
       versions: [
         [[0], 1, [null]],
       ],
+      EOL: ["December 31, 2023", "December 31, 2026", 0, ["T500 precision laser modulator system"]],
       ECCN: "3A230",
       htsCode: "8543.20.0000",
       noExport: "China",
@@ -2243,7 +2243,7 @@ let productSeed = [
           ["Should I use the demo software to communicate with the T560?", "In general, Highland no longer recommends the use of the T560 demo software. We are not able to provide support for it and it seems to have problems communicating on newer versions of Windows. It's easier to use a serial port program such as TeraTerm or PuTTY. Extensive instructions on communicating with the T560 can be found in the technical manual."],
           ["Is it possible to drive the T560 using LabView?", "While we don't provide any LabView support, you can use LabView to communicate with the T560 and create your own driver."],
         ],
-        EOL: ["November 15, 2023", "December 31, 2030", 10, ["T660 4-channel compact digital delay and pulse generator"]],
+        EOL: ["November 15, 2023", "December 31, 2030", 26, ["T660 4-channel compact digital delay and pulse generator"]],
         ECCN: "3A999",
         htsCode: "8543.20.0000",
         MTBF: ["562,863", "1,776"],
@@ -2353,7 +2353,7 @@ let productSeed = [
           ["T565-1", "RS-232 cable", "(1 included with purchase)"],
           ["T566-1", "mounting flange", "(1 included with evaluation kit purchase)"],
         ],
-        EOL: ["November 15, 2023", "December 31, 2030", 5, ["T660 4-channel compact digital delay and pulse generator"]],
+        EOL: ["November 15, 2023", "December 31, 2030", 3, ["T660 4-channel compact digital delay and pulse generator"]],
         ECCN: "3A999",
         htsCode: "8543.20.0000",
         MTBF: [],
@@ -2549,28 +2549,13 @@ let productSeed = [
         ["PACKAGING", ['4.75” (L) x 4.00” (W) x 1.25” (H), extruded anodized aluminum ', "Optional removable mounting flange"]],
         ["CONFORMANCE", ["OEM product has no UL/FCC/CE compliance requirements", "Designed to meet UL/FCC/CE requirements", "Power adapter when furnished is UL/CE certified"]],
       ],
-      config: ["noOptions"],
-      versions: [
-        [[0], 16, ["1550nm wavelength with with pulse stretcher and dual LVDS outputs"]],
+      config: [
+        ["required", "Configuration", [0, "1310 nm optical input with dual LVDS and complimentary TTL outputs"], [1, "1550 nm optical input with pulse stretcher, dual LVDS, and complimentary TTL outputs "]]
       ],
-      // config: [
-      //   ["required", "Configuration", 
-      //   [0, "1310nm wavelength and dual RS422/485 outputs"], 
-      //   [1, "1550nm wavelength and dual RS422/485 outputs"],
-      //   [2, "1310nm wavelength and dual LVDS outputs"],
-      //   [3, "1550nm wavelength and dual LVDS outputs"],
-      //   [4, "1550nm wavelength with with pulse stretcher and dual LVDS outputs"],
-      //   [5, "1310nm wavelength with 0 to 2.5mW threshold and dual RS422/485 outputs"],
-      //   ],    
-      // ],
-      // versions: [
-      //   [[0], 3, ["1310nm wavelength and dual RS422/485 outputs"]], 
-      //   [[1], 5, ["1550nm wavelength and dual RS422/485 outputs"]], 
-      //   [[2], 13, ["1310nm wavelength and dual LVDS outputs"]],
-      //   [[3], 15, ["1550nm wavelength and dual LVDS outputs"]], 
-      //   [[4], 16, ["1550nm wavelength with with pulse stretcher and dual LVDS outputs"]], 
-      //   [[5], 23, ["1310nm wavelength with 0 to 2.5mW threshold and dual RS422/485 outputs"]], 
-      // ],
+      versions: [
+        [[0], 13, ["1310 nm optical input with dual LVDS and complimentary TTL outputs"]],
+        [[1], 16, ["1550 nm optical input with pulse stretcher, dual LVDS, and complimentary TTL outputs "]],
+      ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 included with purchase)"],
         ["J41-1", "3' SMB to SMB cable"],
@@ -2582,7 +2567,7 @@ let productSeed = [
         ["P10-1", '19" rack mount shelf (four t-boxes per rack)'],
         ["T566-1", "mounting flange"],
       ],
-      EOL: ["May 1, 2023", "May 1, 2027", 3, null],
+      EOL: ["May 1, 2023", "May 1, 2027", 17, null],
       ECCN: "EAR99",
       htsCode: "8517.62.0050",
       MTBF: ["4,183,925", "239"],
@@ -2626,6 +2611,10 @@ let productSeed = [
         ["CONNECTORS", ["Signals: SMB", "Power, 2.5 mm coaxial, center positive", "Tip jacks monitor for high voltage output level", "Tip jacks monitor trigger threshold level"]],
         ["INDICATORS", ["Green power on LED"]],
         ["PACKAGING", ['4.75" (L) x 4.05" (W) x 1.25" (H)']],
+      ],
+      config: ["noOptions"],
+      versions: [
+        [[0], 2, [null]],
       ],
       accessories: [
         ["J12-1", "12 volt power supply", "(1 included with purchase)"],
@@ -3951,7 +3940,7 @@ let productSeed = [
       accessories: [
         ["V780-1", "Field wiring termination panel w/ 6' cable"],
       ],
-      EOL: ["December 31, 2022", "December 31, 2023", 6, null],
+      EOL: ["December 31, 2022", "December 31, 2023", 0, null],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
@@ -4005,7 +3994,7 @@ let productSeed = [
         [[0], 1, [null]],
       ],
       accessories: [],
-      EOL: ["July 1, 2023", "July 1, 2027", 16, null],
+      EOL: ["July 1, 2023", "July 1, 2027", 27, null],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
@@ -4607,7 +4596,7 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      EOL: ["December 31, 2022", "July 31, 2023", 2, ["P545 12-channel synchro / LVDT simulation / acquisition module", "V545 24-channel VME synchro/LVDT simulation/acquisition module"]],
+      EOL: ["December 31, 2022", "July 31, 2023", 4, ["P545 12-channel synchro / LVDT simulation / acquisition module", "V545 24-channel VME synchro/LVDT simulation/acquisition module"]],
       ECCN: "3A992",
       htsCode: "8517.62.0050",
       MTBF: [],
@@ -4722,7 +4711,7 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
-      EOL: ["April 1, 2023", "April 1, 2024", 0, ["T680 5-channel ethernet time interval counter"]],
+      EOL: ["April 1, 2023", "April 1, 2024", 5, ["T680 5-channel ethernet time interval counter"]],
       ECCN: "3A992",
       htsCode: "8517.62.0050",
       MTBF: [],
@@ -4882,7 +4871,7 @@ let productSeed = [
       {
       name: "6-channel VME pulse amplifier",
       model: "V860",
-      category: ["VME", "PSG"],
+      category: ["LEG", "VME", "PSG"],
       features: [
         ["Outputs up to 10 volts into 50 ohms"],
         ["Sub-nanosecond risetime: 400 picoseconds typical at 10 volts"],
@@ -4925,6 +4914,7 @@ let productSeed = [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
+      EOL: ["December 31, 2024", "December 31, 2027", 25, null],
       ECCN: "3A999",
       htsCode: "8517.62.0050",
       MTBF: [],
