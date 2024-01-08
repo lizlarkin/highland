@@ -151,7 +151,7 @@ const Cart = () => {
                                         <div className="card-body">
                                             <h5 className="card-title">
                                                 {carts.prod}
-                                                {" "}
+                                                {": "}
                                                 {prodList?
                                                 prodList[prodList.findIndex(search=>search[0].includes(carts.prod.split("-")[0]))][1]
                                                 :null}

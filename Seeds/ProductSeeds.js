@@ -441,7 +441,6 @@ let productSeed = [
           "It has always been difficult to transport fast logic signals long distances over copper conductors. Coaxial or twisted-pair transmission lines introduce attenuation, dispersion, ground loops, and provide an entrance point for external electrical noise. The result can be jitter, pulse width distortion, and ultimately logic errors.",
           "A J720/J730 combination can transport logic level or critical timing triggers over kilometer distances in high EMI environments with link jitter typically below 12 picoseconds RMS. The J730 provides a digital logic output with risetime below 750 picoseconds, and a fast analog (180 MHz bandwidth) output is also provided for monitoring link integrity.",
           "The J730 is compatible with the Highland J720 and J724 E/O Converters, the P500 Digital Delay and Pulse Generator, the company's VME-packaged electrical/optical converter products, and its other VME modules with optical I/O.",
-  
       ],
       related: [
         "J720 single-channel compact electrical-to-fiberoptic converter",
@@ -2094,12 +2093,35 @@ let productSeed = [
       name: "precision laser modulator system",
       model: "T400",
       category: ["LEG"],
-      features: [],
+      features: [
+        ["Rackmount assembly used to modulate the amplitude-versus-time waveshape of an optical pulse"],
+        ["140 waveform glitches of 475 picosecond width and 250 picosecond spacing"],
+        ["Accepts a fiberoptic impulse trigger and a broad optical input pulse"],
+        ["Generates a 35 nanosecond wide programmable shaped electrical pulse which in turn drives an electro-optical modulator that modulates an input pulse waveshape"],
+        ["Designed for high stability of time delays and waveform amplitude, and for low baseline noise"]
+      ],
       description: "Integrated beam-profile modulator for large-scale fusion and other high-energy laser installations.",
-      imgCaptions: [""],
-      about: [],
-      related: [],
-      specifications: [],
+      imgCaptions: ["T400 front panel", "T400 chassis"],
+      about: [
+        "The T400 is an integrated beam-profile modulator for large-scale fusion and other high-energy laser installations.",
+        "It provides picosecond-resolution 16-bit amplitude modulation, rectangular optical gate drive, e/o modulator bias, and timing fiducials. Input, output, and trigger are single-mode fiberoptics, and control is via Ethernet.", 
+        "T400s were designed and deployed to modulate the world's biggest laser, the 192-beam megajoule NIF laser fusion facility in Livermore, California."
+      ],
+      related: [
+        "T500 precision laser modulator system"
+      ],
+      specifications: [
+        ["FUNCTION", ["electro-optical arbitrary waveform generator"]],
+        ["PACKAGING", ["3U rackmount box"]],
+      ],
+      specificationsMulti: [
+        ["Limited specifications shown, contact factory for complete information"],
+        ["", "Amplitude Output", "Load Impedance", "Amplitude Programmability", "Temporal Jitter"],
+        ["Arbitrary Waveform Generator", "0 to –6.5 V","0 to Ω8 V", "12 bits", "≤ 8 ps rms per hour"],
+        ["Impulse Generator", "0 to –6.5 V", "0 to Ω8 V", "16 bits", "≤ 8 ps rms per hour"],
+        ["Square Pulse Generator", "0 to –6.5 V", "0 to Ω8 V", "16 bits", "≤ 8 ps rms per hour"],
+        ["Bias Pulse Generator", "0 to Ω8 V", "1 MΩ", "16 bits", "--"],
+      ],
       config: ["noOptions"],
       versions: [
         [[0], 1, [null]],
@@ -4925,16 +4947,51 @@ let productSeed = [
       name: "8-channel VME delay generator for facility timing systems",
       model: "V880",
       category: ["OEM"],
-      features: [],
+      features: [
+        ["Eight output channels, isolated electrical or 850 nanometer optical fast-rise pulses"],
+        ["Each channel may be programmed to respond to selected data fields in a fiberoptic master timing signal; this allows both periodic and single-shot triggers to be defined for an overall facility or for selected subsystems"],
+        ["Each channel is equipped with a 3 second range, 1 picosecond resolution programmable digital delay generator"],
+        ["Typical jitter is below 4 picoseconds RMS averaged over one minute"],
+        ["Typical drift is below 1 picosecond per degree C, 10 picoseconds per day"],
+        ["Standard single-wide, 16-bit VME module with fast dual-port memory interface and onboard microprocessor"],
+      ],
       description: "Distributes picosecond-precision timing pulses across physically distributed facilities.",
-      imgCaptions: [""],
-      about: [],
+      imgCaptions: ["", "", "", ""],
+      about: [
+        "The V880 is a VME-based system timing module, used to distribute picosecond-precision timing pulses across physically distributed facilities. The V880 receives a 155.52 MHz (OC3 rate) fiberoptic master timing signal and outputs eight local triggers. A typical facility timing system would consist of one master optical signal generator, fiberoptic fanouts as needed, and several to hundreds of V880 timing units.",
+        "Test features include:",
+        "• LED indicators for VME access, phaselock, trigger",
+        "• Electrical test trigger input",
+        "• Reference pulse output",
+        "• Analog output-signal monitor",
+        "• VME monitoring of optical power level, phaselock status, temperatures, error statistics",
+        "Master fiberoptic timing signal generators are available."
+      ],
       related: [],
-      specifications: [],
+      specifications: [
+        ["FUNCTION", ["8-channel digital timing generator"]],
+        ["DEVICE TYPE", ["16-bit register-based VME slave; A16:D16", "Implements 256 16-bit registers in the VME 16-bit addressing space"]],
+        ["INPUTS", ["Primary timing input: 155.52 Mbps, biphase-encoded data stream, 1310 or 1550 nm, -20 to -28 dBm, APC/SC bulkhead connector", "Electrical test trigger, +1 V nominal threshold, 50Ω termination, SMB connector"]],
+        ["OUTPUTS", ["Reference timing pulse, +1.75 V nominal into external 50Ω load, 180 ns nominal width, 700 ps nominal rise/fall, SMB connector", "Test output, sample of software-selected output channel pulse; +1 V nominal into 50Ω, SMB connector", "Eight channel outputs, 180 ns pulse each, available as electrical or optical outputs in groups of four channels", "Electrical outputs are +4 V nominal into 50Ω, transformer isolated, 750 ps nominal risetime, SMB connectors", "Optical outputs are 850 nm, 500 µW nominal, 500 ps max risetime, ST 62/125 µm multimode connectors"]],
+        ["DELAYS", ["Eight channels; each channel includes a VME-programmable 128-bit pattern match array, a 128-bit pattern mask array, and a 0 to 3 second range digital delay generator with 1 ps LSB resolution", "Each channel is triggered when its programmed pattern match aligns with the time data fields in the master fiberoptic input signal", "A ninth reference channel is provided, with pattern match capability but no programmable delay"]],
+        ["ACCURACY", ["Jitter is below 15 [25] ps RMS measured over 10 seconds or less", "Delay accuracy is ±250 [500]ps; resolution 1 ps; monotonicity 40 [100]ps", "Insertion delay is 96.0 ns relative to the end of frame sync", "Reference pulse delay is 63 ns ±450 [750]ps", "Temperature drift is below 1 [2.5]ps/°C", "Optical power sensitivity is below 15 [50]ps/db, -20 to -28 dBm"]],
+        ["OPERATING TEMPERATURE", ["10 to 35°C"]],
+        ["CALIBRATION INTERVAL", ["One year"]],
+        ["POWER", ["Standard VME supplies:", ["+5 V: 1.75 A", "+12 V: 0.4 A", "-12 V: 0.6 A"]]],
+        ["INDICATORS", ["LEDs indicate VME access, channel trigger, and phaselock"]],
+        ["PACKAGING", ["6U single-wide VME module"]],
+        ["CONFORMANCE", ["ANSI/VITA 1-1994 (R2002) VMEbus spec"]],
+      ],
+      specificationsNotes: [
+        ["Specifications noted are for Precision modules; values in brackets are for Standard modules."],
+      ],
       // versions: [
       //   ["noChoice", null, 1],
       // ],
-      accessories: [],
+      accessories: [
+        ["J53-1", "3' SMB to BNC cable"],
+        ["J53-2", '6" SMB to BNC cable'],
+      ],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],

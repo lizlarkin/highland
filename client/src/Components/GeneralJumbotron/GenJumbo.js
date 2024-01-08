@@ -10,6 +10,7 @@ import FAQs from "./Images/FAQs.png";
 import Partners from "./Images/Partners.png";
 import Testimonials from "./Images/Testimonials.png";
 import Search from "./Images/Search.png";
+import About from "./Images/Highland_Front.png";
 
 const GenJumbo = () => {
 
@@ -58,7 +59,11 @@ const GenJumbo = () => {
                 setBackground(Search) 
                 setTitle("Search Results") 
                 setText("")
-            }  
+            }  else if (pageName.substring(0,6)==="About") {
+                setBackground(About) 
+                setTitle("About Highland") 
+                setText("")
+            } 
         };
         assignJumbotronData();
     }, [pageName, userData])

@@ -1,8 +1,9 @@
 import React from 'react';
+import John_Larkin from "./img/JohnLarkin.png";
 import highlandStaff from "./img/Highland_Staff.png";
 import vmeCrate from "./img/vmeCrate.png";
 import smtLine from "./img/SMT_Line.png";
-import Highland_Front from "./img/Highland_Front2.png"
+import GenJumbo from '../../Components/GeneralJumbotron/GenJumbo';
 
 const About = () => {
 
@@ -22,11 +23,11 @@ const About = () => {
 
     const aboutData = [
         {
-            img: Highland_Front,
-            title: "About Highland Technology",
+            img: John_Larkin,
+            title: "Our History",
             text: 
                 [ 
-                    "Founded in 1984, Highland Technology designs, manufactures, and supports standard and custom electronics for demanding aerospace and defense, scientific, and industrial applications.",
+                    "Founded in 1984 by John Larkin, Highland Technology designs, manufactures, and supports standard and custom electronics for demanding aerospace and defense, scientific, and industrial applications.",
                     "Headquartered in San Francisco, California, Highland occupies a 21,000 square-foot facility housing engineering, manufacturing, sales, marketing, and corporate staff. Highland is an owner operated, privately held California corporation."
                 ]
         },
@@ -63,8 +64,11 @@ const About = () => {
 
     return (
         <>
+            <div>
+                <GenJumbo />
+            </div>
 
-            <div className="row">
+            {/* <div className="row">
                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 heroContainer img-fluid" style={{backgroundImage: `url(${aboutData[0].img})`}}>
                     <h1 className="heroHeading">{aboutData[0].title}</h1>
                         <div className="heroBody">
@@ -73,6 +77,19 @@ const About = () => {
                             ))}
                         </div>
                 </div>
+            </div> */}
+            <div className="row">
+                <div className="col-md-6">
+                <img src={aboutData[0].img} className="img-fluid" alt={aboutData[0].title}/> 
+                </div>
+                    <div className="col-md-5" style={aboutStyles.productsTxt}>
+                        <h2 style={aboutStyles.aboutHeading}>{aboutData[0].title}</h2>
+                        {aboutData[0].text.map((txt, idx) => (
+                        <p className="heroText" style={aboutStyles.aboutText} key={idx}>{txt}</p>
+                        ))}
+                    </div>
+                    <div className="col-md-1">
+                    </div>      
             </div>
 
             <div className="row">

@@ -145,6 +145,7 @@ import T346_3 from "./T346_Arbitrary_Waveform_Generator_3.png";
 import T346_4 from "./T346_Arbitrary_Waveform_Generator_4.png";
 import T346_5 from "./T346_Arbitrary_Waveform_Generator_5.png";
 import T400_1 from "./T400_Laser_Modulator_System_1.png";
+import T400_2 from "./T400_Laser_Modulator_System_2.png";
 import T500_1 from "./T500_Amplitude_Modulator_Chassis_1.png";
 import T500_2 from "./T500_Amplitude_Modulator_Chassis_2.png";
 import T500_3 from "./T500_Amplitude_Modulator_Chassis_3.png";
@@ -553,6 +554,7 @@ const T346PhotoArr = [
 
 const T400PhotoArr = [
     T400_1,
+    T400_2,
 ]
 
 const T500PhotoArr = [
