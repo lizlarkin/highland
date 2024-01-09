@@ -298,7 +298,7 @@ import V680_MAN from './assets/V680MANC3.pdf'
 import V720_MAN from './assets/V720MAND2.pdf'
 import V730_MAN from './assets/V730MANB4.pdf'
 import V860_MAN from './assets/V860MAND1.pdf'
-// import V880_MAN from './assets/V880MAN.pdf'
+import V880_MAN from './assets/V880MAND4.pdf'
 
 // Certificates of Conformance Export Array
 export const CoCArr = [
@@ -613,5 +613,5 @@ export const ManArr = [
     V720_MAN,
     V730_MAN,
     V860_MAN,
-    // V880_MAN,
+    V880_MAN,
 ]

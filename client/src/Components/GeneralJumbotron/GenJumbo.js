@@ -10,8 +10,7 @@ import FAQs from "./Images/FAQs.png";
 import Partners from "./Images/Partners.png";
 import Testimonials from "./Images/Testimonials.png";
 import Search from "./Images/Search.png";
-import About from "./Images/Highland_Front.png";
-
+import About from "./Images/About.jpeg";
 const GenJumbo = () => {
 
     const { userData } = useContext(UserContext);
