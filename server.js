@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-const PORT = process.env.PORT || 5015;
+const PORT = process.env.PORT || 443;
 
 const path = require("path");
 
@@ -22,7 +22,7 @@ app.use("/products", require("./routes/productRoutes"));
 app.use("/register", require("./routes/confirmRoutes"));
 
 app.get('/', (req, res) => {
-    res.send('this works from server');
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(PORT, () => {

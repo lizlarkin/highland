@@ -56,6 +56,8 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExpor
                 <div className="content-container">
                     <div className="accordion" id="accordionExample">
 
+                        {manIndex===-1&&BDIndex===-1&&SoVIndex===-1&&StepIndex===-1&&MTBF.length<1?
+                        null:
                         <div className="accordion-item">
                             <h2 className="accordion-header" id="headingOne">
                                 <button style={resourcesStyles.accordianBtn} className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -110,6 +112,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExpor
                             </div>
                             </div>
                         </div>
+                        }
 
                         {driversSoftware?
                         <div className="accordion-item">

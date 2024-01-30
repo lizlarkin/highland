@@ -43,14 +43,15 @@ const Customers = () => {
     const customerStyles = {
         custDiv: {
             minHeight: "100px",
-            border: "none",
+            border: "1px solid green",
             backgroundColor: "white",
             marginBottom: "3%",
         },
         text: {
             textAlign: "center",
             // display: "none",
-            minHeight: "10px"
+            minHeight: "10px",
+            border: "1px solid red"
         }
     }
 

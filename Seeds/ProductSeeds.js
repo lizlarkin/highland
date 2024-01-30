@@ -62,7 +62,7 @@ let productSeed = [
         ["J53-1", "3' SMB to BNC cable"],
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -119,7 +119,7 @@ let productSeed = [
         ["J206-1", "6 volt 2.5 amp power supply", "(1 included with purchase)"],
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -195,7 +195,7 @@ let productSeed = [
         [" Does the J240 have a programmable PRF?", "No, the J240 will need an external PRF source as a trigger."],
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -253,7 +253,7 @@ let productSeed = [
         ["J732-1", "mounting flange", "(furnished with purchase)"],
       ],
       ECCN: "3A230",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       noExport: "China",
       MTBF: [],
       },
@@ -325,7 +325,7 @@ let productSeed = [
         ["Can the J720 operate with a +3.3V instead of +5V, 50-ohm source?", "The J720 is factory calibrated to couple 1mW (0dBm) into fiber when powered by a +5V, 50-ohm source. The J720 can operate with a +3.3V, 50-ohm source provided that the J720's sensitivity trimpot is adjusted to compensate for the lower signal level. Access the trimpot by removing the round silver sticker on the top of the enclosure. Use a small flat head screwdriver to carefully rotate the trimpot clockwise while observing optical power level with the calibrated monitor port of a Highland optical-to-electrical converter, or separate power meter. Rotate trimpot fully clockwise if adjusting a 1310nm version."], 
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       // MTBF: [MTBF hours, FITs]
       MTBF: ["4,914,004", "203"], 
       },
@@ -414,7 +414,7 @@ let productSeed = [
         ["J732-1", "mounting flange", "(furnished with purchase)"],
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["1,003,492", "996"],
       },
   
@@ -494,7 +494,7 @@ let productSeed = [
         ["Are the SMB connectors on the J730 male or female?", "The connectors on the J730 are technically SMB 'Jacks', but their gender is 'male' because the center conductor is a pin, not a socket."], 
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["6,768,189", "147"],
       },
 
@@ -552,7 +552,7 @@ let productSeed = [
           ["J732-1", "mounting flange", "(furnished with purchase)"],
         ],
         ECCN: "3A230",
-        htsCode: "8517.62.0050",
+        htsCode: "8543.70.9860",
         noExport: "China",
         MTBF: [],
         },
@@ -614,7 +614,7 @@ let productSeed = [
           ["J732-1", "mounting flange", "(furnished with purchase)"],
         ],
         ECCN: "EAR99",
-        htsCode: "8517.62.0050",
+        htsCode: "8543.70.9860",
         MTBF: [],
         },
 
@@ -672,7 +672,7 @@ let productSeed = [
         ["J732-1", "mounting flange", "(1 furnished with purchase)"],
       ],
       ECCN: "3A999",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -725,7 +725,7 @@ let productSeed = [
 
         ],
         ECCN: "EAR99",
-        htsCode: "8517.62.0050",
+        htsCode: "8543.70.9860",
         MTBF: [],
         },
 
@@ -1400,7 +1400,7 @@ let productSeed = [
       ],
       EOL: ["April 1, 2023", "April 1, 2027", 11, null],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -1521,7 +1521,7 @@ let productSeed = [
         ["T566-1", "mounting flange"],
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -1592,7 +1592,7 @@ let productSeed = [
         ["T566-1", "mounting flange", "(furnished with purchase)"],
       ],
       ECCN: "3A320",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       noExport: "China",
       MTBF: [],
       },
@@ -1663,7 +1663,7 @@ let productSeed = [
         ["What is the difference between the T160 and T165?", "Both the T160 and T165 require an external trigger source; however, the T160 is a logic follower that routes current to the laser for the duration of the input source. The T165 has a built-in ‘one shot’, enabling the formation of adjustable output current pulses when fed an arbitrarily wide input trigger. Both are AC-coupled, and have duty limits. The T160 is better suited for applications requiring pulse widths beyond hundreds of nanoseconds. Both T160 and T165 utilize the same switched current sink output topology, as shown in the block diagrams, with similar switching dynamics. Both require that drive path inductance remain very low for fast falling edges."], 
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -1741,7 +1741,7 @@ let productSeed = [
         ["What is the difference between the T160 and T165?", "Both the T160 and T165 require an external trigger source; however, the T160 is a logic follower that routes current to the laser for the duration of the input source. The T165 has a built-in ‘one shot’, enabling the formation of adjustable output current pulses when fed an arbitrarily wide input trigger. Both are AC-coupled, and have duty limits. The T160 is better suited for applications requiring pulse widths beyond hundreds of nanoseconds. Both T160 and T165 utilize the same switched current sink output topology, as shown in the block diagrams, with similar switching dynamics. Both require that drive path inductance remain very low for fast falling edges."], 
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["1,079,179", "926"],
       },
 
@@ -1823,7 +1823,7 @@ let productSeed = [
         [" Does the T240 have a programmable PRF?", "No, the T240 will need an external PRF source as a trigger."],
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -2108,20 +2108,21 @@ let productSeed = [
         "T400s were designed and deployed to modulate the world's biggest laser, the 192-beam megajoule NIF laser fusion facility in Livermore, California."
       ],
       related: [
-        "T500 precision laser modulator system"
+        "T500 precision laser modulator system",
+        "V880 8-channel VME delay generator for facility timing systems",
       ],
-      specifications: [
-        ["FUNCTION", ["electro-optical arbitrary waveform generator"]],
-        ["PACKAGING", ["3U rackmount box"]],
-      ],
-      specificationsMulti: [
-        ["Limited specifications shown, contact factory for complete information"],
-        ["", "Amplitude Output", "Load Impedance", "Amplitude Programmability", "Temporal Jitter"],
-        ["Arbitrary Waveform Generator", "0 to –6.5 V","0 to Ω8 V", "12 bits", "≤ 8 ps rms per hour"],
-        ["Impulse Generator", "0 to –6.5 V", "0 to Ω8 V", "16 bits", "≤ 8 ps rms per hour"],
-        ["Square Pulse Generator", "0 to –6.5 V", "0 to Ω8 V", "16 bits", "≤ 8 ps rms per hour"],
-        ["Bias Pulse Generator", "0 to Ω8 V", "1 MΩ", "16 bits", "--"],
-      ],
+      // specifications: [
+      //   ["FUNCTION", ["electro-optical arbitrary waveform generator"]],
+      //   ["PACKAGING", ["3U rackmount box"]],
+      // ],
+      // specificationsMulti: [
+      //   ["Limited specifications shown, contact factory for complete information"],
+      //   ["", "Amplitude Output", "Load Impedance", "Amplitude Programmability", "Temporal Jitter"],
+      //   ["Arbitrary Waveform Generator", "0 to –6.5 V","0 to Ω8 V", "12 bits", "≤ 8 ps rms per hour"],
+      //   ["Impulse Generator", "0 to –6.5 V", "0 to Ω8 V", "16 bits", "≤ 8 ps rms per hour"],
+      //   ["Square Pulse Generator", "0 to –6.5 V", "0 to Ω8 V", "16 bits", "≤ 8 ps rms per hour"],
+      //   ["Bias Pulse Generator", "0 to Ω8 V", "1 MΩ", "16 bits", "--"],
+      // ],
       config: ["noOptions"],
       versions: [
         [[0], 1, [null]],
@@ -2138,15 +2139,44 @@ let productSeed = [
         name: "precision laser modulator system",
         model: "T500",
         category: ["MAS"],
-        features: [],
+        features: [
+          ["Designed to drive a 2-stage lithium niobate electro-optical modulator"],
+          ["3U rackmount box"],
+          ["Main controller has Ethernet and USB interfaces, LCD, LEDs, and EOM bias supplies"],
+          ["Slicer module generates rectangular pulses for one EOM section"],
+          ["Amplifier module accepts external arbitrary waveform and generates the fiducial reference impulse"],
+          ["Temperature-controlled enclosure houses the customer-supplied EO modulator"],
+          ['"Optical bench" provided for mounting customer-supplied fiberoptic components'],
+          ["Also includes trigger manager board"],
+          ["Operates in conjunction with a Highland model V880 timing module and a Tektronix AWG5208 arbitrary waveform generator"],
+        ],
         description: "Integrated beam-profile modulator for large-scale fusion and other high-energy laser installations.",
-        imgCaptions: [""],
-        about: [],
-        related: [],
-        specifications: [],
+        imgCaptions: ["", "T500 Front Panel", "T500 Real Panel", "T500 Top View"],
+        about: [
+          "The T500 is an integrated beam-profile modulator for large-scale fusion and other high-energy laser installations. ",
+          "T500s are used to modulate the world's biggest laser, the 192-beam megajoule NIF laser fusion facility in Livermore, California."
+        ],
+        related: [
+          "T400 precision laser modulator system",
+          "V880 8-channel VME delay generator for facility timing systems",
+        ],
+        specifications: [
+          ["Delay between AWG/Impulse Generator (tIG) and Slicer’s earliest Leading edge (tSL)", ["1 ns ≤ tIG-tSL ≤ 2ns"]],
+          ["Delay from Trigger Input to Slicer’s earliest Leading edge (tSL)", ["< 20 ns"]],
+          ["Mean Time Before Failure (excluding fans)", [">10 years"]],
+          ["Mean Time Before Failure (including fans)", [">5 years"]],
+          ["Warm-up time after power up or reset command", ["≤ 1 hour"]],
+        ],
+        specificationsNotes: [
+          ["Additional specifications are provided in the technical manual."],
+        ],
         config: ["noOptions"],
         versions: [
           [[0], 1, [null]],
+        ],
+        accessories: [
+          ["J25-1", "24 volt 65W power supply", "(1 included with purchase)"],
+          ["J95-1", "3U rack slides", "(1 set included with purchase)"],
         ],
         ECCN: "3A230",
         htsCode: "8543.20.0000",
@@ -2395,11 +2425,11 @@ let productSeed = [
             ["Internal 10 MHz crystal oscillator time base with external lock capability"], 
             ["0-16 MHz DDS synthesizer for internal trigger rates"], 
             ["Programmable-level trigger input with divide and burst features and trigger enable GATE input"], 
-            ["Needs +12-volt power from external universal power supply and can be operated all the way +24 volts"], 
+            ["Needs +12-volt power from external universal power supply; can be operated all the way to +24 volts"], 
             ["RS-232 serial interface standard; 10/100 mbps Ethernet interface"], 
             ["Extruded enclosure with removable mounting flange"], 
             ["Output impedance switch allowing for 50 Ω source termination or low impedance"], 
-            ["Trains/Frames option includes timing lists and multiple pulses per trigger"], 
+            ["Trains/Frames advanced option (T660-2) includes timing lists and multiple pulses per trigger"], 
             ["Web page controls from any browser"], 
         ],
         description: "Accepts an internal or external trigger and generates four precise output pulses, each user programmable in time delay and width.",
@@ -2430,18 +2460,18 @@ let productSeed = [
           ["WIDTH RANGE", ["0 to 10 seconds"]],
           ["INSERTION DELAY", ["Normal Mode: Trigger to any output 55 ns ± 400 ps", "Fast Mode: Trigger to any output 21 ns ± 400 ps"]],
           ["REP RATE", ["0 to 16 MHz, limited to 1/ (max d + w + 70 ns)"]],
-          ["ACCURACY", ["Trigger to rising or falling edges ± 400 ps ± 7.5 ps/℃ ± clock accuracy"]],
+          ["ACCURACY", ["Trigger to rising or falling edges ± 400 ps ± 7.5 ps/°C ± clock accuracy"]],
           ["RESOLUTION", ["Edge times, 1 ps", "Trigger level, 10 mV"]],
           ["JITTER", ["Typical 35 ps RMS + timebase jitter", "Max 50 ps RMS + timebase jitter", "Add clock jitter for delays > 500 µs"]],
           ["TRIGGER", ["External, internal, software (remote command)", "Burst, divide-by-N, N-of-M pulse picking", "External trigger range ± 5 volts", ["rising/falling edge", "impedance selectable 2K + 15 pF or 50 Ω", "minimum recommended amplitude 0.25 volts p-p", "125 MHz maximum repetition rate input"], "Internal DDS, 0 to 16 MHz, 0.02 Hz resolution", "Internal clock: 80 MHz source, use Trigger Divisor for Max 16 MHz rep rate"]],
-          ["VCXO TIMEBASE", ["Initial accuracy: ±1 PPM", "Aging: < ±5 ppm/1000 hours", "Jitter: 10ns/s RMS max", "Jitter: 10ns/s RMS max", "Lockable to external 10MHz ± 10 PPM"]],
+          ["VCXO TIMEBASE", ["Initial accuracy: ±1 PPM", "Aging: < ±5 ppm/1000 hours", "Jitter: 10ns/s RMS max", "Lockable to external 10MHz ± 10 PPM"]],
           ["CLOCK INPUT", ["10 MHz, sine or square 0.5 to 5 volts p-p", "1kΩ nominal input impedance"]],
-          ["CLOCK OUTPUT", ["10 MHz, square wave, 3 bolts p-p AC coupled", "50 Ω nominal output impedance"]],
+          ["CLOCK OUTPUT", ["10 MHz, square wave, 3 volts p-p AC coupled", "50 Ω nominal output impedance"]],
           ["COUNTDOWN", ["Provides trigger divide-by-N or N-of-M burst/pulse picker mode, up to 125 MHz external trigger"]],
-          ["POWER", ["External +12 +/-0.25 volts DC from universal adapter supplied", "0.5 amps max", "+24 +/-0.25 Volts absolute max voltage input; no guarantee of accuracy performance", "Includes standard IEC60320 C13 line cord"]],
+          ["POWER", ["External +12 ±0.25 volts DC from universal adapter supplied", "0.5 amps max", "+24 ±0.25 Volts absolute max voltage input; no guarantee of accuracy performance", "Includes standard IEC60320 C13 line cord"]],
           ["COMMUNICATIONS", ["RS-232 standard, 38.4 Kilobaud (configurable up to 115.2 Kilobaud)", "10/100 Ethernet standard (configurable with serial commands)"]],
           ["PACKAGING", ["4.84” (L) x 4.06” (W) x 1.20” (H) blue extruded aluminum enclosure"]],
-          ["TEMPERATURE", ["Specifications apply over 10-40 ˚C ambient", "Operating range 0 to 50 ˚C", "Storage range -20 to 80 ˚C"]],
+          ["TEMPERATURE", ["Specifications apply over 10-40°C ambient", "Operating range 0 to 50°C", "Storage range -20 to 80°C"]],
           ["CONFORMANCE", ["RoHS"]],
           ["WARRANTY", ["One year limited"]],
           ["CALIBRATION INTERVAL", ["One year"]],
@@ -2462,7 +2492,7 @@ let productSeed = [
           ["J53-2", '6" SMB to BNC cable'],
           ["P10-1", '19" rack mount shelf (four t-boxes per rack)'],
           ["T565-1", "RS-232 cable", "(1 included with purchase)"],
-          ["T566-1", "mounting flange", "(1 included with purchase)"],
+          ["T566-1", "mounting flange"],
         ],
         ECCN: "3A999",
         htsCode: "8543.20.0000",
@@ -2519,7 +2549,7 @@ let productSeed = [
         ["T567-1", "mounting flange"],
       ],
       ECCN: "3A999",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["649,291", "1,540"],
       },
 
@@ -2591,7 +2621,7 @@ let productSeed = [
       ],
       EOL: ["May 1, 2023", "May 1, 2027", 17, null],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["4,183,925", "239"],
       },
 
@@ -2647,7 +2677,7 @@ let productSeed = [
         ["T566-1", "mounting flange"],
       ],
       ECCN: "3A230",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       noExport: "China",
       MTBF: [],
       },
@@ -2714,7 +2744,7 @@ let productSeed = [
         ["T566-1", "mounting flange"],
       ],
       ECCN: "3A230",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       noExport: "China",
       MTBF: [],
       },
@@ -2768,7 +2798,7 @@ let productSeed = [
         ["J53-2", '6" SMB to BNC cable'],
         ["T841-1", "Breakout board for T840 pulser bench testing"],
       ],
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -2829,7 +2859,7 @@ let productSeed = [
         ["J53-2", '6" SMB to BNC cable'],
       ],
       ECCN: "3A230",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       noExport: "China",
       MTBF: [],
       },
@@ -2895,7 +2925,7 @@ let productSeed = [
         ["P10-1", '19" rack mount shelf (four t-boxes per rack)'],
         ["T566-1", "mounting flange"],
       ],
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -2987,7 +3017,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["1,251,251", "799"],
       },
 
@@ -3064,7 +3094,7 @@ let productSeed = [
         ["What type of software support do you provide?", "A Linux driver and API support are available for the V120. Links are provided in the Resources menu under Drivers & Software. "]
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -3106,13 +3136,13 @@ let productSeed = [
         [[0], 1, [null]],
       ],
       accessories: [],
-      EOL: ["July 1, 2023", "July 1, 2027", 4, null],
+      EOL: ["July 1, 2023", "July 1, 2027", 3, null],
       FAQs: [
         ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -3169,7 +3199,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["181,392", "5,512"],
       },
 
@@ -3230,7 +3260,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["162,843", "6,140"],
       },
 
@@ -3307,7 +3337,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["178,374", "5,606"],
       },
 
@@ -3362,7 +3392,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -3421,7 +3451,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["187,241", "5,340"],
       },
 
@@ -3777,7 +3807,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["1,700,000"],
       },
 
@@ -3840,7 +3870,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -3968,7 +3998,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -4022,7 +4052,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -4099,7 +4129,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["178,709", "5,595"],
       },
 
@@ -4258,7 +4288,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["233,064", "4,290"],
       },
 
@@ -4319,7 +4349,7 @@ let productSeed = [
       ],
       EOL: ["March 20, 2023", "December 31, 2023", 0, null],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -4487,7 +4517,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -4620,7 +4650,7 @@ let productSeed = [
       ],
       EOL: ["December 31, 2022", "July 31, 2023", 4, ["P545 12-channel synchro / LVDT simulation / acquisition module", "V545 24-channel VME synchro/LVDT simulation/acquisition module"]],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
       // ****************************** V660 Data ******************************
@@ -4675,7 +4705,7 @@ let productSeed = [
       ],
       EOL: ["April 1, 2022", "April 1, 2024", 2, ["T680 5-channel ethernet time interval counter"]],
       ECCN: "3A999",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -4735,7 +4765,7 @@ let productSeed = [
       ],
       EOL: ["April 1, 2023", "April 1, 2024", 5, ["T680 5-channel ethernet time interval counter"]],
       ECCN: "3A992",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -4808,7 +4838,7 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["430,390", "2,323"],
       },
 
@@ -4885,9 +4915,75 @@ let productSeed = [
         ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
       ],
       ECCN: "EAR99",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: ["720,118", "1,388"],
       },
+
+      // ****************************** V850 Data ******************************
+      {
+        name: "4-channel VME digital delay/pulse generator",
+        model: "V850",
+        category: ["LEG", "VME", "DDG"],
+        features: [
+          ["4-channel VME digital delay generator"],
+          ["Delay and width modes"],
+          ["40 (39.0625) picosecond LSB resolution with 32-bit (167.8 milliseconds) full-scale delay range"],
+          ["Jitter < 25 picoseconds RMS typical from external trigger"],
+          ["Adjustable trigger threshold and output levels"],
+          ["Insertion delay of 25 nanoseconds"],
+          ["Optional NIM level outputs for all delay channels"],
+        ],
+        description: "Accepts a single trigger input and generates four separately programmable delay outputs.",
+        imgCaptions: ["V851 Image Shown", "V851 Image Shown", "V851 Image Shown", "V851 Image Shown"],
+        about: [
+          'The V850 is a single-width, 6U VME digital delay generator that accepts a single trigger input and generates four separately programmable delay outputs. The module features 32-bit dynamic range, 40 picosecond resolution, low jitter, and high rep-rate capability. All channels are triggered simultaneously; the module generates a "T0" reference edge 25 nanoseconds after trigger, and four delay outputs, each programmable from 0 to 167.8 milliseconds.',
+          "The outputs can also be configured to generate widths. This mode uses paired channels to generate a pulse whose rising and falling edges are determined by channel programming. Up to two such delay+width outputs are available.",
+          "V850 delay parameters may be programmed on-the-fly at VMEbus speeds without generation of erroneous delays. All delay channels can be updated coherently.",
+        ],
+        related: [],
+        specifications: [],
+        FAQs: [
+          ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+          ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+        ],
+        EOL: ["December 31, 2020", "December 31, 2024", 0, null],
+        ECCN: "3A999",
+        htsCode: "8543.70.9860",
+        MTBF: [],
+        },
+
+      // ****************************** V851 Data ******************************
+      {
+        name: "6-channel VME digital delay/pulse generator",
+        model: "V851",
+        category: ["LEG", "VME", "DDG"],
+        features: [
+          ["6-channel VME digital delay generator"],
+          ["Delay and width modes"],
+          ["40 (39.0625) picosecond LSB resolution with 32-bit (167.8 milliseconds) full-scale delay range"],
+          ["Jitter < 25 picoseconds RMS typical from external trigger"],
+          ["Adjustable trigger threshold and output levels"],
+          ["Insertion delay of 25 nanoseconds"],
+          ["Optional NIM level outputs for all delay channels"],
+        ],
+        description: "Accepts a single trigger input and generates six separately programmable delay outputs.",
+        imgCaptions: ["", "", "", ""],
+        about: [
+          'The V851 is a single-width, 6U VME digital delay generator that accepts a single trigger input and generates six separately programmable delay outputs. The module features 32-bit dynamic range, 40 picosecond resolution, low jitter, and high rep-rate capability. All channels are triggered simultaneously; the module generates a "T0" reference edge 25 nanoseconds after trigger, and six delay outputs, each programmable from 0 to 167.8 milliseconds.',
+          "The outputs can also be configured to generate widths. This mode uses paired channels to generate a pulse whose rising and falling edges are determined by channel programming. Up to three such delay+width outputs are available.",
+          "V851 delay parameters may be programmed on-the-fly at VMEbus speeds without generation of erroneous delays. All delay channels can be updated coherently.",
+        ],
+        related: [],
+        specifications: [],
+        FAQs: [
+          ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
+          ["Are your VME modules compatible with a VME64 chassis?", "Yes, all Highland VME modules are compatible with a VME64 chassis, although they only support classic VME transactions."],
+        ],
+        EOL: ["December 31, 2020", "December 31, 2024", 0, null],
+        ECCN: "3A999",
+        htsCode: "8543.70.9860",
+        MTBF: [],
+        },
 
       // ****************************** V860 Data ******************************
       {
@@ -4938,7 +5034,7 @@ let productSeed = [
       ],
       EOL: ["December 31, 2024", "December 31, 2027", 25, null],
       ECCN: "3A999",
-      htsCode: "8517.62.0050",
+      htsCode: "8543.70.9860",
       MTBF: [],
       },
 
@@ -4946,7 +5042,7 @@ let productSeed = [
       {
       name: "8-channel VME delay generator for facility timing systems",
       model: "V880",
-      category: ["OEM"],
+      category: ["OEM", "VME"],
       features: [
         ["Eight output channels, isolated electrical or 850 nanometer optical fast-rise pulses"],
         ["Each channel may be programmed to respond to selected data fields in a fiberoptic master timing signal; this allows both periodic and single-shot triggers to be defined for an overall facility or for selected subsystems"],
@@ -4967,7 +5063,10 @@ let productSeed = [
         "• VME monitoring of optical power level, phaselock status, temperatures, error statistics",
         "Master fiberoptic timing signal generators are available."
       ],
-      related: [],
+      related: [
+        "T400 precision laser modulator system",
+        "T500 precision laser modulator system",
+      ],
       specifications: [
         ["FUNCTION", ["8-channel digital timing generator"]],
         ["DEVICE TYPE", ["16-bit register-based VME slave; A16:D16", "Implements 256 16-bit registers in the VME 16-bit addressing space"]],

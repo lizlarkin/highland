@@ -245,6 +245,10 @@ import V346_1 from "./V346_VME_Arbitrary_Waveform_Generator_1.png";
 import V346_2 from "./V346_VME_Arbitrary_Waveform_Generator_2.png";
 import V346_3 from "./V346_VME_Arbitrary_Waveform_Generator_3.png";
 import V346_4 from "./V346_VME_Arbitrary_Waveform_Generator_4.png";
+import V350_1 from "./V350_VME_Analog_Digital_Pattern_Generator_1.png";
+import V350_2 from "./V350_VME_Analog_Digital_Pattern_Generator_2.png";
+import V350_3 from "./V350_VME_Analog_Digital_Pattern_Generator_3.png";
+import V350_4 from "./V350_VME_Analog_Digital_Pattern_Generator_4.png";
 import V360_1 from "./V360_VME_Tachometer_1.png";
 import V360_2 from "./V360_VME_Tachometer_2.png";
 import V360_3 from "./V360_VME_Tachometer_3.png";
@@ -253,6 +257,9 @@ import V365_1 from "./V365_VME_Overspeed_Underspeed_Tachometer_1.png";
 import V365_2 from "./V365_VME_Overspeed_Underspeed_Tachometer_2.png";
 import V365_3 from "./V365_VME_Overspeed_Underspeed_Tachometer_3.png";
 import V365_4 from "./V365_VME_Overspeed_Underspeed_Tachometer_4.png";
+import V370_1 from "./V370_VME_Arbitrary_Waveform_Generator_1.png";
+import V370_2 from "./V370_VME_Arbitrary_Waveform_Generator_2.png";
+import V370_3 from "./V370_VME_Arbitrary_Waveform_Generator_3.png";
 import V375_1 from "./V375_VME_Arbitrary_Waveform_Generator_1.png";
 import V375_2 from "./V375_VME_Arbitrary_Waveform_Generator_2.png";
 import V375_3 from "./V375_VME_Arbitrary_Waveform_Generator_3.png";
@@ -310,6 +317,14 @@ import V730_1 from "./V730_VME_Optical_Electrical_Converter_1.png";
 import V730_2 from "./V730_VME_Optical_Electrical_Converter_2.png";
 import V730_3 from "./V730_VME_Optical_Electrical_Converter_3.png";
 import V730_4 from "./V730_VME_Optical_Electrical_Converter_4.png";
+import V850_1 from "./V850_VME_Digital_Delay_Generator_1.png";
+import V850_2 from "./V850_VME_Digital_Delay_Generator_2.png";
+import V850_3 from "./V850_VME_Digital_Delay_Generator_3.png";
+import V850_4 from "./V850_VME_Digital_Delay_Generator_4.png";
+import V851_1 from "./V851_VME_Digital_Delay_Generator_1.png";
+import V851_2 from "./V851_VME_Digital_Delay_Generator_2.png";
+import V851_3 from "./V851_VME_Digital_Delay_Generator_3.png";
+import V851_4 from "./V851_VME_Digital_Delay_Generator_4.png";
 import V860_1 from "./V860_VME_Pulse_Amplifier_1.png";
 import V860_2 from "./V860_VME_Pulse_Amplifier_2.png";
 import V860_3 from "./V860_VME_Pulse_Amplifier_3.png";
@@ -725,6 +740,13 @@ const V346PhotoArr = [
     V346_4,
 ]
 
+const V350PhotoArr = [
+    V350_1,
+    V350_2,
+    V350_3,
+    V350_4,
+]
+
 const V360PhotoArr = [
     V360_1,
     V360_2,
@@ -737,6 +759,12 @@ const V365PhotoArr = [
     V365_2,
     V365_3,
     V365_4,
+]
+
+const V370PhotoArr = [
+    V370_1,
+    V370_2,
+    V370_3,
 ]
 
 const V375PhotoArr = [
@@ -841,6 +869,20 @@ const V730PhotoArr = [
     V730_4,
 ]
 
+const V850PhotoArr = [
+    V850_1,
+    V850_2,
+    V850_3,
+    V850_4,
+]
+
+const V851PhotoArr = [
+    V851_1,
+    V851_2,
+    V851_3,
+    V851_4,
+]
+
 const V860PhotoArr = [
     V860_1,
     V860_2,
@@ -910,8 +952,10 @@ export const ProductPhotos = [
     V340PhotoArr,
     V344PhotoArr,
     V346PhotoArr,
+    V350PhotoArr,
     V360PhotoArr,
     V365PhotoArr,
+    V370PhotoArr,
     V375PhotoArr,
     V380PhotoArr,
     V385PhotoArr,
@@ -927,6 +971,8 @@ export const ProductPhotos = [
     V680PhotoArr,
     V720PhotoArr,
     V730PhotoArr,
+    V850PhotoArr,
+    V851PhotoArr,
     V860PhotoArr,
     V880PhotoArr,    
 ]

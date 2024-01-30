@@ -2,8 +2,8 @@ import React from 'react';
 import John_Larkin from "./img/JohnLarkin.png";
 import Mission_Statement from "./img/Mission.jpeg";
 import Highland_Front from "./img/Highland_Front.png";
-import highlandStaff from "./img/Highland_Staff.png";
-import vmeCrate from "./img/Products.png";
+import Products from "./img/About_Products.png";
+import Our_Business from "./img/Our_Business.png";
 
 const About = () => {
 
@@ -67,7 +67,7 @@ const About = () => {
                 ]
         },
         {
-            img: vmeCrate,
+            img: Products,
             title: "Our Products",
             text: 
                 [
@@ -75,7 +75,7 @@ const About = () => {
                 ]
         },
         {
-            img: highlandStaff,
+            img: Our_Business,
             title: "Our Business",
             text: 
                 [

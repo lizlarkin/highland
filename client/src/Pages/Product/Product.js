@@ -117,15 +117,22 @@ const Product = () => {
                                      backgroundColor: content.showOverview ? "#3359A6" : ""}}
                             >Overview</button>
                         </li>
-                        <li className="nav-item">
-                            <button className="nav-btn" 
-                            onClick={() => {
-                                setContent({showSpecifications: true})
-                            }}
-                            style={{ color: content.showSpecifications ? "white" : "", 
-                            backgroundColor: content.showSpecifications ? "#3359A6" : ""}}
-                            >Specifications</button>
-                        </li>
+                        
+                        {
+                        productSpecs?
+                        productSpecs.length>0?
+                            <li className="nav-item">
+                                <button className="nav-btn" 
+                                onClick={() => {
+                                    setContent({showSpecifications: true})
+                                }}
+                                style={{ color: content.showSpecifications ? "white" : "", 
+                                backgroundColor: content.showSpecifications ? "#3359A6" : ""}}
+                                >Specifications</button>
+                            </li>
+                        :null
+                        :null}
+
                         <li className="nav-item">
                             <button className="nav-btn" 
                             onClick={() => {

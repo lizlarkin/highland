@@ -33,6 +33,7 @@ import T400_CoC from './assets/T400_CoC.pdf'
 import T500_CoC from './assets/T500_CoC.pdf'
 import T560_CoC from './assets/T560_CoC.pdf'
 import T564_CoC from './assets/T564_CoC.pdf'
+import T660_CoC from './assets/T660_CoC.pdf'
 import T680_CoC from './assets/T680_CoC.pdf'
 import T735_CoC from './assets/T735_CoC.pdf'
 import T750_CoC from './assets/T750_CoC.pdf'
@@ -104,12 +105,14 @@ import V550_SOV from './assets/V550_SOV.pdf'
 import D100_STEP from './assets/D100_17A100C.STEP'
 import J240_J730_J750_STEP from './assets/J240_J730_J750_21AXXXA_GENERIC_SILVER.STEP'
 import J270_STEP from './assets/J270_21a270a.STEP'
+import J720_STEP from './assets/J720_21M720H.STEP'
 import J724_STEP from './assets/J724_21A724D.STEP'
 import K420_STEP from './assets/K420_24A420A.STEP'
 import P344_P348_P350_P730_STEP from './assets/P344_P348_P350_P730_23MXXXA_GENERIC_SMALL_.STEP'
 import T124_T240_T340_T344_T346_T750_T760_T860_STEP from './assets/T124_T240_T340_T344_T346_T750_T760_T860_28AXXXA_GENERIC_SILVER.STEP'
 import T500_STEP from './assets/T500_28A500A.STEP'
 import T560_T564_STEP from './assets/T560_T564_28A560C.STEP'
+import T660_STEP from './assets/T660_28A660A.STEP'
 import T735_STEP from './assets/T735_28A735B.STEP'
 import V344_V346_STEP from './assets/V344_V346_22A346C.STEP'
 import V375_STEP from './assets/V375_22A375A.STEP'
@@ -135,6 +138,7 @@ import T340_BD from './assets/T340_C_BD.pdf'
 import T344_T346_BD from './assets/T344_T346_D_BD.pdf'
 import T500_BD from './assets/T500_C_BD.pdf'
 import T560_T564_BD from './assets/T560_T564_L_BD.pdf'
+import T660_BD from './assets/T660_D_BD.pdf'
 import T680_BD from './assets/T680_C_BD.pdf'
 import T840_BD from './assets/T840_A_BD.pdf'
 import V120_BD from './assets/V120_C_BD.pdf'
@@ -194,6 +198,7 @@ import T346_RoHS from './assets/T346_RoHS.pdf'
 import T500_RoHS from './assets/T500_RoHS.pdf'
 import T560_RoHS from './assets/T560_RoHS.pdf'
 import T564_RoHS from './assets/T564_RoHS.pdf'
+import T660_RoHS from './assets/T660_RoHS.pdf'
 import T680_RoHS from './assets/T680_RoHS.pdf'
 import T735_RoHS from './assets/T735_RoHS.pdf'
 import T750_RoHS from './assets/T750_RoHS.pdf'
@@ -260,10 +265,10 @@ import T165_MAN from './assets/T165MANE5.pdf'
 import T240_MAN from './assets/T240MANB9.pdf'
 import T340_MAN from './assets/T340MANC1.pdf'
 import T344_T346_MAN from './assets/T344_T346MAND4.pdf'
-// import T400_MAN from './assets/T400MAN.pdf'
-// import T500_MAN from './assets/T500MAN.pdf'
+import T500_MAN from './assets/T500MANA2.pdf'
 import T560_MAN from './assets/T560MANL2.pdf'
 import T564_MAN from './assets/T564MANL2.pdf'
+import T660_MAN from './assets/T660MAND1.pdf'
 import T680_MAN from './assets/T680MANC7.pdf'
 import T735_MAN from './assets/T735MANB3.pdf'
 import T750_MAN from './assets/T750MANC6.pdf'
@@ -336,6 +341,7 @@ export const CoCArr = [
     T500_CoC,
     T560_CoC,
     T564_CoC,
+    T660_CoC,
     T680_CoC,
     T735_CoC,
     T750_CoC,
@@ -411,12 +417,14 @@ export const StepArr = [
     D100_STEP,
     J240_J730_J750_STEP, 
     J270_STEP, 
+    J720_STEP,
     J724_STEP, 
     K420_STEP, 
     P344_P348_P350_P730_STEP, 
     T124_T240_T340_T344_T346_T750_T760_T860_STEP, 
     T500_STEP, 
     T560_T564_STEP, 
+    T660_STEP,
     T735_STEP, 
     V344_V346_STEP, 
     V375_STEP, 
@@ -446,6 +454,7 @@ export const BDArr = [
     T344_T346_BD,
     T500_BD,
     T560_T564_BD,
+    T660_BD,
     T680_BD,
     T840_BD,
     V120_BD,
@@ -507,6 +516,7 @@ export const rohsArr = [
     T500_RoHS,
     T560_RoHS,
     T564_RoHS,
+    T660_RoHS,
     T680_RoHS,
     T735_RoHS,
     T750_RoHS,
@@ -575,10 +585,10 @@ export const ManArr = [
     T240_MAN,
     T340_MAN,
     T344_T346_MAN,
-    // T400_MAN,
-    // T500_MAN,
+    T500_MAN,
     T560_MAN,
     T564_MAN,
+    T660_MAN,
     T680_MAN,
     T735_MAN,
     T750_MAN,
