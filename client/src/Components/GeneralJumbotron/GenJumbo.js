@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import UserContext from "../../Context/UserContext";
-// About
 import Account from "./Images/Account.png";
 import Careers from "./Images/Careers.png";
 import Cart from "./Images/Cart.png";
@@ -10,7 +9,6 @@ import FAQs from "./Images/FAQs.png";
 import Partners from "./Images/Partners.png";
 import Testimonials from "./Images/Testimonials.png";
 import Search from "./Images/Search.png";
-import About from "./Images/About.jpeg";
 const GenJumbo = () => {
 
     const { userData } = useContext(UserContext);
@@ -58,11 +56,7 @@ const GenJumbo = () => {
                 setBackground(Search) 
                 setTitle("Search Results") 
                 setText("")
-            }  else if (pageName.substring(0,6)==="About") {
-                setBackground(About) 
-                setTitle("About Highland") 
-                setText("")
-            } 
+            }  
         };
         assignJumbotronData();
     }, [pageName, userData])
