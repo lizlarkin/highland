@@ -26,6 +26,7 @@ const Category = () => {
                 if (categorySelected==="LDC") setTitle("LASER DRIVERS & CONTROLLERS")
                 if (categorySelected==="PHO") setTitle("PHOTONICS")
                 if (categorySelected==="MAS") setTitle("MEASUREMENT & SIMULATION")
+                if (categorySelected==="MPS") setTitle("MODULAR POWER SYSTEM")
                 if (categorySelected==="OEM") setTitle("OEM/EMBEDDED")
                 if (categorySelected==="LEG") setTitle("LEGACY")
             }
@@ -40,6 +41,7 @@ const Category = () => {
                 if (categorySelected==="LDC") setText("Highland Technology offers off the shelf and OEM solutions for many laser driver and control needs including: Fast Pulse Generators for E/O Modulation, Fast Laser Diode Drivers, Seed Laser Pulse Picking, MOPA timing and control, Custom Delay and Waveform Generation, and many more!")
                 if (categorySelected==="PHO") setText("Precision fiberoptic and free-space interfaces provide high-speed, low-jitter and low noise signal conversion, and transport of analog and digital signals.")
                 if (categorySelected==="MAS") setText("Highland Technology offers a wide array of tools for measurement, simulation, and control. Tachometers, thermocouples, RTDs, precision voltages, current loops, strain gauges, and more can be measured or simulated by Highland's products.")
+                if (categorySelected==="MPS") setText("Highland's Modular Power System consists of a 3U rackmount enclosure with a main controller, power supply and cooling, and provision for installation of up to eight power, load, switching, or measurement modules, primarily intended for aerospace testing.")
                 if (categorySelected==="OEM") setText("Since 1984 Highland has provided custom electronics for challenging customer applications. Areas of expertise include: Picosecond timing, Precision analog and mixed signal processing, Digital delay and pulse generation, High speed photonics and fiberoptic timing distribution, and Aerospace instrumentation and simulation. Products demonstrating these capabilities are shown here.")
                 if (categorySelected==="LEG") setText("Highland is committed to providing long-term availability of products and product support. The following products are not recommended for new design due to difficulty stocking components and high component costs. Highland will continue to support existing customers by producing and maintaining these designs whenever possible. New customers are encouraged to consider replacement products. Please contact our sales department to inquire about any products not shown.")
             }

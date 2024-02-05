@@ -2,8 +2,6 @@ const express = require('express');
 
 const app = express();
 
-const PORT = process.env.PORT || 443;
-
 const path = require("path");
 
 require("./models/connection")
@@ -20,13 +18,17 @@ app.use("/contact", require("./routes/contactRoutes"));
 app.use("/cart", require("./routes/cartRoutes"));
 app.use("/products", require("./routes/productRoutes"));
 app.use("/register", require("./routes/confirmRoutes"));
+ 
+app.use(express.static('client/build'));
 
-// Michael - this is where I think our problem is. 
-// 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
-app.listen(PORT, () => {
-    console.log(`Listening at: http://localhost:${PORT}`);
+app.listen(80, () => {
+    console.log(`Listening at: http://localhost:80`);
+});
+
+app.listen(443, () => {
+    console.log(`Listening at: http://localhost:443`);
 });

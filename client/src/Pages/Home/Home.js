@@ -10,6 +10,7 @@ import WaveformGen from '../Product/Images/P350_Waveform_Playback_ARB_1.png';
 import LaserControl from '../Product/Images/D100_Laser_Driver_1.png';
 import Photonics from '../Product/Images/J724_Electrical_Fiberoptic_Converter_2.png';
 import MeasureSim from '../Product/Images/P545_Synchro_LVDT_Acquisition_Simulator_2.png';
+import ModularPower from '../Product/Images/P940_Modular_Power_System_1.png';
 // import Legacy from '../Product/Images/P730_Optical_Electrialc_Fanout_Buffer_1.png';
 
 const Home = () => {
@@ -31,6 +32,7 @@ const Home = () => {
         ["Photonics", Photonics, "PHO"],
         ["Measurement & Simulation", MeasureSim, "MAS"],
         ["VME", VME, "VME"],
+        ["Modular Power System", ModularPower, "MPS"],
         ["Pulse Generators", PulseGen, "PSG"],
         ["Waveform Generators", WaveformGen, "WFG"],
         // ["Legacy", Legacy, "LEG"],
@@ -74,23 +76,25 @@ const Home = () => {
         }
       }
 
-      let [productArray, setProductArray] = useState([0,1,2,3,4,5,6])
+      let [productArray, setProductArray] = useState([0,1,2,3,4,5,6,7])
 
       const updateArrayW = () => {
         if (productIndex === 0) {
-            setProductArray([1,2,3,4,5,6,0])
+            setProductArray([1,2,3,4,5,6,7,0])
         } else if (productIndex === 1) {
-            setProductArray([2,3,4,5,6,0,1])
+            setProductArray([2,3,4,5,6,7,0,1])
         } else if (productIndex === 2) {
-            setProductArray([3,4,5,6,0,1,2])
+            setProductArray([3,4,5,6,7,0,1,2])
         } else if (productIndex === 3) {
-            setProductArray([4,5,6,0,1,2,3])
+            setProductArray([4,5,6,7,0,1,2,3])
         } else if (productIndex === 4) {
-            setProductArray([5,6,0,1,2,3,4])
+            setProductArray([5,6,7,0,1,2,3,4])
         } else if (productIndex === 5) {
-            setProductArray([6,0,1,2,3,4,5])
+            setProductArray([6,7,0,1,2,3,4,5])
+        } else if (productIndex === 6) {
+            setProductArray([7,0,1,2,3,4,5,6])
         } else {
-            setProductArray([0,1,2,3,4,5,6])
+            setProductArray([0,1,2,3,4,5,6,7])
         }
       }
 
@@ -123,6 +127,7 @@ const Home = () => {
                                 <li onClick={goToCategory} title={"LDC"} className="dropdown-item">Laser Drivers/Controllers</li>
                                 <li onClick={goToCategory} title={"PHO"} className="dropdown-item">Photonics</li>
                                 <li onClick={goToCategory} title={"MAS"} className="dropdown-item">Measurement/Simulation</li>
+                                <li onClick={goToCategory} title={"MPS"} className="dropdown-item">Modular Power System</li>
                                 <li onClick={goToCategory} title={"OEM"} className="dropdown-item">OEM/Embedded</li>
                                 <li onClick={goToCategory} title={"LEG"} className="dropdown-item">Legacy</li>
                             </ul>

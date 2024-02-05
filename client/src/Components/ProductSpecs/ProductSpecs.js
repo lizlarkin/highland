@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsTwoC, specsTwoD, specsTwoE, specsMulti, specsNotes }) => {
+const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsTwoC, specsTwoD, specsTwoE, specsMulti, specsMultiB, specsNotes }) => {
 
     const specStyles = {
         specSpan: {
@@ -173,7 +173,8 @@ const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsTwoC, specsTwoD, specsT
                 </>
                 :null:null}    
 
-                {specsMulti.length>0?
+                {specsMulti?
+                    specsMulti.length>0?
                 <>
                 <h5>{specsMulti[0]}</h5>
                 <table className="table table-striped table-hover">
@@ -203,7 +204,40 @@ const ProductSpecs = ({ specs, specsTwo, specsTwoB, specsTwoC, specsTwoD, specsT
                     </tbody>
                 </table>
                 </>
-                :null}
+                :null:null}
+
+            {specsMultiB?
+                specsMultiB.length>0?
+                <>
+                <h5>{specsMultiB[0]}</h5>
+                <table className="table table-striped table-hover">
+                    <tr>
+                        {specsMultiB?
+                        specsMultiB[1].map((specTitle, idx) => (
+                            <th key={idx}>{specTitle}</th>
+                        )):null}
+                    </tr>
+                    <tbody>
+                        {specsMultiB?
+                        specsMultiB.slice(2).map((specification, idx) => (
+                            <tr key={idx}>
+                                {specification.map((specRow, idx) => (
+                                    <td key={idx} className={specsMultiB.length>0?specsMultiB[1].length===3?"col-md-4":specsMultiB[1].length===4?"col-md-3":specsMultiB[1].length===5?"col-md-2":"col-md-1":null}>
+                                        {typeof(specRow) === "string" ? 
+                                        specRow
+                                        :
+                                        specRow.map((specLine, idx) => (
+                                            <div key={idx}>{specLine}</div>
+                                        ))}
+                                    </td>
+                                ))}
+                            </tr>
+                        ))
+                        :null}
+                    </tbody>
+                </table>
+                </>
+                :null:null}
 
 
                 {specsNotes.length>0?

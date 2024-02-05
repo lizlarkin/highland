@@ -41,6 +41,7 @@ const Product = () => {
     const [productSpecsTwoD, setProductSpecsTwoD] = useState();
     const [productSpecsTwoE, setProductSpecsTwoE] = useState();
     const [productSpecsMulti, setProductSpecsMulti] = useState();
+    const [productSpecsMultiB, setProductSpecsMultiB] = useState();
     const [productSpecsNotes, setProductSpecsNotes] = useState();
     const [productRelatives, setProductRelatives] = useState();
     const [productFAQs, setProductFAQs] = useState();
@@ -69,6 +70,7 @@ const Product = () => {
                setProductSpecsTwoD(prodData.data[0].specificationsTwoD);
                setProductSpecsTwoE(prodData.data[0].specificationsTwoE);
                setProductSpecsMulti(prodData.data[0].specificationsMulti);
+               setProductSpecsMultiB(prodData.data[0].specificationsMultiB);
                setProductSpecsNotes(prodData.data[0].specificationsNotes);
                setProductRelatives(prodData.data[0].related);
                setProductFAQs(prodData.data[0].FAQs);
@@ -177,7 +179,7 @@ const Product = () => {
             <div className = "col-md-7">
                 <div>
                     {content.showOverview && <ProductOverview features={productFeatures} description={productDescription}/>}
-                    {content.showSpecifications && <ProductSpecs specs={productSpecs} specsTwo={productSpecsTwo} specsTwoB={productSpecsTwoB} specsTwoC={productSpecsTwoC} specsTwoD={productSpecsTwoD} specsTwoE={productSpecsTwoE} specsMulti={productSpecsMulti} specsNotes={productSpecsNotes}/>}
+                    {content.showSpecifications && <ProductSpecs specs={productSpecs} specsTwo={productSpecsTwo} specsTwoB={productSpecsTwoB} specsTwoC={productSpecsTwoC} specsTwoD={productSpecsTwoD} specsTwoE={productSpecsTwoE} specsMulti={productSpecsMulti} specsMultiB={productSpecsMultiB} specsNotes={productSpecsNotes}/>}
                     {content.showResources && <ProductResources model={productModel} driversSoftware={productDriversSoftware} ECCN={ECCN} htsCode={htsCode} MTBF={MTBF} noExport={noExport}/>}
                     {content.showFAQ && <ProductFAQ FAQs={productFAQs}/>}
                     {content.showRelated && <ProductRelated related={productRelatives}/>}

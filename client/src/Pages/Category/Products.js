@@ -10,6 +10,7 @@ import WaveformGenerator from "../Product/Images/P350_Waveform_Playback_ARB_1.pn
 import LaserDriver from "../Product/Images/D100_Laser_Driver_1.png";
 import Photonics from "../Product/Images/J724_Electrical_Fiberoptic_Converter_6.png";
 import MeasurementSimulation from "../Product/Images/T500_Amplitude_Modulator_Chassis_1.png";
+import ModularPower from "../Product/Images/P940_Modular_Power_System_1.png";
 import Embedded from "../Product/Images/T560_Digital_Delay_Generator_1.png";
 
 const Products = () => {
@@ -56,6 +57,12 @@ const Products = () => {
             Img: MeasurementSimulation,
             Text: "Highland Technology offers a wide array of tools for measurement, simulation, and control. Tachometers, thermocouples, RTDs, precision voltages, current loops, strain gauges, and more can be measured or simulated by Highland's products.",
             Link: "MAS",
+        },
+        {
+            Name: "Modular Power System",
+            Img: ModularPower,
+            Text: "Highland's Modular Power System consists of a 3U rackmount enclosure with a main controller, power supply and cooling, and provision for installation of up to eight power, load, switching, or measurement modules, primarily intended for aerospace testing.",
+            Link: "MPS",
         },
         {
             Name: "OEM/Embedded",

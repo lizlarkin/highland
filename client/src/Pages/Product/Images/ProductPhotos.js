@@ -105,6 +105,22 @@ import P730_4 from "./P730_Optical_Electrialc_Fanout_Buffer_4.png";
 import P900_1 from "./P900_Permanent_Magnet_Alternator_Simulator_1.png";
 import P900_2 from "./P900_Permanent_Magnet_Alternator_Simulator_2.png";
 import P900_3 from "./P900_Permanent_Magnet_Alternator_Simulator_3.png";
+import P940_1 from "./P940_Modular_Power_System_1.png";
+import P940_2 from "./P940_Modular_Power_System_2.png";
+import P940_3 from "./P940_Modular_Power_System_3.png";
+import P940_4 from "./P940_Modular_Power_System_4.png";
+import P940_5 from "./P940_Modular_Power_System_5.png";
+import P941_1 from "./P941_Dual_Isolated_DC_Power_Supply_1.png";
+import P941_2 from "./P941_Dual_Isolated_DC_Power_Supply_2.png";
+import P941_3 from "./P941_Dual_Isolated_DC_Power_Supply_3.png";
+import P941_4 from "./P941_Dual_Isolated_DC_Power_Supply_4.png";
+import P942_1 from "./P942_Permanent_Magnet_Alternator_Simulator_1.png";
+import P944_1 from "./P944_Electronic_Load_1.png";
+import P945_1 from "./P945_Load_Simulator_1.png";
+import P945_2 from "./P945_Load_Simulator_2.png";
+import P945_3 from "./P945_Load_Simulator_3.png";
+import P945_4 from "./P945_Load_Simulator_4.png";
+import P948_1 from "./P948_Cable_Fault_Insertion_1.png";
 import T124_1 from "./T124_1_To_4_Logic_Buffer_1.png";
 import T124_2 from "./T124_1_To_4_Logic_Buffer_2.png";
 import T124_3 from "./T124_1_To_4_Logic_Buffer_3.png";
@@ -273,6 +289,9 @@ import V385_2 from "./V385_VME_Strain_Gauge_Load_Cell_Module_2.png";
 import V385_3 from "./V385_VME_Strain_Gauge_Load_Cell_Module_3.png";
 import V385_4 from "./V385_VME_Strain_Gauge_Load_Cell_Module_4.png";
 import V410_1 from "./V410_VME_RTD_Resistance_Input_Module_1.png";
+import V410_2 from "./V410_VME_RTD_Resistance_Input_Module_2.png";
+import V410_3 from "./V410_VME_RTD_Resistance_Input_Module_3.png";
+import V410_4 from "./V410_VME_RTD_Resistance_Input_Module_4.png";
 import V420_1 from "./V420_VME_Resistance_Simulator_1.png";
 import V420_2 from "./V420_VME_Resistance_Simulator_2.png";
 import V420_3 from "./V420_VME_Resistance_Simulator_3.png";
@@ -502,6 +521,40 @@ const P900PhotoArr = [
     P900_1,
     P900_2,
     P900_3,
+]
+
+const P940PhotoArr = [
+    P940_1,
+    P940_2,
+    P940_3,
+    P940_4,
+    P940_5,
+]
+
+const P941PhotoArr = [
+    P941_1,
+    P941_2,
+    P941_3,
+    P941_4,
+]
+
+const P942PhotoArr = [
+    P942_1,
+]
+
+const P944PhotoArr = [
+    P944_1,
+]
+
+const P945PhotoArr = [
+    P945_1,
+    P945_2,
+    P945_3,
+    P945_4,
+]
+
+const P948PhotoArr = [
+    P948_1,
 ]
 
 const T124PhotoArr = [
@@ -790,6 +843,9 @@ const V385PhotoArr = [
 
 const V410PhotoArr = [
     V410_1,
+    V410_2,
+    V410_3,
+    V410_4,
 ]
 
 const V420PhotoArr = [
@@ -920,6 +976,12 @@ export const ProductPhotos = [
     P620PhotoArr,
     P730PhotoArr,
     P900PhotoArr,
+    P940PhotoArr,
+    P941PhotoArr,
+    P942PhotoArr,
+    P944PhotoArr,
+    P945PhotoArr,
+    P948PhotoArr,
     T124PhotoArr,
     T130PhotoArr,
     T160PhotoArr,

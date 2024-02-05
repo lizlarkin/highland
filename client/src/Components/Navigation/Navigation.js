@@ -58,6 +58,7 @@ const Navigation = (props) => {
                     <li onClick={goToCategory} title={"LDC"} className="dropdown-item">Laser Drivers/Controllers</li>
                     <li onClick={goToCategory} title={"PHO"} className="dropdown-item">Photonics</li>
                     <li onClick={goToCategory} title={"MAS"} className="dropdown-item">Measurement/Simulation</li>
+                    <li onClick={goToCategory} title={"MPS"} className="dropdown-item">Modular Power System</li>
                     <li onClick={goToCategory} title={"OEM"} className="dropdown-item">OEM/Embedded</li>
                     <li onClick={goToCategory} title={"LEG"} className="dropdown-item">Legacy</li>
                     <li><hr className="dropdown-divider"/></li>

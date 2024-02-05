@@ -21,6 +21,7 @@ const productSchema = new mongoose.Schema({
     specificationsTwoD: [],
     specificationsTwoE: [],
     specificationsMulti: [],
+    pecificationsMultiB: [],
     specificationsNotes: [],
     config: [],
     versions: [],

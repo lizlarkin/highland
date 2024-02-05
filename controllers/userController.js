@@ -82,7 +82,8 @@ module.exports = {
                     from: "no-reply@highlandtechnology.com",
                     to: newUser.email,
                     subject: "Thank you for registering with Highland Technology",
-                    text: `Please click link to confirm account: http://dev.highlandtechnology.com:3000/confirm_token/${confirmationToken.token}`,
+                    text: `Please click link to confirm account: https://dev.highlandtechnology.com/confirm_token/${confirmationToken.token}`,
+                    // text: `Please click link to confirm account: https://highlandtechnology.com/confirm_token/${confirmationToken.token}`,
                 }
 
                 // Email To Sales

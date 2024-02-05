@@ -64,6 +64,7 @@ module.exports = {
                 specificationsTwoD: req.body.specificationsTwoD,
                 specificationsTwoE: req.body.specificationsTwoE,
                 specificationsMulti: req.body.specificationsMulti,
+                specificationsMultiB: req.body.specificationsMultiB,
                 specificationsNotes: req.body.specificationsNotes,
                 config: req.body.config,
                 versions: req.body.versions,

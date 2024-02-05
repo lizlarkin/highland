@@ -7,6 +7,7 @@ import Waveform_Generators from "./img/Waveform_Generators.png";
 import Laser_Drivers_Controllers from "./img/Laser_Drivers_Controllers.png";
 import Photonics from "./img/Photonics.png";
 import Measurement_Simulation from "./img/Measurement_Simulation.png";
+import Modular_Power_System from "./img/Modular_Power_System.png";
 import OEM_Embedded from "./img/OEM.png";
 import Legacy from "./img/Legacy.png"
 
@@ -25,6 +26,7 @@ const CategoryJumbotron = ({title, text}) => {
             if (title==="LASER DRIVERS & CONTROLLERS") setBackground(Laser_Drivers_Controllers)
             if (title==="PHOTONICS") setBackground(Photonics)
             if (title==="MEASUREMENT & SIMULATION") setBackground(Measurement_Simulation)
+            if (title==="MODULAR POWER SYSTEM") setBackground(Modular_Power_System)
             if (title==="OEM/EMBEDDED") setBackground(OEM_Embedded)
             if (title==="LEGACY") setBackground(Legacy)
         };

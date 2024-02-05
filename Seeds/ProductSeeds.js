@@ -1452,6 +1452,311 @@ let productSeed = [
       MTBF: [],
       },
 
+      // ****************************** P940 Data ******************************
+      {
+        name: "modular power system",
+        model: "P940",
+        category: ["MPS"],
+        features: [
+          ["1000 watt universal-input 48-volt power supply that is distributed to all modules"],
+          ["Uniform, rational SCPI command set with Ethernet and USB interfaces"],
+          ["All modules include full measurement capability; each module’s measurable values (such as output voltage, current, and frequency) can be read remotely via Ethernet/USB"],
+          ["All modules include microsecond-resolution user-programmed parameter sequence tables"],
+          ["The P940 can also be controlled manually via front panel color LCD and controls"],
+          ["Four BNC connectors are provided to monitor selected voltage and current waveforms"],
+          ["Atomic strobe allows a group of settings to be initiated simultaneously across modules"],
+          ["Module functions include:", [
+            "DC power supplies with programmable voltage and current limits",
+            "Permanent-magnet alternator simulators",
+            "Isolated AC power supplies with programmable voltage and current limits; AC output channels can operate independently or in frequency and phase coordinated groups",
+            "Programmable AC/DC loads, constant current/voltage/resistance",
+            "Cable fault insertion",
+            "High voltage power supplies",
+            "Magnet trim supplies and gradient drivers",
+            "Additional specialized or custom/combo boards, based on Highland's existing suite of aerospace signal processing functions",
+          ]]
+        ],
+        description: "Integrated 3U chassis holds up to eight plugin source and load power modules.",
+        imgCaptions: ["", "P940 front panel", "P940 top view w/ slots 0-2 populated", "P940 rear panel", "P940 rear panel w/ slots 0-2 populated"],
+        about: [
+          "The P940 is a modular power instrument intended primarily for aerospace testing. It consists of a 3U rackmount enclosure with main controller, power supply and cooling, and provision for installation of up to eight power, load, switching, or measurement modules."
+        ],
+        related: [
+          "P941 dual isolated DC power supply",
+          "P942 permanent magnet alternator simulator",
+          "P944 AC/DC electronic load",
+          "P945 8-channel load simulator",
+          "P948 cable fault insertion (FITS) module"
+        ],
+        specifications: [
+          ["FUNCTION", ["Modular power system with 8 plugin units"]],
+          ["PACKAGING", ['3U x 20" deep rackmount chassis', "Optional slides"]],
+          ["AC POWER IN", ["120-240 VAC 50-60 Hz single phase"]],
+          ["POWER OUT", ["1000 watts total max", "800 watts with 120 VAC power"]],
+          ["INTERFACES", ["Gbit Ethernet and USB"]],
+          ["DISPLAY", ['Status LEDs, 4.3" color LCD']],
+          ["SIGNAL MONITORS", ["Four front-panel BNC selectable signal monitors. 50Ω output, ±5V typ. into high-impedance input"]],
+          ["SCOPE TRIGGER", ["1µs positive pulse, 50Ω output, 3–3.6V (3.3V typ.) high level into high-impedance input"]],
+          ["10 MHZ CLOCK OUTPUT", ["AC-coupled square wave. 50Ω output, 2.7–3.3V (3.0 typ.) peak-to-peak into high-impedance input", "±5ppm typ."]],
+          ["10 MHZ CLOCK INPUT", ["500Ω input", "Sine-wave: -10 to +20 dBm", "Square-wave: 200mV to 10V peak-to-peak"]],
+        ],
+        config: ["noOptions"],
+        versions: [
+          [[0], 1, [null]],
+        ],
+        accessories: [
+          ["J91-1", "Blank plate for rear panel", "(8 installed standard with purchase)"],
+          ["J93-1", "6’ 5-15P IEC AC power cord", "(1 furnished with purchase)"],
+          ["J95-1", "3U rack slide"],
+        ],
+        ECCN: "EAR99",
+        htsCode: "",
+        MTBF: [],
+        },
+
+      // ****************************** P941 Data ******************************
+      {
+        name: "dual isolated DC power supply",
+        model: "P941",
+        category: ["MPS"],
+        features: [
+          ["Two independent, isolated DC power supply channels"],
+          ["Accurate, low-noise DC power"],
+          ["Programmable voltage setpoints and limits"],
+          ["Programmable slew rate control"],
+          ["Programmable current limits"],
+          ["Remote voltage sensing for wire voltage drop compensation"],
+          ["Real-time signal measurement capabilities for voltage, current, and instantaneous power"],
+          ["Integrated SCPI command set with other P940 modules, available over Ethernet and USB"],
+        ],
+        description: "Provides two independent isolated power supplies with internal switching to allow both supplies to be operated in parallel.",
+        imgCaptions: ["", "P941 Rear Panel", "Three P941s installed in P940 chassis (P940 sold separately)", "Three P941s installed in P940 chassis (P940 sold separately)"],
+        about: [
+          "The P941 is a dual channel isolated DC power supply module for the P940 modular power system. Each of the channels is galvanically isolated and can provide up to 48V/6A/160W.",
+          "As a part of the P940 system, the P941 is easily synchronized with other P941s to generate tracking power sequences, or with any other P940 module, enabling system architects to build up whatever power and simulation environment they may require."
+        ],
+        related: [
+          "P940 modular power system",
+          "P942 permanent magnet alternator simulator",
+          "P944 AC/DC electronic load",
+          "P945 8-channel load simulator",
+          "P948 cable fault insertion (FITS) module"
+        ],
+        specifications: [
+          ["FUNCTION", ["Dual channel DC supply"]],
+          ["SIZE", ["1 P940 slot"]],
+          ["VOLTAGE OUTPUT (PER CHANNEL)", ["0 - 48 V (programmable)"]],
+          ["CURRENT OUTPUT (PER CHANNEL)", ["0 - 6 A (programmable)"]],
+          ["POWER OUTPUT (PER CHANNEL)", ["0 - 160 W"]],
+          ["VOLTAGE SLEW RATE", ["1 V/ms max. (programmable)"]],
+          ["VOLTAGE PRECISION", ["10 mV"]],
+          ["CURRENT PRECISION", ["10 mA"]],
+          ["VOLTAGE ACCURACY", ["±1%"]],
+          ["CURRENT ACCURACY", ["±1%"]],
+          ["VOLTAGE SETTLING TIME", ["100 µs"]],
+          ["MAXIMUM REMOTE SENSE WIRING DROP", ["2V"]],
+        ],
+        config: ["noOptions"],
+        versions: [
+          [[0], 1, [null]],
+        ],
+        accessories: [
+          ["J94-1", "Phoenix Contact mating connector", "(2 furnished with purchase)"],
+        ],
+        ECCN: "EAR99",
+        htsCode: 
+        "",
+        MTBF: [],
+        },
+
+      // ****************************** P942 Data ******************************
+      {
+        name: "permanent magnet alternator simulator",
+        model: "P942",
+        category: ["MPS"],
+        features: [
+          [""],
+        ],
+        description: "Simulates a 3-phase permanent magnet alternator, compatible with the high frequency shorting/shunt regulators typically used in PMA-powered instruments and specifically FADEC power supplies.",
+        imgCaptions: ["",],
+        about: [
+          "",
+        ],
+        related: [
+          "P940 modular power system",
+          "P941 dual isolated DC power supply",
+          "P944 AC/DC electronic load",
+          "P945 8-channel load simulator",
+          "P948 cable fault insertion (FITS) module"
+        ],
+        specifications: [
+          ["FUNCTION", [""]],
+        ],
+        config: ["noOptions"],
+        versions: [
+          [[0], 1, [null]],
+        ],
+        accessories: [
+          ["J94-1", "Phoenix Contact mating connector", "(2 furnished with purchase)"],
+        ],
+        ECCN: "EAR99",
+        htsCode: "",
+        MTBF: [],
+        },
+
+      // ****************************** P944 Data ******************************
+      {
+        name: "AC/DC electronic load",
+        model: "P944",
+        category: ["MPS"],
+        features: [
+          [""],
+        ],
+        description: 'Operates in constant-current, constant resistance, or constant voltage "zener" mode including open, short, and ground fault simulations.',
+        imgCaptions: ["",],
+        about: [
+          "",
+        ],
+        related: [
+          "P940 modular power system",
+          "P941 dual isolated DC power supply",
+          "P942 permanent magnet alternator simulator",
+          "P945 8-channel load simulator",
+          "P948 cable fault insertion (FITS) module"
+        ],
+        specifications: [
+          ["FUNCTION", [""]],
+        ],
+        config: ["noOptions"],
+        versions: [
+          [[0], 1, [null]],
+        ],
+        accessories: [
+          ["J94-1", "Phoenix Contact mating connector", "(2 furnished with purchase)"],
+        ],
+        ECCN: "EAR99",
+        htsCode: "",
+        MTBF: [],
+        },
+
+      // ****************************** P945 Data ******************************
+      {
+        name: "8-channel load simulator",
+        model: "P945",
+        category: ["MPS"],
+        features: [
+          ["Eight independent, programmable loads up to 40W each"],
+          ["160W maximum total power dissipation"],
+          ["Programmable channel resistances from 10Ω – 1000Ω"],
+          ["Per-channel voltage, current, and power reporting"],
+          ["Open and short-circuit capability"],
+          ["Switchable external inductors"],
+          ['Switchable "high-side" connection allows channels to be connected to a common power bus'],
+          ["Optional jumper connects two P945s for a total of 320W, allowing 40W simultaneous loading on all 8 channels from a single input cable"],
+          ["Real-time signal measurement capabilities for voltage, current, and instantaneous power"],
+          ["Controllable and readable from P940 front panel"],
+          ["Integrated SCPI command set with other P940 modules, available over Ethernet and USB"],
+        ],
+        description: "Simulates relays, solenoids, torque motors, or similar devices with 8-channels of isolated resistive loads including open, short, and ground fault modes.",
+        imgCaptions: ["", "P945 Rear Panel", "Two adjacent P945 modules combined to allow all 8 channels to run at 40W", "Two P945s installed in slots 1-2 of P940 chassis (P940 sold separately)"],
+        about: [
+          "The P945 is an 8-channel isolated load simulation module for the P940 modular power system. Each of the channels is galvanically isolated and can sink up to 40V/2A/40W. External inductors may be switched into the channels to allow simulation of relays, solenoids, torque motors, or other magnetically operated devices.",
+          "P945 simulated loads are bipolar and support positive or negative applied voltages with respect to the labeled terminals; the polarity of the input signal only impacts polarity of reported voltage and current measurements.",
+          "As a part of the P940 system, the P945 is easily synchronized with other P940 modules, enabling system architects to build whatever power and simulation environment they may require.",
+        ],
+        related: [
+          "P940 modular power system",
+          "P941 dual isolated DC power supply",
+          "P942 permanent magnet alternator simulator",
+          "P944 AC/DC electronic load",
+          "P948 cable fault insertion (FITS) module"
+        ],
+        specifications: [
+          ["FUNCTION", ["8-channel load simulator"]],
+          ["SIZE", ["Single P940 slot"]],
+          ["OPERATING MODES", ["Constant resistance, constant current¹, short circuit, open circuit"]],
+        ],
+        specificationsMulti: [
+          ["Absolute Maximum Limits"],
+          ["", "P945-1", "P945-2"],
+          ["VOLTAGE (PER CHANNEL)", "±40V","±40V"],
+          ["CURRENT (PER CHANNEL)", "±3A", "±300mA"],
+          ["POWER (PER CHANNEL)", "40W", "12W"],
+          ["POWER (PER MODULE)", "160W", "96W"],
+          ["HIGH-SIDE POWER BUS CONNECTOR CURRENT (PER PIN)", "±12A", "±12A"],
+        ],
+        specificationsMultiB: [
+          ["Performance"],
+          ["", "P945-1", "P945-2"],
+          ["MINIMUM WORKING VOLTAGE²", "±2V","±1.5V"],
+          ["RESISTANCE SIMULATION RANGE", "10Ω – 1000Ω in 1Ω steps", "10Ω – 1000Ω in 1Ω steps"],
+          ["RESISTANCE SIMULATION ACCURACY", "5%", "5%"],
+          ["CONSTANT CURRENT RANGE", "0 – 2A in 0.01A steps", "0 – 250mA in 0.001A steps"],
+          ["CONSTANT CURRENT ACCURACY", "5%", ""],
+          ["VOLTAGE MEASUREMENT ACCURACY", "±1% of applied voltage ±10mV", "±1% of applied voltage ±10mV"],
+          ["CURRENT MEASUREMENT ACCURACY", "±1% of applied current ±1.5mA", "±1% of applied current ±0.25mA"],
+          ["SHORT CIRCUIT MODE", "≤2V up to maximum rated current", "≤2V up to maximum rated current"],
+          ["OPEN CIRCUIT MODE", "≤1mA up to maximum rated voltage", "≤1mA up to maximum rated voltage"],
+        ],
+        specificationsNotes: [
+          ["¹ ", "Planned for future upgrades"],
+          ["² ", "Accuracy specifications not guaranteed below minimum working voltage"],
+        ],
+        config: [
+          // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
+          ["required", "Performance", [0, "high current"], [1, "precision"]]
+        ],
+        versions: [
+          [[0], 1, ["high current"]],
+          [[1], 2, ["precision"]],
+        ],
+        accessories: [
+          ["J94-1", "Phoenix Contact mating connector", "(1 furnished with purchase)"],
+          ["J96-1", '2.5" ribbon cable for gang connection of 2 P945s', "(1 furnished with purchase)"],
+          ["J97-8", "8' slimline D25M-D25M cable", "(2 furnished with purchase)"],
+          ["J97-10", "10' slimline D25M-D25M cable", "(2 furnished with purchase)"],
+        ],
+        ECCN: "EAR99",
+        htsCode: 
+        "",
+        MTBF: [],
+        },
+
+      // ****************************** P948 Data ******************************
+      {
+        name: "cable fault insertion (FITS) module",
+        model: "P948",
+        category: ["MPS"],
+        features: [
+          [""],
+        ],
+        description: "Inserts an open fault in any path, shorts any wires to any other wires, simulates ground faults, and measures AC or DC voltage between any wire pair or any wire to ground.",
+        imgCaptions: ["",],
+        about: [
+          "",
+        ],
+        related: [
+          "P940 modular power system",
+          "P941 dual isolated DC power supply",
+          "P942 permanent magnet alternator simulator",
+          "P944 AC/DC electronic load",
+          "P945 8-channel load simulator",
+        ],
+        specifications: [
+          ["FUNCTION", [""]],
+        ],
+        config: ["noOptions"],
+        versions: [
+          [[0], 1, [null]],
+        ],
+        accessories: [
+          ["J94-1", "Phoenix Contact mating connector", "(2 furnished with purchase)"],
+        ],
+        ECCN: "EAR99",
+        htsCode: "",
+        MTBF: [],
+        },
+
       // ****************************** T124 Data ******************************
       {
       name: "1 to 4 logic buffer",
@@ -4923,7 +5228,7 @@ let productSeed = [
       {
         name: "4-channel VME digital delay/pulse generator",
         model: "V850",
-        category: ["LEG", "VME", "DDG"],
+        category: ["LEG", "VME"],
         features: [
           ["4-channel VME digital delay generator"],
           ["Delay and width modes"],
@@ -4940,7 +5245,11 @@ let productSeed = [
           "The outputs can also be configured to generate widths. This mode uses paired channels to generate a pulse whose rising and falling edges are determined by channel programming. Up to two such delay+width outputs are available.",
           "V850 delay parameters may be programmed on-the-fly at VMEbus speeds without generation of erroneous delays. All delay channels can be updated coherently.",
         ],
-        related: [],
+        related: [
+          "P500 4-channel benchtop digital delay and pulse generator",
+          "T660 4-channel compact digital delay and pulse generator",
+          "V851 6-channel VME digital delay/pulse generator"
+        ],
         specifications: [],
         FAQs: [
           ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
@@ -4954,9 +5263,9 @@ let productSeed = [
 
       // ****************************** V851 Data ******************************
       {
-        name: "6-channel VME digital delay/pulse generator",
+        name: "4-channel VME digital delay/pulse generator",
         model: "V851",
-        category: ["LEG", "VME", "DDG"],
+        category: ["LEG", "VME"],
         features: [
           ["6-channel VME digital delay generator"],
           ["Delay and width modes"],
@@ -4973,7 +5282,11 @@ let productSeed = [
           "The outputs can also be configured to generate widths. This mode uses paired channels to generate a pulse whose rising and falling edges are determined by channel programming. Up to three such delay+width outputs are available.",
           "V851 delay parameters may be programmed on-the-fly at VMEbus speeds without generation of erroneous delays. All delay channels can be updated coherently.",
         ],
-        related: [],
+        related: [
+          "P500 4-channel benchtop digital delay and pulse generator",
+          "T660 4-channel compact digital delay and pulse generator",
+          "V850 6-channel VME digital delay/pulse generator"
+        ],
         specifications: [],
         FAQs: [
           ["Do you have VxWorks drivers for your modules?", "All our VME modules are compatible with VxWorks, but unfortunately we don't have the drivers for the VxWorks environment. However, it shouldn't be a problem to create and program one since we provide a register map for the VME board including descriptions of each register."],
