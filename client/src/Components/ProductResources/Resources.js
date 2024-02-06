@@ -279,6 +279,7 @@ import P730_MAN from './assets/P730MAND2.pdf'
 import P900_MAN from './assets/P900MANA4.pdf'
 import P940_MAN from './assets/P940MANB6.pdf'
 import P941_MAN from './assets/P941MANB5.pdf'
+import P945_MAN from './assets/P945MANB1.pdf'
 import T124_MAN from './assets/T124MANA2.pdf'
 import T130_MAN from './assets/T130MANC2.pdf'
 import T160_MAN from './assets/T160MAND1.pdf'
@@ -620,6 +621,7 @@ export const ManArr = [
     P900_MAN,
     P940_MAN,
     P941_MAN,
+    P945_MAN,
     T124_MAN,
     T130_MAN,
     T160_MAN,

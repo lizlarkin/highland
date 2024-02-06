@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 const ProductFAQ = ({ FAQs }) => {
 
@@ -28,7 +29,7 @@ const ProductFAQ = ({ FAQs }) => {
                         </div>
                     </div>
                 )):
-                <p>No technical FAQs are on record for this product yet. To submit a technical question, please contact our team using the following form: <a href = "../Contact">Contact Us</a></p>}
+                <div>No technical FAQs are on record for this product yet. To submit a technical question, please <Link to="/Contact">contact our team</Link>.</div>}
                 </div>
                 
         </div>

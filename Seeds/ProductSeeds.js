@@ -1772,8 +1772,8 @@ let productSeed = [
           ["required", "Performance", [0, "high current"], [1, "precision"]]
         ],
         versions: [
-          [[0], 1, ["high current"]],
-          [[1], 2, ["precision"]],
+          [[0], 1, ["high current performance"]],
+          [[1], 2, ["precision performance"]],
         ],
         accessories: [
           ["J94-1", "Phoenix Contact mating connector", "(1 furnished with purchase)"],

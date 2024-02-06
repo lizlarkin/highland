@@ -326,7 +326,7 @@ module.exports = {
                     subject: "Password Reset - Highland Technology",
                     text: 
                     `
-                    Please click link to reset password: http://dev.highlandtechnology.com:3000/ResetPassword/${forgotToken}
+                    Please click link to reset password: http://dev.highlandtechnology.com/ResetPassword/${forgotToken}
                     This link will expire in one hour. 
 
                     If you did not request this password reset, please contact us at sales@highlandtechnology.com. 
@@ -337,7 +337,7 @@ module.exports = {
                     if (error) {
                         console.log(error);
                     } else {
-                        console.log(`Email was sent with: http://dev.highlandtechnology.com:3000/ResetPassword/${forgotToken}`);
+                        console.log(`Email was sent with: http://dev.highlandtechnology.com/ResetPassword/${forgotToken}`);
                     }
                 });
 
