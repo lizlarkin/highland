@@ -115,6 +115,7 @@ import P941_2 from "./P941_Dual_Isolated_DC_Power_Supply_2.png";
 import P941_3 from "./P941_Dual_Isolated_DC_Power_Supply_3.png";
 import P941_4 from "./P941_Dual_Isolated_DC_Power_Supply_4.png";
 import P942_1 from "./P942_Permanent_Magnet_Alternator_Simulator_1.png";
+import P943_1 from "./P943_DC_Power_Supply_1.png";
 import P944_1 from "./P944_Electronic_Load_1.png";
 import P945_1 from "./P945_Load_Simulator_1.png";
 import P945_2 from "./P945_Load_Simulator_2.png";
@@ -540,6 +541,10 @@ const P941PhotoArr = [
 
 const P942PhotoArr = [
     P942_1,
+]
+
+const P943PhotoArr = [
+    P943_1,
 ]
 
 const P944PhotoArr = [
@@ -979,6 +984,7 @@ export const ProductPhotos = [
     P940PhotoArr,
     P941PhotoArr,
     P942PhotoArr,
+    P943PhotoArr,
     P944PhotoArr,
     P945PhotoArr,
     P948PhotoArr,

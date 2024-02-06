@@ -37,7 +37,7 @@ const ProductResources = ({ model, driversSoftware, ECCN, htsCode, MTBF, noExpor
     }
 
    const CoCIndex = CoCArr.findIndex(search => search.includes(model + "_CoC"));
-   const SoVIndex = SoVArr.findIndex(search => search.includes(model + "_SOV"));
+   const SoVIndex = SoVArr.findIndex(search => search.includes(model));
    const StepIndex = StepArr.findIndex(search => search.includes(model));
    const CEIndex = CEArr.findIndex(search => search.includes(model));
    const BDIndex = BDArr.findIndex(search => search.includes(model));

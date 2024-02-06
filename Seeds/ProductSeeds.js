@@ -1427,7 +1427,9 @@ let productSeed = [
       about: [
         "The Highland P900 is a rack-mount precision three-phase AC power source and permanent-magnet-alternator simulator. Its programmable frequency, voltage, and source impedance allow it to power shunt/chopper type voltage regulators in jet engine controller FADECs and other aircraft equipment. The unit includes voltage/current/power measurement and waveform monitors, and Ethernet and USB interfaces."
       ],
-      // related: [],
+      related: [
+        "P942 permanent magnet alternator simulator",
+      ],
       specifications: [
         ["FUNCTION", ["Three phase programmable power sine wave source"]],
         ["OUTPUTS", ["Isolated 3-phase wye", "Up to 200 VA per phase, 600 VA total", "120 Hz to 4 KHz", "Usable to 50 Hz at reduced voltages"]],
@@ -1477,14 +1479,14 @@ let productSeed = [
           ]]
         ],
         description: "Integrated 3U chassis holds up to eight plugin source and load power modules.",
-        imgCaptions: ["", "P940 front panel", "P940 top view w/ slots 0-2 populated", "P940 rear panel", "P940 rear panel w/ slots 0-2 populated"],
+        imgCaptions: ["", "P940 front panel", "P940 top view with slots 0-2 populated", "P940 rear panel", "P940 rear panel with slots 0-2 populated"],
         about: [
           "The P940 is a modular power instrument intended primarily for aerospace testing. It consists of a 3U rackmount enclosure with main controller, power supply and cooling, and provision for installation of up to eight power, load, switching, or measurement modules."
         ],
         related: [
           "P941 dual isolated DC power supply",
           "P942 permanent magnet alternator simulator",
-          "P944 AC/DC electronic load",
+          "P943 8-channel DC power supply",
           "P945 8-channel load simulator",
           "P948 cable fault insertion (FITS) module"
         ],
@@ -1510,7 +1512,7 @@ let productSeed = [
           ["J95-1", "3U rack slide"],
         ],
         ECCN: "EAR99",
-        htsCode: "",
+        htsCode: "8543.70.9860",
         MTBF: [],
         },
 
@@ -1538,7 +1540,7 @@ let productSeed = [
         related: [
           "P940 modular power system",
           "P942 permanent magnet alternator simulator",
-          "P944 AC/DC electronic load",
+          "P943 8-channel DC power supply",
           "P945 8-channel load simulator",
           "P948 cable fault insertion (FITS) module"
         ],
@@ -1564,8 +1566,7 @@ let productSeed = [
           ["J94-1", "Phoenix Contact mating connector", "(2 furnished with purchase)"],
         ],
         ECCN: "EAR99",
-        htsCode: 
-        "",
+        htsCode: "8504.40.9530",
         MTBF: [],
         },
 
@@ -1575,47 +1576,68 @@ let productSeed = [
         model: "P942",
         category: ["MPS"],
         features: [
-          [""],
+          ["Isolated three-phase output programmable for frequency, amplitude, and current limit"],
+          ["Output impedance is compatible with shunt/shorting FADEC type regulators"],
+          ["Full realtime voltage and current measurements"],
+          ["Phase fault simulation"],
+          ["Scope monitors of phase voltages and currents"],
+          ["P940 system-level time synchronization"],
         ],
         description: "Simulates a 3-phase permanent magnet alternator, compatible with the high frequency shorting/shunt regulators typically used in PMA-powered instruments and specifically FADEC power supplies.",
         imgCaptions: ["",],
         about: [
-          "",
+          "The P942 is a permanent-magnet alternator simulator",
+          "A P942 can be installed in any slot, 0 through 7, of a P940 chassis. A P940 pair can be used to simulate a dual alternator and are typically installed in adjacent slots. P942s can also be used in parallel to provide higher output current.",
+          "The P942 is similar in function to the higher-power P900 rackmount alternator simulator when used to drive a FADEC-type power supply regulator."
         ],
         related: [
+          "P900 3-phase power source and permanent-magnet alternator simulator",
           "P940 modular power system",
           "P941 dual isolated DC power supply",
-          "P944 AC/DC electronic load",
+          "P943 8-channel DC power supply",
           "P945 8-channel load simulator",
           "P948 cable fault insertion (FITS) module"
         ],
         specifications: [
-          ["FUNCTION", [""]],
+          ["FUNCTION", ["Three phase PM alternator simulator"]],
+          ["OUTPUTS", ["Three phases A B and C and common N", "Powers a 32 volt, 6 amp DC FADEC supply", "192 watts rectified DC load max"]],
+          ["OUTPUT PER PHASE", ["0 to 36 volts RMS phase to N, 62 volts RMS line-line open-circuit", "±6 amps max instantaneous current limit"]],
+          ["CURRENT LIMIT", ["Programmable 0.25 to 6 amps. P942s may be paralleled for more current"]],
+          ["FREQUENCY RANGE", ["200 Hz to 2.5 KHz"]],
+          ["CONNECTORS", ["Two 5-pin Phoenix 1861726 wire-clamp with cam release"]],
+        ],
+        specificationsNotes: [
+          ["Product under development - specifications subject to change."],
         ],
         config: ["noOptions"],
         versions: [
           [[0], 1, [null]],
         ],
         accessories: [
-          ["J94-1", "Phoenix Contact mating connector", "(2 furnished with purchase)"],
+          // ["J94-1", "Phoenix Contact mating connector", "(2 furnished with purchase)"],
         ],
-        ECCN: "EAR99",
-        htsCode: "",
+        ECCN: "TBD",
+        htsCode: "TBD",
         MTBF: [],
         },
 
-      // ****************************** P944 Data ******************************
+      // ****************************** P943 Data ******************************
       {
-        name: "AC/DC electronic load",
-        model: "P944",
+        name: "8-channel DC power supply",
+        model: "P943",
         category: ["MPS"],
         features: [
-          [""],
+          ["Eight channels of DC power supply with programmable voltage and current limit"],
+          ["Provides up to 64 power supply channels per P940 3U chassis"],
+          ["Stable over a wide range of capacitive and inductive loads"],
+          ["Full realtime voltage and current measurements"],
+          ["P940 mainframe provides scope monitors of output voltages and currents"],
+          ["P940 system-level time synchronization"],
         ],
-        description: 'Operates in constant-current, constant resistance, or constant voltage "zener" mode including open, short, and ground fault simulations.',
+        description: "Provides up to 64 DC power supply channels with programmable voltage and current limit per P940 3U chassis.",
         imgCaptions: ["",],
         about: [
-          "",
+          "The P943 is an 8-channel non-isolated DC power supply. ",
         ],
         related: [
           "P940 modular power system",
@@ -1625,19 +1647,63 @@ let productSeed = [
           "P948 cable fault insertion (FITS) module"
         ],
         specifications: [
-          ["FUNCTION", [""]],
+          ["FUNCTION", ["8-channel non-isolated DC power supply"]],
+          ["VOLTAGE OUTPUTS", ["Programmable per channel 0 to +42 volts with programmable voltage slew rates"]],
+          ["CURRENT LIMITS", ["Programmable per channel  0.1 to 2 amps "]],
+          ["POWER OUTPUT", ["24 watts per channel max"]],
+          ["FREQUENCY RANGE", ["200 Hz to 2.5 KHz"]],
+          ["CONNECTORS", ["One D25 female"]],
+        ],
+        specificationsNotes: [
+          ["Product under development - specifications subject to change."],
         ],
         config: ["noOptions"],
         versions: [
           [[0], 1, [null]],
         ],
         accessories: [
-          ["J94-1", "Phoenix Contact mating connector", "(2 furnished with purchase)"],
+          // ["J94-1", "Phoenix Contact mating connector", "(2 furnished with purchase)"],
         ],
-        ECCN: "EAR99",
-        htsCode: "",
+        ECCN: "TBD",
+        htsCode: "TBD",
         MTBF: [],
         },
+
+      // // ****************************** P944 Data ******************************
+      // {
+      //   name: "AC/DC electronic load",
+      //   model: "P944",
+      //   category: ["MPS"],
+      //   features: [
+      //     [""],
+      //   ],
+      //   description: 'Operates in constant-current, constant resistance, or constant voltage "zener" mode including open, short, and ground fault simulations.',
+      //   imgCaptions: ["",],
+      //   about: [
+      //     "",
+      //   ],
+      //   related: [
+      //     "P940 modular power system",
+      //     "P941 dual isolated DC power supply",
+      //     "P942 permanent magnet alternator simulator",
+      //     "P943 8-channel DC power supply",
+      //     "P945 8-channel load simulator",
+      //     "P948 cable fault insertion (FITS) module"
+      //   ],
+      //   specifications: [
+      //     ["FUNCTION", [""]],
+      //   ],
+      //   config: ["noOptions"],
+      //   versions: [
+      //     [[0], 1, [null]],
+      //   ],
+      //   accessories: [
+      //     ["J94-1", "Phoenix Contact mating connector", "(2 furnished with purchase)"],
+      //   ],
+      //   ECCN: "TBD",
+      //   htsCode: "TBD",
+      //   MTBF: [],
+      //   },
 
       // ****************************** P945 Data ******************************
       {
@@ -1662,19 +1728,20 @@ let productSeed = [
         about: [
           "The P945 is an 8-channel isolated load simulation module for the P940 modular power system. Each of the channels is galvanically isolated and can sink up to 40V/2A/40W. External inductors may be switched into the channels to allow simulation of relays, solenoids, torque motors, or other magnetically operated devices.",
           "P945 simulated loads are bipolar and support positive or negative applied voltages with respect to the labeled terminals; the polarity of the input signal only impacts polarity of reported voltage and current measurements.",
+          "The P945 is available in two variants. The P945-1 can draw up to 2A per channel and is optimized for simulation of high-power loads such as solenoids or contactors. The P945-2 trades current handling capability for precision measurement of small currents and is optimized for smaller, precision loads such as torque motors.",
           "As a part of the P940 system, the P945 is easily synchronized with other P940 modules, enabling system architects to build whatever power and simulation environment they may require.",
         ],
         related: [
           "P940 modular power system",
           "P941 dual isolated DC power supply",
           "P942 permanent magnet alternator simulator",
-          "P944 AC/DC electronic load",
+          "P943 8-channel DC power supply",
           "P948 cable fault insertion (FITS) module"
         ],
         specifications: [
           ["FUNCTION", ["8-channel load simulator"]],
           ["SIZE", ["Single P940 slot"]],
-          ["OPERATING MODES", ["Constant resistance, constant current¹, short circuit, open circuit"]],
+          ["OPERATING MODES", ["Constant resistance, constant current, short circuit, open circuit"]],
         ],
         specificationsMulti: [
           ["Absolute Maximum Limits"],
@@ -1688,19 +1755,17 @@ let productSeed = [
         specificationsMultiB: [
           ["Performance"],
           ["", "P945-1", "P945-2"],
-          ["MINIMUM WORKING VOLTAGE²", "±2V","±1.5V"],
-          ["RESISTANCE SIMULATION RANGE", "10Ω – 1000Ω in 1Ω steps", "10Ω – 1000Ω in 1Ω steps"],
+          ["MINIMUM WORKING VOLTAGE¹", "±2V","±1.5V"],
+          ["RESISTANCE SIMULATION RANGE", "10Ω – 1000Ω in 1Ω steps", "40Ω – 1000Ω in 1Ω steps"],
           ["RESISTANCE SIMULATION ACCURACY", "5%", "5%"],
-          ["CONSTANT CURRENT RANGE", "0 – 2A in 0.01A steps", "0 – 250mA in 0.001A steps"],
-          ["CONSTANT CURRENT ACCURACY", "5%", ""],
+          ["CONSTANT CURRENT RANGE", "0 – 2A in 0.001A steps", "0 – 250mA in 0.001A steps"],
           ["VOLTAGE MEASUREMENT ACCURACY", "±1% of applied voltage ±10mV", "±1% of applied voltage ±10mV"],
           ["CURRENT MEASUREMENT ACCURACY", "±1% of applied current ±1.5mA", "±1% of applied current ±0.25mA"],
           ["SHORT CIRCUIT MODE", "≤2V up to maximum rated current", "≤2V up to maximum rated current"],
           ["OPEN CIRCUIT MODE", "≤1mA up to maximum rated voltage", "≤1mA up to maximum rated voltage"],
         ],
         specificationsNotes: [
-          ["¹ ", "Planned for future upgrades"],
-          ["² ", "Accuracy specifications not guaranteed below minimum working voltage"],
+          ["¹ ", "Accuracy specifications not guaranteed below minimum working voltage"],
         ],
         config: [
           // [0] type of selection, [1] description, [2+] array of option descriptions and values that build config number based on user selection]
@@ -1714,11 +1779,10 @@ let productSeed = [
           ["J94-1", "Phoenix Contact mating connector", "(1 furnished with purchase)"],
           ["J96-1", '2.5" ribbon cable for gang connection of 2 P945s', "(1 furnished with purchase)"],
           ["J97-8", "8' slimline D25M-D25M cable", "(2 furnished with purchase)"],
-          ["J97-10", "10' slimline D25M-D25M cable", "(2 furnished with purchase)"],
+          ["J97-10", "10' slimline D25M-D25M cable"],
         ],
-        ECCN: "EAR99",
-        htsCode: 
-        "",
+        ECCN: "3A992",
+        htsCode: "8543.70.9860",
         MTBF: [],
         },
 
@@ -1728,32 +1792,45 @@ let productSeed = [
         model: "P948",
         category: ["MPS"],
         features: [
-          [""],
+          ["32 channels of cable fault insertion"],
+          ["Simulates wires normal, open, ground fault"],
+          ["Four shorting busses allow any channel to be shorted to any other"],
+          ["Supports measurement of cable signals"],
+          ["FITS functionality up to 256 channels per P940 box"],
+          ["Full BIST self-test without disconnecting cables"],
         ],
         description: "Inserts an open fault in any path, shorts any wires to any other wires, simulates ground faults, and measures AC or DC voltage between any wire pair or any wire to ground.",
         imgCaptions: ["",],
         about: [
-          "",
+          "The P948 is a 32-channel cable fault insertion module for the P940.",
         ],
         related: [
           "P940 modular power system",
           "P941 dual isolated DC power supply",
           "P942 permanent magnet alternator simulator",
-          "P944 AC/DC electronic load",
+          "P943 8-channel DC power supply",
           "P945 8-channel load simulator",
         ],
         specifications: [
-          ["FUNCTION", [""]],
+          ["FUNCTION", ["32-channel cable fault insertion module for the P940 system", "FITS function 32 to 256 channels per P940"]],
+          ["OPERATING LIMITS ", ["200 volts peak, 2 amps max per channel"]],
+          ["FUNCTIONS", ["Channel normal through connect P1 to P2", "Channel open", "Channel switched to shared busses A B C D", "Ground fault"]],
+          ["GROUND FAULT RELAY", ["< 25 ohms, current limited to 200 mA typ"]],
+          ["CONNECTORS", ["Two D37 female", "Four banana jacks"]],
+          ["BIST", ["Full test of all relays and busses with field cables connected"]],
+        ],
+        specificationsNotes: [
+          ["Product under development - specifications subject to change."],
         ],
         config: ["noOptions"],
         versions: [
           [[0], 1, [null]],
         ],
         accessories: [
-          ["J94-1", "Phoenix Contact mating connector", "(2 furnished with purchase)"],
+          // ["J94-1", "Phoenix Contact mating connector", "(2 furnished with purchase)"],
         ],
-        ECCN: "EAR99",
-        htsCode: "",
+        ECCN: "TBD",
+        htsCode: "TBD",
         MTBF: [],
         },
 

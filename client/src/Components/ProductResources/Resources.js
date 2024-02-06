@@ -21,6 +21,13 @@ import P545_CoC from './assets/P545_CoC.pdf'
 import P620_CoC from './assets/P620_CoC.pdf'
 import P730_CoC from './assets/P730_CoC.pdf'
 import P900_CoC from './assets/P900_CoC.pdf'
+import P940_CoC from './assets/P940_CoC.pdf'
+import P941_CoC from './assets/P941_CoC.pdf'
+import P942_CoC from './assets/P942_CoC.pdf'
+import P943_CoC from './assets/P943_CoC.pdf'
+import P944_CoC from './assets/P944_CoC.pdf'
+import P945_CoC from './assets/P945_CoC.pdf'
+import P948_CoC from './assets/P948_CoC.pdf'
 import T124_CoC from './assets/T124_CoC.pdf'
 import T130_CoC from './assets/T130_CoC.pdf'
 import T160_CoC from './assets/T160_CoC.pdf'
@@ -80,6 +87,7 @@ import P344_SOV from './assets/P344_SOV.pdf'
 import P348_SOV from './assets/P348_SOV.pdf'
 import P350_SOV from './assets/P350_SOV.pdf'
 import P900_SOV from './assets/P900_SOV.pdf'
+import P940_P941_P942_P943_P944_P945_P948_SOV from './assets/P940_P941_P942_P943_P944_P945_P948_SOV.pdf'
 import T165_SOV from './assets/T165_SOV.pdf'
 import T344_SOV from './assets/T344_SOV.pdf'
 import T346_SOV from './assets/T346_SOV.pdf'
@@ -109,6 +117,7 @@ import J720_STEP from './assets/J720_21M720H.STEP'
 import J724_STEP from './assets/J724_21A724D.STEP'
 import K420_STEP from './assets/K420_24A420A.STEP'
 import P344_P348_P350_P730_STEP from './assets/P344_P348_P350_P730_23MXXXA_GENERIC_SMALL_.STEP'
+import P940_STEP from './assets/P940_23A940H.STEP'
 import T124_T240_T340_T344_T346_T750_T760_T860_STEP from './assets/T124_T240_T340_T344_T346_T750_T760_T860_28AXXXA_GENERIC_SILVER.STEP'
 import T500_STEP from './assets/T500_28A500A.STEP'
 import T560_T564_STEP from './assets/T560_T564_28A560C.STEP'
@@ -132,6 +141,9 @@ import P545_BD from './assets/P545_B_BD.pdf'
 import P620_BD from './assets/P620_C_BD.pdf'
 import P730_BD from './assets/P730_D_BD.pdf'
 import P900_BD from './assets/P900_A_BD.pdf'
+import P940_BD from './assets/P940_B_BD.pdf'
+import P941_BD from './assets/P941_B_BD.pdf'
+import P945_BD from './assets/P945_B_BD.pdf'
 import T124_BD from './assets/T124_A_BD.pdf'
 import T130_BD from './assets/T130_C_BD.pdf'
 import T340_BD from './assets/T340_C_BD.pdf'
@@ -187,6 +199,13 @@ import P545_RoHS from './assets/P545_RoHS.pdf'
 import P620_RoHS from './assets/P620_RoHS.pdf'
 import P730_RoHS from './assets/P730_RoHS.pdf'
 import P900_RoHS from './assets/P900_RoHS.pdf'
+import P940_RoHS from './assets/P940_RoHS.pdf'
+import P941_RoHS from './assets/P941_RoHS.pdf'
+import P942_RoHS from './assets/P942_RoHS.pdf'
+import P943_RoHS from './assets/P943_RoHS.pdf'
+import P944_RoHS from './assets/P944_RoHS.pdf'
+import P945_RoHS from './assets/P945_RoHS.pdf'
+import P948_RoHS from './assets/P948_RoHS.pdf'
 import T124_RoHS from './assets/T124_RoHS.pdf'
 import T130_RoHS from './assets/T130_RoHS.pdf'
 import T160_RoHS from './assets/T160_RoHS.pdf'
@@ -258,6 +277,8 @@ import P545_MAN from './assets/P545MANB2.pdf'
 import P620_MAN from './assets/P620MANC2.pdf'
 import P730_MAN from './assets/P730MAND2.pdf'
 import P900_MAN from './assets/P900MANA4.pdf'
+import P940_MAN from './assets/P940MANB6.pdf'
+import P941_MAN from './assets/P941MANB5.pdf'
 import T124_MAN from './assets/T124MANA2.pdf'
 import T130_MAN from './assets/T130MANC2.pdf'
 import T160_MAN from './assets/T160MAND1.pdf'
@@ -329,6 +350,13 @@ export const CoCArr = [
     P620_CoC,
     P730_CoC,
     P900_CoC,
+    P940_CoC,
+    P941_CoC,
+    P942_CoC,
+    P943_CoC,
+    P944_CoC,
+    P945_CoC,
+    P948_CoC,
     T124_CoC,
     T130_CoC,
     T160_CoC,
@@ -390,6 +418,7 @@ export const SoVArr = [
     P348_SOV,
     P350_SOV,
     P900_SOV,
+    P940_P941_P942_P943_P944_P945_P948_SOV,
     T165_SOV,
     T344_SOV,
     T346_SOV,
@@ -421,6 +450,7 @@ export const StepArr = [
     J724_STEP, 
     K420_STEP, 
     P344_P348_P350_P730_STEP, 
+    P940_STEP,
     T124_T240_T340_T344_T346_T750_T760_T860_STEP, 
     T500_STEP, 
     T560_T564_STEP, 
@@ -448,6 +478,9 @@ export const BDArr = [
     P620_BD,
     P730_BD,
     P900_BD,
+    P940_BD,
+    P941_BD,
+    P945_BD,
     T124_BD,
     T130_BD,
     T340_BD,
@@ -505,6 +538,13 @@ export const rohsArr = [
     P620_RoHS,
     P730_RoHS,
     P900_RoHS,
+    P940_RoHS,
+    P941_RoHS,
+    P942_RoHS,
+    P943_RoHS,
+    P944_RoHS,
+    P945_RoHS,
+    P948_RoHS,
     T124_RoHS,
     T130_RoHS,
     T160_RoHS,
@@ -578,6 +618,8 @@ export const ManArr = [
     P620_MAN,
     P730_MAN,
     P900_MAN,
+    P940_MAN,
+    P941_MAN,
     T124_MAN,
     T130_MAN,
     T160_MAN,
