@@ -1634,7 +1634,7 @@ let productSeed = [
           ["P940 mainframe provides scope monitors of output voltages and currents"],
           ["P940 system-level time synchronization"],
         ],
-        description: "Provides up to 64 DC power supply channels with programmable voltage and current limit per P940 3U chassis.",
+        description: "Provides up to 8 DC power supply channels with programmable voltage and current limit.",
         imgCaptions: ["",],
         about: [
           "The P943 is an 8-channel non-isolated DC power supply. ",

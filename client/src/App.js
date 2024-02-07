@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import Navigation from './Components/Navigation/Navigation';
@@ -92,6 +92,7 @@ function App() {
   useEffect(() => {
     getCartQuantity();
   }, [userData]);
+
 
   return (
     <div className="App">

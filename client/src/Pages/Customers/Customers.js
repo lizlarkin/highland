@@ -42,16 +42,14 @@ const Customers = () => {
 
     const customerStyles = {
         custDiv: {
-            minHeight: "100px",
-            border: "1px solid green",
+            minHeight: "125px",
             backgroundColor: "white",
             marginBottom: "3%",
+            border: "none",
         },
         text: {
             textAlign: "center",
-            // display: "none",
-            minHeight: "10px",
-            border: "1px solid red"
+            width: "150%"
         }
     }
 
@@ -63,33 +61,33 @@ const Customers = () => {
         [CERN, "CERN", "Picosecond delay generation for particle accelerators"],
         [EADS, "EADS Group", "Frequency measurement and arbitrary waveform generation for aerospace systems"],
         [GeneralAtomics, "General Atomics", "Pulse generation for nuclear fusion diagnostics and measurements"],
-        [GeneralDynamics, "General Dynamics", "Need text"],
+        [GeneralDynamics, "General Dynamics", ""],
         [GeneralElectric, "General Electric", "Instrumentation for testing of locomotive turbine engines"],
         [Hamamatsu, "Hamamatsu Photonics", "Compact delay generators for photonic systems"],
         [HamiltonSundstrand, "Hamilton Sundstrand", "Measurement and simulation instrumentation for aircraft power systems"],
-        [Honeywell, "Honeywell", "Need text"],
-        [IBM, "IBM Corporation", "Need text"],
-        [JeffersonLab, "Thomas Jefferson National Accelerator Facility", "Instrumentation for superconductive magnet and cavity controllers and cryogenic temperature control"],
+        [Honeywell, "Honeywell", ""],
+        [IBM, "IBM Corporation", ""],
+        [JeffersonLab, "Thomas Jefferson National Accelerator Facility", "Instruments for superconductive magnet/cavity controllers and cryogenic temperature control"],
         [JohnsHopkins, "Johns Hopkins University Applied Physics Laboratory", ""],
-        [L3Harris, "L3Harris Technologies", "Need text"],
+        [L3Harris, "L3Harris Technologies", ""],
         [LLNL, "Lawrence Livermore National Laboratory", "Custom timing systems, beam modulators, and diagnostics for National Ignition Facility"],
         [LockheedMartin, "Lockheed Martin Corporation", "Waveform generators for flight simulator training"],
         [LANL, "Los Alamos National Laboratory", "Electrical and fiber optic converters for diagnostic timing systems"],
-        [MIT, "MIT Lincoln Laboratory", "Need text"],
-        [NASA, "NASA-JPL", "Need text"],
+        [MIT, "MIT Lincoln Laboratory", ""],
+        [NASA, "NASA-JPL", ""],
         [NIST, "National Institute of Standards and Technology", ""],
         [NorthropGrumman, "Northrop Grumman Corporation", "Digital delay and pulse generation for DOD applications"],
         [Panasonic, "Panasonic Corporation", "Delay generators for research and development of cameras"],
         [PNNLBattelle, "Pacific Northwest National Laboratory", ""],
         [PrattWhitney, "Pratt & Whitney", "Aircraft engine test and simulation instrumentation"],
         [Raytheon, "Raytheon Technologies Corporation", "Fiber optical and electrical converters for submarine communication systems"],
-        [RollsRoyce, "Rolls Royce", "Need text"],
-        [Saab, "Saab AB", "Need text"],
+        [RollsRoyce, "Rolls Royce", ""],
+        [Saab, "Saab AB", ""],
         [SAIC, "Science Applications International Corporation", "Specialized function generators for aircraft heads-up display controllers"],
-        [Sandia, "Sandia National Laboratories", "Need text"],
-        [Thales, "Thales Group", "Need text"],
-        [Thorlabs, "Thorlabs", "Need text"],
-        [Trumpf, "Trumpf Group", "Need text"],
+        [Sandia, "Sandia National Laboratories", ""],
+        [Thales, "Thales Group", ""],
+        [Thorlabs, "Thorlabs", ""],
+        [Trumpf, "Trumpf Group", ""],
         [United, "United Airlines", "APU airplane test cell instrumentation"],
     ]
 
@@ -128,6 +126,7 @@ const Customers = () => {
                     {customers.length===3?
                     customers.map((customer, idx) => (
                         <React.Fragment key={idx}>
+                            {customer[2].length>0?
                             <button 
                                 className="col-md-2" 
                                 onClick={storeCustNum}
@@ -141,6 +140,13 @@ const Customers = () => {
                                     <img src={customer[0]} className="img-fluid" alt={customer[1]} id={index.toString()+idx.toString()}/>
                                     }
                             </button>
+                            :
+                            <div 
+                            className="col-md-2" 
+                            style={customerStyles.custDiv}>
+                                <img src={customer[0]} className="img-fluid" alt={customer[1]} id={index.toString()+idx.toString()}/>
+                            </div>
+                            }
                             <div className="col-md-2"></div>
                         </React.Fragment>
                     ))
@@ -148,6 +154,7 @@ const Customers = () => {
                     customers.map((cust, ix) => (
                         <React.Fragment key={ix}>
                             <div className="col-md-2"></div>
+                            {cust[2].length>0?
                             <button className="col-md-2"  
                                 onClick={storeCustNum}
                                 style={customerStyles.custDiv}>
@@ -159,6 +166,12 @@ const Customers = () => {
                                     <img src={cust[0]} className="img-fluid" alt={cust[1]} id={index.toString()+ix.toString()}/>
                                     }
                             </button>
+                            :
+                            <div className="col-md-2"  
+                            style={customerStyles.custDiv}>
+                                <img src={cust[0]} className="img-fluid" alt={cust[1]} id={index.toString()+ix.toString()}/>
+                            </div>
+                            }
                         </React.Fragment>
                     ))
                     :null}   

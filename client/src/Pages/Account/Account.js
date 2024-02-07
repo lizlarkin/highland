@@ -26,8 +26,6 @@ const Account = () => {
         if (!userData.user) history.push("/pages/login");
     }, [userData.user, history]);
 
-    // ADD DESCRIPTIONS
-
     return (
         <div>
             <div>
