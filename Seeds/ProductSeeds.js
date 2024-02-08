@@ -985,7 +985,7 @@ let productSeed = [
       FAQs: [
         ["What is the difference between the P400 and the P500?", "The Highland Model P500 Digital Delay/Pulse Generator is the successor of Model P400. We typically recommend purchasing the P500 over the P400 because it is less expensive, it has an improved user interface, and it will be supported for a very long time. The P400 design is over 10 years old and is being gradually phased out of our product offerings due to component obsolescence challenges. Some new features of the P500 include: improved packaging, color LCD, quiet fan, streamlined design, standard USB, Ethernet, and RS232, high performance pulse output stages with clean fast pulses from 0.5 to 25 volts p-p into 50 ohms, rep-rate to 14 MHz, glitch-free timing changes, and optional per-shot timing lists and multiple pulses per trigger."], 
       ],
-      EOL: ["December 31, 2024", "December 31, 2029", 14, ["P500 4-channel benchtop digital delay and pulse generator"]],
+      EOL: ["December 31, 2024", "December 31, 2029", 13, ["P500 4-channel benchtop digital delay and pulse generator"]],
       ECCN: "3A999",
       htsCode: "8543.20.0000",
       MTBF: [],

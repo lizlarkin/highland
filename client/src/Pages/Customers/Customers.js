@@ -39,6 +39,7 @@ import GenJumbo from "../../Components/GeneralJumbotron/GenJumbo";
 const Customers = () => {
 
     // TO DO: Needs to be in correct multiple.
+    // TO DO: Change jump of customer application (use tool tip?).
 
     const customerStyles = {
         custDiv: {
